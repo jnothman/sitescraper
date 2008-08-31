@@ -52,7 +52,7 @@ def normalizeXpath(xpath):
     """ElementTree can get confused when there is no explicit index, so add where missing
 
     >>> normalizeXpath('/html/body/div/table[2]/tr/td/div[2]/*/div')
-    /html[1]/body[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/*/div[1]
+    '/html[1]/body[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/*/div[1]'
     """
     newXpath = []
     for tag in xpath.split('/'):
@@ -164,32 +164,3 @@ def testModel(url, model):
         else:
             results.extend(this_result)
     return results
-
-
-
-if __name__ == '__main__':
-    modelSize = 3
-    from tests import *
-    os.chdir('tests')
-    for site, d in sorted(data.items()):
-        model = trainModel(d[:modelSize])
-        print site, 'model:', model
-        for url, expectedOutput in d:#[modelSize:]:
-            generatedOutput = testModel(url, model)
-            #print "Expected:", expectedOutput
-            #print "Get:", generatedOutput
-            """for i, e in enumerate(expectedOutput):
-                try:
-                    g = generatedOutput[i]
-                except IndexError:
-                    g = ''
-                print '%d/%d' % (lcs_len(e, g), len(normalize_str(e))),"""
-            print
-            for e in expectedOutput:
-                for g in generatedOutput:
-                    print '%d/%d' % (misc.lcs_len(e, g), len(misc.normalize_str(e))),
-                print
-            #print expectedOutput
-            #print
-            #print generatedOutput
-        break
