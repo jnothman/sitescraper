@@ -10,8 +10,9 @@ import sys
 import os
 import urllib2
 import numpy
+from difflib import SequenceMatcher
+from . import misc
 from lxml import etree, html
-import misc
 
 # ignore content from these tags
 _IGNORED_TAGS = 'style', 'script', 'meta', 'link'
@@ -82,11 +83,14 @@ def findXpaths(xpaths, output):
     else:
         # no exact match so return xpaths with Longest Common Sequence (LCS) 3 STDs over the mean
         LCSs = []
+        s = SequenceMatcher()#None, '', output)#misc.normalizeStr(output))
+        s.set_seq2(misc.normalizeStr(output))
         for key in xpaths:
-            LCSs.append((misc.lcs_len(output, key), xpaths[key]))
+            #print output, key
+            s.set_seq1(misc.normalizeStr(key))
+            LCSs.append((sum(n for (i, j, n) in s.get_matching_blocks()), xpaths[key]))
         lens = [l for (l, s) in LCSs]
         minLen = numpy.mean(lens) + 3*numpy.std(lens)
-        #print minLen, sorted(LCSs, reverse=True)[:10]
         return reduceXpaths(misc.flatten([s for (l, s) in LCSs if l > minLen]), [])
 
 

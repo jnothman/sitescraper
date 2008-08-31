@@ -1,25 +1,15 @@
+import sys
+import os
 import re
 
+# XXX couldn't get relative imports working so adjust the path
+currentDir = os.path.abspath(os.path.dirname(__file__))
+if currentDir not in sys.path:
+    sys.path.insert(0, currentDir)
+parentDir = os.path.join(currentDir, os.path.pardir)
+if parentDir not in sys.path:
+    sys.path.insert(0, parentDir)
 
-def commonStart(ss):
-    """Takes a list of strings and returns first index where strings differ
-
-    >>> commonStart(['happy birthday', 'happy holiday'])
-    6
-    """
-    try:
-        first_s = ss[0]
-        for i, ch in enumerate(first_s):
-            for s in ss:
-                if ch != s[i]:
-                    raise IndexError
-    except IndexError:
-        pass # mismatch so finish loop and return current index
-
-    return i
-
-# reverse a string efficiently
-strReverse = lambda s: ''.join([s[-1 - i] for i in xrange(len(s))])
 
 
 def sortDict(d):
@@ -72,20 +62,28 @@ def flatten(l):
         return [l]
 
 
-def normalize_str(s):
-    """Remove characters that make string comparison difficult"""
-    return re.sub('[\n\r ]', '', s)
+def normalizeStr(s):
+    """Remove characters that make string comparison difficult from copied text"""
+    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).decode('utf-8')
 
 
 def lcs_len(a, b):
-    """Return the longest common substring shared by both the 2 strings"""
-    a = normalize_str(a)
-    b = normalize_str(b)
+    """Implementation of Longest Common Substring algorithm.
+
+    Returns the longest common substring shared by the 2 given strings.
+    >>> lcs_len('oh hello world', 'hello world')
+    11
+    >>> lcs_len('oh hello+world', 'hello world')
+    10
+    """
+    a = normalizeStr(a)
+    b = normalizeStr(b)
     L = [[0] * (len(b)+1) for i in xrange(len(a)+1)]
     lcs = 0
     for i in xrange(len(a)):
         for j in xrange(len(b)):
+            L[i+1][j+1] = L[i][j]
             if a[i] == b[j]:
-                L[i+1][j+1] = L[i][j] + 1
+                L[i+1][j+1] += 1
                 lcs = max(lcs, L[i+1][j+1])
     return lcs
