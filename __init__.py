@@ -63,6 +63,7 @@ def normalizeXpath(xpath):
             newXpath[-1] += '[1]'
     return '/'.join(newXpath)
 
+
 def extractXpaths(tree, element, xpaths):
     """Return a hashtable of the xpath to each text element"""
     tag = element.tag
@@ -76,6 +77,7 @@ def extractXpaths(tree, element, xpaths):
             for child in element:
                 extractXpaths(tree, child, xpaths)
 
+
 def findXpaths(xpaths, output):
     """Find matching xpaths of output""" 
     if output in xpaths:
@@ -84,10 +86,9 @@ def findXpaths(xpaths, output):
     else:
         # no exact match so return xpaths with Longest Common Sequence (LCS) 3 STDs over the mean
         LCSs = []
-        s = SequenceMatcher()#None, '', output)#misc.normalizeStr(output))
+        s = SequenceMatcher()
         s.set_seq2(misc.normalizeStr(output))
         for key in xpaths:
-            #print output, key
             s.set_seq1(misc.normalizeStr(key))
             LCSs.append((sum(n for (i, j, n) in s.get_matching_blocks()), xpaths[key]))
         lens = [l for (l, s) in LCSs]
@@ -103,8 +104,7 @@ def reduceXpaths(xpaths, trees):
     """
     # the xpaths that have been abstracted by a regular expression
     reducedXpaths = xpaths[:]
-    # regular expressions generated from xpaths
-    regs = []
+    regRange = {}
 
     for x1 in xpaths:
         x1tokens = x1.split('/')
@@ -123,6 +123,15 @@ def reduceXpaths(xpaths, trees):
                             reducedXpaths.remove(x1)
                         if x2 in reducedXpaths:
                             reducedXpaths.remove(x2)
+                        regRange.setdefault(reg, [])
+                        regRange[reg].append(x1tokens[diff[0]])
+                        regRange[reg].append(x2tokens[diff[0]])
+
+    # restrict xpath regular expressions to lowest index seen
+    for xpath, nodes in regRange.items():
+        minPosition = min(misc.extractInt(node) for node in nodes)
+        restrictedXpath = xpath.replace('*', '*[position()>%d]' % (minPosition - 1))
+        reducedXpaths[reducedXpaths.index(xpath)] = restrictedXpath
     return reducedXpaths
 
 

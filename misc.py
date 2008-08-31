@@ -62,6 +62,15 @@ def flatten(l):
         return [l]
 
 
+def extractInt(s):
+    """Extract integer from string
+
+    >>> extractInt('hello 99!')
+    99
+    """
+    return int(''.join(c for c in s if c in '1234567890'))
+
+
 def normalizeStr(s):
     """Remove characters that make string comparison difficult from copied text"""
     return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).decode('utf-8')
