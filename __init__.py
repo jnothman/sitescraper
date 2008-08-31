@@ -22,6 +22,7 @@ _MERGED_TAGS = 'br', 'font', 'a', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'sm
 _USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
+
 def sortDict(d):
     """Sort dictionary keys by their values
 
