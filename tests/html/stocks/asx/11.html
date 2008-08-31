@@ -1,0 +1,622 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- start ecom top -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+function toggleOpenInterest()
+{
+	if (document.getElementById)
+	{
+		var table = document.getElementById('datatable');
+		var rows = table.getElementsByTagName("tr");
+		var visibleRowCount = 0;
+		// Start at 1 to ignore header row.
+		for (var i = 1; i < rows.length; ++i)
+		{
+			var visible = true;
+			var row = rows[i];
+			if (row.className.indexOf("showzeroopeninterest") != -1)
+			{
+				row.className = "hidezeroopeninterest";
+				visible = false;
+			}
+			else if (row.className.indexOf("hidezeroopeninterest") != -1)
+			{
+				row.className = "showzeroopeninterest";
+			}
+			else
+			{
+				row.classname = "";
+			}
+
+			if (visible)
+			{
+				++visibleRowCount;
+				if (visibleRowCount % 2 == 0)
+				{
+					row.className = row.className + " altrow";
+				}
+			}
+		}
+	}
+}
+</script>
+<style>
+.showzeroopeninterest {display:table-row;}
+.hidezeroopeninterest {display:none;}
+</style>
+
+
+
+
+<!-- end ecom top -->
+<html>
+<head>
+
+<!-- start meta -->
+<!-- start notitle select --><title>Price Results</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="DC.subject" content="">
+<meta name="DC.creator" content="">
+<!-- end meta --><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- start ecom hdr --><script language="JavaScript">
+<!--
+function jspOnLoad()
+{
+}
+-->
+</script>
+
+<script LANGUAGE="JavaScript" SRC="/script/popups.js"></script>
+
+
+
+
+<!-- end ecom hdr -->
+<script type="text/javascript" src="http://www.asx.com.au/script/global.js" ></script>
+<script type="text/javascript" src="http://www.asx.com.au/script/popups.js"></script>
+<script type="text/javascript" src="http://www.asx.com.au/script/manage_absolute_urls.js"></script>
+<script type="text/javascript" src="http://www.asx.com.au/script/url_prefix.js"></script>
+<script type="text/javascript" src="http://www.asx.com.au/script/codelookup.js" ></script>
+<!-- page specific javascript --><script src="http://www.asx.com.au/script/priceresults.js" type="text/javascript"></script>
+<style type="text/css" media="screen" title="default">/* $CMAsset */@import url("http://www.asx.com.au/style/redesign.css");/* $/CMAsset */</style>
+<link rel="stylesheet" type="text/css" href="http://www.asx.com.au/style/default.css" title="normal">
+<!-- page specific stylesheet --><link href="http://www.asx.com.au/style/search-again.css" rel="stylesheet" type="text/css">
+<!-- contentpage stylesheet-->
+<!--[if IE 5]><link rel="stylesheet" type="text/css" href="http://www.asx.com.au/style/ie5.css" /><![endif]-->
+<link rel="alternate stylesheet" type="text/css" href="http://www.asx.com.au/style/small.css" title="small">
+<link href="http://www.asx.com.au/style/printversion.css" rel="stylesheet" type="text/css" media="print">
+<!-- widepage stylesheet--><link href="http://www.asx.com.au/style/widepage.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+/* $CMAsset */
+/* default nav expanded */
+
+
+/* expand active heading */
+ul#primarynav li.a9721 {
+background:#fff url("http://www.asx.com.au/images/expand_glyph.gif") no-repeat 4px 4px;
+padding-left:5px;
+voice-family: "\"}\""; 
+voice-family:inherit;
+padding-left:20px;}
+ul#primarynav li.a9721 ul, ul#a9721 {display:block;}
+/* end expand active heading */
+
+/* highlight active link if 2nd level */
+body.a8170 ul#primarynav li ul.submenu li.a8170 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a8170 ul#primarynav li ul.submenu li.a8170 a:hover {color:#fff;}
+
+#secondnav ul li ul.menu li a.a8170 {text-decoration:none;font-weight:bold;color:#c63;}
+#secondnav ul li ul.menu li a.a8170:hover {color:#c63;}
+/* end highlight active link if 2nd level */
+
+/* highlight active link if 3rd level */
+ul#primarynav li ul.submenu li.a38612 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+ul#primarynav li ul.submenu li.a38612 a:hover {color:#fff;}
+/* end highlight active link if 3rd level */
+
+
+/* highlight active link if jsp with redirect */
+body.a8170 ul#primarynav li ul.submenu 
+
+li.a8170 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a8170 ul#primarynav li ul.submenu li.a8170 a:hover {color:#fff;}
+/* end highlight active link if jsp with redirect */
+li.a8147 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a8147 ul#primarynav li ul.submenu li.a8147 a:hover {color:#fff;}
+/* end highlight active link if jsp with redirect */
+li.a17114 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a17114 ul#primarynav li ul.submenu li.a17114 a:hover {color:#fff;}
+/* end highlight active link if jsp with redirect */
+li.a16339 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a16339 ul#primarynav li ul.submenu li.a16339 a:hover {color:#fff;}
+/* end highlight active link if jsp with redirect */
+
+
+/* highlight active parent link */
+ul#primarynav li ul.submenu li.a8145 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+/* end highlight active parent link */
+
+
+
+/* sfe */
+body.a59934 #customer-seg ul#nav li.a59886 {background:url('http://www.asx.com.au/images/seg_bgd_active.gif') repeat-x top;background-color:#fff;border:1px solid #fff;padding-top:1px;}
+body.a59934 #customer-seg ul#nav li.a59886 a {color:white;}
+body.a59934 #customer-seg ul#nav li.a59886 a:hover {color:white;}
+/* end sfe */
+
+/* supervision */
+body.a54823 #customer-seg ul#nav li.a59981 {background:url('http://www.asx.com.au/images/seg_bgd_active.gif') repeat-x top;background-color:#fff;border:1px solid #fff;padding-top:1px;}
+body.a54823 #customer-seg ul#nav li.a59981 a {color:white;}
+body.a54823 #customer-seg ul#nav li.a59981 a:hover {color:white;}
+/* end supervision */
+
+/* end highlight active customer view tab */
+
+/* $/CMAsset */
+
+/* breadcrumb */
+span.a8170 {display:none;}
+a.a8170 {text-decoration:none;color:#000;cursor:default}
+
+
+</style>
+</head>
+<body class="a8170" onLoad="jspOnLoad();">
+<!-- parent node --><div class="a9721">
+<div id="header"><div class="logo">
+<a href="http://www.asx.com.au/index.htm"><img src="http://www.asx.com.au/images/logo.gif" alt="ASX logo" id="logo" title="ASX - Australian Stock Exchange"></a>
+<!-- no tracking code -->
+</div>
+<div class="banner"><div class="code">
+
+<!-- start leaderboard_728x90_468x60 ******************************************** -->
+  <!-- start leaderboard_728x90_468x60 include -->
+
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "468",
+    height   : "60",
+    adtype   : "panorama",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script>
+  
+  <!-- end leaderboard_728x90_468x60 include -->
+<!-- end leaderboard_728x90_468x60 ******************************************** -->
+
+</div></div>
+<div id="strip"><div>
+<!-- marketstatus widget -->
+<!-- panoptic search --><form action="http://bureau.panopticsearch.com/search/search.cgi" method="GET" id="search" name="search">
+<label for="query">Search ASX</label>
+<input type="text" name="query" id="query" size="20" value="">
+<input name="Search" type="image" id="go" value="Go" src="http://www.asx.com.au/images/go_new.gif" alt="Search ASX" accesskey="4">
+<input type="hidden" name="collection" value="asx">
+<input type="hidden" name="form" value="simple">
+<input type="hidden" name="num_ranks" value="10">
+</form>
+</div></div><!-- end strip -->
+<!-- customer seg --><!-- noindex --><div id="customer-seg">
+  <p class="hide"><a href="#content" title="Skip to main page content" accesskey="2">Skip to content</a></p>
+  <p class="home"><a href="http://www.asx.com.au/index.htm" title="ASX Homepage" accesskey="1">Home</a></p>
+  <div>
+    <ul id="nav">
+		
+      		<li class="a38503"><a href="http://www.asx.com.au/resources/education/index.htm">Education</a></li>
+		
+      		<li class="a38702"><a href="http://www.asx.com.au/professionals/participants/index.htm">ASX Participation</a></li>
+		
+      		<li class="a38700"><a href="http://www.asx.com.au/professionals/institutional/index.htm">Institutional Investors</a></li>
+		
+      		<li class="a38699"><a href="http://www.asx.com.au/professionals/companies/index.htm">Listed Companies</a></li>
+		
+      		<li class="a38660"><a href="http://www.asx.com.au/about/shareholder/index.htm">ASX Shareholders</a></li>
+		
+      		<li class="a70734"><a href="http://www.asx.com.au/professionals/market_information/market_info.htm">Market Info</a></li>
+		
+      		<li class="a59981"><a href="http://www.asx.com.au/supervision/approach/supervision.htm">Supervision</a></li>
+			  
+    </ul>
+	   <form id="customerview" name="customerview" action="">
+        <label for="more">More:</label>
+								<select name="more" id="more" onChange="go()">
+          <option value="">More...</option>
+		
+      		<option value="http://www.asx.com.au/products/first_time/index.htm">First-time Investors</option>
+		
+      		<option value="http://www.asx.com.au/products/regular/index.htm">Regular Investors</option>
+		
+      		<option value="http://www.asx.com.au/about/media/index.htm">Media Centre</option>
+		
+      		<option value="http://www.asx.com.au/professionals/advisers/index.htm">Financial Planners</option>
+			
+        </select>
+      </form>
+  </div>
+</div><!-- endnoindex -->
+<!-- utilities -->  <div id="utilities">
+    <ul>
+      <li><a href="javascript:goToNonSecure('/asx/about/Feedback.jsp?referred=' + document.location)" title="Contact us" accesskey="9">Contact us</a></li>
+      <li><a href="http://www.asx.com.au/resources/faqs/index.htm" title="Frequently Asked Questions">FAQs</a></li>
+      <li><a href="http://www.asx.com.au/resources/sitemap.htm" accesskey="3">Sitemap</a></li>
+      <li><a href="/glossary/Glossary.shtm" title="Glossary of sharemarket terms">Glossary</a></li>
+    </ul>
+  </div>
+</div>
+<!-- end header -->
+<div id="container">
+  <div id="wrap">
+<div id="globalnav">
+<!-- primary nav --><!-- noindex --><ul id="primarynav">
+<li class="a37530" onClick="expand(this, 'a37530')" >ASX Products
+<ul id="a37530" class="submenu">
+<li class="a38577"><a href="http://www.asx.com.au/products/shares/index.htm">Shares</a></li>
+<li class="a73935"><a href="http://www.asx.com.au/products/futures_options/index.htm">Futures & Options</a></li>
+<li class="a73307"><a href="http://www.asx.com.au/products/real_estate_infrastructure/index.htm">REITS & Infrastructure</a></li>
+<li class="a38583"><a href="http://www.asx.com.au/products/warrants/index.htm">Warrants</a></li>
+<li class="a73311"><a href="http://www.asx.com.au/products/managed_funds/index.htm">Managed Funds & ETFs</a></li>
+<li class="a61070"><a href="http://www.asx.com.au/products/cfds/index.htm">ASX CFDs</a></li>
+<li class="a38587"><a href="http://www.asx.com.au/products/interest_rate_securities/index.htm">Interest Rate & Hybrid Securities</a></li>
+<li class="a70290"><a href="http://www.asx.com.au/products/emissions_trading/index.htm">Emissions trading</a></li>
+ 
+ 
+</ul></li>
+
+<li class="a9721" onClick="expand(this, 'a9721')" >Prices, Research &amp; Announcements
+<ul id="a9721" class="submenu">
+<li class="a38612"><a href="http://www.asx.com.au/research/prices/index.htm">Prices</a></li>
+<li class="a42620"><a href="http://www.asx.com.au/research/dividends/index.htm">Dividends</a></li>
+ 
+<li class="a42621"><a href="http://www.asx.com.au/research/announcements/index.htm">Announcements</a></li>
+ 
+<li class="a42622"><a href="http://www.asx.com.au/research/charting/index.htm">Charting</a></li>
+ 
+<li class="a51796"><a href="http://www.asx.com.au/research/companies/index.htm">Company research</a></li>
+<li class="a38586"><a href="http://www.asx.com.au/research/industry/index.htm">Industry sectors</a></li>
+<li class="a42781"><a href="http://www.asx.com.au/research/indices/index.htm">Indices</a></li>
+<li class="a38635"><a href="http://www.asx.com.au/research/market_info/index.htm">Market statistics</a></li>
+</ul></li>
+
+<li class="a37548" onClick="expand(this, 'a37548')" >Education &amp; Resources
+<ul id="a37548" class="submenu">
+<li class="a38503"><a href="http://www.asx.com.au/resources/education/index.htm">Education</a></li>
+<li class="a41842"><a href="http://www.asx.com.au/resources/myasx/index.htm">MyASX</a></li>
+<li class="a47054"><a href="http://www.asx.com.au/resources/myasx/watchlists/index.htm">Watchlists</a></li>
+<li class="a38717"><a href="http://www.asx.com.au/resources/publications/index.htm">Documents & publications</a></li>
+<li class="a52921"><a href="http://www.asx.com.au/resources/podcast/index.htm">Podcasts</a></li>
+<li class="a61878"><a href="http://www.asx.com.au/resources/videos/index.htm">Video podcasts</a></li>
+<li class="a38718"><a href="http://www.asx.com.au/resources/calculators/index.htm">Calculators</a></li>
+<li class="a38720"><a href="http://www.asx.com.au/resources/codes/index.htm">Codes</a></li>
+<li class="a38719"><a href="http://www.asx.com.au/resources/newsletters/index.htm">Newsletter</a></li>
+<li class="a38724"><a href="http://www.asx.com.au/resources/brokers/index.htm">Find a broker or planner</a></li>
+<li class="a38591"><a href="http://www.asx.com.au/resources/self_managed_super_funds/index.htm">Self Managed Super Funds</a></li>
+</ul></li>
+
+<li class="a37550" onClick="expand(this, 'a37550')" >For Professionals &amp; Companies
+<ul id="a37550" class="submenu">
+<li class="a38702"><a href="http://www.asx.com.au/professionals/participants/index.htm">ASX Participation</a></li>
+<li class="a72917"><a href="http://www.asx.com.au/professionals/participants/asx_education_for_professionals.htm">Education for professionals</a></li>
+<li class="a74613"><a href="http://www.asx.com.au/professionals/participants/events.htm">Institutional Events</a></li>
+<li class="a59934"><a href="http://www.asx.com.au/professionals/participants/sfe_products_services.htm">SFE Products and Services</a></li>
+<li class="a66237"><a href="http://www.asx.com.au/professionals/sfe_notices/sfe_notices.htm">SFE notices</a></li>
+<li class="a62152"><a href="http://www.asx.com.au/professionals/austraclear/index.htm">ASX Austraclear</a></li>
+<li class="a38699"><a href="http://www.asx.com.au/professionals/companies/index.htm">Listed Companies</a></li>
+<li class="a38701"><a href="http://www.asx.com.au/professionals/listing/index.htm">Listing your company</a></li>
+<li class="a38700"><a href="http://www.asx.com.au/professionals/institutional/index.htm">Institutional Investors</a></li>
+<li class="a38698"><a href="http://www.asx.com.au/professionals/advisers/index.htm">Financial Planners</a></li>
+<li class="a70698"><a href="http://www.asx.com.au/professionals/market_information/index.htm">Market Information</a></li>
+</ul></li>
+
+<li class="a37552" onClick="expand(this, 'a37552')" >Market Supervision &amp; Rules
+<ul id="a37552" class="submenu">
+<li class="a72942"><a href="http://www.asx.com.au/supervision/supervisory_role/index.htm">ASX's supervisory role</a></li>
+<li class="a54823"><a href="http://www.asx.com.au/supervision/approach/index.htm">Approach to supervision</a></li>
+<li class="a54690"><a href="http://www.asx.com.au/supervision/enforcement_outcomes/index.htm">Supervision and enforcement outcomes</a></li>
+<li class="a54725"><a href="http://www.asx.com.au/supervision/issuers/index.htm">Supervision of issuers</a></li>
+<li class="a54745"><a href="http://www.asx.com.au/supervision/participants/index.htm">Supervision of ASX Participants</a></li>
+<li class="a54772"><a href="http://www.asx.com.au/supervision/governance/index.htm">Corporate Governance</a></li>
+<li class="a54708"><a href="http://www.asx.com.au/supervision/rules_guidance/index.htm">Rules, Guidance Notes and waivers</a></li>
+<li class="a54764"><a href="http://www.asx.com.au/supervision/enforcing_rules/index.htm">How ASX enforces its Rules</a></li>
+<li class="a54805"><a href="http://www.asx.com.au/supervision/publications/index.htm">Supervision Publications and Statements</a></li>
+<li class="a54798"><a href="http://www.asx.com.au/supervision/conflicts/index.htm">How ASX manages conflicts</a></li>
+<li class="a71874"><a href="http://www.asx.com.au/supervision/education_research/index.htm">Education & Research Program</a></li>
+<li class="a54811"><a href="http://www.asx.com.au/supervision/complaints/index.htm">Complaints</a></li>
+</ul></li>
+
+<li class="a9713" onClick="expand(this, 'a9713')" >About ASX Limited
+<ul id="a9713" class="submenu">
+<li class="a42327"><a href="http://www.asx.com.au/about/asx/index.htm">ASX at a glance</a></li>
+<li class="a59869"><a href="http://www.asx.com.au/about/sfe/index.htm">SFE at a glance</a></li>
+<li class="a38659"><a href="http://www.asx.com.au/about/media/index.htm">Media Centre</a></li>
+<li class="a38660"><a href="http://www.asx.com.au/about/shareholder/index.htm">ASX Shareholders</a></li>
+<li class="a54698"><a href="http://www.asx.com.au/about/regulatory_policy_unit/index.htm">ASX Public Consultation</a></li>
+<li class="a38677"><a href="http://www.asx.com.au/about/operational/index.htm">Operational information</a></li>
+<li class="a53240"><a href="http://www.asx.com.au/about/careers/index.htm">Careers @ ASX</a></li>
+<li class="a38656"><a href="http://www.asx.com.au/about/advertising/index.htm">Advertising on asx.com.au</a></li>
+</ul></li>
+</ul><!-- endnoindex --><!-- end primarynav -->
+</div><!-- end globalnav -->
+
+<a name="content"></a><a name="top"></a>
+<div id="content">
+<div id="breadcrumb"><p>
+<!-- LEVEL 1 --><a href="http://www.asx.com.au/index.htm">Home</a> &gt;
+<!-- LEVEL 2 --><span class="a9721">Prices, Research &amp; Announcements &gt;</span>
+<!-- LEVEL 3 -->
+
+<span class="a38612"><a href="http://www.asx.com.au/research/prices/index.htm" class="a38612">Prices</a> &gt;</span>
+
+
+
+<span class="a8145"><a href="EquitySearchPage.jsp" class="a8145">Shares</a> &gt;</span>
+
+
+
+
+
+
+Search results
+</p></div><!-- end breadcrumb -->
+<!-- page functions --><!-- select assettype --><div id="functions"><ul><!-- end select assettype -->
+<li><a href="#" onclick="javascript:window.print();"><img src="http://www.asx.com.au/images/icon_print.gif" alt="Print page icon" title="Print this page"><span>Print page</span></a></li>
+</ul>
+</div>
+
+<!-- col -->
+<div id="col">
+
+<div id="ad180x60">
+  <div class="advertisement">Advertisement</div>
+
+<!-- start button_180x60 ******************************************** -->
+  <!-- start button_180x60 include -->
+
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "180",
+    height   : "60",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script>
+
+  <!-- end button_180x60 include -->
+<!-- end button_180x60 ******************************************** -->
+
+</div>
+<div class="search-again">
+  <form action="" name="searchagain" method="get" onSubmit="getPrice(this);return false;">
+   <table cellspacing="0">
+    <tr>
+     <td><label for="ASXCodes">Search again:</label></td>
+     <td><input id="ASXCodes" name="ASXCodes" type="text" maxlength="150"></td>
+     <td><input id="go" name="Search" type="image" src="http://www.asx.com.au/images/go_new.gif" alt="Get a price/announcement"></td>
+     <td><ul class="options">
+					<li class="find"><a href="javascript:displayCodeLookup('searchagain','ASXCodes')" title="Find an ASX code using the company name or index name">Find a code</a></li>
+					<li class="detailed"><a href="/asx/markets/EquitySearchPage.jsp">Detailed search</a></li></ul></td>
+    </tr>
+   </table>
+  </form>
+</div><!-- /search-again -->
+
+<h3>Price results</h3>
+  
+<p> Equity, Interest Rate Market Securities, Options, Warrants and Futures
+        prices are delayed by at least 20 minutes.  <br>
+  Retrieving any price indicates your acceptance of the <a href="/legal/general_conditions.htm">Conditions</a>.  
+  </p>
+
+
+<h2>Shares</h2>
+
+<table  cellspacing='0' class='datatable'>
+            <tr><th scope='col' class='code'><a href='/clickable/code.htm' target='_blank' onclick="ShowColumn('/clickable/code.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Code</a></th><th>&nbsp;<a href='/clickable/last.htm' target='_blank' onclick="ShowColumn('/clickable/last.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Last</a></th><th nowrap><a href='/clickable/change.htm' target='_blank' onclick="ShowColumn('/clickable/change.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>$ +/-</a></th><th><a href='/clickable/bid.htm' target='_blank' onclick="ShowColumn('/clickable/bid.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Bid</a></th><th><a href='/clickable/offer.htm' target='_blank' onclick="ShowColumn('/clickable/offer.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Offer</a></th><th><a href='/clickable/open.htm' target='_blank' onclick="ShowColumn('/clickable/open.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Open</a></th><th><a href='/clickable/high.htm' target='_blank' onclick="ShowColumn('/clickable/high.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>High</a></th><th><a href='/clickable/low.htm' target='_blank' onclick="ShowColumn('/clickable/low.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Low</a></th><th><a href='/clickable/vol.htm' target='_blank' onclick="ShowColumn('/clickable/vol.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Volume</a></th><th><a href='/clickable/options.htm' target='_blank' onclick="ShowColumn('/clickable/options.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Options</a></th><th><a href='/clickable/warrants.htm' target='_blank' onclick="ShowColumn('/clickable/warrants.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Warrants</a></th><th><a href='/clickable/chart.htm' target='_blank' onclick="ShowColumn('/clickable/chart.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Chart</a></th><th><a href='/research/announcements/status_notes.htm'>Status</a></th><th class='announcements'>Announcements</th></tr><tr><th scope='row' class='row'><a href='/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=on&asxCode=RIO&companyName=&principalActivity=&industryGroup=NO'>RIO</a><a href='../statistics/announcementSearch.do?method=searchByCode&issuerCode=RIO&timeFrameSearchType=D&releasedDuringCode=T' TARGET='_new' class='announce'>&nbsp;*</a></th><td class='last'>115.700</td><td class='change indicator' nowrap>0.550</td><td>115.380</td><td>115.720</td><td>114.020</td><td>117.490</td><td>112.870</td><td>1,492,587</td><td class='middle'><a href='/asx/markets/searchOptionPrices.do?method=searchByUnderlyingCode&underlyingCode=RIO&optionType=B'>Options</a></td><td class='middle'><a href='/asx/markets/WarrantPricesSearchResults.jsp?State=127&DataSet=RIO'>Warrants</a></td><td class='middle'><a href='/asx/research/chartsSearchResult.jsp?asxCode=RIO&TimeFrame=D6&compare=index&indices=XJO'><img src='/images/chart.gif' border='0' height='15' width='15'></a></td><td>&nbsp;</td><td><a href='/asx/statistics/announcementSearch.do?method=searchByCode&releasedDuringCode=W&issuerCode=RIO'>Recent</a></td></tr>
+</table>
+<br>
+
+
+
+            <form method="GET" id="refresh">
+					<input type='hidden' name='method' value='get'>
+					<input type='hidden' name='template' value='F1001'>
+					<input type='hidden' name='ASXCodes' value='RIO'>
+					<div class="search-submit">
+						<input value="Refresh prices" class="actionbutton" type="submit">
+					</div>					
+            </form>
+
+    
+    <p>An <span class='red'>*</span> next to the security code
+              indicates there has been an announcement today relating to that
+              security. Click on the <span class='red'>*</span> to view the
+              list of today's announcements. Please note: The information on
+              this page is reset to zero at approximately 4:30am on the following
+              trading day. 
+    </p>
+    
+
+    
+ <ul>
+	<li><a href="/asx/research/CompanyInfoSearch.jsp">Listed
+		company information</a> including share price, announcements,
+		dividends and price history charts.	</li>
+   <li><a href="http://www.asx.com.au/resources/brokers/index.htm">Full
+			list of	stockbrokers</a>.</li>
+</ul>
+
+
+<!-- start multilinks_295x60x2 ******************************************** -->
+  <!-- start multilinks_295x60x2 include -->
+
+    
+<div id="multilink">
+<div class="ad1">
+<h5>Sponsored links</h5>
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "295",
+    height   : "60",
+      adspace  : "multilink",
+    loc      : "1",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script></div>
+<div class="ad2">
+<h5>&nbsp;</h5>
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "295",
+    height   : "60",
+    adspace  : "multilink",
+    loc      : "2",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script>
+</div></div>
+      
+  
+  <!-- end multilinks_295x60x2 include -->
+<!-- end multilinks_295x60x2 ******************************************** -->
+
+</div>
+<!-- end col -->
+
+<div id="sidebar">
+<!--myasx-login --><div id="myasx-login"> <span>MyASX:</span> 
+
+<a href="javascript:goToSecure('/asx/myasx/login.do')" class="login" accesskey="8">Login</a> | 
+<a href="javascript:goToSecure('/asx/myasx/register.do')" class="signup">Sign up</a>
+
+</div>
+
+<!-- newsletter article -->
+
+<!-- embeded cross-sell -->
+
+<!-- cross-sell -->
+
+<!-- cross-sell-2 -->
+
+<!-- cross-sell-3 -->
+
+<!-- cross-sell-4 -->
+
+
+
+
+
+
+</div><!-- end sidebar -->
+
+<div class="cleaner"> </div>
+<!-- footer --><div id="footer">
+<a href="#top"><img src="http://www.asx.com.au/images/toppage_new.gif" id="topofpage" title="Top of page" alt="top of page icon"></a>
+<p class="links">
+<a href="http://www.asx.com.au/index.htm" title="Home">Home</a> |
+<a href="javascript:goToNonSecure('/asx/about/Feedback.jsp?referred=' + document.location)" title="Contact us" accesskey="9">Contact us</a> | 
+<a href="http://www.asx.com.au/resources/faqs/index.htm" title="Frequently Asked Questions">FAQs</a> | 
+<a href="http://www.asx.com.au/resources/sitemap.htm">Sitemap</a> | 
+<a href="/glossary/Glossary.shtm" title="Glossary of sharemarket terms">Glossary</a> 
+</p>
+<p class="links"><a href="http://www.asx.com.au/legal/general_conditions.htm" accesskey="5">Terms of use</a> | <a href="http://www.asx.com.au/legal/privacy_statement.htm" accesskey="6">Privacy Statement</a> | <a href="http://www.asx.com.au/legal/accessibility_statement.htm" accesskey="7">Accessibility Statement</a></p>
+<p>&copy; ASX Limited ABN 98 008 624 691</p>
+<h4>
+The Australian Securities Exchange operates the Australian Stock Exchange and the Sydney Futures Exchange and facilitates trading in securities and derivatives such as shares, futures, options and warrants.  ASX also provides market data, for example share prices, and related information including stock market announcements and market education.</h4>
+</div>
+</div><!-- end content --></div>
+  <!-- end wrap --></div><!-- end container -->
+</div><!-- end parent node -->
+
+<!-- start nnr code -->
+
+    <cmignore>
+<!-- START Nielsen//NetRatings SiteCensus V5.2 -->
+<!-- COPYRIGHT 2006 Nielsen//NetRatings -->
+<script type="text/javascript">
+	var _rsCI="asx";
+	var _rsCG="0";
+	var _rsDN="//secure-au.imrworldwide.com/";
+	var _rsCC=0;
+</script>
+<script type="text/javascript" src="//secure-au.imrworldwide.com/v52.js"></script>
+<noscript>
+	<img src="//secure-au.imrworldwide.com/cgi-bin/m?ci=asx&amp;cg=0" alt=""/>
+</noscript>
+<!-- END Nielsen//NetRatings SiteCensus V5.2 -->
+</cmignore>
+  
+<!-- end nnr code -->
+
+<script src="http://www.asx.com.au/script/init.js" type="text/javascript" ></script>
+
+
+
+<!-- start popunder_1x1 ******************************************** -->
+  <!-- start popunder_1x1 include -->
+
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "1",
+    height   : "1",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script>
+  
+  <!-- end popunder_1x1 include -->
+<!-- end popunder_1x1 ******************************************** -->
+
+<!-- start trigger ******************************************** -->
+  <!-- start trigger include -->
+
+<script type="text/javascript">
+  var ffxpageVars = {
+    site   : "asx",
+    cat    : "prices",
+    subcat : "prices"
+  };
+</script>
+<script type="text/javascript" src="http://fdimages.fairfax.com.au/crtvs/code/asx/ffxutils.js"></script>
+  
+  <!-- end trigger include -->
+<!-- end trigger ******************************************** -->
+
+  
+
+</body>
+</html>
+

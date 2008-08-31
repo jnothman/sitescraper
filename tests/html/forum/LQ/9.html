@@ -1,0 +1,2693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
+<head>
+	<base href="http://www.linuxquestions.org/questions/" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="generator" content="vBulletin 3.6.10" />
+
+<meta name="keywords" content="Need to now how to Install firefox 3 in RHEL4, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="Need to now how to Install firefox 3 in RHEL4 Linux - Software" />
+
+
+<!-- CSS Stylesheet -->
+<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style-2178917a-00007.css" id="vbulletin_css" />
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+
+<script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
+<link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
+<link rel="alternate" type="application/rss+xml" title="LQ Zero Reply Threads" href="/syndicate/lqnoreplies.xml" />
+
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-4420048478783872");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_MPU_Content");
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_MPU_FirstPost");
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_Top_Leader");
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_Top_Sky");
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_MPU_Bottom");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+	
+	<title>Need to now how to Install firefox 3 in RHEL4 - LinuxQuestions.org</title>
+	<script src="vbspell.js"></script>
+	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+<tr>
+    <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
+    <td align="right">
+     <div align="right">Go Job Hunting at the <a href="http://www.linuxquestions.org/jobs/">LQ Job Marketplace</a></div>
+    </td>
+</tr>
+</table>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+
+
+<!-- // Start Welcome Headers // -->
+<!-- google_ad_section_start(weight=ignore) -->
+
+	
+	
+	
+	
+		<!-- guest welcome message -->
+		<br />
+		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+		<tr> 
+			<td class="alt1">
+				Welcome to <strong>LinuxQuestions.org</strong>, a friendly and active Linux Community. <br /><br />
+You are currently viewing LQ as a guest.  By joining our community you will have access to post topics, receive our newsletter, use the advanced search, subscribe to threads and access many other special features. Registration is quick, simple and absolutely free. <a href="/questions/register.php"><strong>Join our community</strong></a> today!<br /><br />
+<strong>Note that registered members see fewer ads, and ContentLink is completely disabled once you log in.</strong><br /><br />
+Are you new to LinuxQuestions.org?  Visit the following links:<br />
+<a href="/linux/answers/LinuxQuestions_org/How_to_Use_LinuxQuestions_org">Site Howto</a> |
+<a href="/questions/faq.php">Site FAQ</a> |
+<a href="/linux/sitemap.html">Sitemap</a> | 
+<a href="/questions/register.php">Register Now</a>
+<br /><br />If you have any problems with the registration process or your account login, please <a href="/questions/sendmessage.php">contact us</a>.  If you need to reset your password, <a href="/questions/login.php?do=lostpw">click here</a>.
+
+			</td>
+		</tr>
+		</table>
+		<!-- / guest welcome message -->
+	
+
+
+<!-- google_ad_section_end -->
+<!-- // End Welcome Headers // -->
+<!--
+ -->
+<br />
+<!--
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="80%" align="center">
+		<tr> 
+			<td class="alt1">
+<div align="center" style="color:#FF0000;"></div>
+</td>
+</tr>
+</table><br /> -->
+<script type="text/javascript">
+<!--
+function log_out()
+{
+    ht = document.getElementsByTagName("html");
+    ht[0].style.filter = "progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)";
+    if (confirm('Are you sure you want to log out?'))
+    {
+        return true;
+    }
+    else
+    {
+        ht[0].style.filter = "";
+        return false;
+    }
+}
+//-->
+</script>
+<div style="text-align:center;margin-bottom:15px"> 
+
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Leader");
+</script>
+</div>
+<!-- START: LQ Table Top -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+<td class="page" valign="top">
+<!-- END: LQ Table Top -->
+<!-- nav buttons bar -->
+<div align="center">
+	<table class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center" style="border-top-width:0px">
+	<tr align="center">
+		<td class="vbmenu_control"><a href="/" accesskey="1">Home</a></td>
+		<td class="vbmenu_control"><a href="/questions/">Forums</a></td>
+		<td class="vbmenu_control"><a href="/hcl/">HCL</a></td>
+		<td class="vbmenu_control"><a href="/reviews/">Reviews</a></td>
+		<td class="vbmenu_control"><a href="/linux/answers/">Tutorials</a></td>
+		<td class="vbmenu_control"><a href="/linux/articles/">Articles</a></td>
+		
+			<td class="vbmenu_control"><a href="register.php" rel="nofollow">Register</a></td>
+		
+				
+			
+				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
+				
+				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+			
+			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
+						
+		
+		
+	</tr>
+	</table>
+</div>
+<!-- / nav buttons bar -->
+
+
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top:0px">
+<tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr valign="bottom">
+				<td><a href="#" onclick="history.back(1); return false;"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_start.gif" alt="Go Back" border="0" /></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="/" accesskey="1">LinuxQuestions.org</a></span> 
+
+<span class="navbar">&gt; <a href="/questions/" accesskey="1">Forums</a></span> 
+
+
+	<span class="navbar">&gt; <a href="/questions/linux-50/">Linux</a></span>
+
+
+	<span class="navbar">&gt; <a href="/questions/linux-software-2/">Linux - Software</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/need-to-now-how-to-install-firefox-3-in-rhel4-663996/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	Need to now how to Install firefox 3 in RHEL4
+
+</strong></td>
+			</tr>
+			</table>			
+		
+	</td>	
+	
+	
+		
+		<td class="alt2" nowrap="nowrap" style="padding:0px">
+			
+		<!-- login form -->
+		<form action="/questions/login.php" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="/questions/clientscript/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tr>
+			<td class="smallfont">User Name</td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == 'User Name') this.value = '';" /></td>
+			<td class="smallfont" colspan="2" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c" checked="checked" />Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont">Password</td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" size="10" accesskey="p" tabindex="102" /></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the 'register' button to create a profile for yourself." accesskey="s" /></td>
+		</tr>
+		</table>
+		<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+		<input type="hidden" name="do" value="login" />		
+		<input type="hidden" name="vb_login_md5password" />
+		<input type="hidden" name="vb_login_md5password_utf" />
+		</form>
+		<!-- / login form -->
+			
+		</td>
+		
+		
+	
+</tr>
+</table>
+<!-- / breadcrumb, login, pm info -->
+
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top:0px">
+	<tr>
+		<td class="alt1" width="100%"><strong>Linux - Software</strong> <span class="smallfont">This forum is for Software issues.<br />
+Having a problem installing a new program?  Want to know which application is best for the job?  Post your question in this forum.</span></td>
+	</tr>
+	</table>
+
+
+	<br />
+
+<!-- <div style="text-align:center;margin-bottom:15px"> 
+google_leaderboard_white_text
+</div>-->
+<div class="KonaBody">
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tr valign="bottom">
+	
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3253506" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+	
+	
+</tr>
+</table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
+		<a href="#goto_threadtools">Thread Tools</a>
+		
+	</td>
+	
+	
+	
+	
+	
+	
+</tr>
+</table>
+<!-- / toolbar -->
+
+
+
+
+
+
+
+<div id="posts"><!-- post #3253506 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3253506" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3253506" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3253506"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-20-2008, 03:25 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3253506#post3253506" rel="nofollow" id="postcount3253506" name="1"><strong>1</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3253506">
+				
+				<a class="bigusername" href="/questions/user/amin.yousaf-422493/">amin.yousaf</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3253506", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2008</div>
+				
+				
+				
+				<div>
+					Posts: 4
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3253506" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong>Need to now how to Install firefox 3 in RHEL4</strong>
+			</div>
+			<hr size="1" style="color:#FFFFFF" />
+			<!-- / icon and title -->
+		
+		
+
+		<!-- message -->
+
+
+<div style="float: right; margin-left: 5px; margin-bottom: 5px; margin-top: -3px; margin-right: -3px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_MPU_FirstPost");
+</script>
+<br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
+</div>
+
+		<div id="post_message_3253506">i hv install RHEL4.0, now i m using firfox 1.5(by default) i want to upgrade this firfox to the latest version of firfox, can any one help me how to make install latest version<br />
+<br />
+i hv already don dis.<br />
+dowload firefox<br />
+extarct firefox-3.0.tar.bz2<br />
+/root/Desktop/firefox/<br />
+but when i put dis command<br />
+/root/Desktop/firefox/firefox &amp;<br />
+<br />
+it still load the old version of firefox<br />
+<br />
+i hv already done this toooo<br />
+<br />
+<br />
+After make Uninstall and extract firefox folder into /root/<br />
+home direct i made call firefox by using this command<br />
+<br />
+#./firefox/firefox &amp;<br />
+<br />
+error was reported as under<br />
+<br />
+<br />
+./firefox/firefox-bin: error while loading shared libraries: libpangocairo-1.0.so.0: cannot open shared object file: No such file or directory<br />
+<br />
+can any one pls help me to solve dis prob</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="amin.yousaf is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3253506" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3253506" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3253506 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3253506_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">amin.yousaf</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/amin.yousaf-422493/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/amin.yousaf">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/amin.yousaf">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=422493">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=422493">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=422493" rel="nofollow">Find More Posts by amin.yousaf</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3253506 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3253506 --><!-- post #3253723 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3253723" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3253723" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3253723"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-20-2008, 08:26 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3253723#post3253723" rel="nofollow" id="postcount3253723" name="2"><strong>2</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3253723">
+				
+				<a class="bigusername" href="/questions/user/camorri-18573/">camorri</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3253723", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Senior Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Nov 2002</div>
+				<div>Location: Toronto Canada</div>
+				<div>Distribution: Mandrake 9.2 Mandriva 2008.1 Slackware 12.1 , Knoppix.</div>
+				
+				<div>
+					Posts: 1,875
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3253723" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3253723">I'm not sure why you put the files in /root/Desktop, I think this will restrict the use to root only due to root ownership of that directory. <br />
+<br />
+I installed ( as root ) to /usr/lib/firefox. I still have a /usr/lib/firefox2.0.0.16 directory with that version in it. <br />
+<br />
+I created a desktop icon, and pointed it to the correct path and executable. I also set a working directory. Works like a charm, I still have the old version installed. <br />
+<br />
+I suspect the command you used returns errors because of the place and path specified. My icon calls firefox with the command '/usr/lib/firefox/firefox' <br />
+<br />
+You do not have to install to /usr/lib if you don't want to, there are other places you can put it. I would stay away from the /root dir though...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="camorri is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3253723" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3253723" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3253723 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3253723_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">camorri</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/camorri-18573/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/camorri">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/camorri">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=18573">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=18573">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=18573" rel="nofollow">Find More Posts by camorri</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3253723 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3253723 --><!-- post #3254438 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3254438" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3254438" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3254438"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-20-2008, 11:48 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3254438#post3254438" rel="nofollow" id="postcount3254438" name="3"><strong>3</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3254438">
+				
+				<a class="bigusername" href="/questions/user/amin.yousaf-422493/">amin.yousaf</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3254438", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2008</div>
+				
+				
+				
+				<div>
+					Posts: 4
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3254438" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3254438">well u mean to say i can not install FF3<br />
+on RHEL4?????</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="amin.yousaf is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3254438" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3254438" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3254438 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3254438_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">amin.yousaf</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/amin.yousaf-422493/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/amin.yousaf">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/amin.yousaf">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=422493">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=422493">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=422493" rel="nofollow">Find More Posts by amin.yousaf</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3254438 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3254438 --><!-- post #3254443 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3254443" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3254443" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3254443"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-21-2008, 12:00 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3254443#post3254443" rel="nofollow" id="postcount3254443" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3254443">
+				
+				<a class="bigusername" href="/questions/user/aceofspades19-326890/">AceofSpades19</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3254443", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Danshell Admin</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Feb 2007</div>
+				<div>Location: Chilliwack,BC.Canada</div>
+				<div>Distribution: good ol' Slackware, CentOS 5.1</div>
+				
+				<div>
+					Posts: 1,942
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3254443" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3254443"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>amin.yousaf</strong>
+					<a href="showthread.php?p=3254438#post3254438" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
+				</div>
+				<div style="font-style:italic">well u mean to say i can not install FF3<br />
+on RHEL4?????</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>no, if you read his post correctly, he tells you how to install it</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="AceofSpades19 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3254443" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3254443" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3254443 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3254443_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">AceofSpades19</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/aceofspades19-326890/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/AceofSpades19">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/AceofSpades19">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=326890">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=326890">View HCL Entries</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=AceofSpades19">View LQ Wiki Contributions</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://danshell.sourceforge.net">Visit AceofSpades19's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=326890" rel="nofollow">Find More Posts by AceofSpades19</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3254443 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3254443 --><!-- post #3254444 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3254444" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3254444" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3254444"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-21-2008, 12:02 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3254444#post3254444" rel="nofollow" id="postcount3254444" name="5"><strong>5</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3254444">
+				
+				<a class="bigusername" href="/questions/user/nylex-37290/">Nylex</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3254444", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">HCL Maintainer</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2003</div>
+				<div>Location: Coventry/London, UK</div>
+				<div>Distribution: Slackware, FreeBSD</div>
+				
+				<div>
+					Posts: 4,862
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3254444" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3254444">camorri doesn't mean anything of the sort. All he/she is saying is that you shouldn't really use /root/Desktop. Do you have Pango installed? You may need to upgrade the version you have, I don't know. Also, you're not using the root account all the time are you?</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Nylex is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3254444" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3254444" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3254444 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3254444_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Nylex</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/nylex-37290/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Nylex">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Nylex">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=37290">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=37290">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=37290" rel="nofollow">Find More Posts by Nylex</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3254444 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3254444 --><!-- post #3254687 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3254687" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3254687" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3254687"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-21-2008, 05:25 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3254687#post3254687" rel="nofollow" id="postcount3254687" name="6"><strong>6</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3254687">
+				
+				<a class="bigusername" href="/questions/user/amin.yousaf-422493/">amin.yousaf</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3254687", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2008</div>
+				
+				
+				
+				<div>
+					Posts: 4
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3254687" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3254687">can u guide me step by step installation of FF3???</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="amin.yousaf is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3254687" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3254687" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3254687 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3254687_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">amin.yousaf</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/amin.yousaf-422493/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/amin.yousaf">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/amin.yousaf">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=422493">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=422493">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=422493" rel="nofollow">Find More Posts by amin.yousaf</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3254687 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3254687 --><!-- post #3255626 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3255626" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3255626" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3255626"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-21-2008, 11:54 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3255626#post3255626" rel="nofollow" id="postcount3255626" name="7"><strong>7</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3255626">
+				
+				<a class="bigusername" href="/questions/user/cmx08-427529/">cmx08</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3255626", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2008</div>
+				
+				
+				
+				<div>
+					Posts: 13
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3255626" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3255626">I,m using fedora core 6. Can i use the yum update to upgrade the firefox from version1.5 to version 3? Can some body tell me what is the exact command for doing this. Last time i try to using this command (yum -y --enablerepo=development update firefox) but it seem like updated all the system. After finish all the update, my firefox still remain the 1.5 version.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="cmx08 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3255626" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3255626" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3255626 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3255626_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">cmx08</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/cmx08-427529/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/cmx08">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/cmx08">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=427529">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=427529">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=427529" rel="nofollow">Find More Posts by cmx08</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3255626 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3255626 --><!-- post #3255631 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3255631" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3255631" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3255631"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			Yesterday, 12:00 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3255631#post3255631" rel="nofollow" id="postcount3255631" name="8"><strong>8</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3255631">
+				
+				<a class="bigusername" href="/questions/user/aceofspades19-326890/">AceofSpades19</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3255631", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Danshell Admin</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Feb 2007</div>
+				<div>Location: Chilliwack,BC.Canada</div>
+				<div>Distribution: good ol' Slackware, CentOS 5.1</div>
+				
+				<div>
+					Posts: 1,942
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3255631" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3255631"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>cmx08</strong>
+					<a href="showthread.php?p=3255626#post3255626" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
+				</div>
+				<div style="font-style:italic">I,m using fedora core 6. Can i use the yum update to upgrade the firefox from version1.5 to version 3? Can some body tell me what is the exact command for doing this. Last time i try to using this command (yum -y --enablerepo=development update firefox) but it seem like updated all the system. After finish all the update, my firefox still remain the 1.5 version.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>If you want the latest software you should upgrade to the latest version of fedora, which is 9</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="AceofSpades19 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3255631" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3255631" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3255631 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3255631_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">AceofSpades19</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/aceofspades19-326890/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/AceofSpades19">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/AceofSpades19">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=326890">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=326890">View HCL Entries</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=AceofSpades19">View LQ Wiki Contributions</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://danshell.sourceforge.net">Visit AceofSpades19's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=326890" rel="nofollow">Find More Posts by AceofSpades19</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3255631 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3255631 --><!-- post #3255643 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3255643" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3255643" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3255643"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			Yesterday, 12:18 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3255643#post3255643" rel="nofollow" id="postcount3255643" name="9"><strong>9</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3255643">
+				
+				<a class="bigusername" href="/questions/user/cmx08-427529/">cmx08</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3255643", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2008</div>
+				
+				
+				
+				<div>
+					Posts: 13
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3255643" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3255643">I just want to learn how to upgrade the particular software from old version to new version. Anyway thanks for reply.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="cmx08 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3255643" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3255643" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3255643 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3255643_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">cmx08</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/cmx08-427529/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/cmx08">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/cmx08">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=427529">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=427529">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=427529" rel="nofollow">Find More Posts by cmx08</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3255643 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3255643 --><!-- post #3255827 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3255827" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3255827" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3255827"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			Yesterday, 05:18 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3255827#post3255827" rel="nofollow" id="postcount3255827" name="10"><strong>10</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3255827">
+				
+				<a class="bigusername" href="/questions/user/camorri-18573/">camorri</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3255827", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Senior Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Nov 2002</div>
+				<div>Location: Toronto Canada</div>
+				<div>Distribution: Mandrake 9.2 Mandriva 2008.1 Slackware 12.1 , Knoppix.</div>
+				
+				<div>
+					Posts: 1,875
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3255827" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3255827"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				well u mean to say i can not install FF3<br />
+on RHEL4?????
+			
+		</td>
+	</tr>
+	</table>
+</div>As far as I know, you should be able to install FF3 to RHEL4. <br />
+<br />
+There are three was to install software to RHEL4. <br />
+<br />
+1. Use the package manager. The success here will depend on the level of packages available for the distro. The older the distro is, the support goes away. New releases of software may not be available as a package. <br />
+<br />
+2. Download the source and compile and install the software. This means the source has to be available as a package, from somewhere. Sourceforge and Freshmeat are the two very large places to get source from. I have never done this with FF. I don't think the source is made available for FF.<br />
+<br />
+3. Mozilla releases FF as a binary package. This means they have compiled it, and they provide a compressed archive with all the files you need to install it and run it. <br />
+<br />
+To do the FF installation go to this link, Mozilla has created a linux how-to.<br />
+<br />
+<a href="http://support.mozilla.com/en-US/kb/Installing+Firefox+on+Linux#Installing_outside_of_a_package_manager">http://support.mozilla.com/en-US/kb/...ackage_manager</a><br />
+<br />
+The page also handles what to do if the wrong version starts. I hope this helps clear up any confusion.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="camorri is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3255827" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3255827" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3255827 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3255827_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">camorri</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/camorri-18573/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/camorri">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/camorri">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=18573">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=18573">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=18573" rel="nofollow">Find More Posts by camorri</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3255827 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3255827 --><!-- post #3256089 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3256089" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post3256089" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3256089"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			Yesterday, 10:42 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3256089#post3256089" rel="nofollow" id="postcount3256089" name="11"><strong>11</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3256089">
+				
+				<a class="bigusername" href="/questions/user/aceofspades19-326890/">AceofSpades19</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3256089", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Danshell Admin</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Feb 2007</div>
+				<div>Location: Chilliwack,BC.Canada</div>
+				<div>Distribution: good ol' Slackware, CentOS 5.1</div>
+				
+				<div>
+					Posts: 1,942
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3256089" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3256089"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>camorri</strong>
+					<a href="showthread.php?p=3255827#post3255827" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
+				</div>
+				<div style="font-style:italic"> I don't think the source is made available for FF..</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>Yes the source is available, and it has to be according to the Mozilla Public License</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="AceofSpades19 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3256089" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3256089" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3256089 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3256089_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">AceofSpades19</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/aceofspades19-326890/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/AceofSpades19">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/AceofSpades19">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=326890">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=326890">View HCL Entries</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=AceofSpades19">View LQ Wiki Contributions</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://danshell.sourceforge.net">Visit AceofSpades19's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=326890" rel="nofollow">Find More Posts by AceofSpades19</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3256089 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3256089 --><div id="lastpost"></div></div>
+
+<div align="center">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_MPU_Bottom");
+</script></div><br />
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="top">
+	
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256089" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		
+	
+</tr>
+</table>
+<!-- / controls below postbits -->
+
+
+
+
+<br />
+
+<div class="smallfont" align="center">
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=663996&amp;title=Need to now how to Install firefox 3 in RHEL4" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=663996&amp;title=Need to now how to Install firefox 3 in RHEL4" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=663996&amp;title=Need to now how to Install firefox 3 in RHEL4"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<br /><br />
+	<strong>&laquo;</strong>
+		<a href="/questions/linux-software-2/need-to-now-how-to-install-firefox-3-in-rhel4-663996/#top" rel="nofollow">Back to Top</a>
+	<strong>&raquo;</strong>
+</div>
+
+
+<br />
+
+
+
+
+
+
+
+
+<!-- currently active users -->
+
+<!-- end currently active users -->
+
+
+<!-- controls for non-popup browsers -->
+
+
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
+<tr>
+	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" colspan="2">
+	
+	<!-- thread tools -->
+	<div class="smallfont">
+		
+			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=663996" rel="nofollow">Show Printable Version</a></div>
+			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=663996" rel="nofollow">Email this Page</a></div>
+		
+		
+		
+	</div>
+	<!-- / thread tools -->
+	
+	</td>
+	
+</tr>
+
+</table>
+<br />
+
+
+<!-- / controls for non-popup browsers -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tr valign="bottom">
+	<td class="smallfont" align="left">
+		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="180">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="#top" onclick="return toggle_collapse('forumrules')"><img id="collapseimg_forumrules" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/collapse_thead.gif" alt="" border="0" /></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr />
+		
+		<div><a href="misc.php?do=bbcode" target="_blank">vB code</a> is <strong>On</strong></div>
+		<div><a href="misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>Off</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tr>
+			<td>
+			
+			</td>
+		</tr>		
+		</table>
+	</td>
+</tr>
+</table>
+<!-- /forum rules and admin links -->
+
+<br />
+
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="#top" onclick="return toggle_collapse('similarthreads')"><img id="collapseimg_similarthreads" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/collapse_tcat.gif" alt="" border="0" /></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=661429" title="I have a RHEL 4 32 system that has been upgraded to firefox 3.0.1-3 and refuses to start up. THe errors are as..." target="_blank">firefox 3.0.1-3 &amp; rhel4 NSS_3.11.7 not found</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">okinhim</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Red Hat</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-09-2008 <span class="time">12:45 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=612836" title="Hi,
+
+
+I do not have audio when play videos in 32-bit
+firefox browser with a flashpalyer. I have RHEL4,
+x86_64.
+
+Could somebody help me ?
+
+Thanks," target="_blank">no audio flash player firefox 32-bit browser, RHEL4, x86_64.</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">saak.stepi</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">01-11-2008 <span class="time">07:05 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=562847" title="I install rhel4 in xen via http, after the program load product.img and minstg2.img(these files is in ISO cd1/RedHat/base/ dir), it said &quot;unable to..." target="_blank">Install RHEL4 in Xen of RHEL4--&quot;unable to retrieve the install image&quot;</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">sailer_sh</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Red Hat</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">06-19-2007 <span class="time">12:31 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=530630" title="Hi,
+
+I have a Linux box connected to a Linksys router connected to ADSL modem.
+Firefox can not display any web pages from the web (or from the..." target="_blank">no internet, Firefox connects but times out,  RHEL4</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">tidalbay</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Networking</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">02-21-2007 <span class="time">01:26 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=519133" title="Hi,
+
+   i downloaded the firefox tar file and untarred. In the extracted folder there no info regarding the installation of it. no &quot;install&quot; file or..." target="_blank">installing firefox 2.0 on RHEL4</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Balakrishna</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">01-14-2007 <span class="time">06:45 AM</span></span></td>
+</tr>
+</tbody>
+</table>
+
+<br />
+
+<!-- end content table  -->
+
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+</div>
+
+<br />
+<br />
+<div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:30 PM</span>.</div>
+<br />
+<!-- /content area table -->
+
+<form action="index.php" method="get">
+	
+<table cellpadding="3" cellspacing="0" border="0" width="100%" class="page" align="center">
+<tr>
+	
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://www.linuxquestions.org/questions/sendmessage.php" rel="nofollow">Contact Us</a> -
+				<a href="/linux/adinfo.html">Advertising Info</a> - 
+				<a href="/linux/rules.html">Rules</a> - 
+				<a href="http://www.cafeshops.com/linuxquestions">LQ Merchandise</a> - 
+				<a href="/linux/donation.html">Donations</a> - 
+				<a href="/linux/member.html">Contributing Member</a> - 
+				<a href="http://www.linuxquestions.org/linux/sitemap.html">LQ Sitemap</a> - 
+				<a href="http://www.linuxquestions.org/">LinuxQuestions.org</a> -
+				
+				
+				
+				<a href="/">Home</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</table>
+
+</form>
+
+
+<!-- START: LQ Table Bottom -->
+</td>
+<td width="165px" class="page" style="padding-left:5px" valign="top">
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Main Menu</td></tr>
+<tr><td class="alt1">
+<ul class="lqrightmenu">
+<li><a href="/questions/index.php">Linux Forums</a></li>
+<li><a href="/questions/search.php">Search</a></li>
+<li><a href="/questions/lqtags.php">LQ Tags</a></li>
+<li><a href="/hcl/">Linux HCL</a></li>
+<li><a href="/linux/answers/">Linux Tutorials</a></li>
+<li><a href="/jobs">LQ Job Marketplace</a></li>
+<li><a href="http://wiki.linuxquestions.org/">Linux Wiki</a></li>
+<li><a href="/reviews/index.php/cat/2">Distro Reviews</a></li>
+<li><a href="/reviews/index.php/cat/15">Book Reviews</a></li>
+<li><a href="http://iso.linuxquestions.org/">Download Linux</a></li>
+<li><a href="/bookmarks/">Linux Bookmarks</a></li>
+<li><a href="/linux/press/">Press Releases</a></li>
+<li><a href="http://radio.linuxquestions.org/linux/lq-podcasts/">Linux Podcast</a></li>
+<li><a href="/linux/blog/">LQ Blogs</a></li>
+<li><a href="http://radio.linuxquestions.org/">LQ Radio</a></li>
+<li><a href="http://radio.linuxquestions.org/player/player.php" onclick="window.open('http://radio.linuxquestions.org/player/player.php','wimpyMP3player','width=540,height=320');return false">LQ Radio Jukebox</a></li>
+<li><a href="/">Home</a></li>
+</ul>
+</td></tr>
+</table>
+<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
+google_ad_client = "pub-4420048478783872";
+google_ad_slot = "0736170647";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">My LQ</td></tr>
+<tr><td class="alt1">
+<ul class="lqrightmenu">
+
+<li><a href="/questions/lqlogin.php">Login</a></li>
+<li><a href="/questions/register.php">Register</a></li>
+
+</ul>
+</td></tr>
+</table>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Write for LQ</td></tr>
+<tr><td class="alt1">
+LinuxQuestions.org is looking for people interested in writing
+Editorials, Articles, Reviews, and more. If you'd like to contribute
+content, <a href="/questions/sendmessage.php">let us know</a>.
+</td></tr>
+</table>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="alt1">
+<script type="text/javascript"><!--
+google_ad_client = "pub-4420048478783872";
+google_ad_width = 160;
+google_ad_height = 90;
+google_ad_format = "160x90_0ads_al_s";
+google_ad_channel ="";
+google_color_border = "336699";
+google_color_bg = "E6E6E6";
+google_color_link = "336699";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td></tr>
+</table>
+
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Main Menu</td></tr>
+<tr><td class="alt1">
+<ul class="lqrightmenu">
+<li><a href="/questions/calendar.php">LQ Calendar</a></li>
+<li><a href="/linux/rules.html">LQ Rules</a></li>
+<li><a href="/linux/sitemap.html">LQ Sitemap</a></li>
+<li><a href="/questions/faq.php">Site FAQ</a></li>
+<li><a href="http://www.linuxquestions.org/bookmarks/">Linux Links</a></li>
+<li><a href="/questions/search.php?do=getnew">View New Posts</a></li>
+<li><a href="/questions/lqsearch.php?do=getnew&amp;daysprune=7">View Latest Posts</a></li>
+<li><a href="/questions/lqsearch.php?do=noreplies">Zero Reply Threads</a></li>
+<li><a href="http://wiki.linuxquestions.org/wiki/Special:Wantedpages">LQ Wiki Most Wanted</a></li>
+<li><a href="http://jeremy.linuxquestions.org/">Jeremy's Blog</a></li>
+<li><a href="/questions/project.php">Report LQ Bug</a></li>
+<li><a href="http://linuxquestions.tradepub.com/" rel="nofollow">Tech Magazines</a></li>
+<li><a href="http://linuxquestions.tradepub.com/?pt=cat&page=Infosoft&flt=wpr" rel="nofollow">Tech Whitepapers</a></li>
+<li><a href="http://www.treoquestions.org/">TreoQuestions.org</a></li>
+<li><a href="http://www.treoquestions.org/questions/">Treo Forum</a></li>
+<li><a href="http://www.treoquestions.org/questions/downloads.php">Treo Downloads</a></li>
+</ul>
+</td></tr>
+</table>
+<table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
+<tr><td class="vbmenu_control">Syndicate</td></tr>
+<tr><td class="alt1">
+<a href="http://www.linuxquestions.org/syndicate/lqlatest.xml"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; Latest Threads<br />
+<a href="http://www.linuxquestions.org/syndicate/lqnews.rss"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; LQ News<br />
+<a href="http://radio.linuxquestions.org/syndicate/lqpodcast.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Podcast<br />
+<a href="http://radio.linuxquestions.org/syndicate/lqradio.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Radio
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- END: LQ Table Bottom -->
+
+
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<div align="center">
+	<div class="smallfont" align="center">
+<a href="http://www.lqconsulting.com/">Open Source Consulting</a> |
+<a href="http://www.lqconsulting.com/services/Web/Domain-Registration">Domain Registration</a>
+</div><br /><br />
+	
+	<div class="smallfont" align="center">
+	
+	</div>
+</div>
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-71419-4");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+<script type="text/javascript">
+var dc_UnitID = 14;
+var dc_PublisherID = 4566;
+var dc_AdLinkColor = 'blue';
+var dc_adprod='ADL';
+</script>
+<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+</body>
+</html>
