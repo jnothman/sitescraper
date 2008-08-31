@@ -1,3 +1,4 @@
+from __future__ import division
 import sys
 import os
 import re
@@ -50,6 +51,15 @@ def unique(l):
     return result
 
 
+def average(l):
+    """The list average value
+
+    >>> average([1, 2, 3, 4, 0])
+    2.0
+    """
+    return sum(l) / len(l)
+
+
 def flatten(l):
     """Expand all sublists into a single list
 
@@ -73,26 +83,4 @@ def extractInt(s):
 
 def normalizeStr(s):
     """Remove characters that make string comparison difficult from copied text"""
-    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).decode('utf-8')
-
-
-def lcs_len(a, b):
-    """Implementation of Longest Common Substring algorithm.
-
-    Returns the longest common substring shared by the 2 given strings.
-    >>> lcs_len('oh hello world', 'hello world')
-    11
-    >>> lcs_len('oh hello+world', 'hello world')
-    10
-    """
-    a = normalizeStr(a)
-    b = normalizeStr(b)
-    L = [[0] * (len(b)+1) for i in xrange(len(a)+1)]
-    lcs = 0
-    for i in xrange(len(a)):
-        for j in xrange(len(b)):
-            L[i+1][j+1] = L[i][j]
-            if a[i] == b[j]:
-                L[i+1][j+1] += 1
-                lcs = max(lcs, L[i+1][j+1])
-    return lcs
+    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).strip().decode('utf-8')

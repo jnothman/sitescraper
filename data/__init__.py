@@ -269,7 +269,24 @@ The world-first research, by RMIT senior lecturer Margaret Lech, could transform
 ]
 
 
-data['4forum'] = [
+data['4amazon'] = [
+    ('file:html/commerce/amazon/1.html', ["The Definitive Guide to Django: Web Development Done Right", "Practical Django Projects (Pratical Projects)", "Django", "$31.06", "$30.24", "$12.99"]),
+    ('file:html/commerce/amazon/2.html', [" Programming in Haskell", "Real World Haskell", "The Haskell Road to Logic, Maths and Programming (Texts in Computing S.)", "$38.26", "$49.99", "$22.50"]),
+    ('file:html/commerce/amazon/3.html', ["Head First Java, 2nd Edition", "Effective Java (2nd Edition) (The Java Series)", "Java How to Program, 7th Edition", "$29.67", "$33.71", "$83.52"]),
+    ('file:html/commerce/amazon/4.html', ["JavaScript: The Definitive Guide", "JavaScript: The Good Parts", "Head First JavaScript (Head First)", "$31.49", "$19.79", "$26.39"]),
+    ('file:html/commerce/amazon/5.html', ["jQuery in Action", "Learning jQuery: Better Interaction Design and Web Development with Simple JavaScript Techniques", "jQuery Reference Guide", "26.39", "$35.99", "$35.99"]),
+    ('file:html/commerce/amazon/6.html', ["The Book of Qt 4: The Art of Building Qt Applications", "KDE Bible (with CD-ROM)", "KDE for Linux for Dummies", "$32.97", "$8.25", "$8.94"]),
+    ('file:html/commerce/amazon/7.html', ["Practical Common Lisp", "ANSI Common LISP (Prentice Hall Series in Artificial Intelligence)", "Lisp (3rd Edition)", "$41.24", "$57.11", "$37.93"]),
+    ('file:html/commerce/amazon/8.html', ["Programming in Prolog: Using the ISO Standard", "Prolog Programming for Artificial Intelligence", "Logic Programming with Prolog", "$36.51", "$44.50", "$42.46"]),
+    ('file:html/commerce/amazon/9.html', ["C++ GUI Programming with Qt 4 (2nd Edition) (Prentice Hall Open Source Software Development Series)", "The Book of Qt 4: The Art of Building Qt Applications", "Foundations of Qt® Development (Expert's Voice in Open Source)", "$43.73", "$32.97", "$43.11"]),
+    ('file:html/commerce/amazon/10.html', ["The Ruby Programming Language", "Beginning Ruby: From Novice to Professional (Beginning from Novice to Professional)", "Programming Ruby: The Pragmatic Programmers' Guide, Second Edition", "$26.39", "$27.14", "$26.97"]),
+    ('file:html/commerce/amazon/11.html', ["Sams Teach Yourself SQL in 10 Minutes (3rd Edition) (Sams Teach Yourself)", "Learning SQL (Learning)", "SQL Cookbook (Cookbooks (O'Reilly))", "$13.59", "$20.97", "$23.97"]),
+    ('file:html/commerce/amazon/12.html', ["Learning Python, 3rd Edition", "Python in a Nutshell (In a Nutshell (O'Reilly))", "Python Cookbook", "$23.99", "$26.39", "$29.97"]),
+    ('file:html/commerce/amazon/13.html', ["A Practical Guide to Linux(R) Commands, Editors, and Shell Programming", "Linux Pocket Guide", "Linux Bible, 2008 Edition: Boot up to Ubuntu, Fedora, KNOPPIX, Debian, openSUSE, and 11 Other Distributions", "$29.99", "$9.95", "$29.99"]),
+]
+
+
+data['9LQ'] = [
     ('file:html/forum/LQ/1.html', [
 """On two systems, firefox 2.0.0.8 and firefox 2.0.0.8 keeps the installed Video DownloadHelper addon disabled. It refers to "missing elements" and grays out the "enable addon button".
 

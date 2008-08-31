@@ -15,39 +15,37 @@ from . import misc
 from lxml import etree, html
 
 # ignore content from these tags
-_IGNORED_TAGS = 'style', 'script', 'meta', 'link'
+_IGNORE_TAGS = 'style', 'script', 'meta', 'link'
 # merge these style tags content with parent
-_MERGED_TAGS = 'br', 'font', 'a', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'small', 'tt', 'p'
+_MERGE_TAGS = 'br', 'font', 'a', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'small', 'tt', 'p'
 # user agent to use in fetching webpages
 _USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
-
-def sortDict(d):
-    """Sort dictionary keys by their values
-
-    >>> sortDict({"Richard": 23, "Andrew": 21, "James": 15})
-    ['James', 'Andrew', 'Richard']
-    """
-    e = d.keys()
-    e.sort(cmp=lambda a,b: cmp(d[a],d[b]))
-    return e
 
 
 def parseUrl(url):
     """Fetch url and return an ElementTree of the parsed XML"""
     fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': _USER_AGENT}))
     tree = html.parse(fp)
-    # remove style content that will confuse parsing
-    for tag in _MERGED_TAGS:
+    # remove tags that are not useful
+    for tag in _IGNORE_TAGS:
         for item in tree.findall('.//' + tag):
-            item.drop_tag()
+            item.drop_tree()
     return tree
 
 
 def getElementText(e):
     """Extract text from HtmlElement"""
-    return (e.text.strip() if e.text else '') + ''.join(' ' + c.tail.strip() for c in e if c.tail)
+    text = []
+    if e.text:
+        text.append(e.text.strip())
+    for child in e:
+        if child.tag in _MERGE_TAGS:
+            text.append(child.text_content())
+        if child.tail:
+            text.append(child.tail.strip())
+    return ' '.join(text)
 
 
 def normalizeXpath(xpath):
@@ -68,14 +66,13 @@ def extractXpaths(tree, element, xpaths):
     """Return a hashtable of the xpath to each text element"""
     tag = element.tag
     if type(tag) == type(str()):
-        if tag not in _IGNORED_TAGS:
-            text = getElementText(element)
-            if text:
-                xpaths.setdefault(text, [])
-                xpath = normalizeXpath(tree.getpath(element))
-                xpaths[text].append(xpath)
-            for child in element:
-                extractXpaths(tree, child, xpaths)
+        text = getElementText(element)
+        if text:
+            xpaths.setdefault(text, [])
+            xpath = normalizeXpath(tree.getpath(element))
+            xpaths[text].append(xpath)
+        for child in element:
+            extractXpaths(tree, child, xpaths)
 
 
 def findXpaths(xpaths, output):
@@ -104,7 +101,8 @@ def reduceXpaths(xpaths, trees):
     """
     # the xpaths that have been abstracted by a regular expression
     reducedXpaths = xpaths[:]
-    regRange = {}
+    #regRange = {}
+    newRegs = []
 
     for x1 in xpaths:
         x1tokens = x1.split('/')
@@ -114,24 +112,35 @@ def reduceXpaths(xpaths, trees):
                 diff = misc.difference(x1tokens, x2tokens)
                 if len(diff) == 1:
                     reg = '/'.join(x1tokens[:diff[0]] + ['*'] + x1tokens[diff[0]+1:])
-                    if not trees or len(misc.unique(len(tree.xpath(reg)) for tree in trees)) > 1:
-                        # the trees have a different number of child elements at this node
-                        #  - so get all of them
-                        if reg not in reducedXpaths:
-                            reducedXpaths.append(reg)
-                        if x1 in reducedXpaths:
-                            reducedXpaths.remove(x1)
-                        if x2 in reducedXpaths:
-                            reducedXpaths.remove(x2)
-                        regRange.setdefault(reg, [])
-                        regRange[reg].append(x1tokens[diff[0]])
-                        regRange[reg].append(x2tokens[diff[0]])
+                    newRegs.append(reg)
 
-    # restrict xpath regular expressions to lowest index seen
-    for xpath, nodes in regRange.items():
-        minPosition = min(misc.extractInt(node) for node in nodes)
-        restrictedXpath = xpath.replace('*', '*[position()>%d]' % (minPosition - 1))
-        reducedXpaths[reducedXpaths.index(xpath)] = restrictedXpath
+    for reg in misc.unique(newRegs):
+        matchedXpaths = []
+        matchedTagIds = []
+        regTokens = reg.split('/')
+        for xpath in reducedXpaths:
+            xpathTokens = xpath.split('/')
+            diff = misc.difference(regTokens, xpathTokens)
+            if len(diff) == 1:
+                matchedXpaths.append(xpath)
+                matchedTagIds.append(misc.extractInt(xpathTokens[diff[0]]))
+        if not matchedTagIds: continue
+        matchedTagIds.sort()
+        minPosition = matchedTagIds[0]
+
+        # abstract this content if:
+        #   there are a different number of child elements on each tree at this location
+        #   or the content is ordered
+        if not trees or len(misc.unique(len(tree.xpath(reg)) for tree in trees)) > 1 or \
+            matchedTagIds == range(minPosition, len(matchedTagIds)+1):
+            # restrict xpath regular expressions to lowest index seen
+            if minPosition > 1:
+                reg = reg.replace('*', '*[position()>%d]' % (minPosition - 1))
+            for xpath in matchedXpaths:
+                reducedXpaths.remove(xpath)
+            reducedXpaths.append(reg)
+    #print xpaths
+    #print reducedXpaths
     return reducedXpaths
 
 
@@ -152,7 +161,7 @@ def trainModel(urlOutputs):
                 outputXpaths[i][xpath] += 1
 
     # return most frequent xpath for each type - XXX make more robust
-    bestXpaths = [sortDict(x)[-1] for x in outputXpaths]
+    bestXpaths = [misc.sortDict(x)[-1] for x in outputXpaths]
     #print outputXpaths
     #print bestXpaths
     # these xpaths form part of the total content and need to be collapsed in output
