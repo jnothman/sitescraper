@@ -286,6 +286,23 @@ data['4amazon'] = [
 ]
 
 
+data['5imdb'] = [
+    ('file:html/film/imdb/1.html', ["The Shawshank Redemption", "Tim Robbins", "Morgan Freeman", "Bob Gunton", "Andy Dufresne", "Ellis Boyd 'Red' Redding", "Warden Norton"]),
+    ('file:html/film/imdb/2.html', ["The Godfather", "Marlon Brando", "Al Pacino", "James Caan", "Don Vito Corleone", "Michael Corleone", "Santino 'Sonny' Corleone"]),
+    ('file:html/film/imdb/3.html', ["The Dark Knight", "Christian Bale", "Heath Ledger", "Aaron Eckhart", "Bruce Wayne / Batman", "The Joker", "Harvey Dent / Two-Face"]),
+    ('file:html/film/imdb/4.html', ["The Godfather: Part II", "Al Pacino", "Robert Duvall", "Diane Keaton", "Don Michael Corleone", "Tom Hagen", "Kay Corleone"]),
+    ('file:html/film/imdb/5.html', ["Buono, il brutto, il cattivo., Il", "Eli Wallach", "Clint Eastwood", "Lee Van Cleef", "Tuco", "    Blondie", "Sentenza / Angel Eyes"]),
+    ('file:html/film/imdb/6.html', ["Pulp Fiction", "John Travolta", "Samuel L. Jackson", "Tim Roth", "Vincent Vega", "Jules Winnfield", "Pumpkin - Ringo"]),
+    ('file:html/film/imdb/7.html', ["Schindler's List", "Liam Neeson", "Ben Kingsley", "Ralph Fiennes", "Oskar Schindler", "Itzhak Stern", "Amon Goeth"]),
+    ('file:html/film/imdb/8.html', ["One Flew Over the Cuckoo's Nest", "Jack Nicholson", "Louise Fletcher", "William Redfield", "R.P. McMurphy", "Nurse Mildred Ratched", "Dale Harding"]),
+    ('file:html/film/imdb/9.html', ["Star Wars: Episode V - The Empire Strikes Back", "Mark Hamill", "Harrison Ford", "Carrie Fisher", "Luke Skywalker", "Han Solo", "Princess Leia"]),
+    #('file:html/film/imdb/10.html', ["", "", "", "", "", "", ""]),
+    #('file:html/film/imdb/11.html', ["", "", "", "", "", "", ""]),
+    #('file:html/film/imdb/12.html', ["", "", "", "", "", "", ""]),
+    #('file:html/film/imdb/13.html', ["", "", "", "", "", "", ""]),
+]
+
+
 data['9LQ'] = [
     ('file:html/forum/LQ/1.html', [
 """On two systems, firefox 2.0.0.8 and firefox 2.0.0.8 keeps the installed Video DownloadHelper addon disabled. It refers to "missing elements" and grays out the "enable addon button".

@@ -99,32 +99,34 @@ def reduceXpaths(xpaths, trees):
     >>> reduceXpaths(['/html/table/tr[1]/td', '/html/table/tr[2]/td', '/html/table/tr[3]/td', '/html/body/a'], [])
     ['/html/body/a', '/html/table/*/td']
     """
-    # the xpaths that have been abstracted by a regular expression
-    reducedXpaths = xpaths[:]
-    #regRange = {}
-    newRegs = []
-
+    newRegs = {}
     for x1 in xpaths:
         x1tokens = x1.split('/')
         for x2 in xpaths:
-            if x1 != x2 and (x1 in reducedXpaths or x2 in reducedXpaths):
+            if x1 != x2:
                 x2tokens = x2.split('/')
                 diff = misc.difference(x1tokens, x2tokens)
                 if len(diff) == 1:
                     reg = '/'.join(x1tokens[:diff[0]] + ['*'] + x1tokens[diff[0]+1:])
-                    newRegs.append(reg)
+                    newRegs.setdefault(reg, 0)
+                    newRegs[reg] += 1
 
-    for reg in misc.unique(newRegs):
+    # newRegs now holds the number of matching xpaths for each regular expression
+    # so sort by this amount to favour more useful regular expressions.
+    # This is important when extracting 2 columns of data from a webpage where the rows will also match
+    for reg in misc.sortDict(newRegs, True):
         matchedXpaths = []
         matchedTagIds = []
         regTokens = reg.split('/')
-        for xpath in reducedXpaths:
-            xpathTokens = xpath.split('/')
-            diff = misc.difference(regTokens, xpathTokens)
-            if len(diff) == 1:
-                matchedXpaths.append(xpath)
-                matchedTagIds.append(misc.extractInt(xpathTokens[diff[0]]))
-        if not matchedTagIds: continue
+        for xpath in xpaths:
+            if '*' not in xpath:
+                xpathTokens = xpath.split('/')
+                diff = misc.difference(regTokens, xpathTokens)
+                if len(diff) == 1:
+                    matchedXpaths.append(xpath)
+                    matchedTagIds.append(misc.extractInt(xpathTokens[diff[0]]))
+        if not matchedTagIds: 
+            continue # these xpaths have already been used by a previous regular expression
         matchedTagIds.sort()
         minPosition = matchedTagIds[0]
 
@@ -133,15 +135,14 @@ def reduceXpaths(xpaths, trees):
         #   or the content is ordered
         if not trees or len(misc.unique(len(tree.xpath(reg)) for tree in trees)) > 1 or \
             matchedTagIds == range(minPosition, len(matchedTagIds)+1):
-            # restrict xpath regular expressions to lowest index seen
+            # restrict xpath regular expressions to lowest index encountered
             if minPosition > 1:
                 reg = reg.replace('*', '*[position()>%d]' % (minPosition - 1))
+            # remove this xpaths now so they can't be used by another regular expression
             for xpath in matchedXpaths:
-                reducedXpaths.remove(xpath)
-            reducedXpaths.append(reg)
-    #print xpaths
-    #print reducedXpaths
-    return reducedXpaths
+                xpaths.remove(xpath)
+            xpaths.append(reg)
+    return xpaths
 
 
 def trainModel(urlOutputs):
@@ -160,8 +161,9 @@ def trainModel(urlOutputs):
                 outputXpaths[i].setdefault(xpath, 0)
                 outputXpaths[i][xpath] += 1
 
-    # return most frequent xpath for each type - XXX make more robust
-    bestXpaths = [misc.sortDict(x)[-1] for x in outputXpaths]
+    # return most frequent xpath for each type
+    bestXpaths = [sorted(x for (x, count) in xs.items() if count == max(xs.values()))[0] for xs in outputXpaths]
+    #bestXpaths = [misc.sortDict(x, True)[0] for x in outputXpaths]
     #print outputXpaths
     #print bestXpaths
     # these xpaths form part of the total content and need to be collapsed in output

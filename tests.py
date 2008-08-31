@@ -14,7 +14,7 @@ def runExampleData():
     modelSize = 3
     os.chdir('data')
     accuracies = []
-    for site, d in sorted(data.items())[:-1]:
+    for site, d in sorted(data.items())[-2:-1]:
         model = ss.trainModel(d[:modelSize])
         print site, 'model:', model
         for url, expectedOutput in d:

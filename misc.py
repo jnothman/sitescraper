@@ -13,7 +13,7 @@ if parentDir not in sys.path:
 
 
 
-def sortDict(d):
+def sortDict(d, reverse=False):
     """Sort dictionary keys by their values
 
     >>> sortDict({"Richard": 23, "Andrew": 21, "James": 15})
@@ -21,6 +21,8 @@ def sortDict(d):
     """
     e = d.keys()
     e.sort(cmp=lambda a,b: cmp(d[a],d[b]))
+    if reverse:
+        e.reverse()
     return e
 
 
