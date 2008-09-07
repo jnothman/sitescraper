@@ -38,7 +38,7 @@ def runExampleData():
 
                 s = SequenceMatcher(None, e, g)
                 thisLCS = sum(n for (i, j, n) in s.get_matching_blocks())"""
-                maxLCS = len(e)
+                maxLCS = max(1, len(e))
                 accuracies.append(100 * thisLCS // maxLCS)
                 if thisLCS < 0.99*maxLCS:
                     print '%d/%d (%d%%)' % (thisLCS, maxLCS, accuracies[-1])

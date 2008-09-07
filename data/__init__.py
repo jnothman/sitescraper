@@ -5,7 +5,7 @@
 data = {}
 
 
-data['1stocks'] = [
+data['1asx'] = [
     ('file:html/stocks/asx/1.html', ('42.140', '43.030', '41.930')),
     ('file:html/stocks/asx/2.html', ('16.770', '16.930', '16.610')),
     ('file:html/stocks/asx/3.html', ('24.850', '25.120', '24.630')),
@@ -22,7 +22,7 @@ data['1stocks'] = [
 ]
 
 
-data['2weather'] = [
+data['2ninemsnweather'] = [
     ('file:html/weather/ninemsn/1.html', ['Frankston', 'Heidelberg']),
     ('file:html/weather/ninemsn/2.html', ['Falls Creek', 'Mt Buller']),
     ('file:html/weather/ninemsn/3.html', ['Benalla', 'Bendigo']),
@@ -39,7 +39,7 @@ data['2weather'] = [
 ]
 
 
-data['3news'] = [
+data['3theage'] = [
     ('file:html/news/theage/1.html', ["""PREMIER John Brumby has commissioned taxpayer-funded polling to gauge public reaction to the prospect of the Government building the contentious "missing link" in Melbourne's ring road.
 
 Mr Brumby's department has engaged market research firm I-view to assess voters' views on a range of controversial projects he is considering for inclusion in a multibillion-dollar plan to tackle Melbourne's road and public transport congestion."""]),
@@ -296,10 +296,27 @@ data['5imdb'] = [
     ('file:html/film/imdb/7.html', ["Schindler's List", "Liam Neeson", "Ben Kingsley", "Ralph Fiennes", "Oskar Schindler", "Itzhak Stern", "Amon Goeth"]),
     ('file:html/film/imdb/8.html', ["One Flew Over the Cuckoo's Nest", "Jack Nicholson", "Louise Fletcher", "William Redfield", "R.P. McMurphy", "Nurse Mildred Ratched", "Dale Harding"]),
     ('file:html/film/imdb/9.html', ["Star Wars: Episode V - The Empire Strikes Back", "Mark Hamill", "Harrison Ford", "Carrie Fisher", "Luke Skywalker", "Han Solo", "Princess Leia"]),
-    #('file:html/film/imdb/10.html', ["", "", "", "", "", "", ""]),
-    #('file:html/film/imdb/11.html', ["", "", "", "", "", "", ""]),
-    #('file:html/film/imdb/12.html', ["", "", "", "", "", "", ""]),
-    #('file:html/film/imdb/13.html', ["", "", "", "", "", "", ""]),
+    ('file:html/film/imdb/10.html', ["12 Angry Men", "Martin Balsam", "John Fiedler", "Lee J. Cobb", "Juror #1", "Juror #2", "Juror #3"]),
+    ('file:html/film/imdb/11.html', ["Casablanca", "Humphrey Bogart", "Ingrid Bergman", "Paul Henreid", "Rick Blaine", "Ilsa Lund", "Victor Laszlo"]),
+    ('file:html/film/imdb/12.html', ["Star Wars", "Mark Hamill", "Harrison Ford", "Carrie Fisher", "Luke Skywalker", "Han Solo", "Princess Leia Organa"]),
+    ('file:html/film/imdb/13.html', ["Shichinin no samurai", "Takashi Shimura", "Toshirô Mifune", "Yoshio Inaba", "Kambei Shimada", "Kikuchiyo", "Gorobei Katayama"]),
+]
+
+
+data['6yahoo'] = [
+    ('file:html/search/yahoo/1.html', ["digital cameras", "Digital Cameras - Shopzilla.com", "Digital Camera Reviews and News: Digital Photography Review: Forums ...", "Digital cameras; compare digital camera reviews to find the best one ...", "Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.", "Vast samples galleries and the largest database of digital camera specifications. ... Digital cameras baffle Britons. Digital cameras are the gadget that ...", "Digital camera reviews and ratings, video reviews, user opinions, most popular digital cameras, camera buying guides, prices, and comparisons.", "www.shopzilla.com/10J--Digital_Cameras_-_cat_id--402", "www.dpreview.com", "reviews.cnet.com/digital-cameras"]),
+    ('file:html/search/yahoo/2.html', ["flowers", "Fresh Flowers, Gifts & More | 1-800-FLOWERS.com - Official Site", "FTD.com - Official Site - Fresh Flowers, Plants and Gifts", "FTD.com - Flowers | Florist Delivered Roses | Plants | Gift Basket Delivery", "Send fresh flowers with 1-800-FLOWERS.COM, your florist of choice. Offering flower delivery, plants, gift baskets, sweets & more. Same day nationwide delivery available.", "Order & send fresh flowers, roses, bouquets, gift baskets & more at FTD - your online florist. We offer same day delivery on fresh flowers & plants.", "Official Site - Same day delivery of fresh flowers, roses, and unique gift baskets from FTD. Flower delivery online by local florists for birthday flowers, ...", "www.1800flowers.com", "www.ftd.com", "www.ftd.com/522"]),
+    ('file:html/search/yahoo/3.html', ["ford", "Ford Motor Company", "ford motor company", "Ford Motor Company Ford Vehicles", "Official site for the Ford Motor Company, manufacturer of SUVs, cars, trucks, and wagons. The Ford family brand includes Lincoln, Mercury, Mazda, Volvo, Jaguar, ...", "", "Learn about Ford cars, trucks, minivans, and SUVs. Get price quotes, search dealer inventory, compare vehicles, and find out about incentives and financing.", "www.ford.com", "www.ford.com/en/default.htm", "www.fordvehicles.com"]),
+    ('file:html/search/yahoo/4.html', ["halloween costumes", "Halloween Costumes for Adults, Teens & Kids - Halloween Supplies : Buy ...", "Great Halloween Costumes Since 1954 - Adult, Child & Plus Size ...", "Halloween Costumes - Sexy Adults, Kids Costume Baby Ideas", "BuyCostumes.com is the web's most popular store for Halloween costumes, accessories and props as well as party supplies and decorations. Visit our Halloween costume ...", "... Halloween costume ... your look with a Costume Wig, Hat, Halloween Mask, or Mardi Gras ... seems like original Halloween costumes are becoming harder and ...", "Offers Halloween costumes for adults, kids, toddlers, and babies including accessories such as masks, wings and make up. Wide selection of haunted house ...", "www.buycostumes.com", "www.anytimecostumes.com", "www.costumecauldron.com"]),
+    ('file:html/search/yahoo/5.html', ["ipod", "Apple - iPod + iTunes", "iPod - Wikipedia, the free encyclopedia", "iPod Central: Apple iPod reviews, news and videos - CNET.com", "Learn about iPod, Apple TV, and accessories. Download iTunes software free and ... iPod nano Armband. Universal Dock. Radio Remote. In-Ear Headphones. USB ...", "Article describing Apple's iPod, including hardware and software features, history, models, criticisms, sales, and other aspects.", "Get the latest iPod reviews, news and videos. ... Apple iPod Touch accessories ... The iPod Nano is a powerful player, and you can make the most out of it with ...", "www.apple.com/ipod", "en.wikipedia.org/wiki/IPod", "www.cnet.com/ipod"]),
+    ('file:html/search/yahoo/6.html', ["nike", "Nike's Official Online Store - NikeStore.com", "Nike", "Nike, Inc. - Wikipedia, the free encyclopedia", "Shop Nike's official online store for a large selection of men's, women's, and children's Nike shoes, clothing, and athletic gear.", "Designs, develops, and markets footwear, apparel, equipment, and accessory products. Explore Nike's site to shop online, customize products, and find a local store.", "Nike and Precision Castparts are the only Fortune 500 companies headquartered in ... The company takes its name from Nike, the Greek goddess of victory. ...", "www.nike.com/index.jhtml?l=nikestore", "www.nike.com", "en.wikipedia.org/wiki/Nike,_Inc."]),
+    ('file:html/search/yahoo/7.html', ["nissan", "Nissan USA - Official Site", "Nissan USA - Nissan Cars, Trucks, Crossovers, SUVs, Hybrid", "Nissan Motors - Wikipedia, the free encyclopedia", "View our lineup of Cars, Trucks, and SUVs. Research, Design, and Locate your next Nissan.", "Official site for Nissan cars, trucks, SUVs, crossovers and hybrid vehicles. ... About Nissan Buying Contact Us Site Feedback Copyright Privacy Policy Site Map ...", "The Nissan VQ engines, of V6 configuration, have featured among Ward's 10 Best ... 1.4 Nissan's early American connection. 1.5 Relationship with Ford Motor Company ...", "www.nissanusa.com", "www.nissanusa.com/?Site=Google&Creative=Unknown&Area=nissan", "en.wikipedia.org/wiki/Nissan"]),
+    ('file:html/search/yahoo/8.html', ["psp", "Sony PSP Value Pack Console", "PlayStation.com - PlayStation Portable", "IGN PSP: Games, Cheats, News, Reviews, and Previews", "The iPod of games and movies: The PSP's screen has to be seen to be believed. Watching movies and playing games on it makes you forget you're looking at a handheld. The...", "Official page from Sony Computer Entertainment America. ... Home. Games Media & Downloads News Forums Support. PlayStation 3 PSP PlayStation 2. PSP® GAMES ...", "Offers reviews of games, videos, screenshots, and more for the Sony PSP game platform.", "Yahoo! Shortcut", "www.us.playstation.com/PSP", "psp.ign.com"]),
+    #('file:html/search/yahoo/9.html', ["", "", "", "", "", "", "", "", "", ""]),
+    #('file:html/search/yahoo/10.html', ["", "", "", "", "", "", "", "", "", ""]),
+    #('file:html/search/yahoo/11.html', ["", "", "", "", "", "", "", "", "", ""]),
+    #('file:html/search/yahoo/12.html', ["", "", "", "", "", "", "", "", "", ""]),
+    #('file:html/search/yahoo/13.html', ["", "", "", "", "", "", "", "", "", ""]),
 ]
 
 
