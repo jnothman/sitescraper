@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
-data = {}
+data = []
 
 
-data['1asx'] = [
+data.append(('ASX stocks', [
     ('file:html/stocks/asx/1.html', ('42.140', '43.030', '41.930')),
     ('file:html/stocks/asx/2.html', ('16.770', '16.930', '16.610')),
     ('file:html/stocks/asx/3.html', ('24.850', '25.120', '24.630')),
@@ -19,10 +19,10 @@ data['1asx'] = [
     ('file:html/stocks/asx/11.html', ('115.700', '117.490', '112.870')),
     ('file:html/stocks/asx/12.html', ('4.380', '4.430', '4.350')),
     ('file:html/stocks/asx/13.html', ('27.090', '27.570', '26.760')),
-]
+]))
 
 
-data['2ninemsnweather'] = [
+data.append(('NineMSN weather', [
     ('file:html/weather/ninemsn/1.html', ['Frankston', 'Heidelberg']),
     ('file:html/weather/ninemsn/2.html', ['Falls Creek', 'Mt Buller']),
     ('file:html/weather/ninemsn/3.html', ['Benalla', 'Bendigo']),
@@ -36,10 +36,10 @@ data['2ninemsnweather'] = [
     ('file:html/weather/ninemsn/11.html', ['Bairnsdale', 'Latrobe Valley']),
     ('file:html/weather/ninemsn/12.html', ['Donald', 'Horsham']),
     ('file:html/weather/ninemsn/13.html', ['Aireys Inlet', 'Ararat']),
-]
+]))
 
 
-data['3theage'] = [
+data.append(('The Age news', [
     ('file:html/news/theage/1.html', ["""PREMIER John Brumby has commissioned taxpayer-funded polling to gauge public reaction to the prospect of the Government building the contentious "missing link" in Melbourne's ring road.
 
 Mr Brumby's department has engaged market research firm I-view to assess voters' views on a range of controversial projects he is considering for inclusion in a multibillion-dollar plan to tackle Melbourne's road and public transport congestion."""]),
@@ -266,10 +266,10 @@ The world-first research, by RMIT senior lecturer Margaret Lech, could transform
     Today, he said he wanted to take a holiday to Darwin, which he had not visited since before Cyclone Tracy struck in 1974. He also hoped to perform some charity work.
     
     Mr Taylor's solicitor, David Forster, from Hollows Lawyers, said he welcomed the Commonwealth's change of attitude under the new federal government. He said lawyers for the claimants hoped to lay the long-running Voyager saga to rest during the mediations over the next two weeks."""]),
-]
+]))
 
 
-data['4amazon'] = [
+data.append(('Amazon', [
     ('file:html/commerce/amazon/1.html', ["The Definitive Guide to Django: Web Development Done Right", "Practical Django Projects (Pratical Projects)", "Django", "$31.06", "$30.24", "$12.99"]),
     ('file:html/commerce/amazon/2.html', [" Programming in Haskell", "Real World Haskell", "The Haskell Road to Logic, Maths and Programming (Texts in Computing S.)", "$38.26", "$49.99", "$22.50"]),
     ('file:html/commerce/amazon/3.html', ["Head First Java, 2nd Edition", "Effective Java (2nd Edition) (The Java Series)", "Java How to Program, 7th Edition", "$29.67", "$33.71", "$83.52"]),
@@ -283,10 +283,10 @@ data['4amazon'] = [
     ('file:html/commerce/amazon/11.html', ["Sams Teach Yourself SQL in 10 Minutes (3rd Edition) (Sams Teach Yourself)", "Learning SQL (Learning)", "SQL Cookbook (Cookbooks (O'Reilly))", "$13.59", "$20.97", "$23.97"]),
     ('file:html/commerce/amazon/12.html', ["Learning Python, 3rd Edition", "Python in a Nutshell (In a Nutshell (O'Reilly))", "Python Cookbook", "$23.99", "$26.39", "$29.97"]),
     ('file:html/commerce/amazon/13.html', ["A Practical Guide to Linux(R) Commands, Editors, and Shell Programming", "Linux Pocket Guide", "Linux Bible, 2008 Edition: Boot up to Ubuntu, Fedora, KNOPPIX, Debian, openSUSE, and 11 Other Distributions", "$29.99", "$9.95", "$29.99"]),
-]
+]))
 
 
-data['5imdb'] = [
+data.append(('IMDB', [
     ('file:html/film/imdb/1.html', ["The Shawshank Redemption", "Tim Robbins", "Morgan Freeman", "Bob Gunton", "Andy Dufresne", "Ellis Boyd 'Red' Redding", "Warden Norton"]),
     ('file:html/film/imdb/2.html', ["The Godfather", "Marlon Brando", "Al Pacino", "James Caan", "Don Vito Corleone", "Michael Corleone", "Santino 'Sonny' Corleone"]),
     ('file:html/film/imdb/3.html', ["The Dark Knight", "Christian Bale", "Heath Ledger", "Aaron Eckhart", "Bruce Wayne / Batman", "The Joker", "Harvey Dent / Two-Face"]),
@@ -300,10 +300,10 @@ data['5imdb'] = [
     ('file:html/film/imdb/11.html', ["Casablanca", "Humphrey Bogart", "Ingrid Bergman", "Paul Henreid", "Rick Blaine", "Ilsa Lund", "Victor Laszlo"]),
     ('file:html/film/imdb/12.html', ["Star Wars", "Mark Hamill", "Harrison Ford", "Carrie Fisher", "Luke Skywalker", "Han Solo", "Princess Leia Organa"]),
     ('file:html/film/imdb/13.html', ["Shichinin no samurai", "Takashi Shimura", "Toshirô Mifune", "Yoshio Inaba", "Kambei Shimada", "Kikuchiyo", "Gorobei Katayama"]),
-]
+]))
 
 
-data['6yahoo'] = [
+data.append(('Yahoo search', [
     ('file:html/search/yahoo/1.html', ["digital cameras", "Digital Cameras - Shopzilla.com", "Digital Camera Reviews and News: Digital Photography Review: Forums ...", "Digital cameras; compare digital camera reviews to find the best one ...", "Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.", "Vast samples galleries and the largest database of digital camera specifications. ... Digital cameras baffle Britons. Digital cameras are the gadget that ...", "Digital camera reviews and ratings, video reviews, user opinions, most popular digital cameras, camera buying guides, prices, and comparisons.", "www.shopzilla.com/10J--Digital_Cameras_-_cat_id--402", "www.dpreview.com", "reviews.cnet.com/digital-cameras"]),
     ('file:html/search/yahoo/2.html', ["flowers", "Fresh Flowers, Gifts & More | 1-800-FLOWERS.com - Official Site", "FTD.com - Official Site - Fresh Flowers, Plants and Gifts", "FTD.com - Flowers | Florist Delivered Roses | Plants | Gift Basket Delivery", "Send fresh flowers with 1-800-FLOWERS.COM, your florist of choice. Offering flower delivery, plants, gift baskets, sweets & more. Same day nationwide delivery available.", "Order & send fresh flowers, roses, bouquets, gift baskets & more at FTD - your online florist. We offer same day delivery on fresh flowers & plants.", "Official Site - Same day delivery of fresh flowers, roses, and unique gift baskets from FTD. Flower delivery online by local florists for birthday flowers, ...", "www.1800flowers.com", "www.ftd.com", "www.ftd.com/522"]),
     ('file:html/search/yahoo/3.html', ["ford", "Ford Motor Company", "ford motor company", "Ford Motor Company Ford Vehicles", "Official site for the Ford Motor Company, manufacturer of SUVs, cars, trucks, and wagons. The Ford family brand includes Lincoln, Mercury, Mazda, Volvo, Jaguar, ...", "", "Learn about Ford cars, trucks, minivans, and SUVs. Get price quotes, search dealer inventory, compare vehicles, and find out about incentives and financing.", "www.ford.com", "www.ford.com/en/default.htm", "www.fordvehicles.com"]),
@@ -317,10 +317,10 @@ data['6yahoo'] = [
     #('file:html/search/yahoo/11.html', ["", "", "", "", "", "", "", "", "", ""]),
     #('file:html/search/yahoo/12.html', ["", "", "", "", "", "", "", "", "", ""]),
     #('file:html/search/yahoo/13.html', ["", "", "", "", "", "", "", "", "", ""]),
-]
+]))
 
 
-data['9LQ'] = [
+data.append(('LQ forum', [
     ('file:html/forum/LQ/1.html', [
 """On two systems, firefox 2.0.0.8 and firefox 2.0.0.8 keeps the installed Video DownloadHelper addon disabled. It refers to "missing elements" and grays out the "enable addon button".
 
@@ -753,4 +753,4 @@ It is not connected to the internet as of now. Does it need to be connected to t
 TIA""",
 """Eth0 is being recognised (use the ifconfig command to check if it's up). 127.0.0.1 is a reserved address, commonly called a loopback address, assigned to your card. It won't use another address until it is connected to a network of some description.""",
 ]),
-]
+]))

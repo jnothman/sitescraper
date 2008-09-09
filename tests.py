@@ -14,7 +14,9 @@ def runExampleData():
     modelSize = 3
     os.chdir('data')
     accuracies = []
-    for site, d in sorted(data.items())[-2:-1]:
+    for site, d in data[:1]:
+        siteAccuracies = []
+        #if 'forum' in site: continue
         model = ss.trainModel(d[:modelSize])
         print site, 'model:', model
         for url, expectedOutput in d:
@@ -31,6 +33,7 @@ def runExampleData():
                     s.set_seq1(g)
                     genLCSs.append((sum(n for (i, j, n) in s.get_matching_blocks()), g))
                 thisLCS, g = max(genLCSs)
+                thisLCS -= abs(len(e) - len(g))
                 """if i < len(generatedOutput):
                     g = normalizeStr(generatedOutput[i])
                 else:
@@ -39,18 +42,18 @@ def runExampleData():
                 s = SequenceMatcher(None, e, g)
                 thisLCS = sum(n for (i, j, n) in s.get_matching_blocks())"""
                 maxLCS = max(1, len(e))
-                accuracies.append(100 * thisLCS // maxLCS)
-                if thisLCS < 0.99*maxLCS:
-                    print '%d/%d (%d%%)' % (thisLCS, maxLCS, accuracies[-1])
+                siteAccuracies.append(100 * thisLCS // maxLCS)
+                if thisLCS < 0.99*maxLCS:# or len(g) > 2*len(e):
+                    print '%d/%d (%d%%)' % (thisLCS, maxLCS, siteAccuracies[-1])
                     #continue
-                    print 'Expected:',
-                    print e
-                    print 'Get:     ',
-                    print g
+                    print 'Expected:', e
+                    print 'Get:     ', g
                     print
                 else:
                     pass # success!
-    print "Accuracy: %.2f%%" % average(accuracies)
+        accuracies.append(siteAccuracies)
+    print ['%.2f%%' % average(a) for a in accuracies]
+    print 'Accuracy: %.2f%%' % average([average(a) for a in accuracies])
 
 
 def runDocTests():

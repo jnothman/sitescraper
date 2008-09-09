@@ -26,6 +26,32 @@ def sortDict(d, reverse=False):
     return e
 
 
+def anyIn(l1, l2):
+    """Return true if any of first list is in second list
+
+    >>> anyIn([1,2], [2,3])
+    2
+    >>> anyIn([1,2], [3])
+    
+    """
+    for v1 in l1:
+        if v1 in l2:
+            return v1
+    return None
+def allIn(l1, l2):
+    """Return true if all of first list is in second list
+
+    >>> allIn([1,2], [2,3])
+    False
+    >>> allIn([1,2], [1,2])
+    True
+    """
+    for v1 in l1:
+        if v1 not in l2:
+            return False
+    return True
+
+
 def difference(l1, l2):
     """Return indices in list that differ
 
@@ -85,4 +111,5 @@ def extractInt(s):
 
 def normalizeStr(s):
     """Remove characters that make string comparison difficult from copied text"""
-    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).strip().decode('utf-8')
+    #s = s.decode('utf-8')
+    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).strip()
