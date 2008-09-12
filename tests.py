@@ -14,7 +14,8 @@ def runExampleData():
     modelSize = 3
     os.chdir('data')
     accuracies = []
-    for site, d in data[:1]:
+    i = 5
+    for site, d in data[i:i+1]:
         siteAccuracies = []
         #if 'forum' in site: continue
         model = ss.trainModel(d[:modelSize])
@@ -33,7 +34,7 @@ def runExampleData():
                     s.set_seq1(g)
                     genLCSs.append((sum(n for (i, j, n) in s.get_matching_blocks()), g))
                 thisLCS, g = max(genLCSs)
-                thisLCS -= abs(len(e) - len(g))
+                #thisLCS -= abs(len(e) - len(g))
                 """if i < len(generatedOutput):
                     g = normalizeStr(generatedOutput[i])
                 else:

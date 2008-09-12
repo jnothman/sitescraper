@@ -122,11 +122,11 @@ def matchXpaths(xpaths, tree, output):
         return bestXpaths
 
 
-def reduceXpaths(xpaths, trees):
+def reduceXpaths(xpaths, tree, trees, alwaysExpand=False):
     """Reduce list of xpaths by combining similar ones in regular expressions
 
-    >>> reduceXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], [])
-    ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/*/td[1]']
+    >>> reduceXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], None, [])
+    ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
     """
     newRegs = {}
     for x1 in xpaths:
@@ -158,12 +158,17 @@ def reduceXpaths(xpaths, trees):
             continue # these xpaths have already been used by a previous regular expression
         matchedTagIds = sorted(misc.extractInt(tag) for tag in matchedTags)
         minPosition = matchedTagIds[0]
-        # abstract this content if:
-        #   there are a different number of child elements on each tree at this location
-        #   or the content is ordered
-        variableLength = len(misc.unique(len(tree.xpath(reg)) for tree in trees)) > 1
-        isOrdered = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
-        if not trees or variableLength or isOrdered:
+
+        expandReg = alwaysExpand
+        # apply this regular expression if:
+        if not expandReg:
+            # the content is ordered
+            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
+        if not expandReg:
+            # there are a different number of child elements on each tree at this location
+            expandReg = len(misc.unique(len(tree.xpath(reg)) for tree in trees)) > 1
+
+        if expandReg:
             # restrict xpath regular expressions to lowest index encountered
             uniqueTags = misc.unique(tag[:tag.index('[')] for tag in matchedTags)
             if len(uniqueTags) > 1:
@@ -174,6 +179,11 @@ def reduceXpaths(xpaths, trees):
                 commonTag += '[position()>%d]' % (minPosition - 1)
             partition = notNormalized(reg)[0]
             reg = '/'.join(regTokens[:partition] + [commonTag] + regTokens[partition+1:])
+            if tree:
+                a = xmlAttribs(tree)
+                print reg, '->',
+                reg = a.addCommonAttribs(a.commonAttribs(matchedXpaths), [reg])[0]
+                print reg
             # remove this xpaths now so they can't be used by another regular expression
             for xpath in matchedXpaths:
                 xpaths.remove(xpath)
@@ -181,7 +191,7 @@ def reduceXpaths(xpaths, trees):
     return xpaths
 
 
-class xmlAttribs(object):
+class xmlAttribs:
     """Extract attributes from XML tree and store them reverse indexed by attribute
 
     >>> tree = html.fromstring("<html><body node='0'><c class='1' node='1'>C<d class='2'></d></c><c class='1' node='2'>D</c></body</html>").getroottree()
@@ -192,8 +202,11 @@ class xmlAttribs(object):
     {'C': ['/html[1]/body[1]/c[1]'], 'D': ['/html[1]/body[1]/c[2]']}
     >>> a.extractAttribs(['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]'])
     {('node', '0'): ['/html[1]/body[1]'], ('node', '2'): ['/html[1]/body[1]/c[2]'], ('node', '1'): ['/html[1]/body[1]/c[1]'], ('class', '1'): ['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]']}
-    >>> a.commonAttribs(['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]'])
-    [(('node', '0'), '/html[1]/body[1]'), (('class', '1'), '/html[1]/body[1]/c[2]')]
+    >>> attribs = a.commonAttribs(['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]'])
+    >>> attribs
+    [('/html[1]/body[1]', ('node', '0')), ('/html[1]/body[1]/c[2]', ('class', '1'))]
+    >>> a.addCommonAttribs(attribs, ['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]'])
+    ["/html[1]/body[1][@node='0']/c[1][@class='1']", "/html[1]/body[1][@node='0']/c[2][@class='1']"]
     """
     def __init__(self, tree, xpaths=[]):
         if not xpaths:
@@ -202,6 +215,7 @@ class xmlAttribs(object):
         self.attribs = self.extractAttribs(xpaths)
 
     def breakXpath(self, xpath):
+        """Break xpath into sections so can match attributes over all parts"""
         xpaths = []
         sections = xpath.split('/')
         for i in range(1, len(sections)):
@@ -218,9 +232,19 @@ class xmlAttribs(object):
                 if section not in done:
                     done.append(section)
                     for element in self.tree.xpath(section):
-                        for attrib in element.attrib.items():
-                            attribs.setdefault(attrib, [])
-                            attribs[attrib].append(section)
+                        for attrName, attrValue in element.attrib.items():
+                            if '/' not in attrValue:
+                                if attrName == 'class':
+                                    # split classes for extra matching
+                                    attrValues = attrValue.split()
+                                    attrValues = [attrValue]
+                                else:
+                                    attrValues = [attrValue]
+                                    attrValues = []
+                                for attrValue in attrValues:
+                                    attrib = attrName, attrValue
+                                    attribs.setdefault(attrib, [])
+                                    attribs[attrib].append(section)
         return attribs
 
     def commonAttribs(self, xpaths):
@@ -234,23 +258,32 @@ class xmlAttribs(object):
                 if not match:
                     break
             if match: 
-                common.append((attrib, match))
+                common.append((match, attrib))
         return common
+
+    def addCommonAttribs(self, attribs, xpaths):
+        """Add common attributes among xpaths into xpath string"""
+        #attribs = self.commonAttribs(xpaths)
+        attribXpaths = []
+        for xpath in xpaths:
+            xpathSections = xpath.split('/')
+            for match, attrib in attribs:
+                xpathSections[match.count('/')] += "[@%s='%s']" % attrib
+            attribXpaths.append('/'.join(xpathSections))
+        return attribXpaths
 
 
 def trainModel(urlOutputs):
     """Train the model using the known output for the given urls"""
     # store relevant xpaths for each output
     outputXpaths = []
-    trees = []
-    for url, outputs in urlOutputs:
-        tree = parseUrl(url)
-        trees.append(tree)
+    trees = [parseUrl(url) for (url, outputs) in urlOutputs]
+    for tree, (url, outputs) in zip(trees, urlOutputs):
         xpaths = extractXpaths(tree)
         for i, output in enumerate(outputs):
             if i == len(outputXpaths): outputXpaths.append({})
             bestXpaths = matchXpaths(xpaths, tree, output)
-            for xpath in reduceXpaths(bestXpaths, []):
+            for xpath in reduceXpaths(bestXpaths, tree, trees, True):
                 outputXpaths[i].setdefault(xpath, 0)
                 outputXpaths[i][xpath] += 1
 
@@ -259,7 +292,7 @@ def trainModel(urlOutputs):
     #print outputXpaths
     # these xpaths form part of the total content and need to be collapsed in output
     collapseXpaths = [xpath for xpath in commonXpaths if notNormalized(xpath)]
-    return [(xpath, xpath in collapseXpaths) for xpath in reduceXpaths(commonXpaths, trees)]
+    return [(xpath, xpath in collapseXpaths) for xpath in reduceXpaths(commonXpaths, tree, trees)]
 
 
 def testModel(url, model):
