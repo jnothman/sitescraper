@@ -17,13 +17,15 @@ def runExampleData():
     i = 5
     for site, d in data[i:i+1]:
         siteAccuracies = []
-        #if 'forum' in site: continue
         model = ss.trainModel(d[:modelSize])
         print site, 'model:', model
-        for url, expectedOutput in d:
+        for url, expectedOutput in d[:modelSize]:
             print url
             generatedOutput = ss.testModel(url, model)
-            #print generatedOutput
+            print 'G: ' + '\n'.join(generatedOutput)
+            print
+            print 'E: ' + '\n'.join(expectedOutput)
+            #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
                 s = SequenceMatcher()
@@ -47,6 +49,8 @@ def runExampleData():
                 if thisLCS < 0.99*maxLCS:# or len(g) > 2*len(e):
                     print '%d/%d (%d%%)' % (thisLCS, maxLCS, siteAccuracies[-1])
                     #continue
+                    s.set_seq1(g)
+                    print s.get_matching_blocks()
                     print 'Expected:', e
                     print 'Get:     ', g
                     print
