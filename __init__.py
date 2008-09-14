@@ -99,7 +99,7 @@ class xmlAttributes(object):
         attribs = []
         for attrib in element.attrib.items():
             attrName, attrValue = attrib
-            if not misc.anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id'):
+            if not misc.anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id', 'class'):
                 attribs.append(attrib)
         return attribs
 
@@ -230,7 +230,6 @@ class xmlXpaths(object):
         return misc.normalizeStr(''.join(text).strip())
 
 
-    # XXX refactor xpath functions into class xmlXpath
     def normalizeXpath(self, xpath):
         """ElementTree can get confused when there is no explicit index, so add where missing"""
         newXpath = []
@@ -270,15 +269,6 @@ class xmlXpaths(object):
                     print '(%d - %s) %s: %s' % (l, m, xpath[0], text)
                     print
                 sys.exit()"""
-            """for i, xpath in enumerate(bestXpaths):#XXX
-                e = self.tree.xpath(xpath)[0]
-                text = getElementText(e)
-                alltext = misc.normalizeStr(e.text_content())
-                s.set_seq1(text)
-                textLCS = sum(n for (i, j, n) in s.get_matching_blocks())
-                s.set_seq1(alltext)
-                alltextLCS = sum(n for (i, j, n) in s.get_matching_blocks())
-                #print len(text), textLCS, len(alltext), alltextLCS, len(misc.normalizeStr(output))"""
             return bestXpaths
 
 
@@ -331,7 +321,6 @@ class xmlXpaths(object):
                 # restrict xpath regular expressions to lowest index encountered
                 if minPosition > 1:
                     commonTag += '[position()>%d]' % (minPosition - 1)
-                #partition = notNormalized(reg)[0]
                 reg = '/'.join(regTokens[:partition] + [commonTag] + regTokens[partition+1:])
                 # remove this xpaths now so they can't be used by another regular expression
                 for xpath in matchedXpaths:
@@ -360,9 +349,6 @@ def trainModel(urlOutputs):
         bestXpath = sorted((count, len(xpath), xpath) for (xpath, count) in outputXpaths.items())[-1][-1]
         if bestXpath not in bestXpaths:
             bestXpaths.append(bestXpath)
-        #maxCount = max(outputXpaths.values())
-        #bestXpaths.extend([xpath for (xpath, count) in outputXpaths.items() if count == maxCount])
-    #bestXpaths = misc.unique(bestXpaths)
 
     #print allOutputXpaths
     print bestXpaths
