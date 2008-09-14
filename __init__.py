@@ -9,8 +9,8 @@ from __future__ import nested_scopes, generators, division, absolute_import, wit
 import sys
 import os
 import re
+import string
 import urllib2
-import numpy
 from difflib import SequenceMatcher
 from . import misc
 from lxml import etree, html
@@ -64,11 +64,24 @@ class xmlAttributes(object):
         Xs = [X for X in self.Xs if X.getTree().xpath(xpath)]
         for section in self.breakXpath(xpath):
             sectionElements = misc.flatten([X.getTree().xpath(section) for X in Xs])
-            siblingElements = misc.flatten([list(e.itersiblings()) for e in sectionElements])
             proposedAttribs = self.commonAttribs(sectionElements)
-            duplicateAttribs = misc.flatten([self.extractAttribs(e) for e in siblingElements])
-            #print section, proposedAttribs, duplicateAttribs
-            acceptedAttribs.append([attrib for attrib in proposedAttribs if attrib not in duplicateAttribs])
+            """if len(sectionElements) == len(Xs):
+                # expect a single result, so add index
+                index = 0
+                for e in sectionElements:
+                    index += 1
+                    while 1:
+                        e = e.getprevious()
+                        if e:
+                            print proposedAttribs, e.attrib.items()
+                            if misc.allIn(proposedAttribs, e.attrib.items()):
+                                index += 1
+                        else:
+                            break
+                sectionXpath = self.addAttribs(section, section.count('/')*[[]] + [proposedAttribs])
+                print int(round(index // len(Xs))), sectionXpath, [X.getTree().xpath(sectionXpath) for X in Xs]
+                #proposedAttribs.append(index)"""
+            acceptedAttribs.append(proposedAttribs)
         return acceptedAttribs
 
 
@@ -86,7 +99,7 @@ class xmlAttributes(object):
         attribs = []
         for attrib in element.attrib.items():
             attrName, attrValue = attrib
-            if '/' not in attrValue and attrName in ('id'):
+            if not misc.anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id'):
                 attribs.append(attrib)
         return attribs
 
@@ -98,7 +111,7 @@ class xmlAttributes(object):
             for attrib in self.extractAttribs(e):
                 common.setdefault(attrib, 0)
                 common[attrib] += 1
-        minCount = len(elements) #// 2 + 1
+        minCount = len(elements)# // 2 + 1
         return [attrib for (attrib, count) in common.items() if count >= minCount]
 
 
@@ -113,7 +126,10 @@ class xmlAttributes(object):
             if attribs:
                 section = re.sub('\[\d+\]', '', section)
             for attrib in attribs:
-                section += "[@%s='%s']" % attrib
+                if type(attrib) == int:
+                    section += '[%d]' % attrib
+                else:
+                    section += "[@%s='%s']" % attrib
             sections.append(section)
         return '/'.join(sections)
 
@@ -226,25 +242,25 @@ class xmlXpaths(object):
 
 
     def matchXpaths(self, output):
-        """Find matching xpaths of output""" 
+        """Return Find matching xpaths of output and return the top ranked with the size of match""" 
         xpaths = self.getXpaths()
         if output in xpaths:
-            # exact match so can return xpaths directly
-            return xpaths[output]
+            # exact match so can return xpaths directly with a perfect match
+            return [(xpath, len(output)*len(output)) for xpath in xpaths[output]]
         else:
             # no exact match so return xpaths with Longest Common Sequence (LCS) 3 STDs over the mean
-            LCSs = []
+            sequences = []
             s = SequenceMatcher()
             s.set_seq2(misc.normalizeStr(output))
             for text, xpath in xpaths.items():
                 s.set_seq1(text)
                 # square the length to bias towards longer phrases
-                LCSs.append((sum(n*n for (i, j, n) in s.get_matching_blocks()), xpath))
-            lens = [l for (l, xpath) in LCSs]
-            minLen = numpy.mean(lens) + 3*numpy.std(lens)
-            bestXpaths = misc.flatten([xpath for (l, xpath) in LCSs if l > minLen])
-            LCSs = []
-            if 'Bargain pricesZZ' in output:
+                sequences.append((sum(n*n for (i, j, n) in s.get_matching_blocks()), xpath))
+            #lens = [l for (l, xpath) in LCSs]
+            #minLen = numpy.mean(lens) + 3*numpy.std(lens)
+            bestXpaths = misc.flatten([[(xpath, l) for xpath in xpaths] for (l, xpaths) in sequences if l > 0])
+            """LCSs = []
+            if 'PREMIER John Brumby haz' in output:
                 print output
                 print minLen
                 for text, xpath in xpaths.items():
@@ -253,7 +269,7 @@ class xmlXpaths(object):
                 for l, m, xpath, text in sorted(LCSs, reverse=True)[:10]:
                     print '(%d - %s) %s: %s' % (l, m, xpath[0], text)
                     print
-                sys.exit()
+                sys.exit()"""
             """for i, xpath in enumerate(bestXpaths):#XXX
                 e = self.tree.xpath(xpath)[0]
                 text = getElementText(e)
@@ -317,19 +333,11 @@ class xmlXpaths(object):
                     commonTag += '[position()>%d]' % (minPosition - 1)
                 #partition = notNormalized(reg)[0]
                 reg = '/'.join(regTokens[:partition] + [commonTag] + regTokens[partition+1:])
-                if 0:
-                    pass
-                    #a = xmlAttributes(tree)
-                    #print reg, '->',
-                    #reg = a.addCommonAttribs(a.commonAttribs(matchedXpaths), [reg])[0]
-                    #print reg
                 # remove this xpaths now so they can't be used by another regular expression
                 for xpath in matchedXpaths:
                     xpaths.remove(xpath)
                 acceptedRegs.append(reg)
-        # add attributes to xpath
-        A = xmlAttributes(Xs)
-        return [A.addUniqueAttribs(xpath) for xpath in xpaths + acceptedRegs]
+        return xpaths + acceptedRegs
     abstractXpaths = staticmethod(abstractXpaths)
 
 
@@ -342,21 +350,26 @@ def trainModel(urlOutputs):
     for X, (url, outputs) in zip(Xs, urlOutputs):
         for i, output in enumerate(outputs):
             if i == len(allOutputXpaths): allOutputXpaths.append({})
-            for xpath in X.matchXpaths(output):
+            for xpath, score in X.matchXpaths(output):
                 allOutputXpaths[i].setdefault(xpath, 0)
-                allOutputXpaths[i][xpath] += 1
-    #print outputXpaths
+                allOutputXpaths[i][xpath] += score
+
     # return most frequent xpath for each type
     bestXpaths = []
     for outputXpaths in allOutputXpaths:
         bestXpath = sorted((count, len(xpath), xpath) for (xpath, count) in outputXpaths.items())[-1][-1]
         if bestXpath not in bestXpaths:
             bestXpaths.append(bestXpath)
+        #maxCount = max(outputXpaths.values())
+        #bestXpaths.extend([xpath for (xpath, count) in outputXpaths.items() if count == maxCount])
+    #bestXpaths = misc.unique(bestXpaths)
 
-    #print commonXpaths
-    #print reduceXpaths(commonXpaths, Xs)
-    #sys.exit()
-    return xmlXpaths.abstractXpaths(bestXpaths, Xs)
+    #print allOutputXpaths
+    print bestXpaths
+    # add attributes to xpath
+    A = xmlAttributes(Xs)
+    abstractedXpaths = xmlXpaths.abstractXpaths(bestXpaths, Xs)
+    return [A.addUniqueAttribs(xpath) for xpath in abstractedXpaths]
 
 
 def testModel(url, model):

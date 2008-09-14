@@ -14,17 +14,17 @@ def runExampleData():
     modelSize = 3
     os.chdir('data')
     accuracies = []
-    i = 5
-    for site, d in data[i:i+1]:
+    i = 2
+    for site, d in data:#[i-1:i+1]:
         siteAccuracies = []
         model = ss.trainModel(d[:modelSize])
         print site, 'model:', model
-        for url, expectedOutput in d[:modelSize]:
+        for url, expectedOutput in d:
             print url
             generatedOutput = ss.testModel(url, model)
-            print 'G: ' + '\n'.join(generatedOutput)
-            print
-            print 'E: ' + '\n'.join(expectedOutput)
+            #print 'G: ' + '\n'.join(generatedOutput)
+            #print
+            #print 'E: ' + '\n'.join(expectedOutput)
             #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
@@ -46,7 +46,7 @@ def runExampleData():
                 thisLCS = sum(n for (i, j, n) in s.get_matching_blocks())"""
                 maxLCS = max(1, len(e))
                 siteAccuracies.append(100 * thisLCS // maxLCS)
-                if thisLCS < 0.99*maxLCS:# or len(g) > 2*len(e):
+                if thisLCS < 0.99*maxLCS:
                     print '%d/%d (%d%%)' % (thisLCS, maxLCS, siteAccuracies[-1])
                     #continue
                     s.set_seq1(g)

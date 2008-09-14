@@ -27,7 +27,7 @@ def sortDict(d, reverse=False):
 
 
 def anyIn(l1, l2):
-    """Return true if any of first list is in second list
+    """Return values in l1 that exist in l2
 
     >>> anyIn([1,2], [2,3])
     2
