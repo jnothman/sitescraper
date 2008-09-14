@@ -12,7 +12,11 @@ import re
 import string
 import urllib2
 from difflib import SequenceMatcher
-from . import misc
+
+currentDir = os.path.abspath(os.path.dirname(__file__))
+if currentDir not in sys.path:
+    sys.path.insert(0, currentDir)
+from misc import normalizeStr, flatten, unique, difference, sortDict, extractInt, anyIn, allIn
 from lxml import etree, html
 
 UNDEFINED = -1
@@ -111,7 +115,7 @@ class xmlXpaths(object):
                 text.append(child.text_content())
             if child.tail:
                 text.append(child.tail)
-        return misc.normalizeStr(''.join(text).strip())
+        return normalizeStr(''.join(text).strip())
 
 
     def normalizeXpath(self, xpath):
@@ -137,11 +141,11 @@ class xmlXpaths(object):
             # no exact match so return amount of match
             sequences = []
             s = SequenceMatcher()
-            s.set_seq2(misc.normalizeStr(output))
+            s.set_seq2(normalizeStr(output))
             for text, xpath in xpaths.items():
                 s.set_seq1(text)
                 sequences.append((sum(lengthBias(n) for (i, j, n) in s.get_matching_blocks()), xpath))
-            bestXpaths = misc.flatten([[(xpath, l) for xpath in xpaths] for (l, xpaths) in sequences if l > 0])
+            bestXpaths = flatten([[(xpath, l) for xpath in xpaths] for (l, xpaths) in sequences if l > 0])
             """LCSs = []
             if 'PREMIER John Brumby haz' in output:
                 print output
@@ -164,7 +168,7 @@ class xmlXpaths(object):
             for x2 in xpaths:
                 if x1 != x2:
                     x2tokens = x2.split('/')
-                    diff = misc.difference(x1tokens, x2tokens)
+                    diff = difference(x1tokens, x2tokens)
                     if len(diff) == 1:
                         partition = diff[0]
                         reg = '/'.join(x1tokens[:partition] + ['*'] + x1tokens[partition+1:])
@@ -175,29 +179,29 @@ class xmlXpaths(object):
         #   so sort by this amount to favour more useful regular expressions.
         # This is important when extracting 2 columns of data from a webpage where the rows will also match
         acceptedRegs = []
-        for reg, partition in misc.sortDict(proposedRegs, True):
+        for reg, partition in sortDict(proposedRegs, True):
             matchedXpaths = []
             matchedTags = []
             regTokens = reg.split('/')
             for xpath in xpaths:
                 xpathTokens = xpath.split('/')
-                diff = misc.difference(regTokens, xpathTokens)
+                diff = difference(regTokens, xpathTokens)
                 if len(diff) == 1:
                     matchedXpaths.append(xpath)
                     matchedTags.append(xpathTokens[diff[0]])
             if not matchedXpaths: 
                 continue # these xpaths have already been used by a previous regular expression
-            matchedTagIds = sorted(misc.extractInt(tag) for tag in matchedTags)
+            matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
             minPosition = matchedTagIds[0]
 
             # apply this regular expression if the content is ordered
             expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
             if not expandReg:
                 # of if there are a different number of child elements on each tree at this location
-                expandReg = len(misc.unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1
+                expandReg = len(unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1
             if expandReg:
                 # use a specific tag if all match, instead of the general '*'
-                uniqueTags = misc.unique(tag[:tag.index('[')] for tag in matchedTags)
+                uniqueTags = unique(tag[:tag.index('[')] for tag in matchedTags)
                 if len(uniqueTags) > 1:
                     commonTag = '*'
                 else:
@@ -259,8 +263,8 @@ class xmlAttributes(object):
         # select examples which contain the relevant xpath
         Xs = [X for X in self.Xs if X.getTree().xpath(xpath)]
         for section in self.breakXpath(xpath):
-            sectionElements = misc.flatten([X.getTree().xpath(section) for X in Xs])
-            siblingElements = misc.flatten([list(e.itersiblings()) for e in sectionElements])
+            sectionElements = flatten([X.getTree().xpath(section) for X in Xs])
+            siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
             if len(siblingElements) == 0:
                 # element has no siblings so no need to restrict
                 proposedAttribs = []
@@ -275,7 +279,7 @@ class xmlAttributes(object):
                         e = e.getprevious()
                         if e:
                             print proposedAttribs, e.attrib.items()
-                            if misc.allIn(proposedAttribs, e.attrib.items()):
+                            if allIn(proposedAttribs, e.attrib.items()):
                                 index += 1
                         else:
                             break
@@ -301,7 +305,7 @@ class xmlAttributes(object):
         for attrib in element.attrib.items():
             attrName, attrValue = attrib
             # punctuation such as '/' and ':' can confuse xpath, so ignore these attributes
-            if not misc.anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id', 'class'):
+            if not anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id', 'class'):
                 attribs.append(attrib)
         return attribs
 

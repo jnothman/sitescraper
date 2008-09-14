@@ -5,7 +5,7 @@ import doctest
 import unittest
 from difflib import SequenceMatcher
 from misc import normalizeStr, average
-import sitescraper as ss
+import __init__ as sitescraper
 from data import *
 
 
@@ -17,11 +17,11 @@ def runExampleData():
     i = 2
     for site, d in data:#[i:i+1]:
         siteAccuracies = []
-        model = ss.trainModel(d[:modelSize])
+        model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:', model
         for url, expectedOutput in d:
             print url
-            generatedOutput = ss.testModel(url, model)
+            generatedOutput = sitescraper.testModel(url, model)
             #print 'G: ' + '\n'.join(generatedOutput)
             #print
             #print 'E: ' + '\n'.join(expectedOutput)
@@ -62,7 +62,7 @@ def runExampleData():
 
 def runDocTests():
     suite = unittest.TestSuite()
-    for mod in ['sitescraper', 'misc']:
+    for mod in ['__init__', 'misc']:
         suite.addTest(doctest.DocTestSuite(__import__(mod)))
     runner = unittest.TextTestRunner()
     runner.run(suite)

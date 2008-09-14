@@ -4,12 +4,12 @@ import os
 import re
 
 # XXX couldn't get relative imports working so adjust the path
-currentDir = os.path.abspath(os.path.dirname(__file__))
-if currentDir not in sys.path:
-    sys.path.insert(0, currentDir)
-parentDir = os.path.join(currentDir, os.path.pardir)
-if parentDir not in sys.path:
-    sys.path.insert(0, parentDir)
+#currentDir = os.path.abspath(os.path.dirname(__file__))
+#if currentDir not in sys.path:
+#    sys.path.insert(0, currentDir)
+#parentDir = os.path.join(currentDir, os.path.pardir)
+#if parentDir not in sys.path:
+#    sys.path.insert(0, parentDir)
 
 
 
