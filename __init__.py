@@ -260,7 +260,12 @@ class xmlAttributes(object):
         Xs = [X for X in self.Xs if X.getTree().xpath(xpath)]
         for section in self.breakXpath(xpath):
             sectionElements = misc.flatten([X.getTree().xpath(section) for X in Xs])
-            proposedAttribs = self.commonAttribs(sectionElements)
+            siblingElements = misc.flatten([list(e.itersiblings()) for e in sectionElements])
+            if len(siblingElements) == 0:
+                # element has no siblings so no need to restrict
+                proposedAttribs = []
+            else:
+                proposedAttribs = self.commonAttribs(sectionElements)
             """if len(sectionElements) == len(Xs):
                 # expect a single result, so add index
                 index = 0
@@ -295,6 +300,7 @@ class xmlAttributes(object):
         attribs = []
         for attrib in element.attrib.items():
             attrName, attrValue = attrib
+            # punctuation such as '/' and ':' can confuse xpath, so ignore these attributes
             if not misc.anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id', 'class'):
                 attribs.append(attrib)
         return attribs
@@ -350,11 +356,10 @@ def trainModel(urlOutputs):
         if bestXpath not in bestXpaths:
             bestXpaths.append(bestXpath)
 
-    #print allOutputXpaths
-    print bestXpaths
-    # add attributes to xpath
-    A = xmlAttributes(Xs)
+    #print bestXpaths
     abstractedXpaths = xmlXpaths.abstractXpaths(bestXpaths, Xs)
+    # replace xpath indices with attributes where possible
+    A = xmlAttributes(Xs)
     return [A.addUniqueAttribs(xpath) for xpath in abstractedXpaths]
 
 
@@ -365,7 +370,8 @@ def testModel(url, model):
     for xpath in model:
         this_result = []
         for element in X.getTree().xpath(xpath):
-            text = X.getElementText(element)
+            #text = X.getElementText(element)
+            text = element.text_content()
             if text:
                 this_result.append(text)
         results.extend(this_result)

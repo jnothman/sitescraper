@@ -15,7 +15,7 @@ def runExampleData():
     os.chdir('data')
     accuracies = []
     i = 2
-    for site, d in data:#[i-1:i+1]:
+    for site, d in data:#[i:i+1]:
         siteAccuracies = []
         model = ss.trainModel(d[:modelSize])
         print site, 'model:', model
@@ -25,7 +25,6 @@ def runExampleData():
             #print 'G: ' + '\n'.join(generatedOutput)
             #print
             #print 'E: ' + '\n'.join(expectedOutput)
-            #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
                 s = SequenceMatcher()
