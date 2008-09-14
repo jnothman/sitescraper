@@ -2,7 +2,7 @@
 # Author: Richard Penman
 # License: LGPL
 # Description: 
-# Model the desired information in a webpage.
+# Model the desired information in a webpage
 #
 
 from __future__ import nested_scopes, generators, division, absolute_import, with_statement
@@ -16,6 +16,202 @@ from . import misc
 from lxml import etree, html
 
 UNDEFINED = -1
+
+
+
+class xmlXpaths(object):
+    """Encapsulates the Xpaths of an XML document
+    >>> X = xmlXpaths('file:data/html/search/yahoo/1.html')
+    >>> X.normalizeXpath('/html/body/div/table[2]/tr/td/div[2]/*/div')
+    '/html[1]/body[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/*/div[1]'
+    >>> len(X.extractXpaths())
+    325
+    >>> xpath = '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol[1]/li/div[1]/span[1]'
+    >>> xpath = X.normalizeXpath(xpath)
+    >>> xpath
+    '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/span[1]'
+    >>> e = X.getTree().xpath(xpath)[0]
+    >>> X.getElementText(e)
+    'www.shopzilla.com/10J--Digital_Cameras_-_cat_id--402'
+    >>> X.matchXpaths("Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.")
+    [('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]', 12769)]
+    >>> xmlXpaths.abstractXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], [X])
+    ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
+    """
+
+    # ignore content from these tags
+    IGNORE_TAGS = 'style', 'script', 'meta', 'link'
+    # merge these style tags content with parent
+    MERGE_TAGS = 'br', 'font', 'a', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'small', 'tt', 'p'
+    # user agent to use in fetching webpages
+    USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
+
+
+    def __init__(self, url, tree=False, xpaths=False):
+        self.setUrl(url)
+        if not tree:
+            tree = self.parseUrl()
+        self.setTree(tree)
+        if not xpaths:
+            xpaths = self.extractXpaths()
+        self.setXpaths(xpaths)
+
+
+    def getUrl(self):
+        return self._url
+    def setUrl(self, url):
+        self._url = url
+    def getTree(self):
+        return self._tree
+    def setTree(self, tree):
+        self._tree = tree
+    def getXpaths(self):
+        return self._xpaths
+    def setXpaths(self, xpaths):
+        self._xpaths = xpaths
+
+
+    def parseUrl(self):
+        """Fetch url and return an ElementTree of the parsed XML"""
+        fp = urllib2.urlopen(urllib2.Request(self.getUrl(), None, {'User-agent': xmlXpaths.USER_AGENT}))
+        tree = html.parse(fp)
+        # remove tags that are not useful
+        for tag in xmlXpaths.IGNORE_TAGS:
+            for item in tree.findall('.//' + tag):
+                item.drop_tree()
+        return tree
+
+
+    def extractXpaths(self, element = {}, xpaths = {}):
+        """Return a hashtable of the xpath to each text element"""
+        try:
+            tag = element.tag
+        except AttributeError:
+            self.extractXpaths(self.getTree().getroot(), xpaths)
+        else:
+            if type(tag) == type(str()):
+                text = self.getElementText(element)
+                if text:
+                    xpaths.setdefault(text, [])
+                    xpath = self.normalizeXpath(self.getTree().getpath(element))
+                    if xpath not in xpaths[text]:
+                        xpaths[text].append(xpath)
+                for child in element:
+                    self.extractXpaths(child, xpaths)
+        return xpaths
+
+
+    def getElementText(self, e):
+        """Extract text from HtmlElement"""
+        text = []
+        if e.text:
+            text.append(e.text)
+        for child in e:
+            if child.tag in xmlXpaths.MERGE_TAGS:
+                text.append(child.text_content())
+            if child.tail:
+                text.append(child.tail)
+        return misc.normalizeStr(''.join(text).strip())
+
+
+    def normalizeXpath(self, xpath):
+        """ElementTree will treat an element as a regular expression if there is no explicit index, so add where missing"""
+        newXpath = []
+        for tag in xpath.split('/'):
+            newXpath.append(tag)
+            if tag and tag != '*' and not tag.endswith(']'):
+                newXpath[-1] += '[1]'
+        return '/'.join(newXpath)
+
+
+    def matchXpaths(self, output):
+        """Return the amount of overlap at xpath with the desired output""" 
+        xpaths = self.getXpaths()
+        # square the length to bias towards longer subphrases
+        lengthBias = lambda x: x*x
+
+        if output in xpaths:
+            # exact match so can return xpaths directly with a perfect match
+            return [(xpath, lengthBias(len(output))) for xpath in xpaths[output]]
+        else:
+            # no exact match so return amount of match
+            sequences = []
+            s = SequenceMatcher()
+            s.set_seq2(misc.normalizeStr(output))
+            for text, xpath in xpaths.items():
+                s.set_seq1(text)
+                sequences.append((sum(lengthBias(n) for (i, j, n) in s.get_matching_blocks()), xpath))
+            bestXpaths = misc.flatten([[(xpath, l) for xpath in xpaths] for (l, xpaths) in sequences if l > 0])
+            """LCSs = []
+            if 'PREMIER John Brumby haz' in output:
+                print output
+                print minLen
+                for text, xpath in xpaths.items():
+                    s.set_seq1(text)
+                    LCSs.append((sum(n*n for (i, j, n) in s.get_matching_blocks()), str(s.get_matching_blocks()), xpath, text))
+                for l, m, xpath, text in sorted(LCSs, reverse=True)[:10]:
+                    print '(%d - %s) %s: %s' % (l, m, xpath[0], text)
+                    print
+                sys.exit()"""
+            return bestXpaths
+
+
+    def abstractXpaths(xpaths, Xs):
+        """Reduce list of xpaths by combining related ones in regular expressions"""
+        proposedRegs = {}
+        for x1 in xpaths:
+            x1tokens = x1.split('/')
+            for x2 in xpaths:
+                if x1 != x2:
+                    x2tokens = x2.split('/')
+                    diff = misc.difference(x1tokens, x2tokens)
+                    if len(diff) == 1:
+                        partition = diff[0]
+                        reg = '/'.join(x1tokens[:partition] + ['*'] + x1tokens[partition+1:])
+                        proposedRegs.setdefault((reg, partition), 0)
+                        proposedRegs[(reg, partition)] += 1
+
+        # proposedRegs now holds the number of matching xpaths for each regular expression
+        #   so sort by this amount to favour more useful regular expressions.
+        # This is important when extracting 2 columns of data from a webpage where the rows will also match
+        acceptedRegs = []
+        for reg, partition in misc.sortDict(proposedRegs, True):
+            matchedXpaths = []
+            matchedTags = []
+            regTokens = reg.split('/')
+            for xpath in xpaths:
+                xpathTokens = xpath.split('/')
+                diff = misc.difference(regTokens, xpathTokens)
+                if len(diff) == 1:
+                    matchedXpaths.append(xpath)
+                    matchedTags.append(xpathTokens[diff[0]])
+            if not matchedXpaths: 
+                continue # these xpaths have already been used by a previous regular expression
+            matchedTagIds = sorted(misc.extractInt(tag) for tag in matchedTags)
+            minPosition = matchedTagIds[0]
+
+            # apply this regular expression if the content is ordered
+            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
+            if not expandReg:
+                # of if there are a different number of child elements on each tree at this location
+                expandReg = len(misc.unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1
+            if expandReg:
+                # use a specific tag if all match, instead of the general '*'
+                uniqueTags = misc.unique(tag[:tag.index('[')] for tag in matchedTags)
+                if len(uniqueTags) > 1:
+                    commonTag = '*'
+                else:
+                    commonTag = uniqueTags[0]
+                # restrict xpath regular expressions to lowest index encountered
+                if minPosition > 1:
+                    commonTag += '[position()>%d]' % (minPosition - 1)
+                reg = '/'.join(regTokens[:partition] + [commonTag] + regTokens[partition+1:])
+                # remove this xpaths now so they can't be used by another regular expression
+                for xpath in matchedXpaths:
+                    xpaths.remove(xpath)
+                acceptedRegs.append(reg)
+        return xpaths + acceptedRegs
+    abstractXpaths = staticmethod(abstractXpaths)
 
 
 
@@ -132,202 +328,6 @@ class xmlAttributes(object):
                     section += "[@%s='%s']" % attrib
             sections.append(section)
         return '/'.join(sections)
-
-
-
-class xmlXpaths(object):
-    """Encapsulates the Xpaths of an XML document
-    >>> X = xmlXpaths('file:data/html/search/yahoo/1.html')
-    >>> X.normalizeXpath('/html/body/div/table[2]/tr/td/div[2]/*/div')
-    '/html[1]/body[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/*/div[1]'
-    >>> len(X.extractXpaths())
-    325
-    >>> xpath = '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol[1]/li/div[1]/span[1]'
-    >>> xpath = X.normalizeXpath(xpath)
-    >>> xpath
-    '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/span[1]'
-    >>> e = X.getTree().xpath(xpath)[0]
-    >>> X.getElementText(e)
-    'www.shopzilla.com/10J--Digital_Cameras_-_cat_id--402'
-    >>> X.matchXpaths("Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.")
-    ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]']
-    >>> xmlXpaths.reduceXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], [X])
-    ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
-    """
-
-    # ignore content from these tags
-    IGNORE_TAGS = 'style', 'script', 'meta', 'link'
-    # merge these style tags content with parent
-    MERGE_TAGS = 'br', 'font', 'a', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'small', 'tt', 'p'
-    # user agent to use in fetching webpages
-    USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
-
-
-    def __init__(self, url, tree=False, xpaths=False):
-        self.setUrl(url)
-        if not tree:
-            tree = self.parseUrl()
-        self.setTree(tree)
-        if not xpaths:
-            xpaths = self.extractXpaths()
-        self.setXpaths(xpaths)
-
-
-    def getUrl(self):
-        return self._url
-    def setUrl(self, url):
-        self._url = url
-    def getTree(self):
-        return self._tree
-    def setTree(self, tree):
-        self._tree = tree
-    def getXpaths(self):
-        return self._xpaths
-    def setXpaths(self, xpaths):
-        self._xpaths = xpaths
-
-
-    def parseUrl(self):
-        """Fetch url and return an ElementTree of the parsed XML"""
-        fp = urllib2.urlopen(urllib2.Request(self.getUrl(), None, {'User-agent': xmlXpaths.USER_AGENT}))
-        tree = html.parse(fp)
-        # remove tags that are not useful
-        for tag in xmlXpaths.IGNORE_TAGS:
-            for item in tree.findall('.//' + tag):
-                item.drop_tree()
-        return tree
-
-
-    def extractXpaths(self, element = {}, xpaths = {}):
-        """Return a hashtable of the xpath to each text element"""
-        try:
-            tag = element.tag
-        except AttributeError:
-            self.extractXpaths(self.getTree().getroot(), xpaths)
-        else:
-            if type(tag) == type(str()):
-                text = self.getElementText(element)
-                if text:
-                    xpaths.setdefault(text, [])
-                    xpath = self.normalizeXpath(self.getTree().getpath(element))
-                    if xpath not in xpaths[text]:
-                        xpaths[text].append(xpath)
-                for child in element:
-                    self.extractXpaths(child, xpaths)
-        return xpaths
-
-
-    def getElementText(self, e):
-        """Extract text from HtmlElement"""
-        text = []
-        if e.text:
-            text.append(e.text)
-        for child in e:
-            if child.tag in xmlXpaths.MERGE_TAGS:
-                text.append(child.text_content())
-            if child.tail:
-                text.append(child.tail)
-        return misc.normalizeStr(''.join(text).strip())
-
-
-    def normalizeXpath(self, xpath):
-        """ElementTree can get confused when there is no explicit index, so add where missing"""
-        newXpath = []
-        for tag in xpath.split('/'):
-            newXpath.append(tag)
-            if tag and tag != '*' and not tag.endswith(']'):
-                newXpath[-1] += '[1]'
-        return '/'.join(newXpath)
-
-
-    def matchXpaths(self, output):
-        """Return Find matching xpaths of output and return the top ranked with the size of match""" 
-        xpaths = self.getXpaths()
-        if output in xpaths:
-            # exact match so can return xpaths directly with a perfect match
-            return [(xpath, len(output)*len(output)) for xpath in xpaths[output]]
-        else:
-            # no exact match so return xpaths with Longest Common Sequence (LCS) 3 STDs over the mean
-            sequences = []
-            s = SequenceMatcher()
-            s.set_seq2(misc.normalizeStr(output))
-            for text, xpath in xpaths.items():
-                s.set_seq1(text)
-                # square the length to bias towards longer phrases
-                sequences.append((sum(n*n for (i, j, n) in s.get_matching_blocks()), xpath))
-            #lens = [l for (l, xpath) in LCSs]
-            #minLen = numpy.mean(lens) + 3*numpy.std(lens)
-            bestXpaths = misc.flatten([[(xpath, l) for xpath in xpaths] for (l, xpaths) in sequences if l > 0])
-            """LCSs = []
-            if 'PREMIER John Brumby haz' in output:
-                print output
-                print minLen
-                for text, xpath in xpaths.items():
-                    s.set_seq1(text)
-                    LCSs.append((sum(n*n for (i, j, n) in s.get_matching_blocks()), str(s.get_matching_blocks()), xpath, text))
-                for l, m, xpath, text in sorted(LCSs, reverse=True)[:10]:
-                    print '(%d - %s) %s: %s' % (l, m, xpath[0], text)
-                    print
-                sys.exit()"""
-            return bestXpaths
-
-
-    def abstractXpaths(xpaths, Xs):
-        """Reduce list of xpaths by combining related ones in regular expressions"""
-        proposedRegs = {}
-        for x1 in xpaths:
-            x1tokens = x1.split('/')
-            for x2 in xpaths:
-                if x1 != x2:
-                    x2tokens = x2.split('/')
-                    diff = misc.difference(x1tokens, x2tokens)
-                    if len(diff) == 1:
-                        partition = diff[0]
-                        reg = '/'.join(x1tokens[:partition] + ['*'] + x1tokens[partition+1:])
-                        proposedRegs.setdefault((reg, partition), 0)
-                        proposedRegs[(reg, partition)] += 1
-
-        # proposedRegs now holds the number of matching xpaths for each regular expression
-        #   so sort by this amount to favour more useful regular expressions.
-        # This is important when extracting 2 columns of data from a webpage where the rows will also match
-        acceptedRegs = []
-        for reg, partition in misc.sortDict(proposedRegs, True):
-            matchedXpaths = []
-            matchedTags = []
-            regTokens = reg.split('/')
-            for xpath in xpaths:
-                xpathTokens = xpath.split('/')
-                diff = misc.difference(regTokens, xpathTokens)
-                if len(diff) == 1:
-                    matchedXpaths.append(xpath)
-                    matchedTags.append(xpathTokens[diff[0]])
-            if not matchedXpaths: 
-                continue # these xpaths have already been used by a previous regular expression
-            matchedTagIds = sorted(misc.extractInt(tag) for tag in matchedTags)
-            minPosition = matchedTagIds[0]
-
-            # apply this regular expression if the content is ordered
-            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
-            if not expandReg:
-                # of if there are a different number of child elements on each tree at this location
-                expandReg = len(misc.unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1
-            if expandReg:
-                # use a specific tag if all match, instead of the general '*'
-                uniqueTags = misc.unique(tag[:tag.index('[')] for tag in matchedTags)
-                if len(uniqueTags) > 1:
-                    commonTag = '*'
-                else:
-                    commonTag = uniqueTags[0]
-                # restrict xpath regular expressions to lowest index encountered
-                if minPosition > 1:
-                    commonTag += '[position()>%d]' % (minPosition - 1)
-                reg = '/'.join(regTokens[:partition] + [commonTag] + regTokens[partition+1:])
-                # remove this xpaths now so they can't be used by another regular expression
-                for xpath in matchedXpaths:
-                    xpaths.remove(xpath)
-                acceptedRegs.append(reg)
-        return xpaths + acceptedRegs
-    abstractXpaths = staticmethod(abstractXpaths)
 
 
 
