@@ -17,7 +17,7 @@ currentDir = os.path.abspath(os.path.dirname(__file__))
 if currentDir not in sys.path:
     sys.path.insert(0, currentDir)
 from misc import normalizeStr, flatten, unique, difference, sortDict, extractInt, anyIn, allIn
-from lxml import etree, html
+from lxml import html as lxmlHtml
 
 UNDEFINED = -1
 
@@ -78,7 +78,7 @@ class xmlXpaths(object):
     def parseUrl(self):
         """Fetch url and return an ElementTree of the parsed XML"""
         fp = urllib2.urlopen(urllib2.Request(self.getUrl(), None, {'User-agent': xmlXpaths.USER_AGENT}))
-        tree = html.parse(fp)
+        tree = lxmlHtml.parse(fp)
         # remove tags that are not useful
         for tag in xmlXpaths.IGNORE_TAGS:
             for item in tree.findall('.//' + tag):
@@ -160,6 +160,10 @@ class xmlXpaths(object):
             return bestXpaths
 
 
+    def render(self):
+        return lxmlHtml.tostring(self.getTree())
+
+
     def abstractXpaths(xpaths, Xs):
         """Reduce list of xpaths by combining related ones in regular expressions"""
         proposedRegs = {}
@@ -239,7 +243,7 @@ class xmlAttributes(object):
     >>> a.addAttribs(xpath, attribs)
     "/html[@lang='en']/body[@id='ysch']/div[@id='doc']/div[@id='bd']/div[@id='results']/div[@id='left']/div[@id='main']/div[@id='web']/ol[@start='1']/li/div[@class='res']/span[@class='url']"
 
-    >> tree = html.fromstring("<html><body node='0'><c class='1' node='1'>C<d class='2'></d></c><c class='1' node='2'>D</c></body</html>").getroottree()
+    >> tree = lxmlHtml.fromstring("<html><body node='0'><c class='1' node='1'>C<d class='2'></d></c><c class='1' node='2'>D</c></body</html>").getroottree()
     >> a = xmlAttributes(tree)
     >> extractXpaths(tree)
     {'C': ['/html[1]/body[1]/c[1]'], 'D': ['/html[1]/body[1]/c[2]']}
