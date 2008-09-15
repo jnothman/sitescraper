@@ -199,10 +199,9 @@ class xmlXpaths(object):
             minPosition = matchedTagIds[0]
 
             # apply this regular expression if the content is ordered
-            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1)
-            if not expandReg:
-                # of if there are a different number of child elements on each tree at this location
-                expandReg = len(unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1
+            # of if there are a different number of child elements on each tree at this location
+            expandReg = (matchedTagIds == range(minPosition, len(matchedTagIds)+1)) and \
+                        (len(unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1)
             if expandReg:
                 # use a specific tag if all match, instead of the general '*'
                 uniqueTags = unique(tag[:tag.index('[')] for tag in matchedTags)
