@@ -14,6 +14,7 @@ def runExampleData():
     modelSize = 3
     os.chdir('data')
     accuracies = []
+    X = sitescraper.xmlXpaths('', True, True)
     i = 2
     for site, d in data:#[i:i+1]:
         siteAccuracies = []
@@ -25,36 +26,24 @@ def runExampleData():
             #print 'G: ' + '\n'.join(generatedOutput)
             #print
             #print 'E: ' + '\n'.join(expectedOutput)
+            #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
-                s = SequenceMatcher()
-                s.set_seq2(e)
-                genLCSs = [(0, '')]
-                for g in generatedOutput:
-                    g = normalizeStr(g)
-                    s.set_seq1(g)
-                    genLCSs.append((sum(n for (i, j, n) in s.get_matching_blocks()), g))
-                thisLCS, g = max(genLCSs)
-                #thisLCS -= abs(len(e) - len(g))
-                """if i < len(generatedOutput):
-                    g = normalizeStr(generatedOutput[i])
-                else:
-                    g = ''
-
-                s = SequenceMatcher(None, e, g)
-                thisLCS = sum(n for (i, j, n) in s.get_matching_blocks())"""
-                maxLCS = max(1, len(e))
-                siteAccuracies.append(100 * thisLCS // maxLCS)
-                if thisLCS < 0.99*maxLCS:
-                    print '%d/%d (%d%%)' % (thisLCS, maxLCS, siteAccuracies[-1])
-                    #continue
-                    s.set_seq1(g)
-                    print s.get_matching_blocks()
-                    print 'Expected:', e
-                    print 'Get:     ', g
-                    print
-                else:
-                    pass # success!
+                if e:
+                    scores = [(0, '')]
+                    for g in generatedOutput:
+                        g = normalizeStr(g)
+                        scores.append((X.similarity(e, g), g))
+                    score, g = min(scores)
+                    bestScore = -X.similarity(e, '')
+                    accuracy = 100 * score / float(bestScore)
+                    siteAccuracies.append(accuracy)
+                    if accuracy < 95:
+                        print '%d/%d (%d%%)' % (score, bestScore, accuracy)
+                        print X.sequence.get_opcodes()
+                        print 'Expected:', e
+                        print 'Get:     ', g
+                        print
         accuracies.append(siteAccuracies)
     print ['%.2f%%' % average(a) for a in accuracies]
     print 'Accuracy: %.2f%%' % average([average(a) for a in accuracies])

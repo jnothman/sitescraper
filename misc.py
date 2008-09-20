@@ -106,10 +106,10 @@ def extractInt(s):
     >>> extractInt('hello 99!')
     99
     """
-    return int(''.join(c for c in s if c in '1234567890'))
+    return int('0' + ''.join(c for c in s if c in '1234567890'))
 
 
 def normalizeStr(s):
     """Remove characters that make string comparison difficult from copied text"""
     #s = s.decode('utf-8')
-    return re.sub('\s+', ' ', re.sub('[\n\r]', '', s)).strip()
+    return re.sub('\s+', ' ', re.sub('[\n\r\t]', '', s)).strip()
