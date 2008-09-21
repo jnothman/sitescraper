@@ -145,9 +145,6 @@ class xmlXpaths(object):
     def matchXpaths(self, output):
         """Return the amount of overlap at xpath with the desired output""" 
         allXpaths = self.getXpaths()
-        # square the length to bias towards longer subphrases
-        #lengthBias = lambda l, s1, s2: l*l - abs(len(s1) - len(s2))
-
         if output in allXpaths:
             # exact match so can return xpaths directly with a perfect match
             return [(xpath, self.similarity(output, output)) for xpath in allXpaths[output]]
@@ -186,7 +183,7 @@ class xmlXpaths(object):
                 else:
                     score += thisScore
         else:
-            # don't bother calculating if too far off
+            # don't bother calculating if string lengths are too far off, just give maximum difference
             score = abs(len(s1) - len(s2))**power
         return score
 
@@ -211,10 +208,10 @@ class xmlXpaths(object):
                         # use common element if possible, else '*' to match any
                         tag1 = removeIndex(x1tokens[partition])
                         if tag1 == removeIndex(x2tokens[partition]):
-                            x1tokens[partition] = tag1
+                            abstraction = tag1
                         else:
-                            x1tokens[partition] = '*'
-                        reg = '/'.join(x1tokens)
+                            abstraction = '*'
+                        reg = '/'.join(x1tokens[:partition] + [abstraction] + x1tokens[partition+1:])
                         regs.setdefault((reg, partition), 0)
                         regs[(reg, partition)] += 1
         return regs
@@ -228,7 +225,10 @@ class xmlXpaths(object):
         >>> xmlXpaths.reduceXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], [X])
         ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
         """
+        print xpaths
         proposedRegs = xmlXpaths.abstractXpaths(xpaths)
+        print
+        print proposedRegs
         acceptedRegs = []
         # Try most common regular expressions first to bias towards them
         for reg, partition in sortDict(proposedRegs, reverse=True):
@@ -241,6 +241,7 @@ class xmlXpaths(object):
                 if len(diff) == 1:
                     matchedXpaths.append(xpath)
                     matchedTags.append(xpathTokens[diff[0]])
+            print reg, matchedXpaths
             if not matchedXpaths: 
                 continue # these xpaths have already been used by a previous regular expression
             matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
@@ -248,7 +249,7 @@ class xmlXpaths(object):
 
             # apply this regular expression if the content is ordered
             # of if there are a different number of child elements on each tree at this location
-            expandReg = (matchedTagIds == range(minPosition, len(matchedTagIds)+1)) and \
+            expandReg = (matchedTagIds == range(minPosition, len(matchedTagIds)+1)) or \
                         (len(unique(len(X.getTree().xpath(reg)) for X in Xs)) > 1)
             if expandReg:
                 # restrict xpath regular expressions to lowest index encountered
@@ -414,26 +415,19 @@ def trainModel(urlOutputs):
     for outputXpaths in allOutputXpaths:
         rankedXpaths = sorted([(score, len(xpath), xpath) for (xpath, score) in outputXpaths.items()])
         bestXpath = rankedXpaths[0][-1]
-        """testXpaths = [xpath for (s, l, xpath) in rankedXpaths[:2]]
-        testAbstraction = []#xmlXpaths.abstractXpaths(testXpaths)
-        if testAbstraction:
-            # can abstract the result!
-            bestXpath = sortDict(testAbstraction, reverse=True)[0][0]
-            collapsableXpaths.append(bestXpath)
-        else:
-            bestXpath = testXpaths[0]"""
         if bestXpath not in bestXpaths:
             bestXpaths.append(bestXpath)
 
-    abstractedXpaths = xmlXpaths.reduceXpaths(bestXpaths, Xs)
     # replace xpath indices with attributes where possible
     A = xmlAttributes(Xs)
+    # xpaths that were abstracted for a single output, and so must be collapsed together
     collapsableXpaths = [A.removeAttribs(xpath) for xpath in bestXpaths if not X.isNormalized(xpath)]
-    print 'C:', collapsableXpaths
+    abstractedXpaths = xmlXpaths.reduceXpaths(bestXpaths[:], Xs)
     attributeXpaths = [A.addUniqueAttribs(xpath) for xpath in abstractedXpaths]
+    #print 'C:', collapsableXpaths
     print 'best:', bestXpaths
     print 'abstract:', abstractedXpaths
-    print 'attribute:', attributeXpaths
+    #print 'attribute:', attributeXpaths
     return [(xpath, A.removeAttribs(xpath) in collapsableXpaths) for xpath in attributeXpaths]
 
 def testModel(url, model):

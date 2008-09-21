@@ -15,8 +15,8 @@ def runExampleData():
     os.chdir('data')
     accuracies = []
     X = sitescraper.xmlXpaths('', True, True)
-    i = 2
-    for site, d in data:#[i:i+1]:
+    i = 4
+    for site, d in data[i:i+1]:
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:', model
@@ -29,17 +29,20 @@ def runExampleData():
             #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
+                bestScore = X.similarity(e, '')
                 if e:
-                    scores = [(0, '')]
+                    scores = []
                     for g in generatedOutput:
                         g = normalizeStr(g)
-                        scores.append((X.similarity(e, g), g))
-                    score, g = min(scores)
-                    bestScore = -X.similarity(e, '')
-                    accuracy = 100 * score / float(bestScore)
+                        scores.append((bestScore - X.similarity(e, g), g))
+                    if scores:
+                        score, g = max(scores)
+                    else:
+                        score, g = 0, ''
+                    accuracy = 100 * score / float(2*bestScore)
                     siteAccuracies.append(accuracy)
-                    if accuracy < 95:
-                        print '%d/%d (%d%%)' % (score, bestScore, accuracy)
+                    if accuracy < 99:
+                        print '%d/%d (%d%%)' % (score, 2*bestScore, accuracy)
                         print X.sequence.get_opcodes()
                         print 'Expected:', e
                         print 'Get:     ', g
