@@ -4,7 +4,7 @@ os.chdir(os.path.abspath(os.path.dirname(__file__)))
 import doctest
 import unittest
 from difflib import SequenceMatcher
-from misc import normalizeStr, average
+from misc import normalizeStr, average, pretty
 import __init__ as sitescraper
 from data import *
 
@@ -15,18 +15,20 @@ def runExampleData():
     os.chdir('data')
     accuracies = []
     X = sitescraper.xmlXpaths('', True, True)
-    i = 4
-    for site, d in data[i:i+1]:
+    i = 5
+    for site, d in data:#[i:i+1]:
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
-        print site, 'model:', model
+        print site, 'model:'
+        print pretty(model)
         for url, expectedOutput in d:
             print url
             generatedOutput = sitescraper.testModel(url, model)
-            #print 'G: ' + '\n'.join(generatedOutput)
-            #print
-            #print 'E: ' + '\n'.join(expectedOutput)
-            #sys.exit()
+            if 0:
+                print 'G: ' + pretty(generatedOutput)
+                print
+                print 'E: ' + pretty(expectedOutput)
+                #sys.exit()
             for i, e in enumerate(expectedOutput):
                 e = normalizeStr(e)
                 bestScore = X.similarity(e, '')

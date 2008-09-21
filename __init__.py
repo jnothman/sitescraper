@@ -16,11 +16,11 @@ from difflib import SequenceMatcher
 currentDir = os.path.abspath(os.path.dirname(__file__))
 if currentDir not in sys.path:
     sys.path.insert(0, currentDir)
-from misc import normalizeStr, flatten, unique, difference, sortDict, extractInt, anyIn, allIn
+from misc import normalizeStr, flatten, unique, difference, sortDict, extractInt, anyIn, allIn, pretty
 from lxml import html as lxmlHtml
 
 UNDEFINED = -1
-
+DEBUG = False
 
 
 class xmlXpaths(object):
@@ -29,8 +29,10 @@ class xmlXpaths(object):
     >>> X = xmlXpaths('file:data/html/search/yahoo/1.html')
     >>> X.normalizeXpath('/html/body/div/table[2]/tr/td/div[2]/*/div')
     '/html[1]/body[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/*/div[1]'
-    >>> len(X.extractXpaths())
-    218
+    >>> xpaths = {}
+    >>> X.extractXpaths(X.getTree().getroot(), xpaths)
+    >>> len(xpaths)
+    132
     >>> xpath = '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol[1]/li/div[1]/span[1]'
     >>> xpath = X.normalizeXpath(xpath)
     >>> xpath
@@ -84,10 +86,6 @@ class xmlXpaths(object):
         for tag in xmlXpaths.IGNORE_TAGS:
             for item in tree.findall('.//' + tag):
                 item.drop_tree()
-        # merge style tags with parent
-        for tag in xmlXpaths.MERGE_TAGS:
-            for item in tree.findall('.//' + tag):
-                item.drop_tag()
         return tree
 
 
@@ -110,7 +108,7 @@ class xmlXpaths(object):
             if type(childTag) == type(str()):
                 childTags.setdefault(childTag, 0)
                 childTags[childTag] += 1
-                if childTags[childTag] == 2:
+                if childTags[childTag] == 2:#XXX
                     childText = ''.join(self.getElementText(c) for c in e if c.tag == childTag)
                     xpaths.setdefault(childText, [])
                     childXpath = '%s/%s' % (xpath, childTag)
@@ -125,6 +123,8 @@ class xmlXpaths(object):
         if e.text:
             text.append(e.text)
         for child in e:
+            if child.tag in xmlXpaths.MERGE_TAGS:
+                text.append(child.text_content())
             if child.tail:
                 text.append(child.tail)
         return normalizeStr(''.join(text).strip())
@@ -149,14 +149,12 @@ class xmlXpaths(object):
             # exact match so can return xpaths directly with a perfect match
             return [(xpath, self.similarity(output, output)) for xpath in allXpaths[output]]
         else:
-            # no exact match so return amount of match
-            return flatten([[(xpath, self.similarity(output, text)) for xpath in xpaths] for (text, xpaths) in allXpaths.items()])
-            result = flatten([[(self.similarity(output, text), len(text), xpath, text) for xpath in xpaths] for (text, xpaths) in allXpaths.items()])
-            print len(output)
-            for s, l, x, t in sorted(result):
-                print s, l, x
-            print
-            sys.exit()
+            # no exact match so return similarities of xpaths
+            result = []
+            for (text, xpaths) in allXpaths.items():
+                score = self.similarity(output, text)
+                result.extend((xpath, score) for xpath in xpaths)
+            return result
 
 
     def similarity(self, s1, s2):
@@ -165,7 +163,7 @@ class xmlXpaths(object):
         >>> matches = {'I say now, hello world!': 1, 'ello orld': 2, 'hello': 3, 'hello world': 4, '': 5}
         >>> X = xmlXpaths('', True, True)
         >>> sorted([(X.similarity(s, k), v) for (k, v) in matches.items()])
-        [(0, 4), (2, 2), (6, 3), (11, 1)]
+        [(-11, 4), (-7, 2), (1, 1), (1, 3), (11, 5)]
         """
         margin = 5
         power = 1
@@ -225,10 +223,7 @@ class xmlXpaths(object):
         >>> xmlXpaths.reduceXpaths(['/html[1]/table[1]/tr[1]/td[1]', '/html[1]/table[1]/tr[2]/td[1]', '/html[1]/table[1]/tr[3]/td[1]', '/html[1]/body[1]/a[1]'], [X])
         ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
         """
-        print xpaths
         proposedRegs = xmlXpaths.abstractXpaths(xpaths)
-        print
-        print proposedRegs
         acceptedRegs = []
         # Try most common regular expressions first to bias towards them
         for reg, partition in sortDict(proposedRegs, reverse=True):
@@ -241,9 +236,9 @@ class xmlXpaths(object):
                 if len(diff) == 1:
                     matchedXpaths.append(xpath)
                     matchedTags.append(xpathTokens[diff[0]])
-            print reg, matchedXpaths
-            if not matchedXpaths: 
-                continue # these xpaths have already been used by a previous regular expression
+            if len(matchedXpaths) < 2:
+                # not enough matching xpaths to abstract
+                continue 
             matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
             minPosition = matchedTagIds[0]
 
@@ -390,17 +385,17 @@ class xmlAttributes(object):
 
     def removeAttribs(self, xpath):
         """
-        >>> xmlAttributes([]).removeAttribs('/html[1]/body/a[T2 > 3T][id=d]/b')
-        '/html/body/a/b'
+        >>> xmlAttributes([]).removeAttribs("/html[1]/body/a[2][@id='2'][@class='down']/b")
+        '/html[1]/body/a[2]/b'
         """
-        return re.sub('\[.*?\]', '', xpath)
+        return re.sub('\[@.*?\]', '', xpath)
 
 
 def trainModel(urlOutputs):
     """Train the model using the known output for the given urls"""
-    # store relevant xpaths for each output
     Xs = [xmlXpaths(url) for (url, outputs) in urlOutputs]
     allOutputXpaths = []
+    # rate xpaths by the similarity of their content with the output
     for X, (url, outputs) in zip(Xs, urlOutputs):
         for i, output in enumerate(outputs):
             if i == len(allOutputXpaths): allOutputXpaths.append({})
@@ -410,25 +405,35 @@ def trainModel(urlOutputs):
                 if score < 0:
                     pass
                     #print xpath, score, allOutputXpaths[i][xpath]
-        
+
+    # select best xpath match for each output
     bestXpaths = []
     for outputXpaths in allOutputXpaths:
-        rankedXpaths = sorted([(score, len(xpath), xpath) for (xpath, score) in outputXpaths.items()])
+        rankedXpaths = sorted([(score, 1/float(len(xpath)), xpath) for (xpath, score) in outputXpaths.items()])
         bestXpath = rankedXpaths[0][-1]
         if bestXpath not in bestXpaths:
             bestXpaths.append(bestXpath)
 
+    # store xpaths that were abstracted for a single output, and so must be collapsed together
+    collapsableXpaths = [xpath for xpath in bestXpaths if not X.isNormalized(xpath)]
+    abstractedXpaths = xmlXpaths.reduceXpaths(bestXpaths[:], Xs)
     # replace xpath indices with attributes where possible
     A = xmlAttributes(Xs)
-    # xpaths that were abstracted for a single output, and so must be collapsed together
-    collapsableXpaths = [A.removeAttribs(xpath) for xpath in bestXpaths if not X.isNormalized(xpath)]
-    abstractedXpaths = xmlXpaths.reduceXpaths(bestXpaths[:], Xs)
-    attributeXpaths = [A.addUniqueAttribs(xpath) for xpath in abstractedXpaths]
-    #print 'C:', collapsableXpaths
-    print 'best:', bestXpaths
-    print 'abstract:', abstractedXpaths
-    #print 'attribute:', attributeXpaths
-    return [(xpath, A.removeAttribs(xpath) in collapsableXpaths) for xpath in attributeXpaths]
+    attributeXpaths = [(A.addUniqueAttribs(xpath), xpath in collapsableXpaths) for xpath in abstractedXpaths]
+
+    if DEBUG:
+        for i, output in enumerate(outputs):
+            print
+            print output
+            for xpath, score in allOutputXpaths[i].items():
+                if score < 0:
+                    print xpath, score
+        print 'C:\n', pretty(collapsableXpaths)
+        print 'best:\n', pretty(bestXpaths)
+        print 'abstract:\n', pretty(abstractedXpaths)
+        print 'attribute:\n', pretty(attributeXpaths)
+    return attributeXpaths
+
 
 def testModel(url, model):
     """Use the model to extract output for a url of the same form"""

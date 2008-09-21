@@ -113,3 +113,20 @@ def normalizeStr(s):
     """Remove characters that make string comparison difficult from copied text"""
     #s = s.decode('utf-8')
     return re.sub('\s+', ' ', re.sub('[\n\r\t]', '', s)).strip()
+
+
+def pretty(var, depth=0):
+    """
+    >>> pretty([1, 2, 3])
+    '1\\n2\\n3'
+    >>> pretty({'a': 1, 'b': 2, 'c': 3})
+    'a: 1\\nc: 3\\nb: 2'
+    """
+    if type(var) == type([]):
+        return '\n'.join(depth*' ' + pretty(item, depth+1) for item in var)
+    elif type(var) == type(()):
+        return ', '.join(pretty(item, depth+1) for item in var)
+    elif type(var) == type({}):
+        return '\n'.join(depth*' ' + '%s: %s' % (pretty(k, depth+1), pretty(v, depth+1)) for (k, v) in var.items())
+    else:
+        return str(var)
