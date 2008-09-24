@@ -6,8 +6,7 @@ import unittest
 from difflib import SequenceMatcher
 from misc import normalizeStr, average, pretty
 import __init__ as sitescraper
-from data import *
-
+from data import training, test
 
 DEBUG = 0
 
@@ -19,7 +18,7 @@ def runExampleData():
     accuracies = []
     doc = sitescraper.htmlDoc('', True, True)
     i = 6
-    for site, d in data:#[i:i+1]:
+    for site, d in test.data:#[i:i+1]:
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:'
