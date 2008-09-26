@@ -6,19 +6,19 @@ import unittest
 from difflib import SequenceMatcher
 from misc import normalizeStr, average, pretty
 import __init__ as sitescraper
-from data import training, test
+from data import *
 
 DEBUG = 0
 
 
 # change to fold testing
-def runExampleData():
+def runExampleData(data):
     modelSize = 3
     os.chdir('data')
     accuracies = []
     doc = sitescraper.htmlDoc('', True, True)
     i = 6
-    for site, d in test.data:#[i:i+1]:
+    for site, d in data:#[i:i+1]
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:'
@@ -43,7 +43,7 @@ def runExampleData():
                         score, g = max(scores)
                     else:
                         score, g = 0, ''
-                    accuracy = 100 * score / float(2*bestScore)
+                    accuracy = max(0, 100 * score / float(2*bestScore))
                     if accuracy < 95:
                         print '%d/%d (%d%%)' % (score, 2*bestScore, accuracy)
                         #print doc.sequence.get_opcodes()
@@ -71,9 +71,10 @@ def runDocTests():
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    if 'data' in args:
-        runExampleData()
+    if not args:
+        print('Usage: python %s data|doc' % sys.argv[0])
     elif 'doc' in args:
         runDocTests()
     else:
-        print('Usage: python %s data|doc' % sys.argv[0])
+        import data
+        runExampleData(getattr(data, args[0]).data)

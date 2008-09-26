@@ -2,12 +2,16 @@ import os
 
 
 urls = [
-    "http://ubuntuforums.org/showthread.php?t=928561",
-    "http://ubuntuforums.org/showthread.php?t=762900",
-    "http://ubuntuforums.org/showthread.php?t=925736",
-    "http://ubuntuforums.org/showthread.php?t=928641",
-    "http://ubuntuforums.org/showthread.php?t=923976",
-    "http://ubuntuforums.org/showthread.php?t=928618",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
 ]
 
 for i, url in enumerate(urls):

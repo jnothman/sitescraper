@@ -1,0 +1,1629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="description" content="OpenSUSE Beta Can Brick Intel e1000e Network Cards -- article related to Bug, Linux, and Networking.">
+<title>Slashdot | OpenSUSE Beta Can Brick Intel e1000e Network Cards</title>
+
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//images.slashdot.org/core-tidied.css?T_2_5_0_221">
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//images.slashdot.org/comments.css?T_2_5_0_221">
+<!--[if IE]><link rel="stylesheet" type="text/css" media="screen, projection" href="//images.slashdot.org/iestyles.css?T_2_5_0_221"><![endif]-->
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//images.slashdot.org/slashdot_linux.css?T_2_5_0_221">
+<link rel="stylesheet" type="text/css" media="print" href="//images.slashdot.org/print.css?T_2_5_0_221">
+<link rel="stylesheet" type="text/css" media="handheld" href="//images.slashdot.org/handheld.css?T_2_5_0_221">
+
+
+<script src="//images.slashdot.org/all-minified.js?T_2_5_0_221" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+var adpage = 'article';
+</script><link rel="top"       title="News for nerds, stuff that matters" href="//slashdot.org/" >
+<link rel="search"    title="Search Slashdot" href="//linux.slashdot.org/search.pl">
+<link rel="alternate" title="Slashdot RSS" href="http://rss.slashdot.org/Slashdot/slashdotLinux" type="application/rss+xml">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- DoubleClick Random Number -->
+<script type="text/javascript">
+   dfp_ord=Math.random()*10000000000000000;
+   dfp_tile = 1;
+</script>
+<!-- End DoubleClick Random Number -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-32013-5");
+pageTracker._setDomainName("slashdot.org");
+pageTracker._initData();
+</script>
+
+</head>
+<body>
+<div id="top_parent"></div>
+
+
+<div id="jump">
+	<a href="#main-articles">Stories</a>
+	<br>
+	<a href="#blocks">Slash Boxes</a>
+	<br>
+	<a href="#comments">Comments</a>
+</div>
+
+
+<div id="frame">
+<div></div>
+	<div id="topnav">
+		<div id="logo">
+			<h1>
+				<a href="//slashdot.org">Slashdot</a>
+			</h1>
+		</div>
+		<div class="search">
+
+			<form method="get" action="//linux.slashdot.org/search.pl">
+				<fieldset>
+					<legend>Search</legend>
+					<input type="text" name="query" value="">
+					<input type="submit" value="Search" class="button">
+				</fieldset>
+			</form>
+
+		</div>
+	</div> 
+	<div id="slogan">
+		<h2>
+			News for nerds, stuff that matters
+		</h2>
+	</div>
+	<div id="wrapper">
+		<div id="user-section">
+			<div class="content">
+				<ul>
+			
+					<li class="begin"><a id="loginlink" class="collapsed" href="//slashdot.org/login.pl">Log In</a></li>
+					<li><a href="//slashdot.org/login.pl?op=newuserform" title="">Create Account</a></li>
+                                        <li><a href="//slashdot.org/help" title="Get help with your account.">Help</a></li>
+					<li><a href="//slashdot.org/subscribe.pl" title="An option to see Slashdot without these ads">Subscribe</a></li>
+					<li><a href="//slashdot.org/firehose.shtml">Firehose</a></li>
+			
+				</ul>
+				<ul id="user-utils">
+                                
+					<li><a href="//slashdot.org/faq/accounts.shtml#ac050" title="Save preferences, your own Journal, define Friends &amp;  Foes for discussions, participate in Moderation and more ...">Why Log In?</a></li>
+				
+				
+					<li><a href="//slashdot.org/faq/subscriptions.shtml" title="An option to see Slashdot without these ads">Why Subscribe?</a></li>
+				
+				</ul>
+			
+				<div id="loginform">
+					<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<legend>Log In</legend>
+	<label>
+		Nickname
+	</label>
+	<input type="text" name="unickname" size="20" value="">
+	<label>
+		Password
+	</label>
+	<input type="hidden" name="returnto" value="//linux.slashdot.org/">
+	<input type="hidden" name="op" value="userlogin">
+	<input type="password" name="upasswd" size="20">
+	<label class="checkbox">
+		<input type="checkbox" name="login_temp" value="yes">
+		Public Terminal
+	</label>
+	<input type="submit" name="userlogin" value="Log in" class="button">
+	</fieldset>
+</form>
+<p>
+	[ <b>
+		<a href="//slashdot.org/login.pl?op=newuserform">
+			Create a new account
+		</a>
+	</b> ]
+</p>
+				</div>
+			
+			</div>
+		</div>
+		<div id="links">
+			
+			<div class="block" id="links-sections">
+	<div class="title" id="links-sections-title">
+		<h4>
+                        Sections
+		</h4>
+	</div>
+	<div class="content" id="links-sections-content">
+	<ul>
+	<li><a href="//slashdot.org/">Main</a></li>
+	
+	
+	<li><a href="//apple.slashdot.org/">Apple</a></li>
+	
+	
+	
+	<li><a href="//ask.slashdot.org/">AskSlashdot</a></li>
+	
+	
+	
+	<li><a href="//books.slashdot.org/">Books</a></li>
+	
+	
+	
+	<li><a href="//developers.slashdot.org/">Developers</a></li>
+	
+	
+	
+	<li><a href="//games.slashdot.org/">Games</a></li>
+	
+	
+	
+	<li><a href="//hardware.slashdot.org/">Hardware</a></li>
+	
+	
+	
+	<li><a href="//it.slashdot.org/">IT</a></li>
+	
+	
+	
+	<li><a href="//idle.slashdot.org/">Idle</a></li>
+	
+	
+	
+	<li><a href="//slashdot.org/">Index</a></li>
+	
+	
+	
+	<li><a href="//interviews.slashdot.org/">Interviews</a></li>
+	
+	
+	
+	<li><h2><a href="//linux.slashdot.org/">Linux</a></h2></li>
+	
+	
+	
+	<li><a href="//mobile.slashdot.org//" onclick="javascript:pageTracker._trackPageview('/toshiba/mobile_section')">Mobile</a></li>
+	
+	
+	
+	<li><a href="//politics.slashdot.org/">Politics</a></li>
+	
+	
+	
+	<li><a href="//science.slashdot.org/">Science</a></li>
+	
+	
+	
+	<li><a href="//tech.slashdot.org/">Technology</a></li>
+	
+	
+	
+	<li><a href="//yro.slashdot.org/">YRO</a></li>
+	
+
+</ul>
+	</div>
+	
+</div>
+
+<div class="block" id="links-help">
+	<div class="title" id="links-help-title">
+		<h4>Help</h4>
+	</div>
+	<div class="content" id="links-help-content">
+		<ul>
+			<li><a href="//slashdot.org/faq/">FAQ</a></li>
+			<li><a href="http://sourceforge.net/tracker/?func=add&amp;group_id=4421&amp;atid=104421">Bugs</a></li>
+		</ul>
+	</div>
+</div>
+<div class="block" id="links-stories">
+	<div class="title" id="links-stories-title">
+		<h4>Stories</h4>
+	</div>
+	<div class="content" id="links-stories-content">
+		<ul>
+			<li><a href="//slashdot.org/search.pl">Old Stories</a></li>
+			<li><a href="//polls.slashdot.org/">Old Polls</a></li>
+			<li><a href="//slashdot.org/topics.shtml">Topics</a></li>
+			<li><a href="//slashdot.org/hof.shtml">Hall of Fame</a></li>
+			<li><a href="//slashdot.org/bookmarks/">Bookmarks</a></li>
+			<li><a href="//slashdot.org/submit.pl">Submit Story</a></li>
+		</ul>
+	</div>
+</div>
+<div class="block" id="links-about">
+	<div class="title" id="links-about-title">
+		<h4>About</h4>
+	</div>
+	<div class="content" id="links-about-content">
+		<ul>
+			<li><a href="//slashdot.org/supporters.shtml">Supporters</a></li>
+			<li><a href="//slashdot.org/code.shtml">Code</a></li>
+		</ul>
+	</div>
+</div>
+<div class="block" id="links-services">
+	<div class="title" id="links-services-title">
+		<h4>Services</h4>
+	</div>
+	<div class="content" id="links-services-content">
+		<ul>
+			<li><a href="http://jobs.slashdot.org/">Jobs</a></li>
+			<li><a href="//slashdot.org/relocate.pl?id=a27a66150282ba2c8d94d57fabaf3e58">Special Offers</a></li>
+			<li><a href="http://ad.doubleclick.net/clk;172276006;13503038;t?http://www.linux.com/sponsor_solutions/">Sponsor Solutions</a></li>
+		</ul>
+	</div>
+</div> 
+		
+                        
+<div class="block static" id="links-jobs">
+	<div class="title" id="links-jobs-title" style="cursor:pointer;" onclick="window.location='http://jobs.slashdot.org/';">
+		<h4><a href=" http://jobs.slashdot.org/" style="text-decoration:none;border-style:none;">Jobs</a></h4>
+	</div>
+	<div class="content" id="links-jobs-content">
+		<script type="text/javascript" src="http://edge.jobthread.com/feeds/jobroll/?s_user_id=100540&subtype=slashdot "></script>
+	</div>
+</div>
+			
+			
+			
+		</div>
+		<div id="contents">
+
+<div class="lb"><div class="ad1"><!-- placeholder for ad position 1 --></div>
+</div>
+<div id="article" class="aduserbox "><div id="slashboxes">
+	<div class="ad2"><!-- placeholder for ad position 2 --></div>
+
+
+<div class="block">
+	<div class="title" id="userlogin-title">
+		<h4>
+			Slashdot Log In
+		</h4>
+	</div>
+	<div class="content" id="userlogin-content">
+		
+			<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<legend>Log In</legend>
+	<label>
+		Nickname
+	</label>
+	<input type="text" name="unickname" size="20" value="">
+	<label>
+		Password
+	</label>
+	<input type="hidden" name="returnto" value="//linux.slashdot.org/article.pl?sid=08/09/23/133258">
+	<input type="hidden" name="op" value="userlogin">
+	<input type="password" name="upasswd" size="20">
+	<label class="checkbox">
+		<input type="checkbox" name="login_temp" value="yes">
+		Public Terminal
+	</label>
+	<input type="submit" name="userlogin" value="Log in" class="button">
+	</fieldset>
+</form>
+<p>
+	[ <b>
+		<a href="//slashdot.org/login.pl?op=newuserform">
+			Create a new account
+		</a>
+	</b> ]
+</p>
+		
+	</div>
+</div>
+
+
+
+
+</div>
+<a name="main-articles"></a>
+<div id="articles">
+
+<div class="article" id="art1">
+
+
+
+<div class="generaltitle" >
+	<div class="title">
+		<h3 >
+			OpenSUSE Beta Can Brick Intel e1000e Network Cards
+			
+		</h3>
+	</div>
+</div>
+	<div class="details">
+
+	
+	<b>Posted by
+	
+	<a href="http://www.monkey.org/~timothy/">timothy</a>
+
+	on Tuesday September 23, @09:23AM</b><br>
+	<strong>from the <b>price-of-progress</b> dept.</strong>
+	</div>
+	<div class="body">
+		<div class="topic">
+		
+		
+		
+			<a href="//linux.slashdot.org/search.pl?tid=128">
+				<img src="//images.slashdot.org/topics/topicbug.gif" width="80" height="62" alt="Bug" title="Bug" >
+			</a>
+		
+		
+			
+			
+			
+			
+				
+					<a href="//linux.slashdot.org/search.pl?tid=230" class="topic2">
+						<img src="//images.slashdot.org/topics/topicnetworking.gif" width="71" height="37" alt="Networking" title="Networking" >
+					</a>
+				
+		
+			
+			
+			
+				
+					<a href="//linux.slashdot.org/search.pl?tid=106" class="topic2">
+						<img src="//images.slashdot.org/topics/topiclinux.gif" width="60" height="70" alt="Linux" title="Linux" >
+					</a>
+				
+		
+		
+		</div>
+		<div class="intro">
+			An anonymous reader writes <i>"Some Intel cards don't just not work with the new OpenSUSE beta, they can <a href="http://www.heise-online.co.uk/news/Intel-e1000e-user-Don-t-install-the-new-SUSE-betas--/111583">get bricked as well</a>. Check your hardware before you install!"</i> The only card mentioned as affected is the Intel e1000e, and it's not just OpenSUSE for which this card is a problem, according to this short article: "Bug reports for Fedora 9 and 10 and Linux Kernel 2.6.27rc1 match the symptoms reported by SUSE users."
+		</div>
+
+
+
+
+
+		
+
+
+
+
+	<div class="ad6"><!-- ad position 6 -->
+<!-- DoubleClick Ad Tag -->
+
+<script type="text/javascript">
+		var ad6 = 'active';
+</script>
+
+<div id="fad6">
+	<script type="text/javascript">
+	//<![CDATA[
+
+		var hint   = 'linux,it,linux,bug,software,technology,networking';
+		var parent = 'http://linux.slashdot.org/linux/08/09/23/133258.shtml';
+
+		document.write('<script type="text/javascript" src="http://ad.doubleclick.net/adj/ostg.slashdot/linux_p6_imu;pg=article;logged_in=0;tile='+dfp_tile+';tpc=it;tpc=linux;tpc=bug;tpc=software;tpc=technology;tpc=networking;ord='+dfp_ord+'?"><\/script>');
+		dfp_tile++;
+	//]]>
+	</script>
+</div>
+<!-- End DoubleClick Ad Tag --></div>
+
+
+	</div>
+</div><div id="tagbox-08-09-23-133258" class="tags">
+
+<div id="tagbox-title-08-09-23-133258" class="tagtitleclosed">&nbsp;<a href="//linux.slashdot.org/login.pl"><span class="tagsheader" id="toggletags-button-08-09-23-133258">[+]</span></a>
+
+			<span class="tagname"><a href="/tags/bug">bug</a></span>, 		<span class="tagname"><a href="/tags/linux">linux</a></span>, 		<span class="tagname"><a href="/tags/networking">networking</a></span>, 		<span class="tagname"><a href="/tags/suse">suse</a></span>, 		<span class="tagname"><a href="/tags/intel">intel</a></span>
+<i>(<a href="/faq/tags.shtml">tagging beta</a>)</i>
+</div>
+
+
+
+</div>
+<div class="prev-next">
+
+</div>
+
+
+
+
+	<p></p>
+	<div class="generaltitle" >
+	<div class="title">
+		<h3 >
+			Related Stories
+			
+		</h3>
+	</div>
+</div>
+	<div class="briefarticle brieffirehose">
+	<span class="storytitle"><a href="/firehose.pl?id=1197609&amp;op=view">Firehose:New OpenSUSE beta can fry your network card</a></span> by Anonymous Coward
+</div>
+
+
+</div><a name="acomments"></a>
+<div class="commentwrap" id="commentwrap">
+
+<div class="commentBox" style="font-size: 120%">
+	<div>
+<span class="escape-link"><a href="//linux.slashdot.org/article.pl?sid=08/09/23/133258" title="Back to Article - OpenSUSE Beta Can Brick Intel e1000e Network Cards">OpenSUSE Beta Can Brick Intel e1000e Network Cards</a></span>
+<span class="commentBoxLinks"><a href="#" onclick="ajaxFetchComments(0,1); return false"><span id="more_comments_num_d"></span> More</a> | 
+
+	<a href="//linux.slashdot.org/login.pl" onclick="show_login_box(); return false">Login</a>
+
+
+
+	| <a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=" onclick="replyTo(0); return false;">Reply</a></span>
+	</div>
+</div>
+
+	<div class="commentBoxForm" id="commentControlBox">
+<div></div>
+	<div class="commentBox">
+		<small>
+		<b>The Fine Print:</b> The following comments are owned by whoever posted them.  We are not responsible for them in any way.
+		</small>
+<noscript><br><small>Without JavaScript enabled, you might want to
+use <a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;no_d2=1&amp;pid=0">the classic discussion system</a> instead.  If you <a href="//linux.slashdot.org/login.pl">login</a>, you can remember this preference.
+</small></noscript>
+	</div>
+	</div>
+	
+		<div id="d2out" class="vertical">
+		<div id="d2act" class="hide">
+		<div class="loki" id="gods">
+		<div class="block">
+			<div class="title">
+
+				<h4>
+				
+					<span class="h-inline">
+					<a href="//linux.slashdot.org/article.pl?sid=08/09/23/133258" title="Back to Article - OpenSUSE Beta Can Brick Intel e1000e Network Cards">OpenSUSE Beta Can Brick Intel e1000e Network Cards</a></span>
+					<span class="titlecount"><a href="//linux.slashdot.org/article.pl?sid=08/09/23/133258#topcomment" title="Back to Top Comment - OpenSUSE Beta Can Brick Intel e1000e Network Cards"><span id="titlecountnum">25</span>&nbsp;Comments</a></span>
+				
+		<span class="ccw-header-links"><a href="#" onclick="ajaxFetchComments(0,1); return false"><span id="more_comments_num_b"></span> More</a> | 
+
+	<a href="//linux.slashdot.org/login.pl" onclick="show_login_box(); return false">Login</a>
+
+
+
+	| <a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=" onclick="replyTo(0); return false;">Reply</a></span>
+		<span id="d2toggle" title="Toggle window location" onclick="toggleDisplayOptions()" class="close">/</span>
+				</h4>
+			</div>
+		</div>
+<script type="text/javascript">
+gCommentControlWidget = null;
+
+YAHOO.slashdot.ThresholdApp = function() {
+  return {
+    init: function() {
+      gCommentControlWidget = new YAHOO.slashdot.ThresholdWidget();
+      gCommentControlWidget.setTHT(user_threshold, user_highlightthresh);
+      updateTotals();
+    }
+  };
+}();
+
+YAHOO.util.Event.addListener(window, "load", YAHOO.slashdot.ThresholdApp.init);
+</script>
+		<div id="bones">
+      <div id="ccw">
+        <div id="ccw-body" class="ccw-core">
+          <div id="ccw-panel-container" class="ccw-core">
+            <div id="ccw-full-panel" class="ccw-panel">
+              <div class="ccw-panel-border"></div>
+              <div id="ccw-full-count-pos" class="ccw-core-pos ccw-count-pos">
+                <span id="ccw-full-count-text" class="ccw-count-text"><span id="currentFull"></span><span id="ccw-full-phrase">&nbsp;Full</span></span>
+              </div>
+            </div>
+            <div id="ccw-abbr-panel" class="ccw-panel">
+              <div class="ccw-panel-border"></div>
+              <div id="ccw-abbr-count-pos" class="ccw-core-pos ccw-count-pos">
+                <span id="ccw-abbr-count-text" class="ccw-count-text"><span id="currentOneline"></span><span id="ccw-abbr-phrase">&nbsp;Abbreviated</span></span>
+              </div>
+            </div>
+            <div id="ccw-hide-panel" class="ccw-panel">
+              <div id="ccw-hide-count-pos" class="ccw-core-pos ccw-count-pos">
+                <span id="ccw-hide-count-text" class="ccw-count-text"><span id="currentHidden"></span><span id="ccw-hide-phrase">&nbsp;Hidden</span></span>
+              </div>
+            </div>
+          </div>
+    
+          <div id="ccw-control" class="ccw-core">
+            <div id="ccw-centering-rail" class="ccw-core">
+              <div id="ccw-hide-bar-pos" class="ccw-core-pos">
+                <div id="ccw-hide-bar" class="ccw-bar">
+                  <div id="ccw-hide-bar-tab" class="ccw-bar-tab"></div>
+                  <div id="ccw-hide-bar-upzone" class="ccw-upzone" onclick="gCommentControlWidget.stepTHT(HIDE_BAR, +1)"></div>
+                  <div id="ccw-hide-bar-downzone" class="ccw-downzone" onclick="gCommentControlWidget.stepTHT(HIDE_BAR, -1)"></div>
+                </div>
+              </div>
+              <div id="ccw-abbr-bar-pos" class="ccw-core-pos">
+                <div id="ccw-abbr-bar" class="ccw-bar">
+                  <div id="ccw-abbr-bar-tab" class="ccw-bar-tab"></div>
+                  <div id="ccw-abbr-bar-upzone" class="ccw-upzone" onclick="gCommentControlWidget.stepTHT(ABBR_BAR, +1)"></div>
+                  <div id="ccw-abbr-bar-downzone" class="ccw-downzone" onclick="gCommentControlWidget.stepTHT(ABBR_BAR, -1)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+		<div class="commentControlFooter"><a href="#" onclick="ajaxFetchComments(0,1); return false"><span id="more_comments_num_c"></span> More</a> | 
+
+	<a href="//linux.slashdot.org/login.pl" onclick="show_login_box(); return false">Login</a>
+
+
+
+	| <a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=" onclick="replyTo(0); return false;">Reply</a><div id="login_cover" style="display:none" onclick="hide_login_box()"></div>
+<div id="login_box" style="display:none">
+<div class="generaltitle" >
+	<div class="title">
+		<h3 >
+			Please Log In to Continue<a href="#" onclick="hide_login_box(); return false" class="close" title="Close this box"><img id="login_box_close" src="//images.slashdot.org/sic_close.png" alt="Close"></a>
+			
+		</h3>
+	</div>
+</div>
+<div id="login_box_content">
+<form action="//slashdot.org/login.pl" method="post">
+<fieldset>
+	<legend>Log In</legend>
+	<label>
+		Nickname
+	</label>
+	<input type="text" name="unickname" size="20" value="">
+	<label>
+		Password
+	</label>
+	<input type="hidden" name="returnto" value="//linux.slashdot.org/comments.pl?sid=972935">
+	<input type="hidden" name="op" value="userlogin">
+	<input type="password" name="upasswd" size="20">
+	<label class="checkbox">
+		<input type="checkbox" name="login_temp" value="yes">
+		Public Terminal
+	</label>
+	<input type="submit" name="userlogin" value="Log in" class="button">
+	</fieldset>
+</form>
+<p>
+	[ <b>
+		<a href="//slashdot.org/login.pl?op=newuserform">
+			Create a new account
+		</a>
+	</b> ]
+</p>
+</div></div>
+<script type="text/javascript">logged_in = 0</script></div>
+		<div id="commentControlBoxStatus" class="hide"><b>Loading... please wait.</b></div>
+	</div>
+</div>
+		</div>
+	
+</div>
+<a name="topcomment"></a><script src="//images.slashdot.org/comments.js?T_2_5_0_221" type="text/javascript"></script>
+	<script type="text/javascript">
+<!--
+	d2_keybindings_disable[191] = 1;
+	window.onscroll = d2act;
+	boxStatus(1);
+comments = { 25119543: { uid: 1108023, pid: 0, read: 0, points: 5, kids: [ 25120913 ], opid: 0 }, 25119227: { uid: 1370169, pid: 25119197, subject: "Re:Badly written firmware.", read: 0, points: 4, kids: [ 25119707, 25120387, 25120611 ], opid: 25119197 }, 25119759: { uid: 666, pid: 25119553, subject: "Re:What is really happening regarding this problem", read: 0, points: 3, kids: [ 25120741 ], opid: 25119553 }, 25119533: { uid: 791652, pid: 25119197, read: 0, points: 2, kids: [  ], opid: 25119197 }, 25119553: { uid: 82516, pid: 0, read: 0, points: 5, kids: [ 25119759, 25120517, 25120629 ], opid: 0 }, 25120793: { uid: 23624, pid: 25120643, subject: "Re:Badly written firmware.", read: 0, points: 5, kids: [  ], opid: 25120643 }, 25119387: { uid: 655584, pid: 25119197, subject: "Re:Badly written firmware.", read: 0, points: 2, kids: [  ], opid: 25119197 }, 25119367: { uid: 618674, pid: 25119197, subject: "Re:Badly written firmware.", read: 0, points: 5, kids: [  ], opid: 25119197 }, 25121483: { uid: 793323, pid: 25120959, subject: "Re:Badly written firmware.", read: 0, points: 3, kids: [  ], opid: 25120959 }, 25120859: { uid: 141178, pid: 25119229, subject: "Re:!Bricked", read: 0, points: 5, kids: [  ], opid: 25119229 }, 25119405: { uid: undefined, pid: 25119197, read: 0, points: -2, kids: [ 25119525 ], opid: undefined }, 25125389: { uid: 34228, pid: 25120629, subject: "Re:What is really happening regarding this problem", read: 0, points: 3, kids: [  ], opid: 25120629 }, 25119463: { uid: 528653, pid: 25119341, subject: "Re:Kernel fix, perhaps?", read: 0, points: 5, kids: [  ], opid: 25119341 }, 25120643: { uid: undefined, pid: 25120611, read: 0, points: -2, kids: [ 25120793, 25120959 ], opid: undefined }, 25119319: { uid: 264228, pid: 0, read: 0, points: 5, kids: [  ], opid: 0 }, 25120629: { uid: undefined, pid: 25119553, read: 0, points: -2, kids: [ 25125389 ], opid: undefined }, 25120741: { uid: 966506, pid: 25119759, subject: "Re:What is really happening regarding this problem", read: 0, points: 5, kids: [  ], opid: 25119759 }, 25119525: { uid: 1248258, pid: 25119405, subject: "Re:Badly written firmware.", read: 0, points: 2, kids: [  ], opid: 25119405 }, 25120959: { uid: 4537, pid: 25120643, subject: "Re:Badly written firmware.", read: 0, points: 3, kids: [ 25121483 ], opid: 25120643 }, 25119197: { uid: 67614, pid: 0, read: 0, points: 5, kids: [ 25119227, 25119367, 25119387, 25119405, 25119533 ], opid: 0 }, 25119229: { uid: 666, pid: 0, read: 0, points: 5, kids: [ 25120859 ], opid: 0 }, 25120517: { uid: undefined, pid: 25119553, read: 0, points: -2, kids: [ 25120763 ], opid: undefined }, 25125877: { uid: 604569, pid: 0, read: 0, points: 4, kids: [  ], opid: 0 }, 25120913: { uid: 737525, pid: 25119543, subject: "Re:Oh great.", read: 0, points: 3, kids: [  ], opid: 25119543 }, 25119707: { uid: 666, pid: 25119227, subject: "Re:Badly written firmware.", read: 0, points: 3, kids: [  ], opid: 25119227 }, 25119341: { uid: 666, pid: 0, read: 0, points: 4, kids: [ 25119463 ], opid: 0 }, 25120763: { uid: 23624, pid: 25120517, subject: "Re:What is really happening regarding this problem", read: 0, points: 4, kids: [  ], opid: 25120517 }, 25120611: { uid: 23624, pid: 25119227, subject: "Re:Badly written firmware.", read: 0, points: 3, kids: [ 25120643 ], opid: 25119227 }, 25120387: { uid: 485, pid: 25119227, subject: "Re:Badly written firmware.", read: 0, points: 5, kids: [  ], opid: 25119227 } };
+
+thresh_totals = {6:{6:{1:25,3:0,2:0}},4:{6:{1:10,3:5,2:10},4:{1:10,3:15,2:0},5:{1:10,3:13,2:2}},1:{6:{1:0,3:5,2:20},4:{1:0,3:15,2:10},1:{1:0,3:25,2:0},3:{1:0,3:22,2:3},2:{1:0,3:25,2:0},5:{1:0,3:13,2:12}},3:{6:{1:3,3:5,2:17},4:{1:3,3:15,2:7},3:{1:3,3:22,2:0},5:{1:3,3:13,2:9}},0:{6:{1:0,3:5,2:20},4:{1:0,3:15,2:10},1:{1:0,3:25,2:0},3:{1:0,3:22,2:3},0:{1:0,3:25,2:0},2:{1:0,3:25,2:0},5:{1:0,3:13,2:12}},2:{6:{1:0,3:5,2:20},4:{1:0,3:15,2:10},3:{1:0,3:22,2:3},2:{1:0,3:25,2:0},5:{1:0,3:13,2:12}},5:{6:{1:14,3:5,2:6},5:{1:14,3:11,2:0}},"-1":{6:{1:0,3:5,2:20},4:{1:0,3:15,2:10},1:{1:0,3:25,2:0},3:{1:0,3:22,2:3},0:{1:0,3:25,2:0},2:{1:0,3:25,2:0},5:{1:0,3:13,2:12},"-1":{1:0,3:25,2:0}}};
+
+root_comment = 0;
+root_comments = [25119197,25119229,25119319,25119341,25119543,25119553,25125877];
+root_comments_hash = {25125877:1,25119543:1,25119229:1,25119197:1,25119341:1,25119553:1,25119319:1};
+max_cid = 25125877;
+
+d2_comment_order = 0;
+user_uid = 666;
+user_is_anon = 1;
+user_is_admin = 0;
+user_is_subscriber = 0;
+user_threshold = 1;
+user_highlightthresh = 4;
+user_d2asp = 0;
+
+discussion_id = 972935;
+
+d2_seen = '25119197,30,2,90,22,26,20,76,62,8,10,10,154,52,628,224,130,22,30,66,54,46,524,3906,488';
+more_comments_num = 102;
+adTimerUrl = '//s.fsdn.com/sd/iframe/linux.html';
+
+
+//-->
+	</script>
+
+
+
+
+	
+	
+	
+	
+		<ul id="commentlisting" class="d2">
+			<li id="tree_25119197" class="comment contain">
+<div id="comment_status_25119197" class="commentstatus"></div>
+<div id="comment_25119197" class="full">
+	<div id="comment_top_25119197" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119197" name="comment_link_25119197" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119197" onclick="return setFocusComment(25119197)">Badly written firmware.</a>
+
+
+		 	<span id="comment_score_25119197" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119197); return false">Score:5</a>, Insightful)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~psergiu">psergiu (67614)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119197">		
+		on Tuesday September 23, @09:27AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119197">#25119197</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119197">Any decent firmware for a device should not allow the user to accidentally destroy the device.
+Looks like Intel skipped on Q&amp;A.</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119197">
+<span id="reply_link_25119197" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119197" onclick="replyTo(25119197); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119197"></div>
+
+<ul id="group_25119197">
+	<li id="hiddens_25119197" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119197"><li id="tree_25119227" class="comment contain">
+<div id="comment_status_25119227" class="commentstatus"></div>
+<div id="comment_25119227" class="full">
+	<div id="comment_top_25119227" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119227" name="comment_link_25119227" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119227" onclick="return setFocusComment(25119227)">Re:Badly written firmware.</a>
+
+
+		 	<span id="comment_score_25119227" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119227); return false">Score:4</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~reashlin">reashlin (1370169)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119227">		
+		on Tuesday September 23, @09:30AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119227">#25119227</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119227">Any decent device driver should also not be writing to the firmware, which i'm guessing is how the device can become bricked.</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119227">
+<span id="reply_link_25119227" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119227" onclick="replyTo(25119227); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119197" onclick="return selectParent(25119197)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119227"></div>
+
+<ul id="group_25119227">
+	<li id="hiddens_25119227" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119227"><li id="tree_25119707" class="comment">
+<div id="comment_status_25119707" class="commentstatus"></div>
+<div id="comment_25119707" class="oneline">
+	<div id="comment_top_25119707" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119707" name="comment_link_25119707" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119707" onclick="return setFocusComment(25119707)">Re:</a>
+
+
+		 	<span id="comment_score_25119707" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119707); return false">Score:3</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by Anonymous Coward 
+			<span class="otherdetails" id="comment_otherdetails_25119707"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119707"><p>It appears that the bug is a combination of memory-mapped control registers which can enable flash writing and another (graphics related) problem which causes random data to be written to that area. The driver itself does not attempt to rewrite the firmware.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119707">
+
+</div>
+</div>
+
+<div id="replyto_25119707"></div>
+
+<ul id="group_25119707">
+	<li id="hiddens_25119707" class="hide"></li>
+</ul>
+
+</li><li id="tree_25120387" class="comment contain">
+<div id="comment_status_25120387" class="commentstatus"></div>
+<div id="comment_25120387" class="full">
+	<div id="comment_top_25120387" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120387" name="comment_link_25120387" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120387" onclick="return setFocusComment(25120387)">Re:Badly written firmware.</a>
+
+
+		 	<span id="comment_score_25120387" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120387); return false">Score:5</a>, Interesting)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~jandrese">jandrese (485)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120387">		 &lt;<a href="mailto:kensama%40vt.edu">kensama@vt.edu</a>&gt;
+		on Tuesday September 23, @10:43AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120387">#25120387</a>)
+		<small><a href="http://www.ceyah.org/~jandrese/" title="http://www.ceyah.org/~jandrese/" class="user_homepage_display">Homepage</a>
+<a href="//slashdot.org/~jandrese/journal/" title="Thursday September 13 2007, @12:11PM" class="user_journal_display">Journal</a> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120387">Except for the multitude of cards that require you to basically reflash the firmware as part of the initialization?  Cheap 802.11 cards are notorious for this, and it's a pain because it means you have to ship a binary blob with the driver and all of the licensing headaches that entails.</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120387">
+<span id="reply_link_25120387" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25120387" onclick="replyTo(25120387); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119227" onclick="return selectParent(25119227)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25120387"></div>
+
+<ul id="group_25120387">
+	<li id="hiddens_25120387" class="hide"></li>
+</ul>
+
+</li><li id="tree_25120611" class="comment">
+<div id="comment_status_25120611" class="commentstatus"></div>
+<div id="comment_25120611" class="oneline">
+	<div id="comment_top_25120611" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120611" name="comment_link_25120611" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120611" onclick="return setFocusComment(25120611)">Re:</a>
+
+
+		 	<span id="comment_score_25120611" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120611); return false">Score:3</a>, Insightful)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~ChrisJones">ChrisJones (23624)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120611"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120611"><p>err, what's the point of having firmware if your driver can't talk to it?</p><p>Also, this isn't about firmware, it's about Non-volatile memory. The chip uses it to store things like its MAC address.</p><p>You fail.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120611">
+
+</div>
+</div>
+
+<div id="replyto_25120611"></div>
+
+<ul id="group_25120611">
+	<li id="hiddens_25120611" class="hide"></li>
+</ul>
+
+<ul id="commtree_25120611"><li id="tree_25120643" class="comment">
+<div id="comment_status_25120643" class="commentstatus"></div>
+<div id="comment_25120643" class="hidden">
+</div>
+
+<div id="replyto_25120643"></div>
+
+<ul id="group_25120643">
+	<li id="hiddens_25120643" class="hide"></li>
+</ul>
+
+<ul id="commtree_25120643"><li id="tree_25120793" class="comment contain">
+<div id="comment_status_25120793" class="commentstatus"></div>
+<div id="comment_25120793" class="full">
+	<div id="comment_top_25120793" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120793" name="comment_link_25120793" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120793" onclick="return setFocusComment(25120793)">Re:Badly written firmware.</a>
+
+
+		 	<span id="comment_score_25120793" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120793); return false">Score:5</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~ChrisJones">ChrisJones (23624)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120793">		 &lt;<a href="mailto:chris%40b%5B+%5Dk-sun.co.uk+%5B'lac'+in+gap%5D">chris@b[ ]k-sun.co.uk ['lac' in gap]</a>&gt;
+		on Tuesday September 23, @11:09AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120793">#25120793</a>)
+		<small><a href="http://www.tenshu.net/" title="http://www.tenshu.net/" class="user_homepage_display">Homepage</a>
+<a href="//slashdot.org/~ChrisJones/journal/" title="Tuesday June 17 2003, @06:26PM" class="user_journal_display">Journal</a> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120793"><p>the NVM is checksummed. If the checksum fails, the driver refuses to initialise the card.<br>It seems that something is able to write garbage data to the NVM, leaving all of its settings broken.</p><p>This isn't some database API where you get to do lots of nice high-level verification, this is twiddling bits in hardware. Of course it should be properly protected, and my discussions with Intel about this suggest that it is, and that something else is at work here, but until they release a fix, we won't know for sure.</p><p>Also, their own DOS tools to restore NIC EEPROMs actually break the laptop NICs to the point that they won't enumerate on the PCI bus, so there is literally no hope of recovery unless you happen to have a BIOS update which will rewrite all of the memory the NIC uses.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120793">
+<span id="reply_link_25120793" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25120793" onclick="replyTo(25120793); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25120643" onclick="return selectParent(25120643)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25120793"></div>
+
+<ul id="group_25120793">
+	<li id="hiddens_25120793" class="hide"></li>
+</ul>
+
+</li><li id="tree_25120959" class="comment">
+<div id="comment_status_25120959" class="commentstatus"></div>
+<div id="comment_25120959" class="oneline">
+	<div id="comment_top_25120959" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120959" name="comment_link_25120959" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120959" onclick="return setFocusComment(25120959)">Re:</a>
+
+
+		 	<span id="comment_score_25120959" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120959); return false">Score:3</a>, Insightful)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~PhilHibbs">PhilHibbs (4537)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120959"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120959"><p>There's no way that a device can check all possible combinations of input for crash-inducing behaviour. If you think it can, go read "G&#195;del, Escher, Bach". In fact, go read it anyway, it's awesome.</p><p>Also there's a difference between a NIC and a web site - the NIC's API input is coming from its owner, the web site's customer is not. If you're a piece of hardware, you do what your owner tells you.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120959">
+
+</div>
+</div>
+
+<div id="replyto_25120959"></div>
+
+<ul id="group_25120959">
+	<li id="hiddens_25120959" class="hide"></li>
+</ul>
+
+<ul id="commtree_25120959"><li id="tree_25121483" class="comment">
+<div id="comment_status_25121483" class="commentstatus"></div>
+<div id="comment_25121483" class="oneline">
+	<div id="comment_top_25121483" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25121483" name="comment_link_25121483" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25121483" onclick="return setFocusComment(25121483)">Re:</a>
+
+
+		 	<span id="comment_score_25121483" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25121483); return false">Score:3</a>, Interesting)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~X0563511">X0563511 (793323)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25121483"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25121483"><p>Can you get us an ISBN for that book? The non-ASCII character in there got mangled by slashdot (or my browser) and all search results based on my assumptions, are trash.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25121483">
+
+</div>
+</div>
+
+<div id="replyto_25121483"></div>
+
+<ul id="group_25121483">
+	<li id="hiddens_25121483" class="hide"></li>
+</ul>
+
+</li></ul></li></ul></li></ul></li></ul></li><li id="tree_25119367" class="comment contain">
+<div id="comment_status_25119367" class="commentstatus"></div>
+<div id="comment_25119367" class="full">
+	<div id="comment_top_25119367" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119367" name="comment_link_25119367" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119367" onclick="return setFocusComment(25119367)">Re:Badly written firmware.</a>
+
+
+		 	<span id="comment_score_25119367" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119367); return false">Score:5</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~arkhan_jg">arkhan_jg (618674)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119367">		
+		on Tuesday September 23, @09:39AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119367">#25119367</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119367"><p>A few years back, Mandrake merged a kernel patch in their new release that would accidentally brick certain LG CDROM drives using old firmware versions when it checked if it had writing capabilities. This was largely LG's fault for re-using a valid command code to mean 'start flashing me now' instead, and of course, no firmware was then forthcoming, leaving the drive in an unusable state.</p><p>LG ended up replacing old affected drives, and the kernel patch was rewritten. Mandrake bore the brunt of the reputation hit though for quite a while, which I suspect will happen to SuSE.</p><p>The e1000e driver is the new one for pci-e based intel pro 1000 chipsets, with the old pci and pci-x cards unaffected with the original e1000 driver. Still, that's going to be quite a lot of cards affected.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119367">
+<span id="reply_link_25119367" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119367" onclick="replyTo(25119367); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119197" onclick="return selectParent(25119197)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119367"></div>
+
+<ul id="group_25119367">
+	<li id="hiddens_25119367" class="hide"></li>
+</ul>
+
+</li><li id="tree_25119387" class="comment">
+<div id="comment_status_25119387" class="commentstatus"></div>
+<div id="comment_25119387" class="oneline">
+	<div id="comment_top_25119387" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119387" name="comment_link_25119387" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119387" onclick="return setFocusComment(25119387)">Re:</a>
+
+
+		 	<span id="comment_score_25119387" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119387); return false">Score:2</a>)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~SanityInAnarchy">SanityInAnarchy (655584)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119387"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119387"><p>I don't think that's entirely possible.</p><p>Consider a cooling system. Is there any reason that shouldn't be software-controlled? If it is, the user could conceivably turn off all fans, thus overheating the device.</p><p>Sure, you could take away enough functionality that the user can't do that. But that's the tradeoff -- functionality. No decent gun wouldn't allow you to shoot yourself in the foot.</p><p>But then, I do think Linux should be in Intel's Q&amp;A, especially for something like a network card.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119387">
+
+</div>
+</div>
+
+<div id="replyto_25119387"></div>
+
+<ul id="group_25119387">
+	<li id="hiddens_25119387" class="hide"></li>
+</ul>
+
+</li><li id="tree_25119533" class="comment">
+<div id="comment_status_25119533" class="commentstatus"></div>
+<div id="comment_25119533" class="oneline">
+	<div id="comment_top_25119533" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119533" name="comment_link_25119533" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119533" onclick="return setFocusComment(25119533)">Agreed, in this instance</a>
+
+
+		 	<span id="comment_score_25119533" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119533); return false">Score:2</a>, Interesting)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~davidwr">davidwr (791652)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119533"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119533"><p>Gun and air-conditioning aside, devices should not allow accidental bricking or physical damage <i>unless it is inherent in the function of the hardware</i>.</p><p>For cases of loading bad firmware, the "load new firmware" instruction should have a few failsafes like magic words or what-not so it isn't accidentally invoked.</p><p>Even better, hardware devices should have a failsafe firmware burned on silicon that can be reactivated by flipping a switch, setting a jumper, or some other hardware-action-required setting.  This "fa<span class="substr"> </span></p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119533">
+
+</div>
+</div>
+
+<div id="replyto_25119533"></div>
+
+<ul id="group_25119533">
+	<li id="hiddens_25119533" class="hide"></li>
+</ul>
+
+</li><li id="tree_25119405" class="comment">
+<div id="comment_status_25119405" class="commentstatus"></div>
+<div id="comment_25119405" class="hidden">
+</div>
+
+<div id="replyto_25119405"></div>
+
+<ul id="group_25119405">
+	<li id="hiddens_25119405" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119405"><li id="tree_25119525" class="comment">
+<div id="comment_status_25119525" class="commentstatus"></div>
+<div id="comment_25119525" class="oneline">
+	<div id="comment_top_25119525" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119525" name="comment_link_25119525" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119525" onclick="return setFocusComment(25119525)">Re:</a>
+
+
+		 	<span id="comment_score_25119525" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119525); return false">Score:2</a>)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~PC+and+Sony+Fanboy">PC and Sony Fanboy (1248258)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119525"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119525">Ah, but when even a child can get the keys and crash the car, there is a problem.</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119525">
+
+</div>
+</div>
+
+<div id="replyto_25119525"></div>
+
+<ul id="group_25119525">
+	<li id="hiddens_25119525" class="hide"></li>
+</ul>
+
+</li></ul></li></ul></li><li id="tree_25119229" class="comment contain">
+<div id="comment_status_25119229" class="commentstatus"></div>
+<div id="comment_25119229" class="full">
+	<div id="comment_top_25119229" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119229" name="comment_link_25119229" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119229" onclick="return setFocusComment(25119229)">!Bricked</a>
+
+
+		 	<span id="comment_score_25119229" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119229); return false">Score:5</a>, Funny)</span></h4>
+		</div>
+		<div class="details">
+			by Anonymous Coward 
+			<span class="otherdetails" id="comment_otherdetails_25119229">		
+		on Tuesday September 23, @09:30AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119229">#25119229</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119229"><p>Why won't people stop using the word brick to mean things that aren't bricked! All you have to do is use a quasi-negative reverse transponder linked to your flux capacitor to generate an inverse tachyon field, connect it to the JTAG while chanting Siaynoq and it will come right up. Sheesh!</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119229">
+<span id="reply_link_25119229" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119229" onclick="replyTo(25119229); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119229"></div>
+
+<ul id="group_25119229">
+	<li id="hiddens_25119229" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119229"><li id="tree_25120859" class="comment contain">
+<div id="comment_status_25120859" class="commentstatus"></div>
+<div id="comment_25120859" class="full">
+	<div id="comment_top_25120859" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120859" name="comment_link_25120859" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120859" onclick="return setFocusComment(25120859)">Re:!Bricked</a>
+
+
+		 	<span id="comment_score_25120859" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120859); return false">Score:5</a>, Funny)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~clickety6">clickety6 (141178)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120859">		
+		on Tuesday September 23, @11:13AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120859">#25120859</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120859"><p>I also hate it when people call these things bricked incorrectly.</p><p>Bricked XBOXen, bricked PSPs, bricked iPhones and now bricked network cards.</p><p>People, these things are not bricked! Believe me. I've tried building houses and garden walls out of them and they are absolutely fecking useless as bricks!</p><p>Please use the correct term in future. These items are not bricked, they are just FUBI  (fecked up by incompetence)</p><p>Thank you...</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120859">
+<span id="reply_link_25120859" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25120859" onclick="replyTo(25120859); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119229" onclick="return selectParent(25119229)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25120859"></div>
+
+<ul id="group_25120859">
+	<li id="hiddens_25120859" class="hide"></li>
+</ul>
+
+</li></ul></li><li id="tree_25119319" class="comment contain">
+<div id="comment_status_25119319" class="commentstatus"></div>
+<div id="comment_25119319" class="full">
+	<div id="comment_top_25119319" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119319" name="comment_link_25119319" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119319" onclick="return setFocusComment(25119319)">That's not what Bricked means!!!!oneone1</a>
+
+
+		 	<span id="comment_score_25119319" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119319); return false">Score:5</a>, Funny)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~OverlordQ">OverlordQ (264228)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119319">		
+		on Tuesday September 23, @09:36AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119319">#25119319</a>)
+		<small><a href="//slashdot.org/~OverlordQ/journal/" title="Saturday January 12 2008, @10:08AM" class="user_journal_display">Journal</a> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119319"><p>I hate it when people keep incorrectly using brick . . . . wait, what? They used it right? Oh . . . my bad, carry on.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119319">
+<span id="reply_link_25119319" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119319" onclick="replyTo(25119319); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119319"></div>
+
+<ul id="group_25119319">
+	<li id="hiddens_25119319" class="hide"></li>
+</ul>
+
+</li><li id="tree_25119341" class="comment contain">
+<div id="comment_status_25119341" class="commentstatus"></div>
+<div id="comment_25119341" class="full">
+	<div id="comment_top_25119341" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119341" name="comment_link_25119341" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119341" onclick="return setFocusComment(25119341)">Kernel fix, perhaps?</a>
+
+
+		 	<span id="comment_score_25119341" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119341); return false">Score:4</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by Anonymous Coward 
+			<span class="otherdetails" id="comment_otherdetails_25119341">		
+		on Tuesday September 23, @09:38AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119341">#25119341</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119341"><p>Kernel 2.6.27-rc7 has a changelog entry that reads:</p><p>Christopher Li (1):<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; e1000: prevent corruption of EEPROM/NVM</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119341">
+<span id="reply_link_25119341" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119341" onclick="replyTo(25119341); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119341"></div>
+
+<ul id="group_25119341">
+	<li id="hiddens_25119341" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119341"><li id="tree_25119463" class="comment contain">
+<div id="comment_status_25119463" class="commentstatus"></div>
+<div id="comment_25119463" class="full">
+	<div id="comment_top_25119463" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119463" name="comment_link_25119463" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119463" onclick="return setFocusComment(25119463)">Re:Kernel fix, perhaps?</a>
+
+
+		 	<span id="comment_score_25119463" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119463); return false">Score:5</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~neonprimetime">neonprimetime (528653)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119463">		
+		on Tuesday September 23, @09:46AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119463">#25119463</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119463"><i>
+From: Christopher Li 
+<br> <br>
+Andrey reports e1000 corruption, and that a patch in vmware's ESX fixed
+it.
+<br> <br>
+The EEPROM corruption is triggered by concurrent access of the EEPROM
+read/write. Putting a lock around it solve the problem.
+</i> <br> <br>
+<a href="http://www.kernel.org/pub/linux/kernel/people/akpm/patches/2.6/2.6.27-rc5/2.6.27-rc5-mm1/broken-out/e1000e-prevent-corruption-of-eeprom-nvm.patch" title="kernel.org" rel="nofollow">link</a> [kernel.org]</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119463">
+<span id="reply_link_25119463" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119463" onclick="replyTo(25119463); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119341" onclick="return selectParent(25119341)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119463"></div>
+
+<ul id="group_25119463">
+	<li id="hiddens_25119463" class="hide"></li>
+</ul>
+
+</li></ul></li><li id="tree_25119543" class="comment contain">
+<div id="comment_status_25119543" class="commentstatus"></div>
+<div id="comment_25119543" class="full">
+	<div id="comment_top_25119543" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119543" name="comment_link_25119543" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119543" onclick="return setFocusComment(25119543)">Oh great.</a>
+
+
+		 	<span id="comment_score_25119543" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119543); return false">Score:5</a>, Interesting)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~gandhi_2">gandhi_2 (1108023)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119543">		
+		on Tuesday September 23, @09:51AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119543">#25119543</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119543">Remember when Dell told customers that installing Linux on their computers voided the warranty?
+<p>
+
+Remember how everyone on<nobr> <wbr></nobr>/. called bullshit?
+</p><p>
+
+This doesn't look good for our cause.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119543">
+<span id="reply_link_25119543" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119543" onclick="replyTo(25119543); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119543"></div>
+
+<ul id="group_25119543">
+	<li id="hiddens_25119543" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119543"><li id="tree_25120913" class="comment">
+<div id="comment_status_25120913" class="commentstatus"></div>
+<div id="comment_25120913" class="oneline">
+	<div id="comment_top_25120913" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120913" name="comment_link_25120913" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120913" onclick="return setFocusComment(25120913)">Re:</a>
+
+
+		 	<span id="comment_score_25120913" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120913); return false">Score:3</a>)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~jimicus">jimicus (737525)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120913"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120913"><p><div class="quote"><p>This doesn't look good for our cause.</p></div><p>It doesn't, but it does get me thinking:  Given that it's possible for a badly behaved driver running in the kernel to stamp over NVRAM rendering hardware useless, how many pieces of bricked hardware have I thrown out over the years that were bricked because of a freak coincidence involving a rogue driver?</p><p>Bear in mind that many drivers in Windows run quite close to ring 0 of the kernel and they would be just as capable of causing such a problem.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120913">
+
+</div>
+</div>
+
+<div id="replyto_25120913"></div>
+
+<ul id="group_25120913">
+	<li id="hiddens_25120913" class="hide"></li>
+</ul>
+
+</li></ul></li><li id="tree_25119553" class="comment contain">
+<div id="comment_status_25119553" class="commentstatus"></div>
+<div id="comment_25119553" class="full">
+	<div id="comment_top_25119553" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119553" name="comment_link_25119553" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119553" onclick="return setFocusComment(25119553)">What is really happening regarding this problem</a>
+
+
+		 	<span id="comment_score_25119553" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119553); return false">Score:5</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~ronch">ronch (82516)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25119553">		
+		on Tuesday September 23, @09:51AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119553">#25119553</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119553"><p>I work on the e1000 team (including the e1000e driver) and here is what we know.  A panic in another driver (believed to be the gfx driver but uncertain) which scribbles over the NIC/LOM non-volatile memory (NVM).  This is only happening with the 2.6.27-rc kernels on ICHx systems.  Since the NIC/LOM VNM is part of the whole BIOS image other things in the system could be effected by this driver panic as well.  An update of the system BIOS will restore the NIC/LOM to be operational.  We have some patches under test right now that we will be releasing later today to protect the NIC/LOM NVM.  That should help narrow down who is scribbling over NVM.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119553">
+<span id="reply_link_25119553" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25119553" onclick="replyTo(25119553); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25119553"></div>
+
+<ul id="group_25119553">
+	<li id="hiddens_25119553" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119553"><li id="tree_25119759" class="comment">
+<div id="comment_status_25119759" class="commentstatus"></div>
+<div id="comment_25119759" class="oneline">
+	<div id="comment_top_25119759" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25119759" name="comment_link_25119759" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25119759" onclick="return setFocusComment(25119759)">Re:</a>
+
+
+		 	<span id="comment_score_25119759" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25119759); return false">Score:3</a>, Funny)</span></h4>
+		</div>
+		<div class="details">
+			by Anonymous Coward 
+			<span class="otherdetails" id="comment_otherdetails_25119759"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25119759"><p>This post was what to helpful and informative.</p><p>It doesn't belong in the comments of a Slashdot article!</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25119759">
+
+</div>
+</div>
+
+<div id="replyto_25119759"></div>
+
+<ul id="group_25119759">
+	<li id="hiddens_25119759" class="hide"></li>
+</ul>
+
+<ul id="commtree_25119759"><li id="tree_25120741" class="comment contain">
+<div id="comment_status_25120741" class="commentstatus"></div>
+<div id="comment_25120741" class="full">
+	<div id="comment_top_25120741" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120741" name="comment_link_25120741" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120741" onclick="return setFocusComment(25120741)">Re:What is really happening regarding this problem</a>
+
+
+		 	<span id="comment_score_25120741" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120741); return false">Score:5</a>, Funny)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~pipatron">pipatron (966506)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120741">		 &lt;<a href="mailto:pipatron%40gmail.com">pipatron@gmail.com</a>&gt;
+		on Tuesday September 23, @11:06AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120741">#25120741</a>)
+		<small><a href="http://www.vhemt.org/" title="http://www.vhemt.org/" class="user_homepage_display">Homepage</a> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120741"><p><div class="quote"><p>This post was what to helpful and informative.</p></div><p>Good thing you set it straight again with a sentence that's both incomprehensible and contains a typo.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120741">
+<span id="reply_link_25120741" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25120741" onclick="replyTo(25120741); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25119759" onclick="return selectParent(25119759)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25120741"></div>
+
+<ul id="group_25120741">
+	<li id="hiddens_25120741" class="hide"></li>
+</ul>
+
+</li></ul></li><li id="tree_25120517" class="comment">
+<div id="comment_status_25120517" class="commentstatus"></div>
+<div id="comment_25120517" class="hidden">
+</div>
+
+<div id="replyto_25120517"></div>
+
+<ul id="group_25120517">
+	<li id="hiddens_25120517" class="hide"></li>
+</ul>
+
+<ul id="commtree_25120517"><li id="tree_25120763" class="comment contain">
+<div id="comment_status_25120763" class="commentstatus"></div>
+<div id="comment_25120763" class="full">
+	<div id="comment_top_25120763" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25120763" name="comment_link_25120763" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120763" onclick="return setFocusComment(25120763)">Re:What is really happening regarding this problem</a>
+
+
+		 	<span id="comment_score_25120763" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25120763); return false">Score:4</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~ChrisJones">ChrisJones (23624)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25120763">		 &lt;<a href="mailto:chris%40b%5B+%5Dk-sun.co.uk+%5B'lac'+in+gap%5D">chris@b[ ]k-sun.co.uk ['lac' in gap]</a>&gt;
+		on Tuesday September 23, @11:06AM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25120763">#25120763</a>)
+		<small><a href="http://www.tenshu.net/" title="http://www.tenshu.net/" class="user_homepage_display">Homepage</a>
+<a href="//slashdot.org/~ChrisJones/journal/" title="Tuesday June 17 2003, @06:26PM" class="user_journal_display">Journal</a> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25120763"><p>As I just pointed out elsewhere, that particular comment is not correct.<br>A BIOS update *may* restore the NIC, but it depends purely on the BIOS update including that information.<br>All of the available updates for my laptop do not include that, so the device was not recoverable. ie bricked.</p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25120763">
+<span id="reply_link_25120763" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25120763" onclick="replyTo(25120763); return false;">Reply to This</a></b></p></span> <span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;cid=25120517" onclick="return selectParent(25120517)">Parent</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25120763"></div>
+
+<ul id="group_25120763">
+	<li id="hiddens_25120763" class="hide"></li>
+</ul>
+
+</li></ul></li><li id="tree_25120629" class="comment">
+<div id="comment_status_25120629" class="commentstatus"></div>
+<div id="comment_25120629" class="hidden">
+</div>
+
+<div id="replyto_25120629"></div>
+
+<ul id="group_25120629">
+	<li id="hiddens_25120629" class="hide"></li>
+</ul>
+
+<ul id="commtree_25120629"><li id="tree_25125389" class="comment">
+<div id="comment_status_25125389" class="commentstatus"></div>
+<div id="comment_25125389" class="oneline">
+	<div id="comment_top_25125389" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25125389" name="comment_link_25125389" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25125389" onclick="return setFocusComment(25125389)">Re:</a>
+
+
+		 	<span id="comment_score_25125389" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25125389); return false">Score:3</a>, Informative)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~T.E.D.">T.E.D. (34228)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25125389"></span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25125389"><p>I've written an E1000 driver (for a realtime program on a different OS). The issue is that once you have the base address registers for the card mapped into system memory, they are there. There's no super-special secret mechanisim devoted to writing only to the flash RAM.</p><p>Oversimplifying things a great deal (so experts out there, please don't roast me over the nitty details), every PCI device in your system presents software drivers with up to 6 "Base Address Registers" (BARs). Most PCI devices really only u<span class="substr"> </span></p></div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25125389">
+
+</div>
+</div>
+
+<div id="replyto_25125389"></div>
+
+<ul id="group_25125389">
+	<li id="hiddens_25125389" class="hide"></li>
+</ul>
+
+</li></ul></li></ul></li><li id="tree_25125877" class="comment contain">
+<div id="comment_status_25125877" class="commentstatus"></div>
+<div id="comment_25125877" class="full">
+	<div id="comment_top_25125877" class="commentTop newcomment">
+		<div class="title">
+			<h4><a id="comment_link_25125877" name="comment_link_25125877" href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25125877" onclick="return setFocusComment(25125877)">Mandriva notification</a>
+
+
+		 	<span id="comment_score_25125877" class="score"> (<a href="#" onclick="getModalPrefs('modcommentlog', 'Moderation Comment Log', 25125877); return false">Score:4</a>, Insightful)</span></h4>
+		</div>
+		<div class="details">
+			by <a href="//slashdot.org/~AdamWill">AdamWill (604569)</a> 
+			<span class="otherdetails" id="comment_otherdetails_25125877">		
+		on Tuesday September 23, @03:44PM (<a href="//linux.slashdot.org/comments.pl?sid=972935&amp;cid=25125877">#25125877</a>)
+		<small> </small>
+</span>
+		</div>
+	</div>
+	<div class="commentBody">	
+		<div id="comment_body_25125877">This can also affect Mandriva Linux 2009 pre-releases. To be clear, the bug is in the upstream kernel itself, not in any code specific to any distribution.<br> It affects any 2.6.27rc kernel, whether it's in a distribution or a clean upstream build.
+<br>
+We have posted a <a href="http://blog.mandriva.com/2008/09/23/urgent-notification-major-bug-in-all-mandriva-linux-2009-pre-releases/" title="mandriva.com">full, detailed notification of the issue</a> [mandriva.com] for Mandriva users.</div>
+	</div>
+
+	<div class="commentSub" id="comment_sub_25125877">
+<span id="reply_link_25125877" class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=Reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=25125877" onclick="replyTo(25125877); return false;">Reply to This</a></b></p></span>
+</div>
+</div>
+
+<div id="replyto_25125877"></div>
+
+<ul id="group_25125877">
+	<li id="hiddens_25125877" class="hide"></li>
+</ul>
+
+</li>
+			<li id="roothiddens" class="hide"></li>
+		</ul>
+	
+	
+	
+	
+
+
+<div id="replyto_0"></div>
+
+
+<div id="discussion_buttons">
+
+
+<span class="nbutton"><p><b><a href="#" onclick="ajaxFetchComments(0,1); return false"><span id="more_comments_num_a" class="hide">Get More Comments</span></a></b></p></span>
+
+
+
+<span class="nbutton"><p><b><a href="//linux.slashdot.org/comments.pl?sid=972935&amp;op=reply&amp;threshold=1&amp;commentsort=0&amp;mode=thread&amp;pid=" onclick="replyTo(0); return false;">Reply</a></b></p></span>
+
+
+
+
+
+
+
+</div>
+
+
+
+	<script type="text/javascript">
+<!--
+		currents['hidden']   = 0;
+		currents['full']     = 15;
+		currents['oneline']  = 10;
+		// currents_total = 25;
+
+		abbrev_comments      = {25119533:536,25125389:522};
+		noshow_comments      = [25120643,25119405,25120517,25120629];
+		pieces_comments      = [25119707,25120611,25120959,25121483,25119387,25119533,25119525,25120913,25119759,25125389];
+		init_hiddens         = [];
+
+		finishLoading();
+
+
+		if (thresh_totals[6][6][1] == 0) {
+			replyTo(0, 1);
+		}
+
+
+//-->
+	</script></div>	
+		</div>
+			<div id="footer">
+				<div class="search">
+				
+					<form method="get" action="//linux.slashdot.org/search.pl">
+						<fieldset>
+							<legend>Search</legend>
+							<input type="text" name="query" value="" size="20">
+							<input type="submit" value="Search" class="button">
+						</fieldset>
+					</form>
+				
+				</div>
+				<div class="rightcontent">
+					
+                		        <small>Beneath this stone lies Murphy,
+They buried him today,
+He lived the life of Riley,
+While Riley was away.</small>
+					
+				</div>	
+			</div>
+		</div>	
+	</div>
+	<div class="copyright">
+		<p>
+
+			All trademarks and copyrights on this page are owned by their respective owners.  Comments are owned by the Poster.  The Rest &copy; 1997-2008 <a href="http://sourceforge.com/">SourceForge</a>, Inc.
+		</p>
+	</div>
+	<div class="btmnav">
+		<ul>
+			<li class="begin"><a href="//linux.slashdot.org/">home</a></li>
+			<li><a href="//linux.slashdot.org/awards.shtml">awards</a></li>
+			<li><a href="//linux.slashdot.org/submit.pl">contribute story</a></li>
+			<li><a href="//linux.slashdot.org/search.pl">older articles</a></li>
+			<li><a href="http://sourceforge.com/">sourceforge, inc.</a></li>
+			<li><a href="http://web.sourceforge.com/media_kit.php">advertise</a></li>
+			<li><a href="//linux.slashdot.org/about.shtml">about</a></li>
+			<li><a href="http://web.sourceforge.com/terms.php">terms of service</a></li>
+			<li><a href="http://web.sourceforge.com/privacy.php">privacy</a></li>
+			<li><a href="//linux.slashdot.org/faq/">faq</a></li>
+			<li><a href="http://rss.slashdot.org/Slashdot/slashdotLinux">rss</a></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+pageTracker._trackPageview();
+</script>
+<div id="modal_cover" style="display:none" onclick="hide_modal_box()"></div>
+<div id="modal_box" style="display:none">
+        <div class="generaltitle" >
+                <div class="title"><h3><span id="preference_title"></span> <a href="#" onclick="hide_modal_box(); return false"><img src="//images.slashdot.org/sic_close.png" alt="Close"></a></h3></div>
+        </div>
+        <div id="modal_box_content"></div>
+</div>
+</body>
+</html>

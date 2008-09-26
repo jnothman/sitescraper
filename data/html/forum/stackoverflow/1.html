@@ -1,0 +1,736 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Read the rgb value of a given pixel in Python, Programaticly - Stack Overflow
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link href="/Content/all.css?cachebreaker=20080918.1" rel="stylesheet" type="text/css" /><link href="/Content/print.css" rel="stylesheet" media="print" type="text/css" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-itouch-icon" href="/Content/Img/apple-touch-icon.png" /><link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch-plugin.xml" />    
+    <script type="text/javascript" src="/Content/Js/jquery.package.master.js?cachebreaker=200809172121"></script>
+    
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="/feeds/question/138250" />    
+    
+    <script src="/content/js/jquery.package.question.js?cachebreaker=20080918.1" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        var fkey = "";
+        var repNeededForComments = 50;
+        
+        $().ready(function() {    
+            setupFormValidation('#post-form');
+            vote.initForShow(false, 138250); 
+            styleCode();
+        });
+    </script>
+    <link href="/questions/138250/increment-view-count" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+
+    <div class="container">
+    
+        <div id="header">
+        
+        <table width="950px" class="header-table">
+            <tr>            
+            <td style="vertical-align:middle; padding-top:22px;" width="260px">
+            <a href="/"><img src="/Content/Img/stackoverflow-logo-250.png" width="250" height="70" alt="logo link to homepage" /></a>
+            </td>
+            <td style="vertical-align:top; width:690px;">
+            <table>
+            <!--row-->
+            <tr>
+            <td style="vertical-align:middle; height:40px; text-align:left; width:430px">
+            <div id="headerlinks">
+            
+            <a href="/users/login?returnurl=%2fquestions%2f138250%2fread-the-rgb-value-of-a-given-pixel-in-python-programaticly">login</a><span class="link-separator">|</span>
+            <a href="/about">about</a>
+            <span class="link-separator">|</span>
+            <a href="/faq">faq</a>   
+            </div>
+            </td>
+            <td style="text-align:right; vertical-align:middle; width:270px;">
+            <form id="search" action="/search" method="get">
+                <input name="s" class="textbox" type="text" maxlength="80" size="27" value="" style="margin:0px;" />&nbsp;
+                <input type="submit" class="button" value="Search" style="margin:0px; padding:2px; padding: 0px !ie7;" />
+            </form>          
+            </td>
+            </tr>
+            <!--row-->
+            <tr><td colspan="2">
+            <div class="betamessage-top">This is a <b>public beta</b>. Found a bug? Want to make a feature request? <b><a href="http://stackoverflow.uservoice.com/">stackoverflow.uservoice.com</a></b></div>                        
+            </td></tr>
+            <!--row-->
+            <tr>
+            <td style="text-align:left; vertical-align:middle; height:40px">
+            <div class="nav">            
+                <ul class="primarynav">
+                    <li class="youarehere">
+                        <a href="/questions">Questions</a>
+                    </li>
+                    <li class="">
+                        <a href="/tags">Tags</a>
+                    </li>
+                    <li class="">
+                        <a href="/users">Users</a>
+                    </li>
+                    <li class="">
+                        <a href="/badges">Badges</a>
+                    </li>
+                </ul> 
+             </div>                           
+             </td>
+             <td style="text-align:right; vertical-align:middle;">
+                <div class="nav" style="float:right; margin-right:-5px;">
+                <ul class="primarynav">
+                    <li class="">
+                    
+                    <a href="/questions/ask">Ask Question</a>
+                    
+                    </li>
+                </ul>                            
+                </div>
+            </td>            
+
+            </tr>
+            </table>
+            </td>
+        </tr>
+        </table> 
+        
+        </div>      
+        
+        <div id="content">
+            
+
+<div id="question-header">
+    <h2><a href="/questions/138250/read-the-rgb-value-of-a-given-pixel-in-python-programaticly">Read the rgb value of a given pixel in Python, Programaticly</a></h2>
+</div>
+
+<div id="mainbar">
+
+<div id="question" class="" style="width:710px;">
+    <table width="710px">
+    <tr>
+    <td width="60px" style="vertical-align:top;">
+        
+<div class="vote">
+    
+    <input type="hidden" value="138250" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <span class="vote-count-post">
+    2
+    </span>
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    
+</div>
+        
+        <div id="viewcount">
+            <b>45</b><br />
+            views
+        </div>
+    </td>
+    <td>
+        <div>          
+            <div class="post-text">
+                <p>If i open an image with <code>open("image.jpg")</code>, how can i get the rgb values of a pixel, if i have the 'coordinates' ( or co-ordinates?) of the pixel?</p>
+
+<p>Then how can i do the reverse of this? Starting with a blank graphic, 'write' a pixel with a certain rgb value?</p>
+
+<p>It would be so much better if i didn't have to download any additional libraries</p>
+
+            </div>            
+            <div style="margin-bottom:5px; clear:both;">
+            <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="/questions/tagged/graphics" class="post-tag" title="show questions tagged 'graphics'" rel="tag">graphics</a> <a href="/questions/tagged/rgb" class="post-tag" title="show questions tagged 'rgb'" rel="tag">rgb</a> 
+            </div>
+            <table width="100%">
+            <tr>
+            <td align="left" style="vertical-align:top;">            
+                <div class="post-menu"><a id="vote-offensive-138250" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>                            
+            </td>
+            
+            <td class="post-signature owner">                                                
+            
+<div class="user-info">
+    <div class="user-action-time">asked <span title="9/26/2008 8:10:50 AM UTC" class="relativetime">59 minutes ago</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/2592/joshhunt"><img src="http://www.gravatar.com/avatar/c8ca32e8bda3076abe185e4718836336?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details">
+        <a href="/users/2592/joshhunt">joshhunt</a><br/>
+        <span class="reputation-score" title="reputation score">297</span><span title="1 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">1</span></span><span title="7 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">7</span></span>
+    </div>
+</div>
+            </td>
+            </tr>
+            </table>
+        </div>
+    </td>
+    </tr>
+
+    
+
+<tr>
+<td width="60" height="20"></td>
+<td>
+    <div class="post-menu">
+        <input id="can-post-comments-138250" type="hidden" value="false"/>
+        <a id="comments-link-138250" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-138250" class="comments-container">
+            <div class="comments"></div>
+        </div>
+    </div>
+</td>
+</tr>
+
+    </table>
+    
+</div>
+
+<div id="answers">
+
+    <a name="sort-top"></a>
+    <div id="answer-header">
+        <div id="subheader">
+            <h2>4 Answers:</h2>
+            <div id="tabs">
+                <a href="/questions/138250?sort=oldest#sort-top" title="Answers in the order they were given">Oldest</a><a href="/questions/138250?sort=newest#sort-top" title="Most recent answers first">Newest</a><a class="youarehere" href="/questions/138250?sort=votes#sort-top" title="Answers with the most votes first">Votes</a>
+            </div>    
+        </div>
+    </div>    
+
+
+
+    <a name="138260"></a>
+    
+    <div id="answer-138260" class="answer accepted-answer">    
+        <table style="width:710px">
+        <tr>
+        <td width="60px" style="vertical-align:top;">
+            
+<div class="vote">
+    
+    <input type="hidden" value="138260" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <span class="vote-count-post">
+    7
+    </span>
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    
+</div>
+
+            <div style="text-align:center; width:60px; margin-top:5px;" title="the question owner accepted this as the best answer to their question">
+            <img src="/Content/Img/accepted-answer.png" width="30" height="32" alt="accepted answer" />
+            </div>
+            
+        </td>
+        <td>
+            <div class="post-text"><p>It's probably best to use the <a href="http://www.pythonware.com/products/pil/" rel="nofollow">Python Image Library</a> to do this which I'm afraid is a separate download.</p>
+
+<p>The easiest way to do what you want is via the <a href="http://www.pythonware.com/library/pil/handbook/image.htm" rel="nofollow">load() method on the Image object</a> which returns a pixel access object which you can manipulate like an array:</p>
+
+<pre><code>pix = im.load()
+print pix[x,y]
+pix[x,y] = value
+</code></pre>
+
+<p>Alternatively, look at <a href="http://www.pythonware.com/library/pil/handbook/imagedraw.htm" rel="nofollow">ImageDraw</a> which gives a much richer API for creating images.</p>
+</div>            
+            <table style="width:100%">
+            <tr>
+            <td style="vertical-align:top;" align="left">
+                <div class="post-menu"><a href="#138260" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138260" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+            </td>
+            
+            
+            <td align="right" class="post-signature">                   
+            
+<div class="user-info">
+    <div class="user-action-time">answered <span title="9/26/2008 8:15:56 AM UTC" class="relativetime">54 minutes ago</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/3171/dave-webb"><img src="http://www.gravatar.com/avatar/a780bab849bc39176f044f5effbba7da?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details">
+        <a href="/users/3171/dave-webb">Dave Webb</a><br/>
+        <span class="reputation-score" title="reputation score">2,818</span><span title="4 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">4</span></span><span title="12 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">12</span></span>
+    </div>
+</div>    
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+        
+
+<tr>
+<td width="60" height="20"></td>
+<td>
+    <div class="post-menu">
+        <input id="can-post-comments-138260" type="hidden" value="false"/>
+        <a id="comments-link-138260" class="comments-link-accepted ">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-138260" class="comments-container-accepted ">
+            <div class="comments"></div>
+        </div>
+    </div>
+</td>
+</tr>
+        
+        </table>
+    </div>
+
+
+    <a name="138252"></a>
+    
+    <div id="answer-138252" class="answer ">    
+        <table style="width:710px">
+        <tr>
+        <td width="60px" style="vertical-align:top;">
+            
+<div class="vote">
+    
+    <input type="hidden" value="138252" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <span class="vote-count-post">
+    2
+    </span>
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>I think the Python Image Library would help here </p>
+
+<p><a href="http://www.pythonware.com/products/pil/" rel="nofollow">PIL</a></p>
+</div>            
+            <table style="width:100%">
+            <tr>
+            <td style="vertical-align:top;" align="left">
+                <div class="post-menu"><a href="#138252" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138252" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+            </td>
+            
+            
+            <td align="right" class="post-signature">                   
+            
+<div class="user-info">
+    <div class="user-action-time">answered <span title="9/26/2008 8:13:17 AM UTC" class="relativetime">57 minutes ago</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/11802/dean"><img src="http://www.gravatar.com/avatar/12066a2cbbed002130b42c09f306784a?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details">
+        <a href="/users/11802/dean">Dean</a><br/>
+        <span class="reputation-score" title="reputation score">69</span><span title="5 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">5</span></span>
+    </div>
+</div>    
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+        
+
+<tr>
+<td width="60" height="20"></td>
+<td>
+    <div class="post-menu">
+        <input id="can-post-comments-138252" type="hidden" value="false"/>
+        <a id="comments-link-138252" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-138252" class="comments-container">
+            <div class="comments"></div>
+        </div>
+    </div>
+</td>
+</tr>
+        
+        </table>
+    </div>
+
+
+    <a name="138300"></a>
+    
+    <div id="answer-138300" class="answer ">    
+        <table style="width:710px">
+        <tr>
+        <td width="60px" style="vertical-align:top;">
+            
+<div class="vote">
+    
+    <input type="hidden" value="138300" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <span class="vote-count-post">
+    1
+    </span>
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>There's a really good article on wiki.wxpython.org entitled http://wiki.wxpython.org/index.cgi/WorkingWithImages>Working With Images. The article mentions the possiblity of using wxWidgets (wxImage), PIL or PythonMagick. Personally, I've used PIL and wxWidgets and both make image manipulation fairly easy.</p>
+</div>            
+            <table style="width:100%">
+            <tr>
+            <td style="vertical-align:top;" align="left">
+                <div class="post-menu"><a href="#138300" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138300" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+            </td>
+            
+            
+            <td align="right" class="post-signature">                   
+            
+<div class="user-info">
+    <div class="user-action-time">answered <span title="9/26/2008 8:28:57 AM UTC" class="relativetime">41 minutes ago</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/15369/jon-cage"><img src="http://www.gravatar.com/avatar/418a18dde0d9cb4cc434bd38a329190c?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details">
+        <a href="/users/15369/jon-cage">Jon Cage</a><br/>
+        <span class="reputation-score" title="reputation score">444</span><span title="10 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">10</span></span>
+    </div>
+</div>    
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+        
+
+<tr>
+<td width="60" height="20"></td>
+<td>
+    <div class="post-menu">
+        <input id="can-post-comments-138300" type="hidden" value="false"/>
+        <a id="comments-link-138300" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-138300" class="comments-container">
+            <div class="comments"></div>
+        </div>
+    </div>
+</td>
+</tr>
+        
+        </table>
+    </div>
+
+
+    <a name="138254"></a>
+    
+    <div id="answer-138254" class="answer ">    
+        <table style="width:710px">
+        <tr>
+        <td width="60px" style="vertical-align:top;">
+            
+<div class="vote">
+    
+    <input type="hidden" value="138254" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <span class="vote-count-post">
+    0
+    </span>
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    
+</div>
+
+        </td>
+        <td>
+            <div class="post-text"><p>Image manipulation is a complex topic, and it's best if you <em>do</em> use a library. I can recommend <a href="http://newcenturycomputers.net/projects/gdmodule.html" rel="nofollow">gdmodule</a> which provides easy access to many different image formats from within Python.</p>
+</div>            
+            <table style="width:100%">
+            <tr>
+            <td style="vertical-align:top;" align="left">
+                <div class="post-menu"><a href="#138254" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138254" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+            </td>
+            
+            
+            <td align="right" class="post-signature">                   
+            
+<div class="user-info">
+    <div class="user-action-time">answered <span title="9/26/2008 8:14:23 AM UTC" class="relativetime">56 minutes ago</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/893/greg-hewgill"><img src="http://www.gravatar.com/avatar/747ffa5da3538e66840ebc0548b8fd58?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details">
+        <a href="/users/893/greg-hewgill">Greg Hewgill</a><br/>
+        <span class="reputation-score" title="reputation score">6,003</span><span title="14 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">14</span></span><span title="32 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">32</span></span>
+    </div>
+</div>    
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        
+        
+
+<tr>
+<td width="60" height="20"></td>
+<td>
+    <div class="post-menu">
+        <input id="can-post-comments-138254" type="hidden" value="false"/>
+        <a id="comments-link-138254" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-138254" class="comments-container">
+            <div class="comments"></div>
+        </div>
+    </div>
+</td>
+</tr>
+        
+        </table>
+    </div>
+
+
+<div style="height:20px; clear:both;"></div>
+
+
+    <form id="post-form" action="/questions/138250/answer?sort=Votes" method="post">
+        <h2>Your Answer:</h2>
+        
+
+<script src="/Content/Js/jquery.package.editor.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$().ready(function() {
+    initStyleCode();
+    initValidation();
+    initWMDToggle();
+    initResizer();
+    initBullet();
+});
+
+function initBullet() {
+    $.get("/questions/ticks", function(txt) {
+        $("#comment-div").append("<input type='hidden' name='bullet' value='" + txt + "' />");        
+    });
+}
+
+function initResizer() {
+    $("#post-text:not(.processed)").TextAreaResizer();
+}
+
+function initWMDToggle() {
+    var WMD_HIDE_COOKIE = 'wmdhide';
+    
+    $("#previewToggle").toggle(function() {
+        $(this).text("show preview");
+        $.cookie(WMD_HIDE_COOKIE, 'false', { path: '/', expires: 60 });
+        $("#post-preview").hide();
+     }, function() {
+        $(this).text("hide preview");        
+        $.cookie(WMD_HIDE_COOKIE, 'true', { path: '/', expires: 60 });
+        $("#post-preview").show();
+        styleCode();
+     });
+     
+     if($.cookie(WMD_HIDE_COOKIE) == 'false') {
+        $("#previewToggle").click();
+     }  
+}
+
+function initStyleCode() {
+    $("#post-text").typeWatch( { highlight:false, wait:5000, captureLength: 5, callback:styleCode } );
+}
+
+function initValidation() {
+    $("#post-text").rules("add", { required: true, minlength: 10 });
+    if ($("#title").length > 0) {
+        $("#title").rules("add", { required: true, minlength: 10 });
+    }
+}
+</script>
+
+<input id="fkey" name="fkey" type="hidden" value="" />
+
+<div id="comment-div">
+    <input id="comment" name="comment" type="text" />
+</div>
+
+
+
+<div class="form-item" style="margin-bottom:-50px;">
+
+    <div id="post-text-container" class="resizable-textarea">
+        <textarea id="post-text" name="post-text" cols="90" rows="10" tabindex="101" ></textarea>
+    </div>
+    
+    <div style="float:right; width:200px; text-align:right; margin-right:20px;">
+    <input id="communitymode" name="communitymode" type="checkbox"/>
+    <label for="communitymode" style="display:inline;"><span title="community owned posts do not generate any reputation for the owner, and have a lower reputation barrier for collaborative editing" style="color: #888; font-weight:normal; font-size:90%;">community owned wiki</span></label> 
+    </div>
+    
+    <br />    
+    <span class="form-error"></span>    
+    <a id="previewToggle" title="Show or hide the real time as-you-type Markdown preview" href="javascript:void(0);" tabindex="-1" >hide preview</a>
+</div>
+
+<div class="form-item" style="width: 680px; padding-top:0; margin-top:40px">
+    <div id="preview-container">
+        <div id="post-preview" class="wmd-preview form-item">
+        </div>
+    </div>
+</div>
+    
+<div class="form-item">
+    <table>
+    <tr>
+    <td style="vertical-align:middle;">
+        <label for="openid_identifier">OpenID Login: <span class="form-error"></span></label>
+        <input id="openid_identifier" name="openid_identifier" type="text" size="40" maxlength="200" value="" tabindex="104" />
+        <div class="form-item-info">
+            Get an <a href="https://www.myopenid.com/" target="_blank">OpenID</a>.
+        </div>
+    </td>
+    <td style="vertical-align:middle; padding: 0px 40px 0px 40px">
+        <div style="position: absolute; margin-top:40px; background-color:white; margin-left:-10px; padding:5px;">or</div>
+        <div style="width:1px; border-left:solid 1px #999; height:8em; margin:auto;"></div>
+    </td>
+    <td style="vertical-align:middle;"> 
+        <label for="display-name">Name: <span class="form-error"></span></label>
+        <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105" />
+        
+        <label for="email">Email: <span class="form-error"></span><span class="form-detail">(never shown)</span></label>
+        <input id="email" name="email" type="text" size="40" maxlength="100" value="" tabindex="106" />
+        
+        <label for="home-page">Home Page: <span class="form-error"></span></label>
+        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107" />
+    </td>
+    </tr>
+    </table>    
+</div>
+
+<script type="text/javascript">
+    $().ready(function() {
+    
+        $.validator.addMethod("validUserName",
+          function(value, element) {
+          return this.optional(element) || /^[\w\-\sÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜäëïöüçÇßØøÅåÆæÞþÐð]+$/.test(value); },
+          "Can only contain A-Z, 0-9, spaces, and hyphens.");        
+        $.validator.addMethod("alturl", 
+          function (value) { 
+          return /((^https?:\/\/)?.{2,}\.\w{2,4}\/?|^$)/.test(value); }, 
+          "Enter a valid URL.");
+        $.validator.addMethod("requiredUnlessOpenIdAvailable", 
+          function(value) {
+          return (value.length > 2) || ($("#openid_identifier").val().length > 0); },
+          "Required if you're not using an OpenID.");
+        
+        $("#openid_identifier").rules("add", { alturl: true });
+        $("#display-name").rules("add", { validUserName: true, requiredUnlessOpenIdAvailable: true, minlength: 2, maxlength: 25 });
+        $("#email").rules("add", { email: true, requiredUnlessOpenIdAvailable: true });                
+        $("#home-page").rules("add", { alturl: true });        
+    });
+</script>
+    
+
+        
+        <div class="form-submit" style="clear:both;"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"/></div>
+    </form>    
+    
+
+
+<h2>
+
+Not the answer you're looking for? 
+
+Browse other questions tagged <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="/questions/tagged/graphics" class="post-tag" title="show questions tagged 'graphics'" rel="tag">graphics</a> <a href="/questions/tagged/rgb" class="post-tag" title="show questions tagged 'rgb'" rel="tag">rgb</a>  or <a href="/questions/ask">ask your own question</a>.
+</h2>
+
+</div>
+
+</div>
+
+<div id="sidebar" style="width:220px">
+    
+<div class="module newuser">
+    <h4>Welcome!</h4>
+    <div class="box">
+        <p>Stack Overflow is a <b>collaboratively edited question and answer site for programmers</b> &mdash; regardless of platform or language. Jump in and share your software engineering expertise! No registration or account required.</p>
+        <p style="text-align:right;"><a href="/about">about &raquo;</a><br /><a href="/faq">faq &raquo;</a></p>
+    </div>
+</div>
+
+    <div class="module">    
+    <p>You're viewing a single question tagged</p>
+    <div style="margin-bottom:10px;margin-top:5px;">
+        <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a>&nbsp;<span class="item-multiplier">&times;&nbsp;656</span><br/><a href="/questions/tagged/graphics" class="post-tag" title="show questions tagged 'graphics'" rel="tag">graphics</a>&nbsp;<span class="item-multiplier">&times;&nbsp;69</span><br/><a href="/questions/tagged/rgb" class="post-tag" title="show questions tagged 'rgb'" rel="tag">rgb</a>&nbsp;<span class="item-multiplier">&times;&nbsp;6</span><br/>
+    </div> 
+    <p style="margin-bottom:0">asked</p>
+    <p><b style="font-size:120%;">today</b></p>
+       
+    <p style="margin-bottom:0">answered by</p>
+    <div class="summarycount" style="text-align:left;">4</div>
+    <p style="margin-bottom:0">users with</p>
+    <div class="summarycount" style="text-align:left;">10</div>
+    <p>total votes</p>
+    <p style="margin-bottom:0">it was answered in</p>
+    <p><b style="font-size:120%;">2 minutes</b></p> 
+    <p style="margin-bottom:0">latest activity was</p>
+    <p><b style="font-size:120%;">today</b></p>
+
+    </div>
+
+
+    <div class="module">
+    <h4>Legend</h4>
+    <table>
+    <tr>
+    <td style="padding:3px 0px 3px 0px;"><div style="height:20px; width:20px; background-color: white; margin-right:10px; border: 1px solid #999;"></div></td>
+    <td style="vertical-align:middle;">answer</td>
+    </tr>
+    <tr>
+    <td style="padding:3px 0px 3px 0px;"><div class="owner-answer" style="height:20px; width:20px; margin-right:10px; border: 1px solid #999;"></div></td>
+    <td style="vertical-align:middle;">question owner</td>
+    </tr>
+    <tr>
+    <td style="padding:3px 0px 3px 0px;"><div class="accepted-answer" style="height:20px; width:20px; margin-right:10px; border: 1px solid #999;"></div></td>
+    <td style="vertical-align:middle;">accepted by owner</td>
+    </tr>
+    </table>
+    </div>
+
+<div class="module">
+<h4>Sponsored By</h4>
+<div class="box" style="margin-bottom:10px;">
+      
+      <p><script type="text/javascript" src="http://www.woot.com/Awesome/SoAd.ashx" ></script></p>
+    
+</div>
+</div>
+
+</div>
+
+<div id="mainbar-footer">    
+    
+<div id="feed-link">
+    <div id="feed-link-image"><a href="/feeds/question/138250" title="a syndicated data feed of this page suitable for your favorite feed reader"><img src="/Content/Img/feed-icon-small.png" width="14" height="14" alt="feed icon"/></a></div>
+    <div id="feed-link-text"><a href="/feeds/question/138250" title="a syndicated data feed of this page suitable for your favorite feed reader">question feed</a></div>
+</div>
+
+</div>
+
+
+        </div>
+                
+        
+    </div>
+            
+    <div id="footer">
+        <div class="container">
+            <div id="footer-menu"><a href="/about">about this site</a> | <a href="/faq">faq</a> | <a href="http://blog.stackoverflow.com/">blog</a> | <a href="http://itc.conversationsnetwork.org/series/stackoverflow.html">podcast</a> | <a href="/privacy">privacy policy</a> | <a href="mailto:team@stackoverflow.com">contact us</a> | <a href="http://stackoverflow.uservoice.com/">report a bug</a></div>
+            <div id="creativecommons"><a href="http://creativecommons.org/licenses/by-sa/2.5/"><img src="/content/img/cc-wiki.png" title="Creative Commons: Attribution - Share Alike" alt="cc-wiki" /></a></div>
+            <div id="betamessage">Using this website may cause <a href="http://www.youtube.com/watch?v=UM64dMoweio">irreversible damage to the kidneys and liver</a>.</div>
+            <div id="svnrevision">svn revision: 1702</div>            
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-5620270-1");
+        pageTracker._trackPageview();
+    </script>
+
+    <noscript>
+        <style type="text/css">body { margin-top:3.5em; }</style>
+        <div id="noscript-warning" style="">
+            Stack Overflow works best with JavaScript enabled
+        </div>        
+
+    </noscript>
+
+</body>
+
+</html>
