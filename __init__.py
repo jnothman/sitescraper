@@ -5,7 +5,7 @@
 # Model the desired information in a webpage
 #
 
-from __future__ import nested_scopes, generators, division, absolute_import, with_statement
+from __future__ import division, absolute_import
 import sys
 import os
 import re
@@ -118,7 +118,7 @@ class htmlXpath(object):
 
 
     def normalize(self):
-        """ElementTree will treat an element as a regular expression if there is no explicit index, so add where missing
+        """A normalized xpath has an index defined at each node. ElementTree treats indexless nodes as a regular expression.
         
         >>> htmlXpath("/a[1]/b/c[@id='2']//d").normalize().get()
         "/a[1]/b[1]/c[@id='2']//d[1]"
@@ -140,16 +140,31 @@ class htmlXpath(object):
         else:
             return self.copy().normalize() == self
 
+    def isAllContent(self):
+        """xpaths with '//' as a separator will return all sub nodes
+
+        >>> htmlXpath('/a[1]/b/c').isAllContent()
+        False
+        >>> htmlXpath('/a[1]/b//c').isAllContent()
+        True
+        """
+        return '//' in self.get()
 
     def diff(self, other):
-        """
+        """Returns indices where xpaths differ. Return all indices if are different length.
+
         >>> htmlXpath('/a/c/c').diff(htmlXpath('/a/b/c'))
         [1]
+        >>> htmlXpath('/a/b/c').diff(htmlXpath('/a/b/c/d/e'))
+        [0, 1, 2]
         """
         indices = []
-        for i, (v1, v2) in enumerate(zip(self, other)):
-            if v1 != v2:
-                indices.append(i)
+        if self != other:
+            force = self.isAllContent() or other.isAllContent() or len(self) != len(other)
+            for i, (v1, v2) in enumerate(zip(self, other)):
+                if force or v1 != v2:
+                    indices.append(i)
+            #indices.extend(range(i+1, max(len(self), len(other))))
         return indices
 
     def abstractSet(xpaths):
@@ -168,13 +183,11 @@ class htmlXpath(object):
         >>> xpaths.append(htmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/span[1]'))
         >>> xpaths.append(htmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/span[1]'))
         >>> [x for (x, partition) in sortDict(htmlXpath.abstractSet(xpaths), reverse=True)[:5]]
-        ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/span[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[2]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[1]/h3[1]/a[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/*', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/*']
+        ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/span[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[2]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[1]/h3[1]/a[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/*', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/*']
         """
         xpathREstrs = {}
         for xpath1 in xpaths:
-            if '//' in xpath1.get(): continue
             for xpath2 in xpaths:
-                if '//' in xpath2.get(): continue
                 if xpath1 != xpath2:
                     diff = xpath1.diff(xpath2)
                     if len(diff) == 1:
@@ -202,9 +215,9 @@ class htmlDoc(object):
     >>> xpaths = {}
     >>> doc.extractXpaths(doc.getTree().getroot(), xpaths)
     >>> len(xpaths)
-    215
+    438
     >>> [(xpath.get(), count) for (xpath, count) in doc.matchXpaths("Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.")]
-    [('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div', -113), ('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]//div', -113), ('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]', -113)]
+    [('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]', -113)]
     """
 
     # ignore content from these tags
@@ -291,7 +304,7 @@ class htmlDoc(object):
 
     def getElementText(self, e):
         """Extract text from HtmlElement"""
-        #return e.text_content()
+        return normalizeStr(e.text_content().strip())
         text = []
         if e.text:
             text.append(e.text)
@@ -315,6 +328,14 @@ class htmlDoc(object):
             result = []
             for (text, xpaths) in allXpaths.items():
                 score = self.similarity(output, text)
+                """if DEBUG and score < 0:
+                    print score
+                    print pretty(xpaths)
+                    print text
+                    print"""
+                for x in ['/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]/table[1]/tr[1]/td[1]//div', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]/table[1]/tr[1]/td[1]/div']:
+                    if htmlXpath(x) in xpaths:
+                        print x, [self.getTree().getpath(e) for e in self.getTree().xpath(x)], text.replace('\n', '')
                 result.extend((xpath, score) for xpath in xpaths)
             return result
 
@@ -404,9 +425,9 @@ class htmlAttributes(object):
     [('class', 'url')]
     >>> attribs = a.uniqueAttribs(htmlXpath(xpath))
     >>> attribs
-    [[], [], [], [('id', 'bd')], [], [('id', 'left')], [], [('id', 'web')], [], [], [], [('class', 'url')]]
+    [[], [], [('id', 'doc')], [('id', 'bd')], [('id', 'results')], [('id', 'left')], [('id', 'main')], [('id', 'web')], [('start', '1')], [], [('class', 'res')], [('class', 'url')]]
     >>> a.addAttribs(htmlXpath(xpath), attribs).get()
-    "/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='left']/div[1]/div[@id='web']/ol[1]/li/div[1]/span[@class='url']"
+    "/html[1]/body[1]/div[@id='doc']/div[@id='bd']/div[@id='results']/div[@id='left']/div[@id='main']/div[@id='web']/ol[@start='1']/li/div[@class='res']/span[@class='url']"
 
     >> tree = lxmlHtml.fromstring("<html><body node='0'><c class='1' node='1'>C<d class='2'></d></c><c class='1' node='2'>D</c></body</html>").getroottree()
     >> a = htmlAttributes(tree)
@@ -431,11 +452,12 @@ class htmlAttributes(object):
         acceptedAttribs = []
         # select examples which contain the relevant xpath
         docs = [doc for doc in self.docs if doc.getTree().xpath(xpath.get())]
-        for section in xpath.walk():
+        for i, section in enumerate(xpath.walk()):
             sectionElements = flatten([doc.getTree().xpath(section) for doc in docs])
-            siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
-            if len(siblingElements) == 0:
-                # element has no siblings so no need to restrict
+            #siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
+            #if len(siblingElements) < 0:
+            if i < 2:
+                # don't need to restrict html/body tags because are unique
                 proposedAttribs = []
             else:
                 proposedAttribs = self.commonAttribs(sectionElements)
@@ -464,8 +486,8 @@ class htmlAttributes(object):
         attribs = []
         for attrib in element.attrib.items():
             attrName, attrValue = attrib
-            # punctuation such as '/' and ':' can confuse xpath, so ignore these attributes
-            if not anyIn(string.punctuation, attrValue+attrName):# and attrName in ('id', 'class'):
+            # punctuation such as '/' and ':' can confuse xpath, so ignore attributes with these characters
+            if not anyIn('/:', attrValue+attrName):# and attrName in ('id', 'class'):
                 attribs.append(attrib)
         return attribs
 
@@ -477,8 +499,7 @@ class htmlAttributes(object):
             for attrib in self.extractAttribs(e):
                 common.setdefault(attrib, 0)
                 common[attrib] += 1
-        minCount = len(elements)# // 2 + 1
-        return [attrib for (attrib, count) in common.items() if count >= minCount]
+        return [attrib for (attrib, count) in common.items() if count == len(elements)]
 
     def addAttribs(self, xpath, allAttribs):
         """Add attributes to xpath"""
@@ -509,31 +530,13 @@ class htmlAttributes(object):
 
 def trainModel(urlOutputs):
     """Train the model using the known output for the given urls
-    
-    >>> from data import *
+
+    >>> from data import training
     >>> os.chdir('data')
     >>> modelSize = 3
-    >>> asx = data[0][1][:modelSize]
+    >>> asx = training.data[0][1][:modelSize]
     >>> trainModel(asx)
-    [("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[@id='col']/table[1]/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[@id='col']/table[1]/tr[2]/td[6]", False), ("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[@id='col']/table[1]/tr[2]/td[7]", False)]
-    >>> weather = data[1][1][:modelSize]
-    >>> trainModel(weather)
-    [("/html[1]/body[1]/div[1]/div[5]/div[6]/table[1]/tr[position()>3]/td[@class='navcon']/ul[1]/li[1]/a[1]", False)]
-    >>> theage = data[2][1][:modelSize]
-    >>> trainModel(theage)
-    [("/html[1]/body[1]/div[@id='wrap']/div[3]/div[3]/div[@id='content']/div[@class='col1']//p", True)]
-    >>> amazon = data[3][1][:modelSize]
-    >>> trainModel(amazon)
-    [("/html[1]/body[1]/table[@cellpadding='0'][@cellspacing='0'][@id='searchTemplate'][@border='0']/tr[1]/td[2]/div[1]/table[1]/tr/td[1]/table[1]/tr[1]/td[2]/table[1]/tr[1]/td[1]/table[1]/tr[1]/td[2]/table[1]/tr[1]/td[1]/a[1]/span[1]", False), ("/html[1]/body[1]/table[@cellpadding='0'][@cellspacing='0'][@id='searchTemplate'][@border='0']/tr[1]/td[2]/div[1]/table[1]/tr/td[1]/table[1]/tr[1]/td[2]/table[1]/tr[1]/td[1]/table[1]/tr[1]/td[2]/table[1]/tr[2]/td[1]/span[3]", False)]
-    >>> imdb = data[4][1][:modelSize]
-    >>> trainModel(imdb)
-    [("/html[1]/body[1]/div[1]/div[@id='root']/layer[1]/div[@id='pagecontent']/div[1]/div[4]/div[@id='tn15title']/h1[1]", False), ("/html[1]/body[1]/div[1]/div[@id='root']/layer[1]/div[@id='pagecontent']/div[1]/div[4]/div[3]/div[@class='info']/table[1]/tr/td[@class='nm']/a[1]", False), ("/html[1]/body[1]/div[1]/div[@id='root']/layer[1]/div[@id='pagecontent']/div[1]/div[4]/div[3]/div[@class='info']/table[1]/tr/td[4]", False)]
-    >>> yahoo = data[5][1][:modelSize]
-    >>> trainModel(yahoo)
-    [("/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='info']/p[1]/span[1]/p[1]/strong[1]", False), ("/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='left']/div[1]/div[@id='web']/ol[1]/li[2]/div[1]/span[1]", False), ("/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='left']/div[1]/div[@id='web']/ol[1]/li/div[1]/div[@class='abstr']", False), ("/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='left']/div[1]/div[@id='web']/ol[1]/li/div[1]/div[1]/h3[1]/a[1]", False), ("/html[1]/body[1]/div[1]/div[@id='bd']/div[2]/div[@id='left']/div[1]/div[@id='web']/ol[1]/li/div[1]/span[@class='url']", False)]
-    >>> lq = data[6][1][:modelSize]
-    >>> trainModel(lq)
-    [("/html[1]/body[1]/div[@align='center']/div[1]/div[1]/table[2]/tr[1]/td[@class='page'][@valign='top']/div[@class='KonaBody']/div[@id='posts']/div[@align='center']/div[1]/div[1]/div[1]/table[1]/tr[@valign='top']/td[2]/div[3]", False), ("/html[1]/body[1]/div[@align='center']/div[1]/div[1]/table[2]/tr[1]/td[@class='page'][@valign='top']/div[@class='KonaBody']/div[@id='posts']/div[@align='center']/div[1]/div[1]/div[1]/table[1]/tr[@valign='top']/td[2]/div[1]", False), ("/html[1]/body[1]/div[@align='center']/div[1]/div[1]/table[2]/tr[1]/td[@class='page'][@valign='top']/div[@class='KonaBody']/div[@id='posts']/div[@align='center']/div[1]/div[1]/div[1]/table[1]/tr[@valign='top']/td[2]/div[1]/div[1]/table[1]/tr[1]/td[1]//div", True)]
+    [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
     """
     docs = [htmlDoc(url) for (url, outputs) in urlOutputs]
     allOutputXpathStrs = []
@@ -545,18 +548,20 @@ def trainModel(urlOutputs):
                 xpathStr = xpath.get()
                 allOutputXpathStrs[i].setdefault(xpathStr, 0)
                 allOutputXpathStrs[i][xpathStr] += score
-                if score < 0:
-                    pass
-                    #print xpath, score, allOutputXpaths[i][xpath]
 
     # select best xpath match for each output
     bestXpaths = []
-    for outputXpathStrs in allOutputXpathStrs:
-        rankedXpaths = sorted([(score, 1/float(len(xpathStr)), htmlXpath(xpathStr)) for (xpathStr, score) in outputXpathStrs.items()])
-        bestXpath = rankedXpaths[0][-1]
-        if bestXpath not in bestXpaths:
-            bestXpaths.append(bestXpath)
-
+    for i, outputXpathStrs in enumerate(allOutputXpathStrs):
+        rankedXpaths = sorted([(score, 1/float(len(xpathStr)), htmlXpath(xpathStr)) for (xpathStr, score) in outputXpathStrs.items() if score != 0])
+        if rankedXpaths:
+            bestXpath = rankedXpaths[0][-1]
+            if bestXpath not in bestXpaths:
+                bestXpaths.append(bestXpath)
+        if DEBUG:
+            print [o[i] for (u, o) in urlOutputs if len(o) > i][0].replace('\n', '')
+            for score, _, xpath in rankedXpaths[:5]:
+                print '%6d: %s' % (score, xpath)
+            print
     # store xpaths that were abstracted for a single output, and so must be collapsed together
     collapsableXpaths = [xpath for xpath in bestXpaths if not xpath.isNormalized()]
     abstractedXpaths = htmlDoc.reduceXpaths(bestXpaths[:], docs)
@@ -572,13 +577,13 @@ def trainModel(urlOutputs):
         """for i, output in enumerate(outputs):
             print
             print output
-            for xpath, score in allOutputXpaths[i].items():
+            for xpath, score in allOutputXpathStrs[i].items()[:5]:
                 if score < 0:
-                    print xpath, score"""
+                    print '%6d: %s' % (score, xpath)"""
         print 'C:\n', pretty(collapsableXpaths)
         print 'best:\n', pretty(bestXpaths)
         print 'abstract:\n', pretty(abstractedXpaths)
-        #print 'attribute:\n', pretty(attributeXpathsStrs)
+        #print 'attribute:\n', pretty(attributeXpathStrs)
     return attributeXpathStrs
 
 

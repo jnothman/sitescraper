@@ -6,32 +6,32 @@ data = []
 
 
 data.append(('slashdot', [
-    ('file:html/news/slashdot/1.html', ["Linux: NYT Ponders the Future of Solaris In a Linux/Windows World",
+    ('file:html/news/slashdot/1.html', ["NYT Ponders the Future of Solaris In a Linux/Windows World",
 """
 JerkBoB links to a story at the New York Times about the future prospects of Sun's Solaris, excerpting: "Linux is enjoying growth, with a contingent of devotees too large to be called a cult following at this point. Solaris, meanwhile, has thrived as a longstanding, primary Unix platform geared to enterprises. But with Linux the object of all the buzz in the industry, can Sun's rival Solaris Unix OS hang on, or is it destined to be displaced by Linux altogether?"
 """
 ]),
-    ('file:html/news/slashdot/2.html', ["Linux: GNOME 2.24 Released",
+    ('file:html/news/slashdot/2.html', ["GNOME 2.24 Released",
 """
 thhamm writes "The GNOME community hopes to make our users happy with many new features and improvements, as well as the huge number of bug fixes that are shipped in this latest GNOME release! Well. What else to say. I am happy." Notably, this release is also the occasion for the announcement of videoconferencing app Ekiga's 3.0 release.
 """
 ]),
-    ('file:html/news/slashdot/3.html', ["Ask Slashdot: Is There a Linux Client Solution for Exchange 2007?",
+    ('file:html/news/slashdot/3.html', ["Is There a Linux Client Solution for Exchange 2007?",
 """
 CrazedSanity writes "I have been working at my state job for about 7 months now, using the Exchange plugin for Evolution to check my email. Very recently the higher-ups decided to migrate to Exchange 2007, which effectively destroyed my ability to check my email through any method other than webmail (which means I have to constantly refresh/reload the webmail window). I'm sure somebody else has encountered the problem, but I'm wondering if anybody has come up with a working solution?" Note: CrazedSanity's looking for a client that will work with Exchange in a situation where replacing the Exchange install with an open-source equivalent isn't an option. 
 """
 ]),
-    ('file:html/news/slashdot/4.html', ["Linux: OpenSUSE Beta Can Brick Intel e1000e Network Cards",
+    ('file:html/news/slashdot/4.html', ["OpenSUSE Beta Can Brick Intel e1000e Network Cards",
 """
 An anonymous reader writes "Some Intel cards don't just not work with the new OpenSUSE beta, they can get bricked as well. Check your hardware before you install!" The only card mentioned as affected is the Intel e1000e, and it's not just OpenSUSE for which this card is a problem, according to this short article: "Bug reports for Fedora 9 and 10 and Linux Kernel 2.6.27rc1 match the symptoms reported by SUSE users."
 """
 ]),
-    ('file:html/news/slashdot/5.html', ["Linux: How the LSB Keeps Linux One Big Happy Family",
+    ('file:html/news/slashdot/5.html', ["How the LSB Keeps Linux One Big Happy Family",
 """
  blackbearnh writes "The Linux Standard Base is the grand attempt to create a binary-level interface that application developers can use to create software which will run on any distribution of Linux. Theodore Tso, who helps maintain the LSB, talked recently with O'Reilly News about what the LSB does behind the scenes, how it benefits ISVs and end users, and what the greatest challenges left on the plate are. 'One of the most vexing problems has been on the desktop where the Open Source community has been developing new desktop libraries faster than we can standardize them. And also ISVs want to use those latest desktop libraries even though they may not be stable yet and in some ways that's sort of us being a victim of our own success. The LSB desktop has been getting better and better and despite all the jokes that for every year since I don't know probably five years ago, every year has been promoted as the year of the Linux desktop. The fact of the matter is the Linux desktop has been making gains very, very quickly but sometimes as a result of that some of the bleeding edge interfaces for the Linux desktop haven't been as stable as say the C library. And so it's been challenging for ISVs because they want to actually ship products that will work across a wide range of Linux distributions and this is one of the places where the Linux upstream sources haven't stabilized themselves.'"  
 """
 ]),
-    ('file:html/news/slashdot/6.html', ["Mobile: Mandriva Joins Ubuntu With a Linux For Netbooks",
+    ('file:html/news/slashdot/6.html', ["Mandriva Joins Ubuntu With a Linux For Netbooks",
 """
 Slatterz writes "Linux publisher Mandriva has unveiled a version of its platform designed specifically for the new breed of mini laptops. Mandriva Mini features a fast boot-up, comprehensive connectivity support and multimedia codecs, and is adapted to work on key netbook platforms such as Intel's Atom. Mandriva previously offered a customised version of its 2008 Spring release for the Asus Eee PC, and was a distributor of Linux for Intel's Classmate PC initiative."
 """
@@ -307,13 +307,13 @@ data.append(('msnsearch', [
     ]),
     ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/2.html', ['holden',
     "Holden Australia", "Official site with pictures of vehicles, specifications, pricing, and features.", "www.holden.com.au",
+    "Holden Australia - Latest offers and information on new and used ...", "www.holden.com.au: The official website for Holden Australia. Find out Holden vehicle prices, specifications, accessories, safety information and more.", "www.holden.com.au/www-holden",
     "Holden Motorsport > Home", "The Toll Holden Racing Team’s Garth Tander and Mark Skaife have pulled off one of the most amazing comebacks in V8 Supercar history to win a spectacular L&H 500 at Phillip Island ...", "www.holdenmotorsport.com",
-    "Holden's Home Page", "Possibly, one day the various Holden people will bother making a web page to get put here... Probably not however, since I'm too lazy and no one else would care anyway.", "www.holden.id.au",
     ]),
     ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/3.html', ['ford',
     "Ford Australia - Ford Australia", "Official site for Ford Motor Company of Australia. Visit our vehicle showroom, view genuine Ford parts and accessories, find dealers.", "www.ford.com.au",
+    "Ford Australia", "Official site for Ford Motor Company of Australia. Discover the great Ford range of vehicles, request a quote online or find your nearest Dealer.", "www.ford.com.au/servlet/ContentServer?cid=1137384063052&pagename=FOA%2FDFYPage%2FDefault10...",
     "Ford Motor Company: Cars, Trucks, SUVs, Hybrids, Parts - Ford", "Official site featuring investor, career, news, and media information.", "www.ford.com",
-    "Ford :: home", "Vehicles, finance and services, company information, and dealer locator.", "www.ford.co.uk",
     ]),
     ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/4.html', ['honda',
     "Honda - Australia", "Includes a brief history of Honda in Australia, information on new models and a search facility for locating dealers nationwide.", "www.honda.com.au",
@@ -327,8 +327,8 @@ data.append(('msnsearch', [
     ]),
     ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/6.html', ['sony',
     "SONY - Australia", "Manufacturers of a product range spanning hi-fi systems, camcorders, video cassette recorders, TVs, computer monitors, portable audio, car audio, recording media and ...", "www.sony.com.au",
+    "SONY - Australia", "Notice to Owners of VAIO VGN-TZ Notebooks More : Stay in touch with Sony's latest innovations by email. More : For extensive support information for your products, please visit our ...", "www.sony.com.au/vaio/category.jsp?id=22006",
     "Sony USA", "Manufacturer of a wide range of consumer electronics products including audio, video, communications, and computer systems.", "www.sony.com",
-    "SONY BMG MUSIC ENTERTAINMENT :: Australia :: Home", "SONY BMG Australia site, featuring the latest music, downloads, new releases, artists news and tour info, plus competitions and heaps of links to artist sites.", "www.sonymusic.com.au",
     ]),
 ]))
 

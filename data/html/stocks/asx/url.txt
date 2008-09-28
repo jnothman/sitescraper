@@ -1,0 +1,1 @@
+http://www.asx.com.au/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=&asxCode=%s

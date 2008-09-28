@@ -1,0 +1,1 @@
+http://www.google.com.au/search?hl=en&as_q=%s

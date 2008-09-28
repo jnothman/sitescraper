@@ -1,0 +1,17 @@
+http://weather.yahoo.com/Abrolhos-Island-North-Island-Australia/ASXX0200/forecast.html
+http://weather.yahoo.com/Adamsons-Peak-Australia/ASXX0327/forecast.html
+http://weather.yahoo.com/Adelaide-Australia/ASXX0001/forecast.html
+http://weather.yahoo.com/Adele-Island-Australia/ASXX0148/forecast.html
+http://weather.yahoo.com/Aireys-Inlet-Australia/ASXX0292/forecast.html
+http://weather.yahoo.com/Albury-Aeroport-Australia/ASXX0364/forecast.html
+http://weather.yahoo.com/Alexandra-Australia/ASXX0387/forecast.html
+http://weather.yahoo.com/Ali-Curung-Tennant-Creek-Australia/ASXX0176/forecast.html
+http://weather.yahoo.com/Alice-Springs-Australia/ASXX0002/forecast.html
+http://weather.yahoo.com/Amberley-Aerodrome-Australia/ASXX0218/forecast.html
+http://weather.yahoo.com/Ararat-Australia/ASXX0288/forecast.html
+http://weather.yahoo.com/Archerfield-Aerodrome-Australia/ASXX0220/forecast.html
+http://weather.yahoo.com/Armadale-Australia/ASXX0003/forecast.html
+http://weather.yahoo.com/Avalon-Australia/ASXX0294/forecast.html
+http://weather.yahoo.com/Avon-Downs-Australia/ASXX0004/forecast.html
+http://weather.yahoo.com/Ayers-Rock-Australia/ASXX0005/forecast.html
+http://weather.yahoo.com/Ayr-Australia/ASXX0006/forecast.html

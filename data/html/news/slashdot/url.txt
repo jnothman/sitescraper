@@ -1,0 +1,1 @@
+http://linux.slashdot.org/linux/%s/%s/%s/%s.shtml
