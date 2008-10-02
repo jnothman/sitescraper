@@ -21,15 +21,13 @@ def getData(data):
         ('file:html/search/google/2.html', ['www.ford.com.au/ - 34k', 'www.ford.com/ - 32k']),
     ])
     
+    maxUrls = 5
     for site, d in data:
         print site
         trainUrls = [url.replace('file:', '') for (url, outputs) in d]
         #print 'RE:', buildUrlRE(trainUrls)
         baseDir = '%s' % os.path.dirname(trainUrls[0])
         searchStrs = [s for s in open('%s/url.txt' % baseDir).read().split('\n') if s]
-        testDir = '%s/test' % baseDir
-        if not os.path.exists(testDir):
-            os.makedirs(testDir)
 
         urls = []
         if len(searchStrs) == 1:
@@ -37,35 +35,37 @@ def getData(data):
             searchStr = searchStrs[0]
             if anyIn(['search', 'stocks', 'commerce'], baseDir):
                 # this category has a special search defined
-                maxUrls = 2
                 for i, term in enumerate(open('%s/../popular.txt' % baseDir).readlines()[:maxUrls]):
                     url = searchStr % term
                     urls.append(url.replace('\n', ''))
-            elif 'weather' in baseDir:
+            else:
                 baseUrl = searchStr[:searchStr.index('%s')]
-                numPages = 2
-                pageSize = 100
-                for pageNo in range(numPages):
+                maxPages = 2
+                pageSize = 10
+                for pageNo in range(maxPages):
                     googleUrl = 'http://www.google.com.au/search?num=%d&start=%d&q=site:%s' % (pageSize, pageNo*pageSize, baseUrl)
                     result = sitescraper.testModel(googleUrl, googleModel)
                     if result:
                         googleUrls = [url.split()[0] for url in result]
-                        regExp = re.escape(searchStr.replace('http://', '').strip()).replace('\\%s', '[^/]+') + '$'
-                        #print regExp
-                        regExp = re.compile(regExp)
+                        regExpStr = re.escape(searchStr.replace('http://', '').strip()).replace('\\%s', '[^/]+') + '$'
+                        #print searchStr, regExpStr
+                        regExp = re.compile(regExpStr)
                         urls.extend([url for url in googleUrls if regExp.search(url)])
-                        print pageNo, len(urls)
-                    else:
+                        #print pageNo, len(urls)
+                    if not result or len(urls) > 10*maxUrls:
                         # no more results
                         break
         else:
             # have been given a set of urls, which can use directly
             urls = searchStrs
 
-        print urls
+        print len(urls)
+        testDir = '%s/test' % baseDir
+        if not os.path.exists(testDir):
+            os.makedirs(testDir)
         for i, url in enumerate(urls):
             break
-            #os.system("""wget "%s" --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre" -O %s/%d.html""" % (url, testDir, i+1))
+            os.system("""wget "%s" --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre" -O %s/%d.html""" % (url, testDir, i+1))
 
 
 # change to fold testing

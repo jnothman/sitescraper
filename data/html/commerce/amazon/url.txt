@@ -1,1 +1,1 @@
-http://www.amazon.com/s/ref=nb_ss_gw?url=search-alias%3Daps&field-keywords=%s
+http://www.amazon.com/s/ref=nb_ss_gw?url=search-alias=aps&field-keywords=%s

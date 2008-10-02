@@ -120,8 +120,8 @@ class htmlXpath(object):
     def normalize(self):
         """A normalized xpath has an index defined at each node. ElementTree treats indexless nodes as a regular expression.
         
-        >>> htmlXpath("/a[1]/b/c[@id='2']//d").normalize().get()
-        "/a[1]/b[1]/c[@id='2']//d[1]"
+        >>> htmlXpath("/a[1]/b/c[@id='2']/d").normalize().get()
+        "/a[1]/b[1]/c[@id='2']/d[1]"
         """
         for i, section in enumerate(self):
             if section != '*' and not section.endswith(']'):
@@ -134,8 +134,10 @@ class htmlXpath(object):
         True
         >>> htmlXpath('/a[1]/b').isNormalized()
         False
+        >>> htmlXpath('/a[1]//b[2]').isNormalized()
+        False
         """
-        if '*' in self.get():
+        if anyIn(['*', '//'], self.get()):
             return False
         else:
             return self.copy().normalize() == self
@@ -228,8 +230,9 @@ class htmlDoc(object):
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
-    def __init__(self, url, tree=False, xpaths=False):
+    def __init__(self, url, tree=False, xpaths=False, aggressive=True):
         self.setUrl(url)
+        self.setAggressive(aggressive)
         if not tree:
             tree = self.parseUrl()
         self.setTree(tree)
@@ -239,6 +242,9 @@ class htmlDoc(object):
         self.setXpaths(xpaths)
         self.sequence = SequenceMatcher()#lambda x: x in ' \t\r\n')
         
+
+    def __len__(self):
+        return len(self.getXpaths())
 
     def getUrl(self):
         return self._url
@@ -252,16 +258,21 @@ class htmlDoc(object):
         return self._xpaths
     def setXpaths(self, xpaths):
         self._xpaths = xpaths
-
+    # is the doc is aggressive then the xpath parsing will be more thorough and include regular expressions and text content
+    def getAggressive(self):
+        return self._aggressive
+    def setAggressive(self, aggressive):
+        self._aggressive = aggressive
 
     def parseUrl(self):
         """Fetch url and return an ElementTree of the parsed XML"""
         fp = urllib2.urlopen(urllib2.Request(self.getUrl(), None, {'User-agent': htmlDoc.USER_AGENT}))
         tree = lxmlHtml.parse(fp)
         # remove tags that are not useful
-        for tag in htmlDoc.IGNORE_TAGS:
-            for item in tree.findall('.//' + tag):
-                item.drop_tree()
+        if self.getAggressive():
+            for tag in htmlDoc.IGNORE_TAGS:
+                for item in tree.findall('.//' + tag):
+                    item.drop_tree()
         return tree
 
 
@@ -278,20 +289,18 @@ class htmlDoc(object):
                 raise Exception('duplicate: %s %s' % (xpath, text))
             xpaths.setdefault(text, [])
             xpaths[text].append(xpath)
-        childTags = {}
-        # add child text content for all tags
-        for sep in ('/', '//'):
-            childXpath = htmlXpath('%s%s*' % (xpath.get(), sep))
-            childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
-            if childText:
-                xpaths.setdefault(childText, [])
-                xpaths[childText].append(childXpath)
+
+        childTags = {'*': 2}
         for child in e:
-            childTag = child.tag
-            if type(childTag) == type(str()):
-                childTags.setdefault(childTag, 0)
-                childTags[childTag] += 1
-                if childTags[childTag] == 2:
+            if type(child.tag) == type(str()):
+                self.extractXpaths(child, xpaths)
+                childTags.setdefault(child.tag, 0)
+                childTags[child.tag] += 1
+
+        if self.getAggressive():
+            # add child text content for all tags
+            for childTag, count in childTags.items():
+                if count >= 2:
                     # add text content for this tag
                     for sep in ('/', '//'):
                         childXpath = htmlXpath('%s%s%s' % (xpath, sep, childTag))
@@ -299,21 +308,22 @@ class htmlDoc(object):
                         if childText:
                             xpaths.setdefault(childText, [])
                             xpaths[childText].append(childXpath)
-                self.extractXpaths(child, xpaths)
 
 
     def getElementText(self, e):
         """Extract text from HtmlElement"""
-        return normalizeStr(e.text_content().strip())
-        text = []
-        if e.text:
-            text.append(e.text)
-        for child in e:
-            if child.tag in htmlDoc.MERGE_TAGS:
-                text.append(child.text_content())
-            if child.tail:
-                text.append(child.tail)
-        return normalizeStr(''.join(text).strip())
+        if self.getAggressive():
+            return normalizeStr(e.text_content().strip())
+        else:
+            text = []
+            if e.text:
+                text.append(e.text)
+            for child in e:
+                if child.tag in htmlDoc.MERGE_TAGS:
+                    text.append(child.text_content())
+                if child.tail:
+                    text.append(child.tail)
+            return normalizeStr(''.join(text).strip())
     def getElementsText(self, es):
         return [text for text in [self.getElementText(e) for e in es] if text]
 
@@ -328,14 +338,6 @@ class htmlDoc(object):
             result = []
             for (text, xpaths) in allXpaths.items():
                 score = self.similarity(output, text)
-                """if DEBUG and score < 0:
-                    print score
-                    print pretty(xpaths)
-                    print text
-                    print"""
-                for x in ['/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]//*', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]/table[1]/tr[1]/td[1]//div', '/html[1]/body[1]/div[1]/div[1]/div[1]/table[2]/tr[1]/td[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tr[2]/td[2]/div[1]/div[1]/table[1]/tr[1]/td[1]/div']:
-                    if htmlXpath(x) in xpaths:
-                        print x, [self.getTree().getpath(e) for e in self.getTree().xpath(x)], text.replace('\n', '')
                 result.extend((xpath, score) for xpath in xpaths)
             return result
 
@@ -368,7 +370,16 @@ class htmlDoc(object):
             score = abs(len(s1) - len(s2))**power
         return score
 
-    def reduceXpaths(xpaths, docs):
+    def removeStatic(docs):
+        """Remove content that is static and so appears across all documents"""
+        if len(docs) > 1:
+            for text, xpaths in docs[0].getXpaths().items():
+                if all((text, xpaths) in doc.getXpaths().items() for doc in docs):
+                    for doc in docs:
+                        doc.getXpaths().pop(text)
+    removeStatic = staticmethod(removeStatic)
+
+    def removeRedundant(xpaths, docs):
         """Reduce xpath list by replacing similar xpaths with a regular expression
 
         >>> doc = htmlDoc('file:data/html/search/yahoo/1.html')
@@ -407,7 +418,7 @@ class htmlDoc(object):
                 for xpath in matchedXpaths:
                     xpaths.remove(xpath)
         return xpaths + acceptedXpathREs
-    reduceXpaths = staticmethod(reduceXpaths)
+    removeRedundant = staticmethod(removeRedundant)
 
 
 
@@ -539,6 +550,8 @@ def trainModel(urlOutputs):
     [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
     """
     docs = [htmlDoc(url) for (url, outputs) in urlOutputs]
+    #htmlDoc.removeStatic(docs)
+
     allOutputXpathStrs = []
     # rate xpaths by the similarity of their content with the output
     for doc, (url, outputs) in zip(docs, urlOutputs):
@@ -564,7 +577,7 @@ def trainModel(urlOutputs):
             print
     # store xpaths that were abstracted for a single output, and so must be collapsed together
     collapsableXpaths = [xpath for xpath in bestXpaths if not xpath.isNormalized()]
-    abstractedXpaths = htmlDoc.reduceXpaths(bestXpaths[:], docs)
+    abstractedXpaths = htmlDoc.removeRedundant(bestXpaths[:], docs)
     # replace xpath indices with attributes where possible
     A = htmlAttributes(docs)
     attributeXpathStrs = []
