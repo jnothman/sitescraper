@@ -3,83 +3,30 @@
 "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <!-- start ecom top -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script language="JavaScript">
-function toggleOpenInterest()
-{
-	if (document.getElementById)
-	{
-		var table = document.getElementById('datatable');
-		var rows = table.getElementsByTagName("tr");
-		var visibleRowCount = 0;
-		// Start at 1 to ignore header row.
-		for (var i = 1; i < rows.length; ++i)
-		{
-			var visible = true;
-			var row = rows[i];
-			if (row.className.indexOf("showzeroopeninterest") != -1)
-			{
-				row.className = "hidezeroopeninterest";
-				visible = false;
-			}
-			else if (row.className.indexOf("hidezeroopeninterest") != -1)
-			{
-				row.className = "showzeroopeninterest";
-			}
-			else
-			{
-				row.classname = "";
-			}
-
-			if (visible)
-			{
-				++visibleRowCount;
-				if (visibleRowCount % 2 == 0)
-				{
-					row.className = row.className + " altrow";
-				}
-			}
-		}
-	}
-}
-</script>
-<style>
-.showzeroopeninterest {display:table-row;}
-.hidezeroopeninterest {display:none;}
-</style>
-
-
-
+<!-- Retrieve the ASX code that we are displaying results for. -->
 
 <!-- end ecom top -->
 <html>
 <head>
 
 <!-- start meta -->
-<!-- start notitle select --><title>Price Results</title>
+<!-- start notitle select -->
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="DC.subject" content="">
-<meta name="DC.creator" content="">
+<meta name="DC.creator" content="none">
 <!-- end meta --><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<!-- start ecom hdr --><script language="JavaScript">
+<!-- start ecom hdr -->
+<TITLE>
+COMMONWEALTH BANK OF AUSTRALIA.                              (CBA) - ASX Listed Company Information Fact Sheet
+</TITLE>
+<meta name="description" content="Share price, dividend, price history chart and company announcements for COMMONWEALTH BANK OF AUSTRALIA. (CBA)">
+
+
+
+
+
+<script language="JavaScript">
 <!--
 function jspOnLoad()
 {
@@ -87,21 +34,17 @@ function jspOnLoad()
 -->
 </script>
 
-<script LANGUAGE="JavaScript" SRC="/script/popups.js"></script>
-
-
-
-
-<!-- end ecom hdr -->
+<script language="JavaScript" src="/script/popups.js"></script>
+<script type="text/javascript" src="dojo.js" ></script><!-- end ecom hdr -->
 <script type="text/javascript" src="http://www.asx.com.au/script/global.js" ></script>
 <script type="text/javascript" src="http://www.asx.com.au/script/popups.js"></script>
 <script type="text/javascript" src="http://www.asx.com.au/script/manage_absolute_urls.js"></script>
 <script type="text/javascript" src="http://www.asx.com.au/script/url_prefix.js"></script>
 <script type="text/javascript" src="http://www.asx.com.au/script/codelookup.js" ></script>
-<!-- page specific javascript --><script src="http://www.asx.com.au/script/priceresults.js" type="text/javascript"></script>
+<!-- page specific javascript --><script src="http://www.asx.com.au/script/company_research.js" type="text/javascript"></script>
 <style type="text/css" media="screen" title="default">/* $CMAsset */@import url("http://www.asx.com.au/style/redesign.css");/* $/CMAsset */</style>
 <link rel="stylesheet" type="text/css" href="http://www.asx.com.au/style/default.css" title="normal">
-<!-- page specific stylesheet --><link href="http://www.asx.com.au/style/search-again.css" rel="stylesheet" type="text/css">
+<!-- page specific stylesheet --><link href="http://www.asx.com.au/style/company_research.css" rel="stylesheet" type="text/css">
 <!-- contentpage stylesheet-->
 <!--[if IE 5]><link rel="stylesheet" type="text/css" href="http://www.asx.com.au/style/ie5.css" /><![endif]-->
 <link rel="alternate stylesheet" type="text/css" href="http://www.asx.com.au/style/small.css" title="small">
@@ -123,38 +66,32 @@ ul#primarynav li.a9721 ul, ul#a9721 {display:block;}
 /* end expand active heading */
 
 /* highlight active link if 2nd level */
-body.a8170 ul#primarynav li ul.submenu li.a8170 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-body.a8170 ul#primarynav li ul.submenu li.a8170 a:hover {color:#fff;}
+body.a21348 ul#primarynav li ul.submenu li.a21348 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a21348 ul#primarynav li ul.submenu li.a21348 a:hover {color:#fff;}
 
-#secondnav ul li ul.menu li a.a8170 {text-decoration:none;font-weight:bold;color:#c63;}
-#secondnav ul li ul.menu li a.a8170:hover {color:#c63;}
+#secondnav ul li ul.menu li a.a21348 {text-decoration:none;font-weight:bold;color:#c63;}
+#secondnav ul li ul.menu li a.a21348:hover {color:#c63;}
 /* end highlight active link if 2nd level */
 
 /* highlight active link if 3rd level */
-ul#primarynav li ul.submenu li.a38612 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-ul#primarynav li ul.submenu li.a38612 a:hover {color:#fff;}
+ul#primarynav li ul.submenu li.a51796 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+ul#primarynav li ul.submenu li.a51796 a:hover {color:#fff;}
 /* end highlight active link if 3rd level */
 
 
 /* highlight active link if jsp with redirect */
-body.a8170 ul#primarynav li ul.submenu 
+body.a21348 ul#primarynav li ul.submenu 
 
-li.a8170 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-body.a8170 ul#primarynav li ul.submenu li.a8170 a:hover {color:#fff;}
+li.a21381 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a21381 ul#primarynav li ul.submenu li.a21381 a:hover {color:#fff;}
 /* end highlight active link if jsp with redirect */
-li.a8147 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-body.a8147 ul#primarynav li ul.submenu li.a8147 a:hover {color:#fff;}
-/* end highlight active link if jsp with redirect */
-li.a17114 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-body.a17114 ul#primarynav li ul.submenu li.a17114 a:hover {color:#fff;}
-/* end highlight active link if jsp with redirect */
-li.a16339 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
-body.a16339 ul#primarynav li ul.submenu li.a16339 a:hover {color:#fff;}
+li.a21348 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+body.a21348 ul#primarynav li ul.submenu li.a21348 a:hover {color:#fff;}
 /* end highlight active link if jsp with redirect */
 
 
 /* highlight active parent link */
-ul#primarynav li ul.submenu li.a8145 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
+ul#primarynav li ul.submenu li.a21369 a {color:#fff;font-weight:bold;padding:3px 3px 3px 20px;background-color:#c63;}
 /* end highlight active parent link */
 
 
@@ -176,19 +113,23 @@ body.a54823 #customer-seg ul#nav li.a59981 a:hover {color:white;}
 /* $/CMAsset */
 
 /* breadcrumb */
-span.a8170 {display:none;}
-a.a8170 {text-decoration:none;color:#000;cursor:default}
+span.a21348 {display:none;}
+a.a21348 {text-decoration:none;color:#000;cursor:default}
 
 
 </style>
 </head>
-<body class="a8170" onLoad="jspOnLoad();">
+<body class="a21348" onLoad="jspOnLoad();">
 <!-- parent node --><div class="a9721">
+
 <div id="header"><div class="logo">
-<a href="http://www.asx.com.au/index.htm"><img src="http://www.asx.com.au/images/logo.gif" alt="ASX logo" id="logo" title="ASX - Australian Stock Exchange"></a>
+
+     <a href="http://www.asx.com.au/index.htm"><img src="http://www.asx.com.au/images/logo.gif" alt="ASX logo" id="logo" title="ASX - Australian Securities Exchange logo"></a>
+  
 <!-- no tracking code -->
 </div>
-<div class="banner"><div class="code">
+<div class="banner">
+<div class="code">
 
 <!-- start leaderboard_728x90_468x60 ******************************************** -->
   <!-- start leaderboard_728x90_468x60 include -->
@@ -281,7 +222,7 @@ a.a8170 {text-decoration:none;color:#000;cursor:default}
 <li class="a73311"><a href="http://www.asx.com.au/products/managed_funds/index.htm">Managed Funds & ETFs</a></li>
 <li class="a61070"><a href="http://www.asx.com.au/products/cfds/index.htm">ASX CFDs</a></li>
 <li class="a38587"><a href="http://www.asx.com.au/products/interest_rate_securities/index.htm">Interest Rate & Hybrid Securities</a></li>
-<li class="a70290"><a href="http://www.asx.com.au/products/emissions_trading/index.htm">Emissions trading</a></li>
+<li class="a75835"><a href="http://www.asx.com.au/products/energy_environment/index.htm">Energy & Environment</a></li>
  
  
 </ul></li>
@@ -294,7 +235,6 @@ a.a8170 {text-decoration:none;color:#000;cursor:default}
 <li class="a42621"><a href="http://www.asx.com.au/research/announcements/index.htm">Announcements</a></li>
  
 <li class="a42622"><a href="http://www.asx.com.au/research/charting/index.htm">Charting</a></li>
- 
 <li class="a51796"><a href="http://www.asx.com.au/research/companies/index.htm">Company research</a></li>
 <li class="a38586"><a href="http://www.asx.com.au/research/industry/index.htm">Industry sectors</a></li>
 <li class="a42781"><a href="http://www.asx.com.au/research/indices/index.htm">Indices</a></li>
@@ -326,6 +266,7 @@ a.a8170 {text-decoration:none;color:#000;cursor:default}
 <li class="a62152"><a href="http://www.asx.com.au/professionals/austraclear/index.htm">ASX Austraclear</a></li>
 <li class="a38699"><a href="http://www.asx.com.au/professionals/companies/index.htm">Listed Companies</a></li>
 <li class="a38701"><a href="http://www.asx.com.au/professionals/listing/index.htm">Listing your company</a></li>
+<li class="a74859"><a href="http://www.asx.com.au/professionals/quoting_investment_products/index.htm">Quoting Investment Products</a></li>
 <li class="a38700"><a href="http://www.asx.com.au/professionals/institutional/index.htm">Institutional Investors</a></li>
 <li class="a38698"><a href="http://www.asx.com.au/professionals/advisers/index.htm">Financial Planners</a></li>
 <li class="a70698"><a href="http://www.asx.com.au/professionals/market_information/index.htm">Market Information</a></li>
@@ -368,11 +309,11 @@ a.a8170 {text-decoration:none;color:#000;cursor:default}
 <!-- LEVEL 2 --><span class="a9721">Prices, Research &amp; Announcements &gt;</span>
 <!-- LEVEL 3 -->
 
-<span class="a38612"><a href="http://www.asx.com.au/research/prices/index.htm" class="a38612">Prices</a> &gt;</span>
+<span class="a51796"><a href="http://www.asx.com.au/research/companies/index.htm" class="a51796">Company research</a> &gt;</span>
 
 
 
-<span class="a8145"><a href="EquitySearchPage.jsp" class="a8145">Shares</a> &gt;</span>
+<span class="a21369"><a href="CompanyInfoSearch.jsp" class="a21369">Company information</a> &gt;</span>
 
 
 
@@ -388,9 +329,29 @@ Search results
 
 <!-- col -->
 <div id="col">
+<!-- search again -->
+<div class="search-again">
+<form name="searchByForm" action="/asx/research/CompanyInfoSearchResults.jsp" method="get">
+<input name="searchBy" value="asxCode" type="hidden">
+<input name="allinfo" checked="checked" type="hidden">
+<h3>Company information lookup</h3>
+<div class="module">
+<label for="asxCode">ASX code:</label>
+<input name="asxCode" id="asxCode" size="6" maxlength="6" type="text">
+<a href="JavaScript:submitForm('asxCode');" class="submit"><img src="http://www.asx.com.au/images/go_new.gif" border="0" alt="Go"></a>
+<div>
+<span class="right"><a href="/asx/research/CompanyInfoSearch.jsp">Detailed search</a></span>
+<span class="left"><a href="javascript:displayCodeLookup('searchByForm','asxCode')">Find a code</a></span>
+</div>
+<p><a href="/asx/research/CompanyListed.jsp">View full list of companies</a></p>
+</div>
+</form>
+</div>
+<!-- /search again -->
 
 <div id="ad180x60">
-  <div class="advertisement">Advertisement</div>
+
+<div class="advertisement">Advertisement</div>
 
 <!-- start button_180x60 ******************************************** -->
   <!-- start button_180x60 include -->
@@ -405,70 +366,425 @@ Search results
   ffxAds.push(ad);
   document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
 </script>
-
+  
   <!-- end button_180x60 include -->
 <!-- end button_180x60 ******************************************** -->
 
 </div>
-<div class="search-again">
-  <form action="" name="searchagain" method="get" onSubmit="getPrice(this);return false;">
-   <table cellspacing="0">
-    <tr>
-     <td><label for="ASXCodes">Search again:</label></td>
-     <td><input id="ASXCodes" name="ASXCodes" type="text" maxlength="150"></td>
-     <td><input id="go" name="Search" type="image" src="http://www.asx.com.au/images/go_new.gif" alt="Get a price/announcement"></td>
-     <td><ul class="options">
-					<li class="find"><a href="javascript:displayCodeLookup('searchagain','ASXCodes')" title="Find an ASX code using the company name or index name">Find a code</a></li>
-					<li class="detailed"><a href="/asx/markets/EquitySearchPage.jsp">Detailed search</a></li></ul></td>
-    </tr>
-   </table>
-  </form>
-</div><!-- /search-again -->
-
-<h3>Price results</h3>
-  
-<p> Equity, Interest Rate Market Securities, Options, Warrants and Futures
-        prices are delayed by at least 20 minutes.  <br>
-  Retrieving any price indicates your acceptance of the <a href="/legal/general_conditions.htm">Conditions</a>.  
-  </p>
+<div id="company-information">
 
 
-<h2>Shares</h2>
 
-<table  cellspacing='0' class='datatable'>
-            <tr><th scope='col' class='code'><a href='/clickable/code.htm' target='_blank' onclick="ShowColumn('/clickable/code.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Code</a></th><th>&nbsp;<a href='/clickable/last.htm' target='_blank' onclick="ShowColumn('/clickable/last.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Last</a></th><th nowrap><a href='/clickable/change.htm' target='_blank' onclick="ShowColumn('/clickable/change.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>$ +/-</a></th><th><a href='/clickable/bid.htm' target='_blank' onclick="ShowColumn('/clickable/bid.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Bid</a></th><th><a href='/clickable/offer.htm' target='_blank' onclick="ShowColumn('/clickable/offer.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Offer</a></th><th><a href='/clickable/open.htm' target='_blank' onclick="ShowColumn('/clickable/open.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Open</a></th><th><a href='/clickable/high.htm' target='_blank' onclick="ShowColumn('/clickable/high.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>High</a></th><th><a href='/clickable/low.htm' target='_blank' onclick="ShowColumn('/clickable/low.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Low</a></th><th><a href='/clickable/vol.htm' target='_blank' onclick="ShowColumn('/clickable/vol.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Volume</a></th><th><a href='/clickable/options.htm' target='_blank' onclick="ShowColumn('/clickable/options.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Options</a></th><th><a href='/clickable/warrants.htm' target='_blank' onclick="ShowColumn('/clickable/warrants.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Warrants</a></th><th><a href='/clickable/chart.htm' target='_blank' onclick="ShowColumn('/clickable/chart.htm', 'ASXCode', 80, 80);return false;" alt='ASX Code'>Chart</a></th><th><a href='/research/announcements/status_notes.htm'>Status</a></th><th class='announcements'>Announcements</th></tr><tr><th scope='row' class='row'><a href='/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=on&asxCode=ANZ&companyName=&principalActivity=&industryGroup=NO'>ANZ</a><a href='../statistics/announcementSearch.do?method=searchByCode&issuerCode=ANZ&timeFrameSearchType=D&releasedDuringCode=T' TARGET='_new' class='announce'>&nbsp;*</a></th><td class='last'>16.770</td><td class='change indicator' nowrap>-0.130</td><td>16.730</td><td>16.800</td><td>16.670</td><td>16.930</td><td>16.610</td><td>7,288,518</td><td class='middle'><a href='/asx/markets/searchOptionPrices.do?method=searchByUnderlyingCode&underlyingCode=ANZ&optionType=B'>Options</a></td><td class='middle'><a href='/asx/markets/WarrantPricesSearchResults.jsp?State=127&DataSet=ANZ'>Warrants</a></td><td class='middle'><a href='/asx/research/chartsSearchResult.jsp?asxCode=ANZ&TimeFrame=D6&compare=index&indices=XJO'><img src='/images/chart.gif' border='0' height='15' width='15'></a></td><td>&nbsp;</td><td><a href='/asx/statistics/announcementSearch.do?method=searchByCode&releasedDuringCode=W&issuerCode=ANZ'>Recent</a></td></tr>
+<h1>COMMONWEALTH BANK OF AUSTRALIA.                              (CBA)</h1>
+<!-- start ecom top --> <!-- end ecom top -->
+
+Banking, financial and related services.                                                                                                                                                                                                                                                                                                                                                                        
+
+<p>On this page you will find:</p>
+<table cellspacing="0" class="plain" id="page-contents">
+<tr>
+<td><a href="#price">Delayed share price</a></td>
+<td align=left valign=middle rowspan=4><a href='/professionals/companies/index.htm#Emblem'><img align=left src='/about/images/ListedCompanyEmblem.jpg' alt='ASX-Listed Emblem' border=0></a></td>
+<td><a href="#details">Company details</a></td>
+</tr>
+<tr>
+<td><a href="#headlines">Company announcements</a></td>
+<td><a href="#closing_prices">Closing prices</a></td>
+</tr>
+<tr>
+<td><a href="#chart">Price history chart</a></td>
+<td><a href="#dividends">Dividends</a></td>
+</tr>
+<tr>
+<td><a href="#options">Exchange Traded Options</a></td>
+<td><a href="#warrants">Warrants &amp Structured Products</a></td>
+</tr>
+
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="price"></a>
+<h2>Delayed share price</h2>
+<p>Prices are delayed by at least 20 minutes. Retrieving any price indicates
+your acceptance of the <a href="/legal/general_conditions.htm#market_information">Conditions</a>.</p>
+<table cellspacing="0" class="datatable" id="share-price">
+	<tr>
+		<th scope="col" class="code"><a href="JavaScript:ShowColumn('/clickable/code.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Code</a></td>
+		<th scope="col" class="last"><a href="JavaScript:ShowColumn('/clickable/last.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Last</a></td>
+		<th scope="col" class="change" nowrap="nowrap"><a href="JavaScript:ShowColumn('/clickable/change.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">% Chg</a></td>
+		<th scope="col" class="bid"><a href="JavaScript:ShowColumn('/clickable/bid.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Bid</a></td>
+		<th scope="col" class="offer"><a href="JavaScript:ShowColumn('/clickable/offer.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Offer</a></td>
+		<th scope="col" class="open"><a href="JavaScript:ShowColumn('/clickable/open.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Open</a></td>
+		<th scope="col" class="high"><a href="JavaScript:ShowColumn('/clickable/high.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">High</a></td>
+		<th scope="col" class="low"><a href="JavaScript:ShowColumn('/clickable/low.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Low</a></td>
+		<th scope="col" class="vol"><a href="JavaScript:ShowColumn('/clickable/vol.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Vol</a></td>
+	</tr>
+
+	<tr>
+		<th scope="row" class="row">CBA</th>
+		<td class="last">45.010</td>
+		<td class="change indicator" nowrap>-0.86%</td>
+		<td>44.800</td>
+		<td>45.100</td>
+		<td>44.300</td>
+		<td>45.300</td>
+		<td>44.260</td>
+		<td>3,033,271</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+        <!-- tower ad -->
+        <div class="towerad">
+        <span class="advertisement">Advertisement</span>
+
+<!-- start skyscraper_160x600 ******************************************** -->
+  <!-- start skyscraper_160x600 include -->
+
+<script type="text/javascript">
+  if(typeof(ffxAds)=="undefined")var ffxAds = [];
+  var ad = {
+    width    : "160",
+    height   : "600",
+    adtype   : "panorama",
+    isiframe : "yes"
+  };
+  ffxAds.push(ad);
+  document.write("<div id=\"ffxad"+ffxAds.length+"\"></div>");
+</script>
+  
+  <!-- end skyscraper_160x600 include -->
+<!-- end skyscraper_160x600 ******************************************** -->
+
+		</div>
+        <!-- end tower ad -->
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<a name="details"></a>
+<h2>COMMONWEALTH BANK OF AUSTRALIA.                              details</h2>
+<p>Please note: ASX relies on third parties to provide the information contained in the company details table,
+and therefore is unable to assume any responsibility for the accuracy or timeliness of the information.</p>
+					<table cellspacing="0" class="contenttable company-details">
+					
+						<tr>
+							<th>Issuer Code</th>
+							<td>CBA</td>
+						</tr>
+					
+						<tr>
+							<th>Securities</th>
+							<td>
+							   <select name="ASXCodes">
+								  <option value="">ASX Code, Security Description</option>
+								  <option value="">------------------------------</option>
+								  <option value='CBA'>CBA,  Ordinary Fully Paid<option value='CBAHD'>CBAHD,  6% Mtn 24-jun-2009 Min.cons. $5ht Non-chess<option value='CBAHE'>CBAHE,  Frn 24-jun-09 Min.cons.$5ht Non-chess<option value='CBAHJ'>CBAHJ,  6.25% Mtn 12-mar-2010 Min.cons. $5ht Non-chess<option value='CBAHK'>CBAHK,  Frn 12-mar-2010 Mtn Cons. $5ht Non-chess<option value='CBAHL'>CBAHL,  7.75% Mtn.mat 21-jan-2011 Min.cons.$5ht Non-chess<option value='CBAHM'>CBAHM,  Frn 21-jan-2011 Min.cons.$5ht Non-chess<option value='CBAHN'>CBAHN,  8.50% Fxd Tcd 24-jun-2011 Min Cons $5ht Non-chess<option value='CBAHO'>CBAHO,  Frn Tcd Mat.24-jun-2011 Min.cons.$5ht Non-chess<option value='CBAPB'>CBAPB,  Perpetual Exchangeable Resale Listed Sec.-perls Iv
+							   </select>
+							</td>
+						</tr>
+					
+						<tr>
+							<th>Official Listing Date</th>
+							<td>12 September, 1991</td>
+						</tr>
+					
+			<tr>
+			<th><a href="/research/indices/gics.htm">GICS</a> Industry Group</th>
+			<td>Banks</td>
+			</tr>
+					<tr>
+						<th>Exempt Foreign?</th>
+						<td>No</td>
+					</tr>
+					
+						<tr>
+							<th>Internet Address</th>
+							<td class="altrow"><a href="http://www.commbank.com.au/" target="_top">http://www.commbank.com.au/</a></td>
+						</tr>
+					
+						<tr>
+							<th>Registered Office Address</th>
+							<td>Level 7                                 , 48 Martin Place                         , SYDNEY                                  , NSW, AUSTRALIA, 1155      </td>
+						</tr>
+					
+						<tr>
+							<th>Head Office Telephone</th>
+							<td>(02) 9378 2000                </td>
+						</tr>
+					
+						<tr>
+							<th>Head Office Fax</th>
+							<td>(02) 9378 3317                </td>
+						</tr>
+					
+						<tr>
+							<th>Share Registry</th>
+							<td>LINK MARKET SERVICES LTD                                    <BR> LEVEL 12                                , 680 GEORGE STREET                       , SYDNEY                                  , NSW, AUSTRALIA, 2000      </td>
+						</tr>
+					
+						 <tr>
+							<th class=telephone>Share Registry Telephone</th>
+							<td>1800 022 440                  </td>
+						</tr>
+					
+				</table>
+
+				<table cellspacing="0" class="contenttable" id="directors">
+				<tr>
+					<th>Directors / Senior Management</th>
+				</tr>
+
+				<tr>
+					<td>Dr John M Schubert (Chairman, Non Exec. Director)<BR>
+Mr Ralph J Norris (Director, Managing Director, CEO)<BR>
+Mr Fergus Ryan (Non Exec. Director)<BR>
+Mr Reginald J Clairs, AO (Non Exec. Director)<BR>
+Mr Colin Galbraith (Non Exec. Director)<BR>
+Ms Carolyn Kay (Non Exec. Director)<BR>
+Mr David Turner (Non Exec. Director)<BR>
+Mrs Jane Hemstritch (Non Exec. Director)<BR>
+Mr Harrison Young (Non Exec. Director)<BR>
+Sir John Anderson (Non Exec. Director)<BR>
+Mr Andrew Mohl (Non Exec. Director)<BR>
+Mr David Craig (CFO)<BR>
+Mr David Cohen (General Counsel)<BR>
+</td>
+				</tr>
+			</table>
+			<table cellspacing="0" class="contenttable company-details">
+					
+					   <tr>
+							<th>Company Secretary</th>
+							<td>Mr John Hatton<BR> Ms Carla Felicita Collingwood (Assist.Co. Secretary)</td>
+						</tr>
+					
+						<tr>
+							<th class=principal>Principal Activities</th>
+							<td>Banking, financial and related services.                                                                                                                                                                                                                                                                                                                                                                        </td>
+						</tr>
+					
+			</table>
+
+
+
+
+
+	<a name="headlines"></a>
+	<h2>COMMONWEALTH BANK OF AUSTRALIA.                              announcements</h2>
+	<p><a href="/research/announcements/process.htm">How are company announcements published on www.asx.com.au?</a></p>
+		<table cellspacing="0" class="contenttable" id="announcements">
+			<tr><th scope='col' class='date' nowrap><a href="JavaScript:ShowColumn('/clickable/documentdate.htm', 'ASXCode', 80, 80)" alt="ASX Code">Date</a></th><th scope='col' class='pricesens'><a href="JavaScript:ShowColumn('/clickable/sensitive.htm', 'ASXCode', 50, 50)" alt="ASX Code">Price<br>sens.</a></th><th scope='col' class='headline'><a href="JavaScript:ShowColumn('/clickable/headline.htm', 'ASXCode', 80, 80)" alt="ASX Code">Headline</a></th><th scope='col' class='pages' nowrap><a href="JavaScript:ShowColumn('/clickable/pdfpages.htm', 'ASXCode', 30, 30)" alt="ASX Code">Pages</a></th><th scope='col' class='pdf'><a href="JavaScript:ShowColumn('/clickable/pdflink.htm', 'ASXCode', 30, 30)" alt="ASX Code">PDF</a></th><tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>Change in substantial holding for PMV</td><td class='pages'>9</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887531', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887531" >PDF<tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>Change in substantial holding for ESM</td><td class='pages'>6</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887528', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887528" >PDF<tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>CBA Shareholder Review 2008</td><td class='pages'>24</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887478', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887478" >PDF<tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>CBA AGM Notice of Meeting 2008</td><td class='pages'>16</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887474', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887474" >PDF<tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>Ceasing to be a substantial holder for GNS</td><td class='pages'>9</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887406', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887406" >PDF<tr><td>03/10/2008</td><td class='pricesens'>&nbsp;</td><td>Change in substantial holding for APN</td><td class='pages'>11</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887404', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887404" >PDF<tr><td>02/10/2008</td><td class='pricesens'>&nbsp;</td><td>Becoming a substantial holder for CMJ</td><td class='pages'>16</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00887010', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00887010" >PDF<tr><td>02/10/2008</td><td class='pricesens'>&nbsp;</td><td>Ceasing to be a substantial holder for TOL</td><td class='pages'>6</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00886863', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00886863" >PDF<tr><td>02/10/2008</td><td class='pricesens'><img src='/images/asterix.gif' class='pricesens' alt='asterix' title='price sensitive'></td><td>CBA Market Announcement regarding BANKWEST</td><td class='pages'>1</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00886811', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00886811" >PDF<tr><td>01/10/2008</td><td class='pricesens'>&nbsp;</td><td>cba 259C(2) 26 September 2008</td><td class='pages'>9</td><td><a onClick="getAnnPdf('/asx/statistics/showAnnouncementPDF.do?idsID=', '00886549', 'Announcement'); return false;" href="/asx/statistics/showAnnouncementPDF.do?idsID=00886549" >PDF
+		</table>
+
+	<p><a href="/asx/statistics/announcementSearch.do">> search for past company announcements</a></p>
+
+
+<p><strong>Viewing Company Announcements:</strong><br />
+Users of Adobe Acrobat Reader version 6.0.0 may have difficulty accessing PDF
+  announcements. Symptoms include slow downloads, blank documents, and small
+  white boxes appearing in the PDF. We recommend you download the latest version
+  of the free <a href="http://www.adobe.com/products/acrobat/readstep2.html" title="Download Adobe Acrobat Reader">Adobe
+  Acrobat Reader</a>. To check which version you have,
+  open Adobe Acrobat Reader, click on 'Help', then click 'About Adobe Reader
+  6.0'.</p>
+
+
+
+
+
+	<!-- ***************
+		 CLOSING PRICES
+		 ***************
+	-->
+	<a name="closing_prices"></a>
+	<h2>Closing prices</h2>
+
+	
+	<p>Closing prices are displayed for the last 5 days on which the security traded on ASX within the last 6 months.</p>
+	<table class="datatable" cellspacing="0" id="closing-prices">
+		<tr>
+			<th scope="col">Date</td>
+			<th scope="col"><a href="JavaScript:ShowColumn('/clickable/last.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Last</a></td>
+			<th scope="col"><a href="JavaScript:ShowColumn('/clickable/change.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">% Change</a></td>
+			<th scope="col"><a href="JavaScript:ShowColumn('/clickable/high.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">High</a></td>
+			<th scope="col"><a href="JavaScript:ShowColumn('/clickable/low.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Low</a></td>
+			<th scope="col" class="vol"><a href="JavaScript:ShowColumn('/clickable/vol.htm', 'ASXCode', 80, 80)" alt=\"ASX Code\">Vol</a> <span class="red">*</span></td>
+		</tr>
+	
+	
+		<tr>
+			<td><strong>03 Oct 2008</strong></td>
+			<td class='last'>45.010</td>
+			<td class='change'>-0.86%</td>
+			<td>45.300</td>
+			<td>44.260</td>
+			<td>2,852,835</td>
+		</tr>
+	
+		<tr>
+			<td><strong>02 Oct 2008</strong></td>
+			<td class='last'>45.400</td>
+			<td class='change'>1.2%</td>
+			<td>45.820</td>
+			<td>44.900</td>
+			<td>3,727,246</td>
+		</tr>
+	
+		<tr>
+			<td><strong>01 Oct 2008</strong></td>
+			<td class='last'>44.860</td>
+			<td class='change'>5.26%</td>
+			<td>44.880</td>
+			<td>43.540</td>
+			<td>3,162,729</td>
+		</tr>
+	
+		<tr>
+			<td><strong>30 Sep 2008</strong></td>
+			<td class='last'>42.620</td>
+			<td class='change'>-2.85%</td>
+			<td>43.950</td>
+			<td>41.530</td>
+			<td>5,314,943</td>
+		</tr>
+	
+		<tr>
+			<td><strong>29 Sep 2008</strong></td>
+			<td class='last'>43.870</td>
+			<td class='change'>-1.26%</td>
+			<td>45.000</td>
+			<td>43.710</td>
+			<td>1,895,708</td>
+		</tr>
+	
+	</table>
+	
+
+
+
+<p><span class="red">*</span> <em>Volume of shares shown represents only those shares traded on ASX.</em></p>
+
+	<a name="chart"></a>
+	<h2>COMMONWEALTH BANK OF AUSTRALIA.                              price history chart</h2>
+
+	<p>ASX excludes all liability arising out of any inaccuracies in this chart, except where liability is made
+	non-excludable by legislation. Chart values may be adjusted for changes in a company's capital structure or to link historical values that represent the company's primary equity security.
+	<a href='/research/charting/overview.htm'>Explanation of chart terms</a>.</p>
+	<div id="company-chart"></div>
+	<script type="text/javascript">
+	var init = function(){
+		var contentNode = dojo.byId("company-chart");
+		dojo.xhrGet({
+			url: "companyChart.jsp?s=CBA",
+			load: function(data,args){
+				// fade out the node we're modifying
+				dojo.fadeOut({
+					node: contentNode,
+					onEnd: function(){
+					  // set the data, fade it back in
+					  contentNode.innerHTML = data; 
+					  dojo.fadeIn({node: contentNode}).play();    
+					}
+				}).play();
+			},
+			// if any error occurs, it goes here:
+			error: function(error,args){
+				console.warn("error!",error);
+			}
+		});
+	}; 
+	dojo.addOnLoad(init);
+	</script>
+
+
+
+
 <br>
 
+<!-- hubb banner -->
+<table width="625px">
+<tr><td>
+<script src="http://hfgapps.hubb.com/library/HubbStaticChartsFlash.js" type="text/javascript"></script>
+<script type="text/javascript">writeFlashBanner(3290997);</script>
+</td></tr>
+</table>
+<!-- /hubb banner -->
+
+<!--<p class="error">Please note that charting is currently unavailable. ASX is working to restore the functionality as soon as possible and apologises for any inconvenience.</p>-->
 
 
-            <form method="GET" id="refresh">
-					<input type='hidden' name='method' value='get'>
-					<input type='hidden' name='template' value='F1001'>
-					<input type='hidden' name='ASXCodes' value='ANZ'>
-					<div class="search-submit">
-						<input value="Refresh prices" class="actionbutton" type="submit">
-					</div>					
-            </form>
 
-    
-    <p>An <span class='red'>*</span> next to the security code
-              indicates there has been an announcement today relating to that
-              security. Click on the <span class='red'>*</span> to view the
-              list of today's announcements. Please note: The information on
-              this page is reset to zero at approximately 4:30am on the following
-              trading day. 
-    </p>
-    
+	<a name="dividends"></a>
+	<h2>Dividends</h2>
+	<p><a href="/research/dividends/process.htm">How are dividends released on www.asx.com.au?</a></p>
 
-    
- <ul>
-	<li><a href="/asx/research/CompanyInfoSearch.jsp">Listed
-		company information</a> including share price, announcements,
-		dividends and price history charts.	</li>
-   <li><a href="http://www.asx.com.au/resources/brokers/index.htm">Full
-			list of	stockbrokers</a>.</li>
-</ul>
+	<table cellspacing="0" class="contenttable" id="dividends">
+		<th valign=middle><a href="JavaScript:ShowColumn('/clickable/code.htm', 'ASXCode', 80, 80)">Code</a></th><th><a href="JavaScript:ShowColumn('/clickable/dividend.htm', 'ASXCode', 80, 80)">Div Amount</a></th><th nowrap='nowrap'><a href="JavaScript:ShowColumn('/clickable/exdividenddate.htm', 'ASXCode', 80, 80)" >Ex Div Date</a></th><th nowrap='nowrap'><a href="JavaScript:ShowColumn('/clickable/recorddate.htm', 'ASXCode', 80, 80)">Record Date</a></th><th nowrap='nowrap'><a href="JavaScript:ShowColumn('/clickable/datepayable.htm', 'ASXCode', 80, 80)">Date Payable</a></th><th nowrap='nowrap'><a href="JavaScript:ShowColumn('/clickable/franked.htm', 'ASXCode', 80, 80)">% Franked</a></th><th nowrap='nowrap'><a href="JavaScript:ShowColumn('/clickable/dividendtype.htm', 'ASXCode', 80, 80)">Type</a></th><th nowrap='nowrap' class="info"><a href="JavaScript:ShowColumn('/clickable/furtherinfo.htm', 'ASXCode', 80, 80)">Further Information</a></th><TR><th class="row" scope="row"><a href='/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=on&asxCode=CBA&companyName=&principalActivity=&industryGroup=NO'>CBA</a></td><td>149c</td>
+<td>20/08/2007</td>
+<td>24/08/2007</td>
+<td>05/10/2007</td>
+<td>100%</td>
+<td>Final</td>
+<td class='smalltext'>$1.49 FRANKED @ 30%  D.R.P NIL DISCOUNT</td>
+<TR><th class="row" scope="row"><a href='/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=on&asxCode=CBA&companyName=&principalActivity=&industryGroup=NO'>CBA</a></td><td>113c</td>
+<td>18/02/2008</td>
+<td>22/02/2008</td>
+<td>02/04/2008</td>
+<td>100%</td>
+<td>Interim</td>
+<td class='smalltext'>113C FRANKED @ 30%   D.R.P.</td>
+<TR><th class="row" scope="row"><a href='/asx/research/CompanyInfoSearchResults.jsp?searchBy=asxCode&allinfo=on&asxCode=CBA&companyName=&principalActivity=&industryGroup=NO'>CBA</a></td><td>153c</td>
+<td>18/08/2008</td>
+<td>22/08/2008</td>
+<td>01/10/2008</td>
+<td>100%</td>
+<td>Final</td>
+<td class='smalltext'>153C FRANKED @ 30%   D.R.P. NIL DISCOUNT</td>
+
+	</table>
+
+
+
+
+
+
+<a name="options"></a>
+<h2>Exchange Traded Options</h2>
+<p>Options are available over the security CBA. View the <a href="/asx/markets/searchOptionPrices.do?method=searchByUnderlyingCode&underlyingCode=CBA&optionType=B">option code list</a> for more details.</p>
+
+<a name="warrants"></a>
+<h2>Warrants &amp Structured Products</h2>
+<P>Warrants &amp Structured Products are available over the security CBA. <a href="/asx/markets/WarrantPricesSearchResults.jsp?DataSet=CBA&State=127">Click here</a> to view the current warrant issue details.</P>
+
+
+
+</div>
 
 
 <!-- start multilinks_295x60x2 ******************************************** -->
@@ -606,8 +922,8 @@ The Australian Securities Exchange operates the Australian Stock Exchange and th
 <script type="text/javascript">
   var ffxpageVars = {
     site   : "asx",
-    cat    : "prices",
-    subcat : "prices"
+    cat    : "research",
+    subcat : "companies"
   };
 </script>
 <script type="text/javascript" src="http://fdimages.fairfax.com.au/crtvs/code/asx/ffxutils.js"></script>

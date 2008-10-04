@@ -6,19 +6,12 @@ data = []
 
 
 data.append(('ASX', [
-    ('file:html/stocks/asx/1.html', ['42.140', '43.030', '41.930']),
-    ('file:html/stocks/asx/2.html', ['16.770', '16.930', '16.610']),
-    ('file:html/stocks/asx/3.html', ['24.850', '25.120', '24.630']),
-    ('file:html/stocks/asx/4.html', ['22.950', '23.060', '22.590']),
-    ('file:html/stocks/asx/5.html', ['38.600', '38.950', '37.620']),
-    ('file:html/stocks/asx/6.html', ['2.050', '2.120', '1.970']),
-    ('file:html/stocks/asx/7.html', ['2.970', '2.970', '2.870']),
-    ('file:html/stocks/asx/8.html', ['50.620', '51.560', '50.570']),
-    ('file:html/stocks/asx/9.html', ['3.510', '3.540', '3.470']),
-    ('file:html/stocks/asx/10.html', ['1.830', '1.850', '1.785']),
-    ('file:html/stocks/asx/11.html', ['115.700', '117.490', '112.870']),
-    ('file:html/stocks/asx/12.html', ['4.380', '4.430', '4.350']),
-    ('file:html/stocks/asx/13.html', ['27.090', '27.570', '26.760']),
+    ('file:html/stocks/asx/1.html', ['30.420', '30.470', '29.900']),
+    ('file:html/stocks/asx/2.html', ['45.010', '45.300', '44.260']),
+    ('file:html/stocks/asx/3.html', ['26.150', '26.240', '24.490']),
+    ('file:html/stocks/asx/4.html', ['18.710', '18.860', '18.220']),
+    ('file:html/stocks/asx/5.html', ['4.380', '4.420', '4.330']),
+    ('file:html/stocks/asx/6.html', ['23.210', '23.590', '23.030']),
 ]))
 
 
