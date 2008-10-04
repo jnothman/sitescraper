@@ -550,7 +550,7 @@ def trainModel(urlOutputs):
     [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
     """
     docs = [htmlDoc(url) for (url, outputs) in urlOutputs]
-    #htmlDoc.removeStatic(docs)
+    htmlDoc.removeStatic(docs)
 
     allOutputXpathStrs = []
     # rate xpaths by the similarity of their content with the output
@@ -565,14 +565,14 @@ def trainModel(urlOutputs):
     # select best xpath match for each output
     bestXpaths = []
     for i, outputXpathStrs in enumerate(allOutputXpathStrs):
-        rankedXpaths = sorted([(score, 1/float(len(xpathStr)), htmlXpath(xpathStr)) for (xpathStr, score) in outputXpathStrs.items() if score != 0])
+        rankedXpaths = sorted([(score, 1/float(len(xpathStr)), xpathStr, htmlXpath(xpathStr)) for (xpathStr, score) in outputXpathStrs.items() if score != 0])
         if rankedXpaths:
             bestXpath = rankedXpaths[0][-1]
             if bestXpath not in bestXpaths:
                 bestXpaths.append(bestXpath)
         if DEBUG:
             print [o[i] for (u, o) in urlOutputs if len(o) > i][0].replace('\n', '')
-            for score, _, xpath in rankedXpaths[:5]:
+            for score, l, s, xpath in rankedXpaths[:5]:
                 print '%6d: %s' % (score, xpath)
             print
     # store xpaths that were abstracted for a single output, and so must be collapsed together

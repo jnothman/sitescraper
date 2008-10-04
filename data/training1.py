@@ -8,7 +8,7 @@ data = []
 data.append(('ASX', [
     ('file:html/stocks/asx/1.html', ['30.420', '30.470', '29.900']),
     ('file:html/stocks/asx/2.html', ['45.010', '45.300', '44.260']),
-    ('file:html/stocks/asx/3.html', ['26.150', '26.240', '24.490']),
+    ('file:html/stocks/asx/3.html', ['26.150', '26.240', '24.940']),
     ('file:html/stocks/asx/4.html', ['18.710', '18.860', '18.220']),
     ('file:html/stocks/asx/5.html', ['4.380', '4.420', '4.330']),
     ('file:html/stocks/asx/6.html', ['23.210', '23.590', '23.030']),

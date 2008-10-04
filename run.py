@@ -21,9 +21,11 @@ def getData(data):
         ('file:html/search/google/2.html', ['www.ford.com.au/ - 34k', 'www.ford.com/ - 32k']),
     ])
     
-    maxUrls = 5
+    maxUrls = 100
+    maxPages = 50
     for site, d in data:
         print site
+        if site != 'ASX': continue
         trainUrls = [url.replace('file:', '') for (url, outputs) in d]
         #print 'RE:', buildUrlRE(trainUrls)
         baseDir = '%s' % os.path.dirname(trainUrls[0])
@@ -40,8 +42,7 @@ def getData(data):
                     urls.append(url.replace('\n', ''))
             else:
                 baseUrl = searchStr[:searchStr.index('%s')]
-                maxPages = 2
-                pageSize = 10
+                pageSize = 100
                 for pageNo in range(maxPages):
                     googleUrl = 'http://www.google.com.au/search?num=%d&start=%d&q=site:%s' % (pageSize, pageNo*pageSize, baseUrl)
                     result = sitescraper.testModel(googleUrl, googleModel)
@@ -52,7 +53,7 @@ def getData(data):
                         regExp = re.compile(regExpStr)
                         urls.extend([url for url in googleUrls if regExp.search(url)])
                         #print pageNo, len(urls)
-                    if not result or len(urls) > 10*maxUrls:
+                    if not result or len(urls) > 5*maxUrls:
                         # no more results
                         break
         else:
@@ -64,7 +65,6 @@ def getData(data):
         if not os.path.exists(testDir):
             os.makedirs(testDir)
         for i, url in enumerate(urls):
-            break
             os.system("""wget "%s" --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre" -O %s/%d.html""" % (url, testDir, i+1))
 
 
@@ -76,8 +76,8 @@ def testData(data):
     os.chdir('data')
     accuracies = []
     doc = sitescraper.htmlDoc('', True, True)
-    S = 6
-    for site, d in data:#[S:S+1]:
+    S = 0
+    for site, d in data[S:S+1]:
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:'
