@@ -5,7 +5,7 @@
 data = []
 
 
-data.append(('slashdot', [
+data.append(('forum/slashdot', [
     ('file:html/news/slashdot/1.html', ["NYT Ponders the Future of Solaris In a Linux/Windows World",
 """
 JerkBoB links to a story at the New York Times about the future prospects of Sun's Solaris, excerpting: "Linux is enjoying growth, with a contingent of devotees too large to be called a cult following at this point. Solaris, meanwhile, has thrived as a longstanding, primary Unix platform geared to enterprises. But with Linux the object of all the buzz in the industry, can Sun's rival Solaris Unix OS hang on, or is it destined to be displaced by Linux altogether?"
@@ -39,28 +39,28 @@ Slatterz writes "Linux publisher Mandriva has unveiled a version of its platform
 ]))
 
 
-data.append(('google finance', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/1.html', ['44.43', '44.98', '43.39']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/2.html', ['35.84', '36.90', '35.46']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/3.html', ['19.00', '19.11', '18.25']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/4.html', ['23.98', '24.34', '23.55']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/5.html', ['25.80', '25.80', '24.90']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/stocks/googlefinance/6.html', ['101.00', '103.25', '98.92']),
+data.append(('stocks/googlefinance', [
+    ('file:html/stocks/googlefinance/1.html', ['44.43', '44.98', '43.39']),
+    ('file:html/stocks/googlefinance/2.html', ['35.84', '36.90', '35.46']),
+    ('file:html/stocks/googlefinance/3.html', ['19.00', '19.11', '18.25']),
+    ('file:html/stocks/googlefinance/4.html', ['23.98', '24.34', '23.55']),
+    ('file:html/stocks/googlefinance/5.html', ['25.80', '25.80', '24.90']),
+    ('file:html/stocks/googlefinance/6.html', ['101.00', '103.25', '98.92']),
 ]))
 
 
-data.append(('yahoo weather', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/1.html', ['Tonight: Mainly clear skies. Low 62F. Winds NE at 5 to 10 mph.', 'Tomorrow: Sunny skies. High around 95F. Winds NNE at 10 to 20 mph.', 'Tomorrow night: Clear. Low 64F. Winds NNE at 5 to 10 mph.']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/2.html', ['Tonight: Mainly clear. Low 59F. Winds NE at 5 to 10 mph.', 'Tomorrow: Mainly sunny. High 94F. Winds N at 5 to 10 mph. ', 'Tomorrow night: Clear skies. Low 62F. Winds SSW at 5 to 10 mph.']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/3.html', ['Tonight: Partly cloudy. Low 48F. Winds light and variable. ', 'Tomorrow: Except for a few afternoon clouds, mainly sunny. High around 75F. Winds light and variable. ', 'Tomorrow night: Mostly cloudy skies. Low 52F. Winds light and variable.']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/4.html', ['Tonight: Mainly clear skies. Low 58F. Winds NW at 5 to 10 mph. ', 'Tomorrow: Mainly sunny. High 78F. Winds NNW at 5 to 10 mph. ', 'Tomorrow night: Clear skies. Low 61F. Winds NNW at 5 to 10 mph. ']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/5.html', ['Tonight: Mostly cloudy skies this evening will become partly cloudy after midnight. Low 41F. Winds NW at 5 to 10 mph. ', 'Tomorrow: Mostly cloudy skies. High near 60F. Winds NNW at 5 to 10 mph. ', 'Tomorrow night: Mostly cloudy skies. Low 47F. Winds NW at 10 to 15 mph. ']),
-    ('file:///home/rbp/web2py/sitescraper/data/html/weather/yahooweather/6.html', ['Tonight: Mainly clear. Low 51F. Winds SE at 5 to 10 mph. ', 'Tomorrow: Mainly sunny. High 83F. Winds N at 10 to 15 mph.', 'Tomorrow night: A mostly clear sky. Low 52F. Winds SSW at 5 to 10 mph. ']),
+data.append(('weather/yahooweather', [
+    ('file:html/weather/yahooweather/1.html', ['Tonight: Mainly clear skies. Low 62F. Winds NE at 5 to 10 mph.', 'Tomorrow: Sunny skies. High around 95F. Winds NNE at 10 to 20 mph.', 'Tomorrow night: Clear. Low 64F. Winds NNE at 5 to 10 mph.']),
+    ('file:html/weather/yahooweather/2.html', ['Tonight: Mainly clear. Low 59F. Winds NE at 5 to 10 mph.', 'Tomorrow: Mainly sunny. High 94F. Winds N at 5 to 10 mph. ', 'Tomorrow night: Clear skies. Low 62F. Winds SSW at 5 to 10 mph.']),
+    ('file:html/weather/yahooweather/3.html', ['Tonight: Partly cloudy. Low 48F. Winds light and variable. ', 'Tomorrow: Except for a few afternoon clouds, mainly sunny. High around 75F. Winds light and variable. ', 'Tomorrow night: Mostly cloudy skies. Low 52F. Winds light and variable.']),
+    ('file:html/weather/yahooweather/4.html', ['Tonight: Mainly clear skies. Low 58F. Winds NW at 5 to 10 mph. ', 'Tomorrow: Mainly sunny. High 78F. Winds NNW at 5 to 10 mph. ', 'Tomorrow night: Clear skies. Low 61F. Winds NNW at 5 to 10 mph. ']),
+    ('file:html/weather/yahooweather/5.html', ['Tonight: Mostly cloudy skies this evening will become partly cloudy after midnight. Low 41F. Winds NW at 5 to 10 mph. ', 'Tomorrow: Mostly cloudy skies. High near 60F. Winds NNW at 5 to 10 mph. ', 'Tomorrow night: Mostly cloudy skies. Low 47F. Winds NW at 10 to 15 mph. ']),
+    ('file:html/weather/yahooweather/6.html', ['Tonight: Mainly clear. Low 51F. Winds SE at 5 to 10 mph. ', 'Tomorrow: Mainly sunny. High 83F. Winds N at 10 to 15 mph.', 'Tomorrow night: A mostly clear sky. Low 52F. Winds SSW at 5 to 10 mph. ']),
 ]))
 
 
-data.append(('stack overflow', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/1.html', [
+data.append(('forum/stackoverflow', [
+    ('file:html/forum/stackoverflow/1.html', [
 """
 If i open an image with open("image.jpg"), how can i get the rgb values of a pixel, if i have the 'coordinates' ( or co-ordinates?) of the pixel?
 
@@ -87,7 +87,7 @@ PIL
 
 """
 ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/2.html', [
+    ('file:html/forum/stackoverflow/2.html', [
 """
 
 
@@ -112,7 +112,7 @@ As a slight aside, if you are considering Java, I would highly suggest you serio
 Java is just C++ with a decent library, you don't learn a lot by putting an extra word in front of the class definition.
 """
 ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/3.html', [
+    ('file:html/forum/stackoverflow/3.html', [
 """
 Is there something like Python's getattr() in C#? I would like to create a window by reading a list which contains the names of controls to put on the window.
 """,
@@ -160,7 +160,7 @@ var result = dt.GetType().GetProperty("Year").Invoke(dt, null);
 
 """
 ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/4.html', [
+    ('file:html/forum/stackoverflow/4.html', [
 """
 
 
@@ -202,7 +202,7 @@ To get a listing of the object members.
 
 """
 ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/5.html', [
+    ('file:html/forum/stackoverflow/5.html', [
 """
 
 
@@ -223,7 +223,7 @@ http://pydev.sourceforge.net/
 This question, this question and this question all deal with this topic, or one like it.
 """
 ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/forum/stackoverflow/6.html', [
+    ('file:html/forum/stackoverflow/6.html', [
 """
 
 
@@ -299,33 +299,33 @@ True
 ]))
 
 
-data.append(('msnsearch', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/1.html', ['toyota',
+data.append(('search/msnsearch', [
+    ('file:html/search/msnsearch/1.html', ['toyota',
     "Toyota - Australia", "Gives locations of dealerships in every state, financial services advice and motorsport news. Email requests regarding parts and accessories.", "www.toyota.com.au",
     "Toyota Australia: New Car: Details: Prices: Brochure: Dealer: Test ...", "Toyota Australia Official Website: New Car Range: Prices: Test Drive: Parts & Service: Dealer Locations: Finance: New Car Great Offers.", "www.toyota.com.au/toyota/main/HomePage/0,,1354_402,00.html",
     "Toyota Cars, Trucks, SUVs & Accessories", "Official Site of Toyota Motor Sales - Cars, Trucks, SUVs, Hybrids, Accessories & Motorsports.", "www.toyota.com",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/2.html', ['holden',
+    ('file:html/search/msnsearch/2.html', ['holden',
     "Holden Australia", "Official site with pictures of vehicles, specifications, pricing, and features.", "www.holden.com.au",
     "Holden Australia - Latest offers and information on new and used ...", "www.holden.com.au: The official website for Holden Australia. Find out Holden vehicle prices, specifications, accessories, safety information and more.", "www.holden.com.au/www-holden",
     "Holden Motorsport > Home", "The Toll Holden Racing Team’s Garth Tander and Mark Skaife have pulled off one of the most amazing comebacks in V8 Supercar history to win a spectacular L&H 500 at Phillip Island ...", "www.holdenmotorsport.com",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/3.html', ['ford',
+    ('file:html/search/msnsearch/3.html', ['ford',
     "Ford Australia - Ford Australia", "Official site for Ford Motor Company of Australia. Visit our vehicle showroom, view genuine Ford parts and accessories, find dealers.", "www.ford.com.au",
     "Ford Australia", "Official site for Ford Motor Company of Australia. Discover the great Ford range of vehicles, request a quote online or find your nearest Dealer.", "www.ford.com.au/servlet/ContentServer?cid=1137384063052&pagename=FOA%2FDFYPage%2FDefault10...",
     "Ford Motor Company: Cars, Trucks, SUVs, Hybrids, Parts - Ford", "Official site featuring investor, career, news, and media information.", "www.ford.com",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/4.html', ['honda',
+    ('file:html/search/msnsearch/4.html', ['honda',
     "Honda - Australia", "Includes a brief history of Honda in Australia, information on new models and a search facility for locating dealers nationwide.", "www.honda.com.au",
     "Honda", "Enter your postcode", "www.honda.com.au/wps/wcm/connect/Honda.com.au/Home",
     "Honda Legend Home", "Honda Legend Home ... Recommended retail price, excluding dealer delivery & government statutory charges.", "legend.honda.com.au"
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/5.html', ['mitsubishi',
+    ('file:html/search/msnsearch/5.html', ['mitsubishi',
     "Mitsubishi Home", "Offers information on the range of Mitsubishi motor vehicles distributed and manufactured in Australia.", "www.mitsubishi-motors.com.au",
     "Mitsubishi Electric Australia", "Mitsubishi Electric creates high quality electrical and electronic products - for the home, business and industry. No matter where you find our products you'll see the same ...", "www.mitsubishielectric.com.au",
     "mitsubishi.com Mitsubishi Companies", "The mitsubishi.com website provides general information on Mitsubishi and an entrance to the individual websites of the Mitsubishi companies and related organizations. It is ...", "www.mitsubishi.com/e/index.html",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/msnsearch/6.html', ['sony',
+    ('file:html/search/msnsearch/6.html', ['sony',
     "SONY - Australia", "Manufacturers of a product range spanning hi-fi systems, camcorders, video cassette recorders, TVs, computer monitors, portable audio, car audio, recording media and ...", "www.sony.com.au",
     "SONY - Australia", "Notice to Owners of VAIO VGN-TZ Notebooks More : Stay in touch with Sony's latest innovations by email. More : For extensive support information for your products, please visit our ...", "www.sony.com.au/vaio/category.jsp?id=22006",
     "Sony USA", "Manufacturer of a wide range of consumer electronics products including audio, video, communications, and computer systems.", "www.sony.com",
@@ -333,33 +333,33 @@ data.append(('msnsearch', [
 ]))
 
 
-data.append(('altavista', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/1.html', ['honda',
+data.append(('search/altavista', [
+    ('file:html/search/altavista/1.html', ['honda',
     "Honda Cars Motorcycles Watercraft ATVs Engines Generators, Acura", "Read about Honda history or jump to any of our web sites to find out more ... Honda Issues Fourth-Annual North American Environmental Report ...", "honda.com",
     "Honda Cars", "Honda vehicles site featuring new model photos and specs, safety information, current offers, and a dealer locator.", "automobiles.honda.com",
     "Find a new Honda at Yahoo! Autos", "Select a new Honda model name for more detailed vehicle information, including pictures, specs and reviews. Find your new Honda at Yahoo! Autos", "autos.yahoo.com/honda",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/2.html', ['toyota',
+    ('file:html/search/altavista/2.html', ['toyota',
     "Toyota.com - Official Site of Toyota Cars, Trucks, SUVs, & Hybrids", "Toyota cars, trucks, hybrids, and SUVs, plus new car and truck accessories. Explore the 2009 Camry and 2008 Tundra 4x4 Pickup Truck. Check prices, models, and features.", "www.toyota.com",
     "2009 Toyota Camry - Official Toyota Site", "View 2009 Camry models, features, pictures, options, performance, specs, accessories and more. LE, SE, XLE and Hybrid Camry models are available.", "www.toyota.com/camry",
     "Find a new Toyota at Yahoo! Autos", "Select a new Toyota model name for more detailed vehicle information, including pictures, specs and reviews. Find your new Toyota at Yahoo! Autos", "autos.yahoo.com/toyota",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/3.html', ['ford',
+    ('file:html/search/altavista/3.html', ['ford',
     "Ford Motor Company", "Official site for the Ford Motor Company, manufacturer of SUVs, cars, trucks, and wagons. The Ford family brand includes Lincoln, Mercury, Mazda, Volvo, Jaguar, ...", "www.ford.com",
     "Ford Motor Company Ford Vehicles", "Learn about Ford cars, trucks, minivans, and SUVs. Get price quotes, search dealer inventory, compare vehicles, and find out about incentives and financing.", "www.fordvehicles.com",
     "Find a new Ford at Yahoo! Autos", "Select a new Ford model name for more detailed vehicle information, including pictures, specs and reviews. Find your new Ford at Yahoo! Autos", "autos.yahoo.com/ford",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/4.html', ['mitsubishi',
+    ('file:html/search/altavista/4.html', ['mitsubishi',
     "Mitsubishi Motors", "Official site with information on new models, retailers, and financing.", "www.mitsucars.com",
     "Mitsubishi Digital Electronics America, Inc.", "Maker of DVD players, VCRs, and projection and HDTVs.", "www.mitsubishi-tv.com",
     "Mitsubishi Accessories", "Large Selection Mitsubishi DLP Projectors and Screens.Easy Dealer Search to Help You Find an Authorized Dealer Near You.", "www.mitsubishi-presentations.com",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/5.html', ['holden',
+    ('file:html/search/altavista/5.html', ['holden',
     "Holden", "Official site of the General Motors division. Features a vehicle showroom, retail offers, finance details, dealer locator, and more.", "www.holden.com.au",
     "Holden Australia - Latest offers and information on new and used Holden ...", "www.holden.com.au: The official website for Holden Australia. Find out Holden vehicle prices, specifications, accessories, safety information and more.", "www.holden.com.au/www-holden",
     "Holden - Wikipedia, the free encyclopedia", "Over the years, Holden has offered a broad range of locally produced vehicles, ... Holden bodyworks are manufactured at Elizabeth, South Australia, and engines are ...", "en.wikipedia.org/wiki/Holden",
     ]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/search/altavista/6.html', ['ipod',
+    ('file:html/search/altavista/6.html', ['ipod',
     "Apple - iPod + iTunes", "Learn about iPod, Apple TV, and accessories. Download iTunes software free and ... and download them directly to iPod touch. Learn more. iPhone 2.1 ...", "www.apple.com/itunes",
     "Apple - iPod classic", "With 120GB of storage, iPod classic is the take-everything-everywhere iPod, with space for up to 30,000 songs, 150 hours of video, or 25,000 photos.", "www.apple.com/ipodclassic",
     "iPod - Wikipedia", "Article describing Apple's iPod, including hardware and software features, history, models, criticisms, sales, and other aspects.", "en.wikipedia.org/wiki/IPod",
@@ -367,8 +367,8 @@ data.append(('altavista', [
 ]))
 
 
-data.append(('the onion', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/1.html', ["I'm Fryin' My Nuts Off!", """
+data.append(('news/theonion', [
+    ('file:html/news/theonion/1.html', ["I'm Fryin' My Nuts Off!", """
 Hola, amigos. I know it's been a long time since I rapped at ya, but things have been getting plenty hairy around here. First, I been running like a chicken with its head cut off trying to find some new tires for my Festiva. I know, a tire is a tire, but these are some weird-ass size that no one makes anymore. I caught a flat on one and I've been driving on my spare for about a month now. It don't worry me none, but if I get another flat, I'm screwed.
 
 On top of that, I had my hours cut at the electronics store. My manager told me it was because of the economic downturn that people weren't buying anything. I told him that without a full-time check, I wasn't going to be buying anything either, so how did this help? That stumped him but good.
@@ -398,7 +398,7 @@ My first thought was that I could just pick it up in the morning, before anyone 
 I mostly got away with it, but the next Monday, my coworker Wayne told me that he knew that I was the guy who set off the alarm, since my car was still in the parking lot when he left that night. So now, to keep him quiet, I got to pick up a shift for him some time, only I got to punch in on his card so he still gets the money.
 
 One of these days, I'm gonna put the hurt on that guy, but it's going to be served cold. If any of you got a lead on a job, that would be awesome. I can't live on mac and cheese much longer. Well, I could, but I'm getting real sick of it."""]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/2.html', ["Hanna Montana's Secret Identity…Revealed!", """
+    ('file:html/news/theonion/2.html', ["Hanna Montana's Secret Identity…Revealed!", """
 Item! Have you ever noticed that you never see Miley Cyrus and Hanna Montana in the same room at the same time? (She's kind of like Superman and Peter Parker in that way.) Well, that's because the hot Disney singer and the hot teen singer are one and the same person! I hope I haven't put her father, country superstar Billy Ray Cyrus, in danger by revealing her secret identity, but it's news, and my job is to break big news.
 
 Is it just me, or are there too many computer cartoons? Maybe my age is showing, but I'll take a good old-fashioned animated classic like Nimm's Secret over a dozen computer cartoons any day.
@@ -424,7 +424,7 @@ A lot of people have wondered why I haven't weighed in on the Heath Leger traged
 Blind item! MTV gave a certain tubby gossip hack a series of one-hour specials about the goings-on of Hollywood. Hey, MTV, if you're so desperate to get commentary on the who, what, where, why, and when of celebrities that you'll hire any pathetic fatty who can bang on a keyboard and steal other people's pictures to post online, my number is in the book. And I don't work blue.
 
 Well, that about wraps it up for this week's installment of "The Outside Scoop." I didn't get to everything I wanted to—like Jeff Bridge's parking problems or the identity of Hanna Montana—but that was only because of space. I meant to, honest! Hopefully, I'll put a little something in there about those jaw-droppers next time. But until then, the velvet rope is up, so I'll have to see you again…on the Outside! """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/3.html', ["Smoove Is Waiting", """
+    ('file:html/news/theonion/3.html', ["Smoove Is Waiting", """
 Girl, there comes a time when even a strong, well-dressed man must admit defeat.
 
 It has been a long time since we broke up and you left me standing in the rain outside of your condo. As I walked home that evening, it never would have crossed my mind that four years from now you would not have returned to me, that you would have nearly gotten married, that you would not even receive one of my phone calls. Or my letters, text messages, faxes, or instant messages.
@@ -460,7 +460,7 @@ Even if you are not interested in once again contacting Smoove, arranging a time
 What Smoove would like you to understand is this: No matter where you are or who you are with, there is a man who smells of exotic lotions who loves you and wants you to be happy. And if you are ever need another taste, Smoove will always be here, ready to break you off some.
 
 Smoove out."""]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/4.html', ["Comedy Tonight!", """
+    ('file:html/news/theonion/4.html', ["Comedy Tonight!", """
 I'm still not sure what possessed me to walk into Laughingstock's Comedy Club and sign up for their open-mic night. But I guess sometimes the less you think about doing something, the more apt you are to do it. For years I had dreamed about bringing my gift for comedy to the live stage. True, I might be more known for the written word, but I'm always coming up with funny things to say out loud. Yet I was way too shy to actually go through with it. Then one day I happened to be driving by the place. I pulled into the parking lot, walked in, and the rest is history. I don't know, maybe it was the big, inviting W.C. Fields stenciled on the front window, or the $8.99 all-you-can-eat popcorn shrimp special, which you've got to admit is pretty cheap. Whichever, there was something right about it all.
 
 Of course, try telling all that to Hubby Rick! Boy, I guess he must have permanently lent his sympathetic ear to his barfly buddies at Tacky's Tavern, because when it came to my decision he acted like he was stone deaf! You know what the first thing he asked me was? "Are you getting paid?" Sheesh, with him it's always about the do-re-mi! When I told him no, he scoffed. "I don't get out of bed for less than $9.50 an hour," Rick said. Then he said that hookers have more sense than I do, because they know not to give it away for free. Doesn't he know anything about the world of comedy? It's based entirely on love and truth. The money is secondary. (But like all good clowns, I decided to convert my hubby's grouchy ways into fodder for my act, as you shall see!)
@@ -484,7 +484,7 @@ A couple others immediately screamed "Noooo!" I raised my hands to silence them 
 I left the stage. The MC looked a little startled—I guess he expected my act to last much longer. But I tell you, because I refused to stoop to demeaning behavior, I walked off that stage with my head held high (though it made my red nose fall off and I had to pick it up in front of everyone). I returned to the little room to pack my gear, and watched the third act, the 13-year-old, on the closed-circuit TV. He got some big laughs talking about school cafeteria food and mean gym teachers, even though in my view he wasn't any funnier than me. But no matter—my dream of being a clown had come true, and completely on my own terms!
 
 But seriously, I think that Pet Rock joke was a pretty good one. I mean, rocks obviously don't die! Who saw that one coming? """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/5.html', ["When Are They Going To Finish The Arthur Trilogy?", """
+    ('file:html/news/theonion/5.html', ["When Are They Going To Finish The Arthur Trilogy?", """
 Where were you in July 17, 1981?
 
 Like most Americans, I was standing in line for the premiere of the most awaited film event of the century: Arthur. Dudley Moore had just wowed the critics for his turn in the hit 10, and there was much speculation that this would be an even bigger hit. What an understatement!
@@ -507,7 +507,7 @@ Warner Brothers also plans to replace all the old special effects with fancy new
 
 But, by God, we won't give up! We've just got to know what happens next! Will Arthur be able to stay on the wagon long enough to see his son grow to be a man? Will Linda ever return to the stage to reprise her role in Cabaret? And will Arthur and Linda be able to get Hobson out of the carbon freeze? Dammit, Warner Brothers, we demand to know!
 """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/theonion/6.html', ["It Wuz Always 'Bout Tha Numbahs", """
+    ('file:html/news/theonion/6.html', ["It Wuz Always 'Bout Tha Numbahs", """
 Sleepless hours and dreamless nights and far aways / Ooo ooo ooo, wishing you were here.
 
 —Chicago, "Wishing You Were Here"
@@ -574,8 +574,8 @@ No, it wuz always 'bout tha numbahs. Tha numbahs. An' this Stone-Col' Funkee-Fre
 ]))
 
 
-data.append(('bbc', [
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/1.html', ["Regulator shuts Washington Mutual", """
+data.append(('news/bbc', [
+    ('file:html/news/bbc/1.html', ["Regulator shuts Washington Mutual", """
 Washington Mutual (WaMu) has been closed by its regulator, making it the biggest US bank to fail.
 
 The Office of Thrift Supervision (OTS) stepped in to shut the mortgage lender before selling its assets to JPMorgan Chase for $1.9bn (£1.0bn).
@@ -607,7 +607,7 @@ The Federal Deposit Insurance Agency (FDIA) was quick to reassure customers that
 "Bank customers should expect business as usual come Friday morning."
 
 In February this year, WaMu unveiled a new Whoo Hoo! advertising campaign, aiming to "capture the essence of what it feels like to bank at WaMu". """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/2.html', ["More cash is injected into banks", """
+    ('file:html/news/bbc/2.html', ["More cash is injected into banks", """
 Central banks are taking co-ordinated action to lend extra cash to banks.
 
 The Bank of England, US Federal Reserve, European Central Bank and Swiss National Bank will be involved.
@@ -624,7 +624,7 @@ Separately, the Bank of Japan injected cash into the Tokyo money markets on Frid
 
 It injected 1.5 trillion yen ($14bn; £8bn) into the market, although it later removed 300bn yen of that.
 """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/3.html', ["Alitalia gets temporary reprieve", """
+    ('file:html/news/bbc/3.html', ["Alitalia gets temporary reprieve", """
 Alitalia, the airline which is struggling to survive, has been given a temporary reprieve by the Italian civil aviation authority.
 
 ENAC said it would not revoke Alitalia's licence to fly "for now" after Italy's biggest union agreed to a revised rescue plan.
@@ -642,7 +642,7 @@ The CGIL union said it had signed an agreement with Alitalia, after winning conc
 Four of the nine unions have now agreed to the terms of the rescue deal proposed by investors group CAI. CGIL has urged the remaining five to end their opposition.
 
 Alitalia's government-appointed administrator Augusto Fantozzi said ticket sales had fallen by 100,000 in September, hit by the uncertainty surrounding the airline. """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/4.html', ["Bail-out debate: For and against", """
+    ('file:html/news/bbc/4.html', ["Bail-out debate: For and against", """
 As the debate rages about the US $700bn (£379bn) financial bail-out plan, BBC News looks at the arguments for and against this rescue package.
 
 FOR THE DEAL
@@ -672,7 +672,7 @@ AGAINST THE DEAL
     * Governance: The plan is a twice-yearly report - critics insist on greater oversight and reporting.
     * Main Street versus Wall Street: There are calls for this package to be extended to help ordinary Americans who are at risk of losing their homes.
 """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/5.html', ["What would financial Armageddon look like?", """
+    ('file:html/news/bbc/5.html', ["What would financial Armageddon look like?", """
 The US government's $700bn (£376bn) bail-out package is designed to avert a complete financial meltdown. Many people have compared the current financial crisis with the Wall Street crash of 1929 and the Great Depression of the 1930s that followed it.
 
 Yet current events are clearly not in the same league.
@@ -727,7 +727,7 @@ All these are bleak prospects, but there always comes a point at which the econo
 
 At that point, people start piling into the market and the recovery is underway.
 """]),
-    ('file:///home/rbp/web2py/sitescraper/data/html/news/bbc/6.html', ["Bank giant HSBC axes 1,100 jobs ", """
+    ('file:html/news/bbc/6.html', ["Bank giant HSBC axes 1,100 jobs ", """
 Banking giant HSBC is to axe 1,100 jobs worldwide, blaming the current financial turmoil for the decision.
 
 About half of the cuts, which will affect back room jobs at its global banking and markets operation, will take place in the UK.
