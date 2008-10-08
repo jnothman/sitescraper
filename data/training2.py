@@ -5,47 +5,35 @@
 data = []
 
 
-data.append(('forum/slashdot', [
-    ('file:html/news/slashdot/1.html', ["NYT Ponders the Future of Solaris In a Linux/Windows World",
-"""
-JerkBoB links to a story at the New York Times about the future prospects of Sun's Solaris, excerpting: "Linux is enjoying growth, with a contingent of devotees too large to be called a cult following at this point. Solaris, meanwhile, has thrived as a longstanding, primary Unix platform geared to enterprises. But with Linux the object of all the buzz in the industry, can Sun's rival Solaris Unix OS hang on, or is it destined to be displaced by Linux altogether?"
+data.append(('news/slashdot', [
+    ('file:html/news/slashdot/1.html', ["Microsoft States GPL3 Doesn't Apply to Them", """pilsner.urquell writes "Microsoft yesterday issued a statement proclaiming that it isn't bound by GPLv3. Groklaw has a very humorous rejoinder to the company's claim. From that article: 'They think they can so declare, like an emperor, and it becomes fiat. It's not so easy. I gather Microsoft's lawyers have begun to discern the GPL pickle they are in. In any case it won't be providing any support or updates or anything at all in connection with those toxic (to them) vouchers it distributed as part of the Novell deal ... These two -- I can't decide if it's an elaborate dance like a tango or more like those games where you place a cloth with numbers on the floor and you have to get into a pretzel with your hands and feet to touch all the right numbers. Whichever it is, Novell and Microsoft keep having to strike the oddest poses to try to get around the GPL. If they think this new announcement has succeeded, I believe they will find they are mistaken. In other words, not to put too fine a point on it, GPLv3 worked.'" EWeek has further analysis of this proclamation. 
 """
 ]),
-    ('file:html/news/slashdot/2.html', ["GNOME 2.24 Released",
-"""
-thhamm writes "The GNOME community hopes to make our users happy with many new features and improvements, as well as the huge number of bug fixes that are shipped in this latest GNOME release! Well. What else to say. I am happy." Notably, this release is also the occasion for the announcement of videoconferencing app Ekiga's 3.0 release.
+    ('file:html/news/slashdot/2.html', ["Damn Small Linux Not So Small ", """An anonymous reader writes "According to DistroWatch, Damn Small Linux (DSL) is currently the most popular microLinux distribution. Linux.com (Also owned by VA) takes a look at why this might be the case, and how you can best take advantage of it. From the article: 'What began as a toy project to stuff the maximum software inside a 50MB ISO file has matured into a refined community project known for its speed and versatility. DSL includes the ultra-lightweight FluxBox window manager, two Web browsers, Slypheed email client and news reader, xpdf PDF viewer, XMMS with MPEG media file support for playing audio and video, BashBurn CD burner, XPaint image editing, VNCViewer and rdesktop to control Windows and Linux desktops remotely, and more. If they could do all this in 50 megs, imagine what they could do in more space. Last month the DSL developers released DSL-Not, a.k.a. DSL-N 0.1 RC1. It's 83.5MB of DSL coated with GTK sugar. Yummy!'"
 """
 ]),
-    ('file:html/news/slashdot/3.html', ["Is There a Linux Client Solution for Exchange 2007?",
-"""
-CrazedSanity writes "I have been working at my state job for about 7 months now, using the Exchange plugin for Evolution to check my email. Very recently the higher-ups decided to migrate to Exchange 2007, which effectively destroyed my ability to check my email through any method other than webmail (which means I have to constantly refresh/reload the webmail window). I'm sure somebody else has encountered the problem, but I'm wondering if anybody has come up with a working solution?" Note: CrazedSanity's looking for a client that will work with Exchange in a situation where replacing the Exchange install with an open-source equivalent isn't an option. 
+    ('file:html/news/slashdot/3.html', ["KDE 4 to Be Released on January 11th", """ VincenzoRomano writes "It's official! KDE 4.0 will be released on January 11th of next year. The release itself doesn't sound very firm, as 'the developers are confident to be able to release a more polished and better working KDE' and not the long awaited prime-time release. At the very first Alpha release on march 11th, the release date had been forecasted to October 2007, and then shifted to the end of the year with the second Beta. Despite this, the promises for the fourth version are quite interesting and maybe deserve a 'stay tuned'."  
 """
 ]),
-    ('file:html/news/slashdot/4.html', ["OpenSUSE Beta Can Brick Intel e1000e Network Cards",
-"""
-An anonymous reader writes "Some Intel cards don't just not work with the new OpenSUSE beta, they can get bricked as well. Check your hardware before you install!" The only card mentioned as affected is the Intel e1000e, and it's not just OpenSUSE for which this card is a problem, according to this short article: "Bug reports for Fedora 9 and 10 and Linux Kernel 2.6.27rc1 match the symptoms reported by SUSE users."
+    ('file:html/news/slashdot/4.html', ["KDE 4.0 RC 1 Released", """ angryfirelord writes "The KDE Community is happy to announce the immediate availability of the first release candidate for KDE 4.0. This release candidate marks that the majority of the components of KDE 4.0 are now approaching release quality. While the final bits of Plasma, the brand new desktop shell and panel in KDE 4, are falling into place, the KDE community decided to publish a first release candidate for the KDE 4.0 Desktop. Release Candidate 1 is the first preview of KDE 4.0 which is suitable for general use and discovering the improvements that have taken place all over the KDE codebase."  
 """
 ]),
-    ('file:html/news/slashdot/5.html', ["How the LSB Keeps Linux One Big Happy Family",
-"""
- blackbearnh writes "The Linux Standard Base is the grand attempt to create a binary-level interface that application developers can use to create software which will run on any distribution of Linux. Theodore Tso, who helps maintain the LSB, talked recently with O'Reilly News about what the LSB does behind the scenes, how it benefits ISVs and end users, and what the greatest challenges left on the plate are. 'One of the most vexing problems has been on the desktop where the Open Source community has been developing new desktop libraries faster than we can standardize them. And also ISVs want to use those latest desktop libraries even though they may not be stable yet and in some ways that's sort of us being a victim of our own success. The LSB desktop has been getting better and better and despite all the jokes that for every year since I don't know probably five years ago, every year has been promoted as the year of the Linux desktop. The fact of the matter is the Linux desktop has been making gains very, very quickly but sometimes as a result of that some of the bleeding edge interfaces for the Linux desktop haven't been as stable as say the C library. And so it's been challenging for ISVs because they want to actually ship products that will work across a wide range of Linux distributions and this is one of the places where the Linux upstream sources haven't stabilized themselves.'"  
+    ('file:html/news/slashdot/5.html', ["Sun Says Project Indiana is Not a Linux Copy ", """ eldavojohn writes "Ian Murdock (Debian author & Sun's OS Chief) made some comments about Project Indiana that many have said is an attempt to make Solaris simply "more Linux-like." But Murdock quashes any concerns that this is just another Linux clone — muddying up the waters of distribution selection. He says that it's more a 'best of both worlds' attempt to make an OS that appeals to a broader audience. From the article, "Project Indiana will include a revamped package management system, which should prove popular with developers unaccustomed to Solaris. The OS has some clunky, archaic aspects, and Murdock thinks the new package system will modernize Solaris.""  
 """
 ]),
-    ('file:html/news/slashdot/6.html', ["Mandriva Joins Ubuntu With a Linux For Netbooks",
-"""
-Slatterz writes "Linux publisher Mandriva has unveiled a version of its platform designed specifically for the new breed of mini laptops. Mandriva Mini features a fast boot-up, comprehensive connectivity support and multimedia codecs, and is adapted to work on key netbook platforms such as Intel's Atom. Mandriva previously offered a customised version of its 2008 Spring release for the Asus Eee PC, and was a distributor of Linux for Intel's Classmate PC initiative."
+    ('file:html/news/slashdot/6.html', ["HP May Be Developing Its Own Version of Linux ", """vondiggity writes to tell us that HP is working on several different ways to make an end run around Vista. Among the plans is also a supposed rumor that certain factions within HP are developing their own flavor of Linux. Executives at HP deny that any meaningful amount of resources are being directed into plans for a mass-market operating system, stating their main goal is to innovate on top of Vista. "Still, the sources say employees in HP's PC division are exploring the possibility of building a mass-market operating system. HP's software would be based on Linux, the open-source operating system that is already widely available, but it would be simpler and easier for mainstream users, the sources say. The goal may be to make HP less dependent on Windows and to strengthen HP's hand against Apple (AAPL), which has gained market share in recent years by offering easy-to-use computers with its own operating system."
 """
 ]),
 ]))
 
 
 data.append(('stocks/googlefinance', [
-    ('file:html/stocks/googlefinance/1.html', ['44.43', '44.98', '43.39']),
-    ('file:html/stocks/googlefinance/2.html', ['35.84', '36.90', '35.46']),
-    ('file:html/stocks/googlefinance/3.html', ['19.00', '19.11', '18.25']),
-    ('file:html/stocks/googlefinance/4.html', ['23.98', '24.34', '23.55']),
-    ('file:html/stocks/googlefinance/5.html', ['25.80', '25.80', '24.90']),
-    ('file:html/stocks/googlefinance/6.html', ['101.00', '103.25', '98.92']),
+    ('file:html/stocks/googlefinance/1.html', ['30.42', '30.47', '29.90']),
+    ('file:html/stocks/googlefinance/2.html', ['45.01', '45.30', '44.26']),
+    ('file:html/stocks/googlefinance/3.html', ['26.15', '26.24', '24.94']),
+    ('file:html/stocks/googlefinance/4.html', ['18.71', '18.86', '18.22']),
+    ('file:html/stocks/googlefinance/5.html', ['4.38', '4.42', '4.33']),
+    ('file:html/stocks/googlefinance/6.html', ['23.21', '23.59', '23.03']),
 ]))
 
 
@@ -60,240 +48,238 @@ data.append(('weather/yahooweather', [
 
 
 data.append(('forum/stackoverflow', [
-    ('file:html/forum/stackoverflow/1.html', [
+    ('file:html/forum/stackoverflow/1.html', ["What is the most succinct way that you would define the key roles within software development?",
 """
-If i open an image with open("image.jpg"), how can i get the rgb values of a pixel, if i have the 'coordinates' ( or co-ordinates?) of the pixel?
 
-Then how can i do the reverse of this? Starting with a blank graphic, 'write' a pixel with a certain rgb value?
 
-It would be so much better if i didn't have to download any additional libraries
-""",
-"""
-It's probably best to use the Python Image Library to do this which I'm afraid is a separate download.
+I am looking for a plain English explanation of what skills and qualities define each major role within software development (for example, what differentiates between the Junior Developer, Developer and Senior Developer), as well as descriptions that highlight the nuances between various roles that to the 'business' appear to be similar (for example, Technical Architect vs Software Architect vs Solution Architect vs Network Architect vs Lead Architect).
 
-The easiest way to do what you want is via the load() method on the Image object which returns a pixel access object which you can manipulate like an array:
-
-pix = im.load()
-print pix[x,y]
-pix[x,y] = value
-
-Alternatively, look at ImageDraw which gives a much richer API for creating images.
+The answer would ideally highlight the most common roles that exist in software development teams as well as provide a definition that allows people to recognise their role and see what they would need to work on to progress with their chosen career path.
 
 """,
 """
-I think the Python Image Library would help here
+I would break down the question by skill Sets.
 
-PIL
+    *
+
+          Program Manager. This is the person with oversight to the program. What are the analysts, architects, and developers doing. A really good program manager takes care of all of the excess, so that the computer people can do their computer things. The good program managers that I work with spend a lot of time taking care of all of those tedious emails and phone calls so that developers don't have to worry about that interference.
+              *
+
+                    Business Analyst. This person is a hybrid, someone who has a fundamental understanding of programming (doesn't have to be an expert) and can really understand people and their problems. Has the ability to translate a real-world problem into a programmable solution. This can be one of the most difficult skills to find, since you need someone who can (a) talk to the customer in their language without (b) becoming a salesman. A good business analyst can solve problems by determining the workflow of an application, understands edge cases, and can design a functional requirements document that software architects will understand.
+                        *
+
+                              Software Architect. This person designs the program, specifically the library and class diagram requirements. What does the program actually do? In interface-based programming, this is the person designing the public interfaces that objects expose. The design of the class libraries from the software architect may not be method/property complete (some methods may be missing) but it should be functionally complete.
+                                  *
+
+                                        Developer/Programmer. Fills in the gaps left by the software architect. If the architect is the framer, then it is the developer who adds the wiring, plumbing, and drywall. A developer is not necessarily lower level. Just because an architect says, "We need a method to perform function 'X'", it does necessarily mean that performing function 'X' is easy.
+                                            *
+
+                                                  Most business programs will be about data, and if yours involves a server, then you'll want a database architect. The DBA does more that just create the table. A good DBA knows all of the little intricacies (like the differences between clustered or nonclustered indexes, and such minutiae) that make a program go from working to working fast.
+
+                                                  Software design is not always top-to-bottom. At the interviews I been in, the paths seems to be very linear. Developer, then architect, then analyst, then program manager. But I really like being an architect. Even though the Analysts get paid more (and the Program Managers get paid more still), I don't think that I would like those positions. At my company, they aren't coders any longer. Analysts do participate in GUI/Web design, though, since that can have a direct effect on the the workflow and business requirements. But they don't write the "guts".
+
+                                                  Hope this helps.
+
+""",
+"""
+Junior Developer - can write code given low level design, can debug his/her own work. Senior Developer - can write code given low level design, understands high level design, can do code review, can troubleshoot issues that junior developers are facing, has more experience
+
+Team Lead - is good at understanding functional requirements, is good at understanding high level design, is good and creating low level design, is good at tracking work progress, is good at assigning tasks, is good and seeing the broad picture, is good at client handling
+
+These were my quick outputs. Will need to add more to these.
 
 """
 ]),
-    ('file:html/forum/stackoverflow/2.html', [
+    ('file:html/forum/stackoverflow/2.html', ["Can I get more than 1000 records from a DirectorySearcher in Asp.Net?",
 """
 
+I just noticed that the return list for results is limited to 1000. I have more than 1000 groups in my domain (HUGE domain). How can I get more than 1000 records? Can I start at a later record? Can I cut it up into multiple searches?
 
-I'm fast approaching the point in my coding where I would like to quickly write object oriented code in languages other than C++ for a variety of reasons.
+Here is my query:
 
-After a lot of research, my choices have pretty much narrowed down to Python and Java. I'm leaning towards Python because of its relationship to C, but with Java, from what I can see, I get a good introduction to using and creating test suites with Eclipse - there is also Processing which is pulling me towards Java.
+DirectoryEntry dirEnt = new DirectoryEntry("LDAP://dhuba1kwtn004");
+string[] loadProps = new string[] { "cn", "samaccountname", "name", "distinguishedname" };
+DirectorySearcher srch = new DirectorySearcher(dirEnt, "(objectClass=Group)", loadProps);
+var results = srch.FindAll();
 
-I'm not the kind of guy to tackle two languages at once, so which one would you recommend and why? What I want at the end is to have an additional language I can use for rapid development. Ease of learning isn't important to me as I'm willing to put in the time regardless. Ability to use the new language widely is.
+I have tried to set srch.SizeLimit = 2000; but that doesn't seem to work. Any ideas?
 
 """,
-"""
-It depends on what your goals are. In terms of your resume, Java certainly has a much larger market than Python. In terms of your personal "knowledge portfolio", Python offers a greater potential for growth than Java does.
+"""You need to set DirectorySearcher.PageSize to a non-zero value to get all results.
 
-As many people have pointed out already, Java is very similar to C++ syntactically and has a better library. Python makes it very easy to just Get Things Done. Yes there is a performance plenty for interpreted languages, but often times this is of little to no consequence for a project. CPU time is much cheaper than developer time. Without digressing into a comparative languages discussion, I wouldn't worry about the performance too much. Use your head and pick the right tool for the job.
+BTW you should also dispose DirectorySearcher when you're finished with it
 
-I believe you can write your applications "faster" in Python than you can in Java - the language is certainly more terse. Python is a better choice for rapid prototype in my opinion. Also, you can use Eclipse w/ Python as a first class language (with things like PyDev) and do unit testing (with things like PyUnit).
-
-As a slight aside, if you are considering Java, I would highly suggest you seriously consider C# instead. C# has broad market applicability (similar to Java), "evolutionary" rather than revolutionary syntax from C++ (like Java), is a newer and in many ways, better language than Java (from a purely language perspective). Quite frankly, I find C# a much more enjoyable language than Java, as do many others. In terms of the goals you have laid out however, the Python vs C# decision has all the same points as the Python vs Java decision.
-
-""",
-"""
-Java is just C++ with a decent library, you don't learn a lot by putting an extra word in front of the class definition.
-"""
-]),
-    ('file:html/forum/stackoverflow/3.html', [
-"""
-Is there something like Python's getattr() in C#? I would like to create a window by reading a list which contains the names of controls to put on the window.
-""",
-"""
-There is also Type.InvokeMember.
-
-public static class ReflectionExt
+using(DirectorySearcher srch = new DirectorySearcher(dirEnt, "(objectClass=Group)", loadProps))
 {
-    public static object GetAttr(this object obj, string name)
-    {
-        Type type = obj.GetType();
-        BindingFlags flags = BindingFlags.Instance | 
-                                 BindingFlags.Public | 
-                                 BindingFlags.GetProperty;
+    srch.PageSize = 1000;
+        var results = srch.FindAll();
+        }
 
-        return type.InvokeMember(name, flags, Type.DefaultBinder, obj, null);
+        The API documentation isn't very clear, but essentially:
+
+            *
+
+                  when you do a paged search, the SizeLimit is ignored, and all matching results are returned as you iterate through the results returned by FindAll. Results will be retrieved from the server a page at a time. I chose the value of 1000 above, but you can use a smaller value if preferred. The tradeoff is: using a small PageSize will return each page of results faster, but will require more frequent calls to the server when iterating over a large number of results.
+                      *
+
+                            by default the search isn't paged (PageSize = 0). In this case up to SizeLimit results is returned.
+
+                            As Biri pointed out, it's important to dispose the SearchResultCollection returned by FindAll, otherwise you may have a memory leak as described in the Remarks section of the MSDN documentation for DirectorySearcher.FindAll: http://msdn.microsoft.com/en-us/library/system.directoryservices.directorysearcher.findall.aspx
+
+                            One way to help avoid this in .NET 2.0 or later is to write a wrapper method that automatically disposes the SearchResultCollection. This might look something like the following (or could be an extension method in .NET 3.5):
+
+                            public IEnumerable<SearchResult> SafeFindAll(DirectorySearcher searcher)
+                            {
+                                using(SearchResultCollection results = searcher.FindAll())
+                                    {
+                                            foreach (SearchResult result in searchResults)
+                                                    {
+                                                                yield return result;        
+                                                                        } // SearchResultCollection will be disposed here
+                                                                            }
+                                                                            }
+
+                                                                            You could then use this as follows:
+
+                                                                            using(DirectorySearcher srch = new DirectorySearcher(dirEnt, "(objectClass=Group)", loadProps))
+                                                                            {
+                                                                                srch.PageSize = 1000;
+                                                                                    var results = SafeFindAll(srch);
+
+""",
+"""@naspinski: I also replied on your comment on your previous post.
+
+Not only dispose DirectorySearcher, but also dispose the SearchResultCollection as well. It is using some unmanaged resources.
+
+"""
+]),
+    ('file:html/forum/stackoverflow/3.html', ["What is the best way to check the strength of a password?",
+"""
+
+What is the best way of ensuring that a user supplied password is a strong password in a registration or change password form?
+
+EDIT: one idea I had (in python)
+
+def validate_password(passwd):
+    conditions_met = 0
+        conditions_total = 3
+            if len(passwd) >= 6: 
+                    if passwd.lower() != passwd: conditions_met += 1
+                            if len([x for x in passwd if x.isdigit()]) > 0: conditions_met += 1
+                                    if len([x for x in passwd if not x.isalnum()]) > 0: conditions_met += 1
+                                        result = False
+                                            print conditions_met
+                                                if conditions_met >= 2: result = True
+                                                    return result
+
+
+""",
+"""Depending on the language, I usually use regular expressions to check if it has:
+
+    * At least one uppercase and one lowercase letter
+        * At least one number
+            * At least one special character
+                * A length of at least six characters
+
+                You can require all of the above, or use a strength meter type of script. For my strength meter, if the password has the right length, it is evaluated as follows:
+
+                    * One condition met: weak password
+                        * Two conditions met: medium password
+                            * All conditions met: strong password
+
+                            You can adjust the above to meet your needs.
+
+""",
+]),
+    ('file:html/forum/stackoverflow/4.html', ["Application Level Replication Technologies",
+"""
+
+I am building out a solution that will be deployed in multiple data centers in multiple regions around the world, with each data center having a replicated copy of data actively updated in each region. I will have a combination of multiple databases and file systems in each data center, the state of which must be kept consistent (within a data center). These multiple repositories will be fronted by a SOA service tier.
+
+I can tolerate some latency in the replication, and need to allow for regions to be off-line, and then catch up later.
+
+Given the multiple back end repositories of data, I can't easily rely on independent replication solutions for each one to maintain a consistent state. I am thus lead to implementing replication at the application layer -- by replicating the SOA requests in some manner. I'll need to make sure that replication loops don't occur, and that last writer conditions are sorted out correctly.
+
+In your experience, what is the best pattern for solving this problem, and are there good products (free or otherwise) that should be investigated?
+
+""",
+"""Lotus/ Domino is your answer. I've been working with it for ten years and its exactly what you need. It may not be trendy (a perception that I would challenge) but its powerful, adaptable and very secure, The latest version R8 is the best yet.
+""",
+"""You dont give enough specifics to be certain of your needs but I think you should check out SQL Server Merge replication. It allows for asynchronous replication of multiple databases with full conflict resolution. You will need to designate a Global master and all the other databases will replicate to that one, but all the database instances are fully functional (read/write) and so you can schedule replication at whatever intervals suit you. If any region goes offline they can catch up later with no issues - if the master goes offline everyone will work independantly until replication can resume.
+
+I would be interested to know of other solutions this flexible (apart from Lotus Notes/Domino of course which is not very trendy these days).
+
+"""
+]),
+    ('file:html/forum/stackoverflow/5.html', ["What is your bug/task tracking tool (FAQ)",
+"""
+
+This is a placeholder to bug/task tracking system overview.
+
+What i want to do here is :
+1) List all tools used in the industry.(please provide a link to the tool discussed).
+2) Gather ppl opinion on each tool.(Please back up your opinion with facts i.e provide advantages and disadvantages).
+
+Cross-links to another posts:
+What is your tool for version control (FAQ)
+Free/Cheap Task/Bug Management software
+What bug tracking software do you use?
+
+Please put each tool in separate answer and please make it community owned wiki to give an option to add/edit to as many ppl as possible.
+
+""",
+"""Trac (http://trac.edgewall.org/)
+
+It's sleek, fast, free and has subversion integration.
+
+""",
+"""FogBugz
+
+I'm not just sucking up to Joel, it realy does rock.
+
+"""
+]),
+    ('file:html/forum/stackoverflow/6.html', ["Automatically select all text on focus in WinForms TextBox",
+"""
+
+When a C# WinForms text box receives focus, I want to select all the text in the textbox.
+
+To see what I mean, click in your web browser's address bar. See how all text was selected? I want to do that.
+
+FASTEST GUN ALERT: please read the following before answering! Thanks guys. :-)
+
+    Calling .SelectAll() during the .Enter or .GotFocus events won't work because if the user clicked the textbox, the caret will be placed where he clicked, thus deselecting all text.
+
+        Also, calling .SelectAll() during the .Click event won't work because the user won't be able to select any text with the mouse; the .SelectAll() call will keep overwriting the user's text selection. )
+
+
+""",
+"""Click event of textbox? Or even MouseCaptureChanged event works for me. - OK. doesn't work.
+
+So you have to do 2 things:
+
+private bool f = false;
+
+private void textBox_MouseClick(object sender, MouseEventArgs e)
+{ 
+  if (this.f) { this.textBox.SelectAll(); }
+    this.f = false;
     }
-}
 
-Which could be used like:
+    private void textBox_Enter(object sender, EventArgs e)
+    {
+      this.f = true;
+        this.textBox.SelectAll();
+        }
+        private void textBox_MouseMove(object sender, MouseEventArgs e) // idea from the other answer
+        {
+          this.f = false; 
+          }
 
-object value = ReflectionExt.GetAttr(obj, "PropertyName");
-
-or (as an extension method):
-
-object value = obj.GetAttr("PropertyName");
-
-
-""",
-"""
-Use reflection for this.
-
-Type.GetProperty() and Type.GetProperties() each return PropertyInfo instances, which can be used to read a property value on an object.
-
-var result = typeof(DateTime).GetProperty("Year").GetValue(dt, null)
-
-Type.GetMethod() and Type.GetMethods() each return MethodInfo instances, which can be used to execute a method on an object.
-
-var result = typeof(DateTime).GetMethod("ToLongDateString").Invoke(dt, null);
-
-If you don't necessarily know the type (which would be a little wierd if you new the property name), than you could do something like this as well.
-
-var result = dt.GetType().GetProperty("Year").Invoke(dt, null);
-
-
-"""
-]),
-    ('file:html/forum/stackoverflow/4.html', [
-"""
-
-
-Hello. I'm starting with Python coming from java.
-
-I was wondering if there exists something similar to JavaDoc API where I can find the class, its methods and and example of how to use it.
-
-I've found very helpul to use help( thing ) from the Python ( command line )
-
-I have found this also:
-
-http://docs.python.org/
-
-http://docs.python.org/modindex.html
-
-But it seems to help when you already the class name you are looking for. In JavaDoc API I have all the classes so if I need something I scroll down to a class that "sounds like" what I need. Or some times I just browse all the classes to see what they do, and when I need a feature my brain recalls me We saw something similar in the javadoc remember!?
-
-But I don't seem to find the similar in Python ( yet ) and that why I'm posting this questin.
-
-BTW I know that I would eventually will read this:
-
-http://docs.python.org/lib/lib.html
-
-But, well, I think it is not today.
+          Works for tabbing (through textBoxes to the one) as well - call SelectAll() in Enter just in case...
 
 """,
-"""
-pydoc?
-
-I'm not sure if you're looking for something more sophisticated, but it does the trick.
-
-""",
-"""
-You can also use in the python shell:
-
-dir( someobject )
-
-To get a listing of the object members.
-
-"""
-]),
-    ('file:html/forum/stackoverflow/5.html', [
-"""
-
-
-Why was looking for something that included many of the common modern-day tools, such as:
-
-    * Code refactoring
-    * Code navigation
-    * Debugger
-    * etc...
-""",
-"""
-Eclipse with the PyDev plugin.
-
-http://pydev.sourceforge.net/
-
-""",
-"""
-This question, this question and this question all deal with this topic, or one like it.
-"""
-]),
-    ('file:html/forum/stackoverflow/6.html', [
-"""
-
-
-My Google-fu has failed me.
-
-In Python, are these:
-
-n = 5
-# Test one.
-if n == 5:
-    print 'Yay!'
-
-# Test two.
-if n is 5:
-    print 'Yay!'
-
-two tests for equality equivalent (ha!)? Does this hold true for objects where you would be comparing instances (a list say)?
-
-Okay, so this kind of answers my question:
-
-l = list()
-l.append(1)
-if l == [1]:
-    print 'Yay!'
-# Holds true, but...
-
-if l is [1]:
-    print 'Yay!'
-# Doesn't.
-
-So == tests value where is tests to see if they are the same object?
-
-""",
-"""
-is will return True if two variables point to the same object, == if the objects referred to by the variables are equal.
-
->>> a = [1, 2, 3]
->>> b = a
->>> b is a 
-True
->>> b == a
-True
->>> b = a[:]
->>> b is a
-False
->>> b == a
-True
-
-In your case, the second test only works because Python caches small integer objects, which is an implementation detail. For larger integers, this does not work:
-
->>> 1000 is 10**3
-False
->>> 1000 == 10**3
-True
-
-The same holds true for string literals:
-
->>> "a" is "a"
-True
->>> "aa" is "a" * 2
-True
->>> x = "a"
->>> "aa" is x * 2
-False
->>> "aa" is intern(x*2)
-True
-
-""",
-"""
-== determines if the values are equivalent, while "is" determines if they are the exact same object. 
+"""If you overload the Click event you can use .SelectAll() and all text will be selected.
 """
 ]),
 ]))
@@ -575,176 +561,242 @@ No, it wuz always 'bout tha numbahs. Tha numbahs. An' this Stone-Col' Funkee-Fre
 
 
 data.append(('news/bbc', [
-    ('file:html/news/bbc/1.html', ["Regulator shuts Washington Mutual", """
-Washington Mutual (WaMu) has been closed by its regulator, making it the biggest US bank to fail.
+    ('file:html/news/bbc/1.html', ["US media ownership rules relaxed", """US regulators are to relax local media ownership rules preventing firms from controlling both a TV channel and a newspaper in its largest cities.
 
-The Office of Thrift Supervision (OTS) stepped in to shut the mortgage lender before selling its assets to JPMorgan Chase for $1.9bn (£1.0bn).
+    The Federal Communications Commission (FCC) voted to scrap a 32-year old rule preventing dual ownership of print and broadcast outlets in 20 cities.
 
-The OTS said it was worried WaMu would run out of cash as $16.7bn of deposits had been withdrawn since 15 September.
+    In a 3-2 split vote, Republican members said the move "struck a balance" between competition and plurality.
 
-WaMu was one of the lenders worst-hit by the collapse of the US housing market and soaring mortgage defaults.
+    But dissenting Democrats said it would create new loopholes, not close them.
 
-"With insufficient liquidity to meet its obligations, WaMu was in an unsafe and unsound condition to transact business," the OTS said. The bank had about $307bn of assets but only about $188bn of deposits.
+    The Republican chairman of the FCC, Kevin Martin, cast the deciding vote.
 
-It raised an extra $7bn of capital from a consortium led by the private equity group TPG in April.
+    He called the move a "relatively minimal loosening of the ban", adding it "may help to forestall the erosion in local news coverage".
 
-Sub-prime lending
+    Political issue
 
-It is less than three weeks since WaMu dismissed its chief executive Kerry Killinger, who it blamed for the bank's expansion into sub-prime and other comparatively risky lending.
+    The issue is politically contentious, with groups within both houses of Congress pressing the FCC to delay its judgement and threatening to pass legislation to revoke the decision.
 
-Sub-prime mortgages are offered to borrowers with inferior credit records or unpredictable incomes.
+    However, the White House has warned it will veto any bill coming out of Congress which waters down the proposed changes.
 
-WaMu is JPMorgan's second big fire-sale acquisition since the start of the credit crunch. It bought Bear Stearns in March.
+    The decision overturns rules in place since 1975 designed to support diversity of opinion and competition among news suppliers.
 
-The WaMu deal means it is now the second-biggest US bank, with 5,410 branches in 23 states. "This deal makes excellent strategic sense for our company and our shareholders," said Jamie Dimon, chairman of JPMorgan Chase.
+        
+        The public has repeatedly told us they are not interested in further media consolidation
+        Jonathan Adelstein, Democrat commissioner of the FCC
 
-Before WaMu's closure was announced, it had a stock market value of $2.9bn.
+        Proponents of reform argued that the proliferation of cable TV channels and the growth of the internet meant such safeguards were now obsolete.
 
-The Federal Deposit Insurance Agency (FDIA) was quick to reassure customers that their money was safe.
+        But critics said that while the number of media outlets had exploded, the amount of different news providers had not risen.
 
-"For bank customers, it will be a seamless transition," said FDIA chairman Stella Blair.
+        "The law says we are to serve the public interest," said Jonathan Adelstein, one of the two Democrat commissioners on the FCC panel.
 
-"Bank customers should expect business as usual come Friday morning."
+        "And the public has repeatedly told us they are not interested in further media consolidation."
 
-In February this year, WaMu unveiled a new Whoo Hoo! advertising campaign, aiming to "capture the essence of what it feels like to bank at WaMu". """]),
-    ('file:html/news/bbc/2.html', ["More cash is injected into banks", """
-Central banks are taking co-ordinated action to lend extra cash to banks.
+        The new rules will apply to the largest 20 local media markets in the country.
 
-The Bank of England, US Federal Reserve, European Central Bank and Swiss National Bank will be involved.
-
-The Bank of England will be lending an extra $30bn (£16bn) for a one week period, $10bn overnight and $40bn in three-month loans.
-
-The central banks said that the extra cash was intended to help banks as they approach the end of the financial third quarter next week. Banks have been turning to their central banks for funding because they have been struggling to borrow from each other as they would usually do.
-
-One of the reasons they have been reluctant to lend to each other has been the fear of further bank failures and the news that Washington Mutual has become the biggest US bank to fail will do nothing to help that situation.
-
-Banks will be able to use their mortgage books as security on the loans.
-
-Separately, the Bank of Japan injected cash into the Tokyo money markets on Friday for the eighth trading day in a row.
-
-It injected 1.5 trillion yen ($14bn; £8bn) into the market, although it later removed 300bn yen of that.
+        For dual ownership of a newspaper and TV channel to be permitted under the new system, eight independently owned media businesses must exist in the market concerned, while the TV channel cannot be among the four most-watched. 
 """]),
-    ('file:html/news/bbc/3.html', ["Alitalia gets temporary reprieve", """
-Alitalia, the airline which is struggling to survive, has been given a temporary reprieve by the Italian civil aviation authority.
+    ('file:html/news/bbc/2.html', ["Ailing Lego nears theme-park sale", """Toymaker Lego, currently mired in financial difficulties amid slowing sales, is close to selling its four theme parks.
 
-ENAC said it would not revoke Alitalia's licence to fly "for now" after Italy's biggest union agreed to a revised rescue plan.
+    The Danish firm has, however, rebutted media reports that it had already got as far as final talks with one buyer.
 
-The authority had threatened to ground Alitalia's planes unless it presented an agreed plan by the end of Thursday.
+    Lego was responding to speculation that it was about to sell the parks to US private equity firm Blackstone for $460m (£253m).
 
-Unions representing pilots and crew are yet to agree to the deal, however.
+    Lego instead said it expected to complete a deal by the end of summer.
 
-"For now, the feared risk of yanking the licence isn't there," said ENAC civil aviation chief Vito Riggio.
+    The firm is selling the parks after it recently saw its overall losses double.
 
-But he added that ENAC "will monitor Alitalia's financial situation month by month".
+    Lego has said that the sale would free up cash to support its core toy business.
 
-The CGIL union said it had signed an agreement with Alitalia, after winning concessions on pay, leave, contracts and temporary jobs.
+    Previous takeover
 
-Four of the nine unions have now agreed to the terms of the rescue deal proposed by investors group CAI. CGIL has urged the remaining five to end their opposition.
+    "The Lego group refutes rumours that a sale of the parks has taken place or that final negotiations with one bidder are underway," it said.
 
-Alitalia's government-appointed administrator Augusto Fantozzi said ticket sales had fallen by 100,000 in September, hit by the uncertainty surrounding the airline. """]),
-    ('file:html/news/bbc/4.html', ["Bail-out debate: For and against", """
-As the debate rages about the US $700bn (£379bn) financial bail-out plan, BBC News looks at the arguments for and against this rescue package.
+    Christine Hamilton at the London Dungeon back in March
+    Blackstone recently bought the London Dungeon attraction
 
-FOR THE DEAL
+    Lego has four Legoland themeparks: San Diego, California; Windsor in the UK; Guenzburg in Germany; and Billund, Denmark.
 
-    * Global financial stability: the plan is aimed at bringing calm to an extremely volatile global financial system. The world's richest nations, the Group of Seven (G7) say the package will, "protect the integrity of the international financial system".
-    * Investor wellbeing: Investors worldwide need a shot of confidence. As billionaire investor Warren Buffett put it: the plan was "absolutely necessary" to help pull the financial system out of an "economic Pearl Harbour".
-    * Global slowdown: All sides agree that we want to avoid recession in the world's biggest economy and the knock-on effect that would have for countries that rely on America for trade.
+    Blackstone, the New York-based company said to be leading the race to buy the parks, has already expressed an interest in buying the Legoland sites.
 
-    * Job security: Safeguarding jobs across the economy and preventing bankruptcies that "threaten American families' financial well-being" according to US Treasury Secretary Henry Paulson.
-    * Credit freeze: Keeping funds flowing through the money markets so that financial institutions are happy to lend to each other, to businesses and to consumers is vital for any functioning economy.
+    It has also only recently taken over the company which owns popular London tourist attraction London Dungeon.
 
-    * Toxic profits: The $700bn cost of mopping up banks' toxic debts may seem a high price, but when authorities eventually sell these assets in the future, their value may have risen enough to make a profit.
+    On Monday, 23 May, Blackstone announced that it had bought Merlin Entertainment for £102.5m. Merlin also owns 19 Sea Life centres across Europe.
 
-AGAINST THE DEAL
+    Back in April Lego announced that its annual net losses had more than doubled to 1.9bn Danish kroner ($328m; £174.9m) - only the fourth loss in the family-owned firm's 72-year history.
 
-    * Taxpayer burden: The government plans to buy up mortgage-backed assets at its "maturity" value, which is well above the current market value. If the value of these assets does not recover in the next few years, it will get expensive for taxpayers.
-    * Ballooning state debt: The plan would swell the budget deficit, which could fuel inflation, economists warn (Mr Paulson has asked to raise state borrowing to $11.3 trillion, from $10.6 trillion).
+    In recent years, Lego has unsuccesfully tried to diversify away from its core building bricks.
 
-    * True cost of the deal or how long is piece of string? Since authorities would have the power to buy almost any asset at any price and sell it at any future date, it is almost impossible to calculate the real cost of this deal.
-
-    * Bankers' big pay: There are worries about controlling the mega-bucks bosses earn at the very banks being bailed out - given the view that it was Wall Street "that got us into this mess in the first place".
-
-    * The phenomenal power of US Treasury Secretary Henry Paulson: The rescue plan is his baby and he will control how the $700bn is spent.
-
-    * Too much exposure: Some congressmen object that they want the government to have the right to take a minority stake in any firm that is being bailed out, which would give the state the right to purchase stock in companies in the future.
-
-    * Governance: The plan is a twice-yearly report - critics insist on greater oversight and reporting.
-    * Main Street versus Wall Street: There are calls for this package to be extended to help ordinary Americans who are at risk of losing their homes.
+    It invested heavily in a host of new markets, including computer games, baby products, camping goods and even shoes, few of which have performed to expectations. 
 """]),
-    ('file:html/news/bbc/5.html', ["What would financial Armageddon look like?", """
-The US government's $700bn (£376bn) bail-out package is designed to avert a complete financial meltdown. Many people have compared the current financial crisis with the Wall Street crash of 1929 and the Great Depression of the 1930s that followed it.
+    ('file:html/news/bbc/3.html', ["Tesco opens own-brand China store", """Tesco has opened its first own-brand supermarket in China.
 
-Yet current events are clearly not in the same league.
+    The UK giant already has investments in 46 Chinese stores under the name of its Chinese partner, Le Gou, which translates as "Happy Shopping".
 
-"I don't think so, considering that the Great Depression had thousands of banks failing and people losing their life savings, 25% unemployment and social unrest and tent cities of the poor," says Allan Sloan, Washington Post and Fortune magazine columnist.
+    Tesco's new store in Beijing is competing with other international chains that are well established in China, such as Wal-Mart and Carrefour.
 
-Could be worse
+    Analysts said that Tesco's challenges included offering products that Chinese people would buy.
 
-The US government may end up spending trillions of dollars dealing with the problems, but so far, with unemployment at about 6% and arguments going on about whether the US economy is even in recession, it seems frivolous to mention the current crisis in the same sentence as the Great Depression.
+    Market share
 
-However bad things seem at the moment, they could be a great deal worse.
+        
+        Chinese customers won't think of Tesco as British, but as another Western chain
+        Hana Ben-Shabat
 
-The Financial Times referred to last Friday's stock market recoveries as marking the end of the "Armageddon discount", and yet markets fell again on Monday, suggesting that investors may not be discounting Armageddon.
+        Tesco's foreign goals
 
-So what would it look like?
+        AT Kearney retail consultant, Hana Ben-Shabat, told the BBC that opening under its own brand was a good move for Tesco.
 
-"It would be like an exaggerated version of last week," says stock market historian David Schwartz.
+        "Chinese consumers are very open to foreign brands," she said.
 
-"There will be frightening news, frightened investors and news stories suggesting the end of the world has come."
+        "They won't think of Tesco as British - but as another Western chain.
 
-Going bust
+        "The Western supermarket chains are starting in the main cities, like Beijing, Shanghai and some others.
 
-There would also be a widening of the types of companies going under.
+        "I think the biggest challenge, in terms of gaining market share, is going to be how quickly all of them can move into the second-and-third-tiered cities."
 
-So far, many of the firms going bust have been in the financial sector, but if things get worse there are many other vulnerable sectors. Analysts are looking carefully for the most heavily indebted companies, because there is concern that if banks do not resume lending to each other, then those are the firms that will fold.
+        Another challenge was understanding local consumers and their tastes, she added.
 
-Of course, more companies going under would mean hefty job losses.
+        Separately, Chinese state media has reported that one of the country's biggest retailers, Beijing Wangfujing Department Store Group, has attracted the interest of two American investors.
 
-Insurance problems
-
-The other threat to non-financial companies was the danger that prompted the Federal Reserve to bail out the giant insurer AIG.
-
-"What AIG threatened was a non-functioning derivatives market," says financial historian Edward Chancellor.
-
-Many non-financial companies use the derivatives market as a sort of insurance policy.
-
-Airlines use it to protect themselves against the price of aviation fuel rising while exporters may use it to offset movements in currencies.
-
-Local currencies
-
-In the current crisis, there is still relatively strong confidence in the banks and financial system as a whole.
-
-"In the 1930s, people would hoard money rather than keep it in the banking system," Mr Chancellor says.
-
-"They started coming up with local currencies instead of using dollars."
-
-All these are bleak prospects, but there always comes a point at which the economy hits the bottom and things start improving.
-
-"The problem with stock market bottoms is that very few people see them - there is no announcement," Mr Schwartz says.
-
-"Everybody who has shares that they want to liquidate has done so and shares start rising because there are no sellers left."
-
-At that point, people start piling into the market and the recovery is underway.
+        Private equity groups Warburg Pincus and the Carlyle Group are among around 20 foreign firms vying for a stake in the company, the China Daily said. 
 """]),
-    ('file:html/news/bbc/6.html', ["Bank giant HSBC axes 1,100 jobs ", """
-Banking giant HSBC is to axe 1,100 jobs worldwide, blaming the current financial turmoil for the decision.
+    ('file:html/news/bbc/4.html', ["Waiters lose tips legal challenge", """Restaurants were right to count non-cash tips as part of waiters' wages, human rights judges have ruled.
 
-About half of the cuts, which will affect back room jobs at its global banking and markets operation, will take place in the UK.
+    Four waiters argued two London restaurants had infringed their human rights by adding tips, left as part of cheque and credit card payments, to their wage packets as "additional pay".
 
-HSBC employs about 335,000 people around the world.
 
-Last month, HSBC said half year profits fell 28% to $10.2bn (£5.2bn), as it was forced to write-off $14bn from bad debts in the US and asset write-downs.
+    The only way to be sure the money goes to the waiter is to leave a cash tip
 
-Meanwhile, pre-tax profits fell 35% to $2.1bn during the same period.
+    Solicitor Catherine Scrivens
 
-An HSBC spokesman said the firm had opted to reduce its workforce, "because of market conditions and the economic environment, and our cautious outlook for 2009".
+    But the European Court of Human Rights in Strasbourg has upheld the decision by UK courts to reject the complaints - ending a 10-year legal battle.
 
-Many of the job-losses will be at the headquarters of HSBC's investment banking division, which are in London's Canary Wharf.
+    Unions and low pay campaigners have condemned the ruling.
 
-Banks around the world have been coming under increased pressure from the credit crisis currently affecting financial markets.
+    The Paradiso e Inferno, in The Strand, and the Trota Blu, in Leicester Square, did not infringe the waiters' human rights, the court ruled on Tuesday.
 
-The problems have forced governments to step in and boost money markets as well as bail out a number of companies.
+    One of the waiters Julio Rodriguez has died since the legal battle began.
 
-Earlier this year, the UK government had to buy mortgage lender Northern Rock, while in the US lenders Fannie Mae and Freddie Mac have been rescued as well as insurer AIG and investment bank Lehman Brothers filed for bankruptcy. """]),
+    Damages rejected
+
+    The four waiters - Italian Sandro Nerva and Spaniards Mr Rodriguez, Jose Pulleiro and Jose Gigirey-Cabo, sued for breach of contract over the additional pay being counted towards their wages.
+
+
+    I believe the court has done an injustice not only to us but to all waiting staff
+
+    Waiter Sandro Nerva
+
+    Their claim for damages in the High Court on the basis they had received less than the minimum wage given to waiters was rejected in 1994.
+
+    Tips paid by cheque or credit card belonged to the employer and could count towards payment of a minimum wage the court then ruled - a decision upheld by the Appeal Court.
+
+    When the waiters were refused leave to appeal to the House of Lords they argued in Strasbourg that their rights to protection of property and against discrimination, under the European Convention on Human Rights, had been breached.
+
+    Tuesday's judgment said the legal title to tips paid by customers using cheques or credit cards passed to the waiters' employers as vouchers were made out to them.
+
+    Waiters received as "additional pay", what they would have received had the tips been paid in cash, minus tax and national insurance contributions.
+
+    It held, by six votes to one, that there had been no breach of their rights to protection of property and unanimously that there had been no violation of their rights not to be discriminated against.
+
+    Tips vital
+
+    The waiters' solicitor Catherine Scrivens said waiters had been given protection under the wages councils for hotel and catering workers because they worked long hours for low pay.
+
+    A hotel waiter
+    Waiters often work long hours
+    "Customer tips are an important source of income," she said.
+
+    "I am sure most customers believe that when they leave a credit card tip that it goes to the waiter.
+
+    "The only way to be sure the money goes to the waiter is to leave a cash tip".
+
+    She called for legislation compelling restaurants to state on menus whether credit card tips were passed on in full to waiters and waitresses.
+
+    Richard Towers, director of the Low Pay Unit said: "People should have a decent living wage without having to rely on tips."
+
+    A spokeswoman for the GMB union said: "Tips are a reward for good service, not an excuse for employers to renege on their responsibility to pay wages."
+
+    Costly decision
+
+    Waiter Mr Nerva said: "I believe the court has done an injustice not only to us but to all waiting staff," he said.
+
+    The 64-year-old, of Pimilco, London, believed the policy had cost him £20,000 during his time working at the Paradiso e Inferno.
+
+    But the restaurant manager, who declined to give his name, said he had thought the case had finished five years ago.
+
+    "But I'm not surprised at the result, there's nothing wrong with what we are doing
+
+    "In 1979 the Inland Revenue told us, you must start deducting tax and National Insurance on any tip that comes through the house, ie credit cards and cheques - that's what Mr Nerva is unhappy about." 
+"""]),
+    ('file:html/news/bbc/5.html', ["US video game sales lifted by GTA", """US sales of video game consoles and software were up 47% in April from a year before, fuelled by the release of Grand Theft Auto (GTA) IV.
+
+    Strong demand for Nintendo's Wii also helped the total amount spent on consoles, games and accessories reach $1.2bn, research firm NPD said.
+
+    But analysts were surprised to see that every console system bar the Wii saw hardware sales decline from March.
+
+    Analysts said the early Easter could have been partly to blame.
+
+    Temporary blip?
+
+    The Wii sold 714,000 units in April helping to lift hardware sales 26% to $426.2m.
+
+    But Microsoft's Xbox 360 and the Sony PlayStation 3 both saw lower sales in April compared with March.
+
+    NPD analyst Anita Frazier said she was "surprised" at this decline considering that GTA IV is designed for these two consoles.
+
+    Figures from the NPD showed that GTA IV sold nearly 2.9 million copies in the US in its first five days.
+
+    But Ms Frazier observed that since the game was only in the market for five days during the reporting period, the sales lift could take place in May.
+
+    After GTA IV, other top selling games included Nintendo's Mario Kart Wii and Sony's Gran Turismo 5: Prologue.
+
+    These helped software sales jump 68% to $654.7m. 
+"""]),
+    ('file:html/news/bbc/6.html', ["German rail strike extends action ", """A rail dispute over pay in Germany has escalated into what train operator Deutsche Bahn has called the biggest strike in its history.
+
+    Train drivers launched a 62-hour strike on Wednesday targeting freight trains and have now begun a 48-hour action affecting passenger services.
+
+    Regional and suburban services have been hit, with severe disruptions in Berlin, Stuttgart and Frankfurt.
+
+    Deutsche Bahn said its 10% pay offer, which unions have rejected, was fair.
+
+    Widespread disruption
+
+    The GDL union is seeking a 31% pay rise for its 34,000 workers, saying they are significantly underpaid compared to their counterparts in other leading European countries.
+
+    Thursday's stoppage - the sixth in the past three months - is the most serious yet in a dispute which German ministers have warned could do serious damage to its economy.
+
+    Deutsche Bahn, which has drafted in temporary workers to keep some services running, has said that each day of strike action would cost it 50m euros ($73m; £36m).
+
+        
+        Union leader Manfred Schell
+        We want a negotiable offer
+        Manfred Schell, GDL union
+
+        Only half of normal regional services were running in the west of the country while in the east, this figure was down as low as 10%.
+
+        Only a third of suburban trains were operating in Frankfurt, Germany's financial capital, and Stuttgart, while commuters in Berlin faced severe delays as only 20% of trains departed.
+
+        Traffic on city centre roads quickly built up to much-higher than normal levels.
+
+        But mainline inter-city services were less badly affected, with more than 70% of services running normally.
+
+        'No surrender'
+
+        In a series of newspaper advertisements, Deutsche Bahn called on GDL union officials to "stop this madness".
+
+        "If we were to cave in now, the damage to the economy would ultimately be far greater," Deutsche Bahn executive Karl-Friedrich Rausch said.
+
+        "They are trying to force us to an unconditional surrender. That is not going to happen."
+
+        But union officials said management had failed to put forward an improved offer which could persuade them to return to the negotiating table.
+
+        "The Bahn management board must once and for all stop provoking strikes," GDL chairman Manfred Schell said in a statement. "We want a negotiable offer."
+
+        Train drivers are holding out for a much better deal than other Deutsche Bahn employees have received, arguing they merit a separate settlement on pay and working conditions.
+
+        In July, two other rail unions representing 195,000 workers agreed a 4.5% pay deal. 
+"""]),
 ]))

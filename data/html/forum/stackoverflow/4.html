@@ -2,13 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>
-	Python  language API - Stack Overflow
-</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link href="/Content/all.css?cachebreaker=20080918.1" rel="stylesheet" type="text/css" /><link href="/Content/print.css" rel="stylesheet" media="print" type="text/css" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-itouch-icon" href="/Content/Img/apple-touch-icon.png" /><link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch-plugin.xml" />    
-    <script type="text/javascript" src="/Content/Js/jquery.package.master.js?cachebreaker=200809172121"></script>
+	Application Level Replication Technologies - Stack Overflow
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link href="/Content/all.css?cachebreaker=20080918.1" rel="stylesheet" type="text/css" /><link href="/Content/print.css" rel="stylesheet" media="print" type="text/css" /><link rel="shortcut icon" href="/favicon.ico" /><link rel="apple-itouch-icon" href="/Content/Img/apple-touch-icon.png" /><link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml" />    
+    <script type="text/javascript" src="/Content/Js/jquery.package.master.js?cachebreaker=20080930"></script>
     
-    <link rel="alternate" type="application/atom+xml" title="RSS" href="/feeds/question/136739" />    
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="/feeds/question/66040" />    
     
-    <script src="/content/js/jquery.package.question.js?cachebreaker=20080918.1" type="text/javascript"></script>
+    <script src="/content/js/jquery.package.question.js?cachebreaker=20081003.3" type="text/javascript"></script>
     
     <script type="text/javascript">
         var fkey = "";
@@ -16,11 +16,11 @@
         
         $().ready(function() {    
             setupFormValidation('#post-form');
-            vote.initForShow(false, 136739); 
+            vote.initForShow(false, 66040); 
             styleCode();
         });
     </script>
-    <link href="/questions/136739/increment-view-count" type="text/css" rel="stylesheet" />
+    <link href="/questions/66040/increment-view-count" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -43,7 +43,7 @@
             <td style="vertical-align:middle; height:40px; text-align:left; width:430px">
             <div id="headerlinks">
             
-            <a href="/users/login?returnurl=%2fquestions%2f136739%2fpython-language-api">login</a><span class="link-separator">|</span>
+            <a href="/users/login?returnurl=%2fquestions%2f66040%2fapplication-level-replication-technologies">login</a><span class="link-separator">|</span>
             <a href="/about">about</a>
             <span class="link-separator">|</span>
             <a href="/faq">faq</a>   
@@ -51,7 +51,7 @@
             </td>
             <td style="text-align:right; vertical-align:middle; width:270px;">
             <form id="search" action="/search" method="get">
-                <input name="s" class="textbox" type="text" maxlength="80" size="27" value="" style="margin:0px;" />&nbsp;
+                <input name="q" class="textbox" type="text" maxlength="80" size="27" value="" style="margin:0px;" />&nbsp;
                 <input type="submit" class="button" value="Search" style="margin:0px; padding:2px; padding: 0px !ie7;" />
             </form>          
             </td>
@@ -104,7 +104,7 @@
             
 
 <div id="question-header">
-    <h2><a href="/questions/136739/python-language-api">Python  language API</a></h2>
+    <h2><a href="/questions/66040/application-level-replication-technologies">Application Level Replication Technologies</a></h2>
 </div>
 
 <div id="mainbar">
@@ -115,77 +115,57 @@
     <td width="60px" style="vertical-align:top;">
         
 <div class="vote">
-    
-    <input type="hidden" value="136739" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+
+    <input type="hidden" value="66040" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" width="40" height="25" alt="vote up" title="This was helpful (click again to undo)" />
     <span class="vote-count-post">
     2
     </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" width="40" height="25" alt="vote down" title="This was not helpful (click again to undo)" />
+    <br />  
     
+    <img class="vote-favorite" src="/content/img/vote-favorite-off.png" width="32" height="31" alt="star" title="This is a favorite question (click again to undo)" />
+    <div class="favoritecount"><b>
+        
+    </b></div>
+        
+
 </div>
         
-        <div id="viewcount">
-            <b>159</b><br />
-            views
+        <div class="viewcount">
+            views<br />
+            <b>41</b>            
         </div>
     </td>
     <td>
         <div>          
             <div class="post-text">
-                <p>Hello. I'm starting with Python coming from java. </p>
+                <p>I am building out a solution that will be deployed in multiple data centers in multiple regions around the world, with each data center having a replicated copy of data actively updated in each region. I will have a combination of multiple databases and file systems in each data center, the state of which must be kept consistent (within a data center). These multiple repositories will be fronted by a SOA service tier. </p>
 
-<p>I was wondering if there exists something similar to JavaDoc API where I can find the class, its methods and and example of how to use it.</p>
+<p>I can tolerate some latency in the replication, and need to allow for regions to be off-line, and then catch up later.</p>
 
-<p>I've found very helpul to use <em>help( thing )</em> from the Python ( command line ) </p>
+<p>Given the multiple back end repositories of data, I can't easily rely on independent replication solutions for each one to maintain a consistent state. I am thus lead to implementing replication at the application layer -- by replicating the SOA requests in some manner. I'll need to make sure that replication loops don't occur, and that last writer conditions are sorted out correctly.</p>
 
-<p>I have found this also:</p>
-
-<p><a href="http://docs.python.org/" rel="nofollow">http://docs.python.org/</a></p>
-
-<p><a href="http://docs.python.org/modindex.html" rel="nofollow">http://docs.python.org/modindex.html</a></p>
-
-<p>But it seems to help when you already the class name  you are looking for. In JavaDoc API I have all the classes so if I need something I scroll down to  a class that "sounds like" what I need. Or some times I just browse all the classes to see what they do, and when I need a feature my brain recalls me   <em>We saw something similar in the javadoc remember!?</em> </p>
-
-<p>But I don't seem to find the similar in Python ( yet ) and that why I'm posting this questin. </p>
-
-<p>BTW I know that I would eventually will read this:</p>
-
-<p><a href="http://docs.python.org/lib/lib.html" rel="nofollow">http://docs.python.org/lib/lib.html</a></p>
-
-<p>But, well, I think it is not today.</p>
+<p>In your experience, what is the best pattern for solving this problem, and are there good products (free or otherwise) that should be investigated?</p>
 
             </div>            
-            <div style="margin-bottom:5px; clear:both;">
-            <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="/questions/tagged/reference" class="post-tag" title="show questions tagged 'reference'" rel="tag">reference</a> <a href="/questions/tagged/documentation" class="post-tag" title="show questions tagged 'documentation'" rel="tag">documentation</a> 
+            <div class="post-taglist">
+                <a href="/questions/tagged/replication" class="post-tag" title="show questions tagged 'replication'" rel="tag">replication</a> <a href="/questions/tagged/soa" class="post-tag" title="show questions tagged 'soa'" rel="tag">soa</a> 
             </div>
             <table width="100%">
             <tr>
             <td align="left" style="vertical-align:top;">            
-                <div class="post-menu"><a id="vote-offensive-136739" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>                            
-            </td>
-            
-            <td align="right" class="post-signature">
-            
-<div class="user-info">
-    <div class="user-action-time">edited <a href="/revisions/136739/list" title="show all edits to this post"><span title="9/25/2008 11:13:25 PM UTC" class="relativetime">9 hours ago</span></a><br /></div>
-    <div class="user-gravatar32"></div>
-    <div class="user-details">
-        <br/>
-        
-    </div>
-</div>
+                <div class="post-menu"><a id="vote-offensive-66040" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>                            
             </td>
             
             <td class="post-signature owner">                                                
             
 <div class="user-info">
-    <div class="user-action-time">asked <span title="9/25/2008 10:59:10 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/20654/oscar-reyes"><img src="http://www.gravatar.com/avatar/db89a36eaf407ac227b273710789174e?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/20654/oscar-reyes">Oscar Reyes</a><br/>
-        <span class="reputation-score" title="reputation score">289</span><span title="9 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">9</span></span>
-    </div>
+    
+    <div class="user-action-time">asked <span title="9/15/2008 7:37:17 PM UTC" class="relativetime">Sep 15 at 19:37</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/9608/thebighaikublogspotcom"><img src="http://www.gravatar.com/avatar/37e9bcfaf8162dbfa9944c336c6e253f?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details"><a href="/users/9608/thebighaikublogspotcom">thebighaiku.blogspot.com</a><br/><span class="reputation-score" title="reputation score">21</span><span title="1 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">1</span></span></div>
+    
 </div>
             </td>
             </tr>
@@ -200,9 +180,9 @@
 <td width="60" height="20"></td>
 <td>
     <div class="post-menu">
-        <input id="can-post-comments-136739" type="hidden" value="false"/>
-        <a id="comments-link-136739" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136739" class="comments-container">
+        <input id="can-post-comments-66040" type="hidden" value="false"/>
+        <a id="comments-link-66040" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-66040" class="comments-container">
             <div class="comments"></div>
         </div>
     </div>
@@ -218,192 +198,54 @@
     <a name="sort-top"></a>
     <div id="answer-header">
         <div id="subheader">
-            <h2>12 Answers:</h2>
+            <h2>3 Answers:</h2>
             <div id="tabs">
-                <a href="/questions/136739?sort=oldest#sort-top" title="Answers in the order they were given">Oldest</a><a href="/questions/136739?sort=newest#sort-top" title="Most recent answers first">Newest</a><a class="youarehere" href="/questions/136739?sort=votes#sort-top" title="Answers with the most votes first">Votes</a>
+                <a href="/questions/66040?sort=oldest#sort-top" title="Answers in the order they were given">Oldest</a><a href="/questions/66040?sort=newest#sort-top" title="Most recent answers first">Newest</a><a class="youarehere" href="/questions/66040?sort=votes#sort-top" title="Answers with the most votes first">Votes</a>
             </div>    
         </div>
     </div>    
 
 
 
-    <a name="136749"></a>
+    <a name="71380"></a>
     
-    <div id="answer-136749" class="answer accepted-answer">    
+    <div id="answer-71380" class="answer ">    
         <table style="width:710px">
         <tr>
         <td width="60px" style="vertical-align:top;">
             
 <div class="vote">
-    
-    <input type="hidden" value="136749" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    3
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
 
-            <div style="text-align:center; width:60px; margin-top:5px;" title="the question owner accepted this as the best answer to their question">
-            <img src="/Content/Img/accepted-answer.png" width="30" height="32" alt="accepted answer" />
-            </div>
-            
-        </td>
-        <td>
-            <div class="post-text"><p>pydoc?</p>
-
-<p>I'm not sure if you're looking for something more sophisticated, but it does the trick.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136749" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136749" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:00:48 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/13433/jasontrue"><img src="http://www.gravatar.com/avatar/90617e2b1586c87d8007539d8c58ae46?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/13433/jasontrue">JasonTrue</a><br/>
-        <span class="reputation-score" title="reputation score">181</span><span title="6 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">6</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-136749" type="hidden" value="false"/>
-        <a id="comments-link-136749" class="comments-link-accepted ">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136749" class="comments-container-accepted ">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="136750"></a>
-    
-    <div id="answer-136750" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="136750" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    2
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>You can also use in the python shell:</p>
-
-<pre><code>dir( someobject )
-</code></pre>
-
-<p>To get a listing of the object members.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136750" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136750" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:00:59 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/2954/sergio-acosta"><img src="http://www.gravatar.com/avatar/1c16d79d3097da58f14bff1831fe41cf?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/2954/sergio-acosta">Sergio Acosta</a><br/>
-        <span class="reputation-score" title="reputation score">1,804</span><span title="4 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">4</span></span><span title="13 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">13</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-136750" type="hidden" value="false"/>
-        <a id="comments-link-136750" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136750" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="136758"></a>
-    
-    <div id="answer-136758" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="136758" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <input type="hidden" value="71380" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" width="40" height="25" alt="vote up" title="This was helpful (click again to undo)" />
     <span class="vote-count-post">
     1
     </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" width="40" height="25" alt="vote down" title="This was not helpful (click again to undo)" />
+    <br />  
+        
+
 </div>
 
         </td>
         <td>
-            <div class="post-text"><p><a href="http://docs.python.org/modindex.html" rel="nofollow">Here</a> is a list of all the modules in python, not sure if that's what you're really after.</p>
+            <div class="post-text"><p>Lotus/ Domino is your answer. I've been working with it for ten years and its exactly what you need. It may not be trendy (a perception that I would challenge) but its powerful, adaptable and very secure, The latest version R8 is the best yet.</p>
 </div>            
             <table style="width:100%">
             <tr>
             <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136758" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136758" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+                <div class="post-menu"><a href="/questions/66040/application-level-replication-technologies#71380" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-71380" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
             </td>
             
             
             <td align="right" class="post-signature">                   
             
 <div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:03:33 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/1057/harley"><img src="http://www.gravatar.com/avatar/e5778b659d144e38ed982c3f4e566089?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/1057/harley">Harley</a><br/>
-        <span class="reputation-score" title="reputation score">610</span><span title="1 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">1</span></span><span title="10 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">10</span></span>
-    </div>
+    
+    <div class="user-action-time">answered <span title="9/16/2008 11:28:13 AM UTC" class="relativetime">Sep 16 at 11:28</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/11770/andrewb"><img src="http://www.gravatar.com/avatar/a8a2d01378b67b3770882823a22f8e04?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details"><a href="/users/11770/andrewb">AndrewB</a><br/><span class="reputation-score" title="reputation score">11</span><span title="1 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">1</span></span></div>
+    
 </div>    
             </td>
             </tr>
@@ -417,9 +259,9 @@
 <td width="60" height="20"></td>
 <td>
     <div class="post-menu">
-        <input id="can-post-comments-136758" type="hidden" value="false"/>
-        <a id="comments-link-136758" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136758" class="comments-container">
+        <input id="can-post-comments-71380" type="hidden" value="false"/>
+        <a id="comments-link-71380" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-71380" class="comments-container">
             <div class="comments"></div>
         </div>
     </div>
@@ -430,289 +272,47 @@
     </div>
 
 
-    <a name="136783"></a>
+    <a name="66301"></a>
     
-    <div id="answer-136783" class="answer ">    
+    <div id="answer-66301" class="answer ">    
         <table style="width:710px">
         <tr>
         <td width="60px" style="vertical-align:top;">
             
 <div class="vote">
-    
-    <input type="hidden" value="136783" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    1
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
 
-        </td>
-        <td>
-            <div class="post-text"><p>The standard python library is fairly well documented. Try jumping into python and importing a module say "os" and running:</p>
-
-<pre><code>import os   
-help(os)
-</code></pre>
-
-<p>This reads the doc strings on each of the items in the module and displays it. This is exactly what pydoc will do too.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136783" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136783" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:11:13 PM UTC" class="relativetime">9 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/22277/andrew-gwozdziewycz"><img src="http://www.gravatar.com/avatar/d543a7491b7b47ec7c3e8f259a75d2dd?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/22277/andrew-gwozdziewycz">Andrew Gwozdziewycz</a><br/>
-        <span class="reputation-score" title="reputation score">71</span><span title="2 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">2</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-136783" type="hidden" value="false"/>
-        <a id="comments-link-136783" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136783" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="136929"></a>
-    
-    <div id="answer-136929" class="answer owner-answer">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="136929" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    1
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>I've downloaded Python 2.5 from Python.org and It does not contains pydoc.</p>
-
-<pre><code>Directorio de C:\Python25
-
-9/23/2008  10:45 PM    &lt;DIR&gt;          .
-9/23/2008  10:45 PM    &lt;DIR&gt;          ..
-9/23/2008  10:45 PM    &lt;DIR&gt;          DLLs
-9/23/2008  10:45 PM    &lt;DIR&gt;          Doc
-9/23/2008  10:45 PM    &lt;DIR&gt;          include
-9/25/2008  06:34 PM    &lt;DIR&gt;          Lib
-9/23/2008  10:45 PM    &lt;DIR&gt;          libs
-2/21/2008  01:05 PM            14,013 LICENSE.txt
-2/21/2008  01:05 PM           119,048 NEWS.txt
-2/21/2008  01:11 PM            24,064 python.exe
-2/21/2008  01:12 PM            24,576 pythonw.exe
-2/21/2008  01:05 PM            56,354 README.txt
-9/23/2008  10:45 PM    &lt;DIR&gt;          tcl
-9/23/2008  10:45 PM    &lt;DIR&gt;          Tools
-2/21/2008  01:11 PM             4,608 w9xpopen.exe
-          6 archivos        242,663 bytes
-</code></pre>
-
-<p>But it has ( the substitute I guess ) pydocgui...</p>
-
-<pre><code>C:\Python25&gt;dir Tools\Scripts\pydocgui.pyw
-
-10/28/2005  07:06 PM               222 pydocgui.pyw
-           1 archivos            222 bytes
-</code></pre>
-
-<p>This launches a webserver and shows what I was looking for. All the modules plus all the classes that come with the platform.</p>
-
-<p>The Doc dir contains the same as in:</p>
-
-<p><a href="http://docs.python.org/" rel="nofollow">http://docs.python.org/</a></p>
-
-<p>Thanks a lot for guide me  to pydoc.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136929" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136929" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:42:37 PM UTC" class="relativetime">9 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/20654/oscar-reyes"><img src="http://www.gravatar.com/avatar/db89a36eaf407ac227b273710789174e?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/20654/oscar-reyes">Oscar Reyes</a><br/>
-        <span class="reputation-score" title="reputation score">289</span><span title="9 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">9</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-136929" type="hidden" value="false"/>
-        <a id="comments-link-136929" class="comments-link-owner">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136929" class="comments-container-owner">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="137335"></a>
-    
-    <div id="answer-137335" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="137335" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    1
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><blockquote>
-  <p>BTW I know that I would eventually
-  will read this:</p>
-  
-  <p><a href="http://docs.python.org/lib/lib.html" rel="nofollow">http://docs.python.org/lib/lib.html</a></p>
-  
-  <p>But, well, I think it is not today.</p>
-</blockquote>
-
-<p>I suggest that you're making a mistake.  The lib doc has "the class, its methods and and example of how to use it."   It <em>is</em> what you are looking for.  </p>
-
-<p>I use both Java and Python all the time.  Dig into the library doc, you'll find everything you're looking for.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#137335" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-137335" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/26/2008 1:56:12 AM UTC" class="relativetime">7 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/10661/slott"><img src="http://www.gravatar.com/avatar/c2c732bbf13dc96670b210b3c0c1ead5?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/10661/slott">S.Lott</a><br/>
-        <span class="reputation-score" title="reputation score">1,367</span><span title="8 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">8</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-137335" type="hidden" value="false"/>
-        <a id="comments-link-137335" class="comments-link">comments (<b>1</b>)</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-137335" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="136760"></a>
-    
-    <div id="answer-136760" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="136760" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+    <input type="hidden" value="66301" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" width="40" height="25" alt="vote up" title="This was helpful (click again to undo)" />
     <span class="vote-count-post">
     0
     </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" width="40" height="25" alt="vote down" title="This was not helpful (click again to undo)" />
+    <br />  
+        
+
 </div>
 
         </td>
         <td>
-            <div class="post-text"><p>If you're working on Windows <a href="http://www.activestate.com/Products/activepython/index.mhtml" rel="nofollow">ActiveState Python</a> comes with the documentation, including the library reference in a searchable help file.</p>
+            <div class="post-text"><p>You dont give enough specifics to be certain of your needs but I think you should check out SQL Server Merge replication. It allows for asynchronous replication of multiple databases with full conflict resolution. You will need to designate a Global master and all the other databases will replicate to that one, but all the database instances are fully functional (read/write) and so you can schedule replication at whatever intervals suit you. If any region goes offline they can catch up later with no issues - if the master goes offline everyone will work independantly until replication can resume.</p>
+
+<p>I would be interested to know of other solutions this flexible (apart from Lotus Notes/Domino of course which is not very trendy these days).</p>
 </div>            
             <table style="width:100%">
             <tr>
             <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136760" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136760" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
+                <div class="post-menu"><a href="/questions/66040/application-level-replication-technologies#66301" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-66301" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
             </td>
             
             
             <td align="right" class="post-signature">                   
             
 <div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:04:21 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/15401/nigel-campbell"><img src="http://www.gravatar.com/avatar/107f2fafb2d29fedc3783b141139a878?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/15401/nigel-campbell">Nigel Campbell</a><br/>
-        <span class="reputation-score" title="reputation score">690</span><span title="7 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">7</span></span>
-    </div>
+    
+    <div class="user-action-time">answered <span title="9/15/2008 7:57:32 PM UTC" class="relativetime">Sep 15 at 19:57</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/9731/ewan-makepeace"><img src="http://www.gravatar.com/avatar/c6379f15a7490dfbcc5c08b111aa43d6?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details"><a href="/users/9731/ewan-makepeace">Ewan Makepeace</a><br/><span class="reputation-score" title="reputation score">275</span><span title="8 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">8</span></span></div>
+    
 </div>    
             </td>
             </tr>
@@ -726,9 +326,9 @@ help(os)
 <td width="60" height="20"></td>
 <td>
     <div class="post-menu">
-        <input id="can-post-comments-136760" type="hidden" value="false"/>
-        <a id="comments-link-136760" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136760" class="comments-container">
+        <input id="can-post-comments-66301" type="hidden" value="false"/>
+        <a id="comments-link-66301" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-66301" class="comments-container">
             <div class="comments"></div>
         </div>
     </div>
@@ -739,59 +339,45 @@ help(os)
     </div>
 
 
-    <a name="136747"></a>
+    <a name="90378"></a>
     
-    <div id="answer-136747" class="answer ">    
+    <div id="answer-90378" class="answer ">    
         <table style="width:710px">
         <tr>
         <td width="60px" style="vertical-align:top;">
             
 <div class="vote">
-    
-    <input type="hidden" value="136747" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
+
+    <input type="hidden" value="90378" />
+    <img class="vote-up" src="/content/img/vote-arrow-up.png" width="40" height="25" alt="vote up" title="This was helpful (click again to undo)" />
     <span class="vote-count-post">
     0
     </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
+    <img class="vote-down" src="/content/img/vote-arrow-down.png" width="40" height="25" alt="vote down" title="This was not helpful (click again to undo)" />
+    <br />  
+        
+
 </div>
 
         </td>
         <td>
-            <div class="post-text"><p>Sounds like you need <a href="http://docs.python.org/lib/module-pydoc.html" rel="nofollow">pydoc.</a>  Try this from the command line:</p>
-
-<pre><code>pydoc sys
-</code></pre>
+            <div class="post-text"><p>I think that your answer is going to have to be based on a pub/sub architecture. I am assuming that you have reliable messaging between your data centers so that you can rely on published updates being received eventually. If all of your access to the data repositories is via service you can add an event notification to the orchestration of each of your update services that notifies all interested data centers of the event. Ideally the master database is the only one that sends out these updates. If the master database is the only one sending the updates you can exclude routing the notifications to the node that generated them in the first place thus avoiding update loops.</p>
 </div>            
             <table style="width:100%">
             <tr>
             <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136747" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136747" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            <td align="right" class="post-signature">
-            
-<div class="user-info">
-    <div class="user-action-time">edited <a href="/revisions/136747/list" title="show all edits to this post"><span title="9/25/2008 11:12:15 PM UTC" class="relativetime">9 hours ago</span></a><br /></div>
-    <div class="user-gravatar32"></div>
-    <div class="user-details">
-        <br/>
-        
-    </div>
-</div>
+                <div class="post-menu"><a href="/questions/66040/application-level-replication-technologies#90378" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-90378" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
             </td>
             
             
             <td align="right" class="post-signature">                   
             
 <div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:00:40 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/2147/jason-baker"><img src="http://www.gravatar.com/avatar/b8e26b9942e7193a4fe32c407aacfef5?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/2147/jason-baker">Jason Baker</a><br/>
-        <span class="reputation-score" title="reputation score">3,062</span><span title="2 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">2</span></span><span title="16 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">16</span></span>
-    </div>
+    
+    <div class="user-action-time">answered <span title="9/18/2008 5:52:47 AM UTC" class="relativetime">Sep 18 at 5:52</span><br /></div>
+    <div class="user-gravatar32"><a href="/users/14893/peter-kelley"><img src="http://www.gravatar.com/avatar/0b9c98b4b1455b5394bcce6b5fe254aa?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
+    <div class="user-details"><a href="/users/14893/peter-kelley">Peter Kelley</a><br/><span class="reputation-score" title="reputation score">379</span><span title="7 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">7</span></span></div>
+    
 </div>    
             </td>
             </tr>
@@ -805,309 +391,9 @@ help(os)
 <td width="60" height="20"></td>
 <td>
     <div class="post-menu">
-        <input id="can-post-comments-136747" type="hidden" value="false"/>
-        <a id="comments-link-136747" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136747" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="138121"></a>
-    
-    <div id="answer-138121" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="138121" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    0
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>It doesn't directly answer your question (so I'll probably be downgraded), but you may be interested in <a href="http://www.jython.org/Project/" rel="nofollow">Jython</a>.</p>
-
-<blockquote>
-  <p>Jython is an implementation of the high-level, dynamic, object-oriented language Python written in 100% Pure Java, and seamlessly integrated with the Java platform. It thus allows you to run Python on any Java platform.</p>
-</blockquote>
-
-<p>Since you are coming from Java, Jython may help you leverage Python while still allowing you to use your Java knowledge.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#138121" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138121" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/26/2008 7:16:09 AM UTC" class="relativetime">an hour ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/18676/crystalattice"><img src="http://www.gravatar.com/avatar/225ceeb32700439c95c64a99fbe9f389?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/18676/crystalattice">crystalattice</a><br/>
-        <span class="reputation-score" title="reputation score">73</span><span title="6 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">6</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-138121" type="hidden" value="false"/>
-        <a id="comments-link-138121" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-138121" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="138240"></a>
-    
-    <div id="answer-138240" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="138240" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    0
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>You can set the <em>environment variable</em> <strong>PYTHONDOCS</strong> to point to where the python documentation is installed.</p>
-
-<p>On my system, it's in <em>/usr/share/doc/python2.5</em></p>
-
-<p>So you can define this variable in your <em>shell profile</em> or somewhere else depending on your system:</p>
-
-<blockquote>
-  <p>export PYTHONDOCS=/usr/share/doc/python2.5</p>
-</blockquote>
-
-<p>Now, if you open an interractive python console, you can call the help system. For exemple:</p>
-
-<blockquote>
-<pre><code>&gt;&gt;&gt; help(Exception)
-&gt;&gt;&gt; Help on class Exception in module exceptions:
-
-&gt;&gt;&gt; class Exception(BaseException)
-&gt;&gt;&gt;  |  Common base class for all non-exit exceptions.
-&gt;&gt;&gt;  |  
-&gt;&gt;&gt;  |  Method resolution order:
-&gt;&gt;&gt;  |      Exception
-</code></pre>
-</blockquote>
-
-<p>Documentation is here:</p>
-
-<p><a href="http://docs.python.org/lib/module-pydoc.html" rel="nofollow">http://docs.python.org/lib/module-pydoc.html</a></p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#138240" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138240" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/26/2008 8:07:29 AM UTC" class="relativetime">an hour ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/22035/technoraticompeopletechnoratiolilau"><img src="http://www.gravatar.com/avatar/5ce1a07a206fa1ccbbf0c82feba9ae2b?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/22035/technoraticompeopletechnoratiolilau">technorati.com/people/technorati/olilau</a><br/>
-        <span class="reputation-score" title="reputation score">1</span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-138240" type="hidden" value="false"/>
-        <a id="comments-link-138240" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-138240" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="138317"></a>
-    
-    <div id="answer-138317" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="138317" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    0
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>Also try</p>
-
-<pre><code>pydoc -p 11111
-</code></pre>
-
-<p>Then type in web browser <a href="http://localhost:11111" rel="nofollow">http://localhost:11111</a></p>
-
-<p>EDIT: of course you can use any other value for port number instead of 11111</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#138317" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-138317" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/26/2008 8:34:18 AM UTC" class="relativetime">36 minutes ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/15958/sergei-stolyarov"><img src="http://www.gravatar.com/avatar/7fff733ad25bb65da8f0db1c1a2d556e?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/15958/sergei-stolyarov">Sergei Stolyarov</a><br/>
-        <span class="reputation-score" title="reputation score">61</span><span title="3 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">3</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-138317" type="hidden" value="false"/>
-        <a id="comments-link-138317" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-138317" class="comments-container">
-            <div class="comments"></div>
-        </div>
-    </div>
-</td>
-</tr>
-        
-        </table>
-    </div>
-
-
-    <a name="136777"></a>
-    
-    <div id="answer-136777" class="answer ">    
-        <table style="width:710px">
-        <tr>
-        <td width="60px" style="vertical-align:top;">
-            
-<div class="vote">
-    
-    <input type="hidden" value="136777" />
-    <img class="vote-up" src="/content/img/vote-arrow-up.png" alt="vote up" title="This was helpful (click again to undo)" />
-    <span class="vote-count-post">
-    -1
-    </span>
-    <img class="vote-down" src="/content/img/vote-arrow-down.png" alt="vote down" title="This was not helpful (click again to undo)" />
-    
-</div>
-
-        </td>
-        <td>
-            <div class="post-text"><p>If you want to see details of an instance, most support:</p>
-
-<pre><code>&lt;instance&gt;.__dict__
-</code></pre>
-
-<p>it will output a dictionary of variables/values.</p>
-</div>            
-            <table style="width:100%">
-            <tr>
-            <td style="vertical-align:top;" align="left">
-                <div class="post-menu"><a href="#136777" title="permalink to this answer">link</a><span class="link-separator">|</span><a id="vote-offensive-136777" title="flag this post as hate speech, spam, or abuse">offensive?</a> <span class="vote-offensive-count"></span></div>
-            </td>
-            
-            
-            <td align="right" class="post-signature">                   
-            
-<div class="user-info">
-    <div class="user-action-time">answered <span title="9/25/2008 11:09:16 PM UTC" class="relativetime">10 hours ago</span><br /></div>
-    <div class="user-gravatar32"><a href="/users/22445/camflan"><img src="http://www.gravatar.com/avatar/ccc7c672e3b9956e5c4b2ec8dd5d4f21?s=32&d=identicon&r=PG" height=32 width=32 alt="gravatar image" /></a></div>
-    <div class="user-details">
-        <a href="/users/22445/camflan">camflan</a><br/>
-        <span class="reputation-score" title="reputation score">1</span><span title="1 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">1</span></span>
-    </div>
-</div>    
-            </td>
-            </tr>
-            </table>
-        </td>
-        </tr>
-        
-        
-
-<tr>
-<td width="60" height="20"></td>
-<td>
-    <div class="post-menu">
-        <input id="can-post-comments-136777" type="hidden" value="false"/>
-        <a id="comments-link-136777" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
-        <div id="comments-136777" class="comments-container">
+        <input id="can-post-comments-90378" type="hidden" value="false"/>
+        <a id="comments-link-90378" class="comments-link">add comment</a><noscript>&nbsp;JavaScript is needed to access comments.</noscript>
+        <div id="comments-90378" class="comments-container">
             <div class="comments"></div>
         </div>
     </div>
@@ -1121,7 +407,7 @@ help(os)
 <div style="height:20px; clear:both;"></div>
 
 
-    <form id="post-form" action="/questions/136739/answer?sort=Votes" method="post">
+    <form id="post-form" action="/questions/66040/answer?sort=Votes" method="post">
         <h2>Your Answer:</h2>
         
 
@@ -1194,7 +480,7 @@ function initValidation() {
     
     <div style="float:right; width:200px; text-align:right; margin-right:20px;">
     <input id="communitymode" name="communitymode" type="checkbox"/>
-    <label for="communitymode" style="display:inline;"><span title="community owned posts do not generate any reputation for the owner, and have a lower reputation barrier for collaborative editing" style="color: #888; font-weight:normal; font-size:90%;">community owned wiki</span></label> 
+    <label for="communitymode" style="display:inline;"><span title="community owned posts do not generate any reputation for the owner, and have a lower reputation barrier for collaborative editing" style="color: #888; font-weight:normal; font-size:90%;">community wiki</span></label> 
     </div>
     
     <br />    
@@ -1271,7 +557,7 @@ function initValidation() {
 
 Not the answer you're looking for? 
 
-Browse other questions tagged <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="/questions/tagged/reference" class="post-tag" title="show questions tagged 'reference'" rel="tag">reference</a> <a href="/questions/tagged/documentation" class="post-tag" title="show questions tagged 'documentation'" rel="tag">documentation</a>  or <a href="/questions/ask">ask your own question</a>.
+Browse other questions tagged <a href="/questions/tagged/replication" class="post-tag" title="show questions tagged 'replication'" rel="tag">replication</a> <a href="/questions/tagged/soa" class="post-tag" title="show questions tagged 'soa'" rel="tag">soa</a>  or <a href="/questions/ask">ask your own question</a>.
 </h2>
 
 </div>
@@ -1291,20 +577,20 @@ Browse other questions tagged <a href="/questions/tagged/python" class="post-tag
     <div class="module">    
     <p>You're viewing a single question tagged</p>
     <div style="margin-bottom:10px;margin-top:5px;">
-        <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a>&nbsp;<span class="item-multiplier">&times;&nbsp;656</span><br/><a href="/questions/tagged/documentation" class="post-tag" title="show questions tagged 'documentation'" rel="tag">documentation</a>&nbsp;<span class="item-multiplier">&times;&nbsp;74</span><br/><a href="/questions/tagged/reference" class="post-tag" title="show questions tagged 'reference'" rel="tag">reference</a>&nbsp;<span class="item-multiplier">&times;&nbsp;11</span><br/>
+        <a href="/questions/tagged/replication" class="post-tag" title="show questions tagged 'replication'" rel="tag">replication</a>&nbsp;<span class="item-multiplier">&times;&nbsp;26</span><br/><a href="/questions/tagged/soa" class="post-tag" title="show questions tagged 'soa'" rel="tag">soa</a>&nbsp;<span class="item-multiplier">&times;&nbsp;18</span><br/>
     </div> 
     <p style="margin-bottom:0">asked</p>
-    <p><b style="font-size:120%;">today</b></p>
+    <p><b style="font-size:120%;">19 days ago</b></p>
        
     <p style="margin-bottom:0">answered by</p>
-    <div class="summarycount" style="text-align:left;">12</div>
+    <div class="summarycount" style="text-align:left;">3</div>
     <p style="margin-bottom:0">users with</p>
-    <div class="summarycount" style="text-align:left;">8</div>
+    <div class="summarycount" style="text-align:left;">1</div>
     <p>total votes</p>
     <p style="margin-bottom:0">it was answered in</p>
-    <p><b style="font-size:120%;">1 minute</b></p> 
+    <p><b style="font-size:120%;">20 minutes</b></p> 
     <p style="margin-bottom:0">latest activity was</p>
-    <p><b style="font-size:120%;">today</b></p>
+    <p><b style="font-size:120%;">17 days ago</b></p>
 
     </div>
 
@@ -1330,9 +616,13 @@ Browse other questions tagged <a href="/questions/tagged/python" class="post-tag
 <div class="module">
 <h4>Sponsored By</h4>
 <div class="box" style="margin-bottom:10px;">
-      
-      <p><script type="text/javascript" src="http://www.woot.com/Awesome/SoAd.ashx" ></script></p>
-    
+
+<p><b><a href="http://submain.com/landing/codeit.right/?utm_campaign=codeit.right&utm_medium=textad&utm_source=stackoverflow" rel="nofollow"> CodeIt.Right The First Time</a></b></p>
+<p>Deliver secure, quality code with guidelines and best practices at your fingertips!</p>
+<p>Static code analysis and refactoring to best practices in a single application. Automatically correct code errors and violations.</p>
+<p>Delivered by SubMain - your coding standards and best practices experts.</p>
+<p><a href="http://submain.com/landing/codeit.right/?utm_campaign=codeit.right&utm_medium=textad&utm_source=stackoverflow" rel="nofollow">Download now!</a></p>
+
 </div>
 </div>
 
@@ -1341,8 +631,8 @@ Browse other questions tagged <a href="/questions/tagged/python" class="post-tag
 <div id="mainbar-footer">    
     
 <div id="feed-link">
-    <div id="feed-link-image"><a href="/feeds/question/136739" title="a syndicated data feed of this page suitable for your favorite feed reader"><img src="/Content/Img/feed-icon-small.png" width="14" height="14" alt="feed icon"/></a></div>
-    <div id="feed-link-text"><a href="/feeds/question/136739" title="a syndicated data feed of this page suitable for your favorite feed reader">question feed</a></div>
+    <div id="feed-link-image"><a href="/feeds/question/66040" title="a syndicated data feed of this page suitable for your favorite feed reader"><img src="/Content/Img/feed-icon-small.png" width="14" height="14" alt="feed icon"/></a></div>
+    <div id="feed-link-text"><a href="/feeds/question/66040" title="a syndicated data feed of this page suitable for your favorite feed reader">question feed</a></div>
 </div>
 
 </div>
@@ -1358,7 +648,7 @@ Browse other questions tagged <a href="/questions/tagged/python" class="post-tag
             <div id="footer-menu"><a href="/about">about this site</a> | <a href="/faq">faq</a> | <a href="http://blog.stackoverflow.com/">blog</a> | <a href="http://itc.conversationsnetwork.org/series/stackoverflow.html">podcast</a> | <a href="/privacy">privacy policy</a> | <a href="mailto:team@stackoverflow.com">contact us</a> | <a href="http://stackoverflow.uservoice.com/">report a bug</a></div>
             <div id="creativecommons"><a href="http://creativecommons.org/licenses/by-sa/2.5/"><img src="/content/img/cc-wiki.png" title="Creative Commons: Attribution - Share Alike" alt="cc-wiki" /></a></div>
             <div id="betamessage">Using this website may cause <a href="http://www.youtube.com/watch?v=UM64dMoweio">irreversible damage to the kidneys and liver</a>.</div>
-            <div id="svnrevision">svn revision: 1702</div>            
+            <div id="svnrevision">svn revision: 1776</div>            
         </div>
     </div>
 

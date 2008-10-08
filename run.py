@@ -21,11 +21,11 @@ def getData(data):
         ('file:html/search/google/2.html', ['www.ford.com.au/ - 34k', 'www.ford.com/ - 32k']),
     ])
     
-    maxUrls = 100
+    maxUrls = 150
     maxPages = 50
     for site, d in data:
         print site
-        if site != 'ASX': continue
+        #if site != 'ASX': continue
         trainUrls = [url.replace('file:', '') for (url, outputs) in d]
         #print 'RE:', buildUrlRE(trainUrls)
         baseDir = '%s' % os.path.dirname(trainUrls[0])
@@ -53,7 +53,7 @@ def getData(data):
                         regExp = re.compile(regExpStr)
                         urls.extend([url for url in googleUrls if regExp.search(url)])
                         #print pageNo, len(urls)
-                    if not result or len(urls) > 5*maxUrls:
+                    if not result or len(urls) > 3*maxUrls:
                         # no more results
                         break
         else:
@@ -65,6 +65,7 @@ def getData(data):
         if not os.path.exists(testDir):
             os.makedirs(testDir)
         for i, url in enumerate(urls):
+            #if i <= 100: continue
             os.system("""wget "%s" --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre" -O %s/%d.html""" % (url, testDir, i+1))
 
 
