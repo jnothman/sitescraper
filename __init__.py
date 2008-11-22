@@ -266,7 +266,11 @@ class htmlDoc(object):
 
     def parseUrl(self):
         """Fetch url and return an ElementTree of the parsed XML"""
-        fp = urllib2.urlopen(urllib2.Request(self.getUrl(), None, {'User-agent': htmlDoc.USER_AGENT}))
+        url = self.getUrl()
+        if os.path.exists(url):
+            fp = open(url)
+        else:
+            fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': htmlDoc.USER_AGENT}))
         tree = lxmlHtml.parse(fp)
         # remove tags that are not useful
         if self.getAggressive():
@@ -607,8 +611,12 @@ def trainModel(urlOutputs):
 
 def testModel(url, model):
     """Use the model to extract output for a url of the same form"""
-    results = []
     doc = htmlDoc(url, False, True)
+    if not doc.getTree().getroot():
+        print 'Error: %s has no root node' % url
+        return []
+
+    results = []
     for xpathStr, collapse in model:
         if '//' in xpathStr and collapse:
             # need to calculate sections separately to prevent collapsing unrelated parts
@@ -623,6 +631,4 @@ def testModel(url, model):
                     results.append(''.join(thisResult))
                 else:
                     results.extend(thisResult)
-            else:
-                results.append('<NO MATCH>')
     return results
