@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="Daisy Wiki Installation- Java Errors, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="Daisy Wiki Installation- Java Errors Linux - Software" />
+<meta name="keywords" content="Apache problems!, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="Apache problems! Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>Daisy Wiki Installation- Java Errors - LinuxQuestions.org</title>
+	<title>Apache problems! - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right">Visit the LQ <a href="http://www.linuxquestions.org/linux/articles/">Articles and Editorials</a> section</div>
+     <div align="right">Have you heard the <a href="http://radio.linuxquestions.org/linux/lq-podcasts/">LinuxQuestions.org Podcast</a>?</div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/daisy-wiki-installation-java-errors-663075/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	Daisy Wiki Installation- Java Errors
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/apache-problems-438451/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	Apache problems!
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -268,9 +397,28 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3249018" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=2215437" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+	
+	<td align="right">
+<div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 6</td>
 	
 	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 85"><strong>1</strong></span></td>
+ 
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page2.html" title="Show results 16 to 30 of 85">2</a></td>
+
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page3.html" title="Show results 31 to 45 of 85">3</a></td>
+
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page2.html" title="Next Page - Results 16 to 30 of 85">&gt;</a></td>
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page6.html" title="Last Page - Results 76 to 85 of 85">Last <strong>&raquo;</strong></a></td>
+	<td class="vbmenu_control" title="showthread.php?t=438451"><a name="PageNav"></a></td>
+</tr>
+</table>
+</div>
+</td>
 </tr>
 </table>
 <!-- / controls above postbits -->
@@ -286,8 +434,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/apache-problems-438451/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +453,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3249018 -->
+<div id="posts"><!-- post #2215437 -->
 
 	<!-- open content container -->
 
@@ -313,25 +461,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3249018" style="padding:0px 0px 3px 0px">
+	<div id="edit2215437" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3249018" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post2215437" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3249018"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-15-2008, 05:03 PM
+			<a name="post2215437"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:18 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3249018#post3249018" rel="nofollow" id="postcount3249018" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=2215437#post2215437" rel="nofollow" id="postcount2215437" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,14 +488,14 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3249018">
+			<div id="postmenu_2215437">
 				
-				<a class="bigusername" href="/questions/user/tylerh72-409029/">Tyler_H72</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3249018", true); </script>
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215437", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">LQ Newbie</div>
+			<div class="smallfont">Member</div>
 			
 			
 			
@@ -358,12 +506,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: May 2008</div>
-				
-				<div>Distribution: OpenSuSE</div>
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
 				
 				<div>
-					Posts: 22
+					Posts: 85
 				</div>
 				
 				
@@ -374,14 +522,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3249018" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_2215437" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
-				<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/icons_lq/icon5.gif" alt="Question" border="0" />
-				<strong>Daisy Wiki Installation- Java Errors</strong>
+				
+				<strong>Apache problems!</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,59 +546,60 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3249018">I have been trying to install Daisy Wiki, but for some reason I am not having much luck.  I have installed MySQL and Java 1.6 as described in the Daisy site's installation guide, but when I try to run the daisy-repository-init script, it prompts me for a bunch of information, then outputs the following:<br />
+		<div id="post_message_2215437">Got to the final step of setup.<br />
 <br />
-<div style="margin:20px; margin-top:5px">
-	<div class="smallfont" style="margin-bottom:2px">Code:</div>
-	<pre class="bbcodeblock" dir="ltr" style="
-		margin: 0px;
-		padding: 3px;
-		border: 1px inset;
-		width: 98%;
-		height: 498px;
-		text-align: left;
-		overflow: auto">Registering driver...
-Successful.
-Exception in thread &quot;main&quot; com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
-
-** BEGIN NESTED EXCEPTION ** 
-
-java.net.SocketException
-MESSAGE: java.net.ConnectException: Connection refused
-
-STACKTRACE:
-
-java.net.SocketException: java.net.ConnectException: Connection refused
-        at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:156)
-        at com.mysql.jdbc.MysqlIO.&lt;init&gt;(MysqlIO.java:284)
-        at com.mysql.jdbc.Connection.createNewIO(Connection.java:2555)
-        at com.mysql.jdbc.Connection.&lt;init&gt;(Connection.java:1485)
-        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
-        at org.outerj.daisy.jdbcutil.DriverLoader$DriverShim.connect(DriverLoader.java:77)
-        at java.sql.DriverManager.getConnection(DriverManager.java:582)
-        at java.sql.DriverManager.getConnection(DriverManager.java:185)
-        at org.outerj.daisy.install.InstallHelper$DatabaseParams.checkDatabase(InstallHelper.java:203)
-        at org.outerj.daisy.install.RepositoryServerInit.initDatabase(RepositoryServerInit.java:140)
-        at org.outerj.daisy.install.RepositoryServerInit.install(RepositoryServerInit.java:89)
-        at org.outerj.daisy.install.RepositoryServerInit.main(RepositoryServerInit.java:56)
-
-
-** END NESTED EXCEPTION **
-
-
-
-Last packet sent to the server was 20 ms ago.
-        at com.mysql.jdbc.Connection.createNewIO(Connection.java:2621)
-        at com.mysql.jdbc.Connection.&lt;init&gt;(Connection.java:1485)
-        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
-        at org.outerj.daisy.jdbcutil.DriverLoader$DriverShim.connect(DriverLoader.java:77)
-        at java.sql.DriverManager.getConnection(DriverManager.java:582)
-        at java.sql.DriverManager.getConnection(DriverManager.java:185)
-        at org.outerj.daisy.install.InstallHelper$DatabaseParams.checkDatabase(InstallHelper.java:203)
-        at org.outerj.daisy.install.RepositoryServerInit.initDatabase(RepositoryServerInit.java:140)
-        at org.outerj.daisy.install.RepositoryServerInit.install(RepositoryServerInit.java:89)
-        at org.outerj.daisy.install.RepositoryServerInit.main(RepositoryServerInit.java:56)</pre>
-</div>Please help me!</div>
+Start the apache daemon by using<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[root@cpe-24-195-24-133 httpd-2.2.0]# /usr/local/apache2/bin/apachect1 start<br />
+-bash: /usr/local/apache2/bin/apachect1: No such file or directory
+			
+		</td>
+	</tr>
+	</table>
+</div>any clue?  Maybe I downloaded something wrong or im in the wrong dir to be doing this?<br />
+<br />
+update:<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[root@cpe-24-195-24-133 ~]# cd /<br />
+[root@cpe-24-195-24-133 /]# ls<br />
+bin   dev  home  lost+found  misc  net  proc  sbin     srv  tmp  var<br />
+boot  etc  lib   media       mnt   opt  root  selinux  sys  usr<br />
+[root@cpe-24-195-24-133 /]# cd /usr/local<br />
+[root@cpe-24-195-24-133 local]# ls<br />
+apache2  bin  etc  games  include  lib  libexec  mysql  sbin  share  src<br />
+[root@cpe-24-195-24-133 local]# cd apache2<br />
+[root@cpe-24-195-24-133 apache2]# ls<br />
+bin    cgi-bin  error   icons    lib   man     modules<br />
+build  conf     htdocs  include  logs  manual<br />
+[root@cpe-24-195-24-133 apache2]# cd bin<br />
+[root@cpe-24-195-24-133 bin]# ls<br />
+ab            apu-1-config  dbmmanage    htcacheclean  htpasswd   logresolve<br />
+apachectl     apxs          envvars      htdbm         httpd      rotatelogs<br />
+apr-1-config  checkgid      envvars-std  htdigest      httxt2dbm<br />
+[root@cpe-24-195-24-133 bin]# apapchect1<br />
+-bash: apapchect1: command not found<br />
+[root@cpe-24-195-24-133 bin]# apachect1 start<br />
+-bash: apachect1: command not found<br />
+[root@cpe-24-195-24-133 bin]# cd apachect1<br />
+-bash: cd: apachect1: No such file or directory<br />
+[root@cpe-24-195-24-133 bin]#
+			
+		</td>
+	</tr>
+	</table>
+</div>everything by envvars and envvars-std is green.  Don't know if that means much.  I wanted to see if I actually had the files.</div>
 		<!-- / message -->
 	
 		
@@ -462,12 +611,21 @@ Last packet sent to the server was 20 ms ago.
 		
 		
 		
+		<!-- edit note -->
+			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
+				<em>
+				Last edited by Markness : 04-24-2006 at <span class="time">04:29 PM</span>.
+				
+				</em>
+			</div>
+		<!-- / edit note -->
+		
 	
 	</td>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Tyler_H72 is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
 
 
 						
@@ -475,7 +633,7 @@ Last packet sent to the server was 20 ms ago.
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3249018" class="alt2" valign="bottom">
+	<td id="lqtags_2215437" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -488,7 +646,7 @@ Last packet sent to the server was 20 ms ago.
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3249018" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=2215437" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -502,32 +660,34 @@ Last packet sent to the server was 20 ms ago.
 </table>
 
 
-<!-- post 3249018 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3249018_menu" style="display:none">
+<!-- post 2215437 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215437_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Tyler_H72</td>
+		<td class="thead">Markness</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/tylerh72-409029/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Tyler_H72">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Tyler_H72">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=409029">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=409029">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=409029" rel="nofollow">Find More Posts by Tyler_H72</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3249018 popup menu -->
+<!-- / post 2215437 popup menu -->
 
 
 	</div>
@@ -538,7 +698,7 @@ Last packet sent to the server was 20 ms ago.
 
 <!-- / close content container -->
 
-<!-- / post #3249018 --><!-- post #3256072 -->
+<!-- / post #2215437 --><!-- post #2215452 -->
 
 	<!-- open content container -->
 
@@ -546,25 +706,25 @@ Last packet sent to the server was 20 ms ago.
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256072" style="padding:0px 0px 3px 0px">
-		
+	<div id="edit2215452" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3256072" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post2215452" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256072"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 10:26 AM
+			<a name="post2215452"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:32 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256072#post3256072" rel="nofollow" id="postcount3256072" name="2"><strong>2</strong></a>
+			#<a href="/questions/showthread.php?p=2215452#post2215452" rel="nofollow" id="postcount2215452" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -573,14 +733,14 @@ Last packet sent to the server was 20 ms ago.
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256072">
+			<div id="postmenu_2215452">
 				
-				<a class="bigusername" href="/questions/user/tylerh72-409029/">Tyler_H72</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256072", true); </script>
+				<a class="bigusername" href="/questions/user/zeitounator-51485/">zeitounator</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215452", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">LQ Newbie</div>
+			<div class="smallfont">Member</div>
 			
 			
 			
@@ -591,12 +751,12 @@ Last packet sent to the server was 20 ms ago.
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: May 2008</div>
-				
-				<div>Distribution: OpenSuSE</div>
+				<div>Registered: Aug 2003</div>
+				<div>Location: Montpellier, France, Europe, World, Solar System</div>
+				<div>Distribution: Debian Sarge, Fedora core 5 (i386 and x86_64)</div>
 				
 				<div>
-					Posts: 22
+					Posts: 262
 				</div>
 				
 				
@@ -607,7 +767,7 @@ Last packet sent to the server was 20 ms ago.
 		
 	</td>
 	
-	<td colspan="2" class="alt1" id="td_post_3256072" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_2215452" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -616,7 +776,7 @@ Last packet sent to the server was 20 ms ago.
 		<!-- message -->
 
 
-		<div id="post_message_3256072">Well, I solved the problem- just another one of those stupid mistakes that are so easy to overlook.  It turns out that when I set up mySQL I entered the skip-networking command in the config file to make it stop giving me that annoying socket error.  That was all well and good, but it was preventing the SQL server from working properly.  Now I have fixed that and have run into a new problem- I have fully installed Daisy, and it worked fine.  The problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match.  I have fully restored, but I cannot get a connection to the repository server- any advice?</div>
+		<div id="post_message_2215452">The last character is the number one... change it to lower case L =&gt; apachect&quot;hell&quot; not apachect&quot;one&quot;</div>
 		<!-- / message -->
 	
 		
@@ -633,7 +793,7 @@ Last packet sent to the server was 20 ms ago.
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Tyler_H72 is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="zeitounator is offline" border="0" />
 
 
 						
@@ -641,7 +801,7 @@ Last packet sent to the server was 20 ms ago.
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256072" class="alt1" valign="bottom">
+	<td id="lqtags_2215452" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -654,7 +814,7 @@ Last packet sent to the server was 20 ms ago.
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256072" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=2215452" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -668,32 +828,34 @@ Last packet sent to the server was 20 ms ago.
 </table>
 
 
-<!-- post 3256072 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256072_menu" style="display:none">
+<!-- post 2215452 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215452_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Tyler_H72</td>
+		<td class="thead">zeitounator</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/tylerh72-409029/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/zeitounator-51485/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Tyler_H72">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Tyler_H72">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=409029">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=409029">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/zeitounator">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/zeitounator">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=51485">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=51485">View HCL Entries</a></td></tr>
 	
 	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=zeitounator">View LQ Wiki Contributions</a></td></tr>
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=409029" rel="nofollow">Find More Posts by Tyler_H72</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=51485" rel="nofollow">Find More Posts by zeitounator</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256072 popup menu -->
+<!-- / post 2215452 popup menu -->
 
 
 	</div>
@@ -704,7 +866,2325 @@ Last packet sent to the server was 20 ms ago.
 
 <!-- / close content container -->
 
-<!-- / post #3256072 --><div id="lastpost"></div></div>
+<!-- / post #2215452 --><!-- post #2215458 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215458" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215458" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215458"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:36 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215458#post2215458" rel="nofollow" id="postcount2215458" name="3"><strong>3</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215458">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215458", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215458" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215458">This is the error I got, but that worked!  Thanks!<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[mbenoit@cpe-24-195-24-133 ~]$ /usr/local/apache2/bin/apachectl start<br />
+(13)Permission denied: make_sock: could not bind to address [::]:80<br />
+(13)Permission denied: make_sock: could not bind to address 0.0.0.0:80<br />
+no listening sockets available, shutting down<br />
+Unable to open logs<br />
+[mbenoit@cpe-24-195-24-133 ~]$
+			
+		</td>
+	</tr>
+	</table>
+</div></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215458" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215458" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215458 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215458_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215458 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215458 --><!-- post #2215472 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215472" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215472" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215472"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:43 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215472#post2215472" rel="nofollow" id="postcount2215472" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215472">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215472", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215472" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215472"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>Markness</strong>
+					
+				</div>
+				<div style="font-style:italic">This is the error I got, but that worked!  Thanks!</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>That means something else is running and listening on port 80.<br />
+<br />
+Run these commands:<br />
+<br />
+$ ps ax | grep http<br />
+$ ps ax | grep inetd<br />
+<br />
+Please post the output from both commmands.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215472" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215472" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215472 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215472_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215472 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215472 --><!-- post #2215480 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215480" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215480" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215480"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:48 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215480#post2215480" rel="nofollow" id="postcount2215480" name="5"><strong>5</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215480">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215480", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215480" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215480">Huzzah!  Here it is.<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[mbenoit@cpe-24-195-24-133 ~]$ ps ax | grep http<br />
+27883 pts/3    S+     0:00 grep http<br />
+[mbenoit@cpe-24-195-24-133 ~]$ ps ax | grep inetd<br />
+27886 pts/3    R+     0:00 grep inetd<br />
+[mbenoit@cpe-24-195-24-133 ~]$
+			
+		</td>
+	</tr>
+	</table>
+</div></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215480" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215480" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215480 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215480_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215480 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215480 --><!-- post #2215483 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215483" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215483" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215483"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 04:51 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215483#post2215483" rel="nofollow" id="postcount2215483" name="6"><strong>6</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215483">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215483", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215483" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215483">Duh, I'm an idiot.  You must start Apache as root so it can bind to address 80.<br />
+<br />
+$ su<br />
+# /path/to/apache/bin/apachectl start<br />
+# exit<br />
+$ ps ax | grep http<br />
+<br />
+httpd should appear.  Sorry about that.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215483" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215483" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215483 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215483_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215483 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215483 --><!-- post #2215499 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215499" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215499" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215499"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 05:01 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215499#post2215499" rel="nofollow" id="postcount2215499" name="7"><strong>7</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215499">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215499", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215499" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215499">heres the output.  does this mean apache is started and running?<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[mbenoit@cpe-24-195-24-133 ~]$ ps ax | grep http<br />
+27974 ?        Ss     0:00 /usr/local/apache2/bin/httpd -k start<br />
+27975 ?        S      0:00 /usr/local/apache2/bin/httpd -k start<br />
+27976 ?        S      0:00 /usr/local/apache2/bin/httpd -k start<br />
+27977 ?        S      0:00 /usr/local/apache2/bin/httpd -k start<br />
+27978 ?        S      0:00 /usr/local/apache2/bin/httpd -k start<br />
+27979 ?        S      0:00 /usr/local/apache2/bin/httpd -k start<br />
+27983 pts/3    R+     0:00 grep http<br />
+[mbenoit@cpe-24-195-24-133 ~]$
+			
+		</td>
+	</tr>
+	</table>
+</div></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215499" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215499" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215499 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215499_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215499 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215499 --><!-- post #2215515 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215515" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215515" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215515"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 05:10 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215515#post2215515" rel="nofollow" id="postcount2215515" name="8"><strong>8</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215515">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215515", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215515" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215515"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>Markness</strong>
+					
+				</div>
+				<div style="font-style:italic">heres the output.  does this mean apache is started and running?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>Yup.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215515" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215515" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215515 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215515_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215515 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215515 --><!-- post #2215590 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215590" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215590" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215590"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 06:08 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215590#post2215590" rel="nofollow" id="postcount2215590" name="9"><strong>9</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215590">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215590", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215590" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215590">Ok.  Another problem I ran into.  <br />
+<br />
+I got Apache, MySQL, and PHP sucessfully installed on my system.  I went to <a href="http://localhost">http://localhost</a> and got the message &quot;it works&quot; so I was guessing it worked.  I created my first php file firstprog.php and I went to localhost to type in:<br />
+<br />
+<a href="http://localhost/firstprog.php">http://localhost/firstprog.php</a> and it coulden't resolve anything.  The program is sitting in my home dir.  Where the heck do I have to put it to view it?  I'll be around for quick repies.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215590" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215590" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215590 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215590_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215590 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215590 --><!-- post #2215668 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215668" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215668" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215668"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 06:58 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215668#post2215668" rel="nofollow" id="postcount2215668" name="10"><strong>10</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215668">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215668", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215668" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215668">You will have to look at your httpd.conf file to find out where &quot;DocumentRoot&quot; is.  That is where Apache will look for HTML files, by default.  The easiest thing for you to do is search for &quot;DocumentRoot&quot; in httpd.conf and put your test PHP script in that directory, the one identified in the &quot;DocumentRoot&quot; directive, and then your URL, as coded above, should &quot;work&quot;.  You might have PHP issues but at least Apache will be able to locate the file.<br />
+<br />
+Was that quick enough for you?  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /><br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215668" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215668" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215668 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215668_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215668 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215668 --><!-- post #2215684 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215684" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215684" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215684"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 07:08 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215684#post2215684" rel="nofollow" id="postcount2215684" name="11"><strong>11</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215684">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215684", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215684" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215684">After several refreshes, yes <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />  Let me try.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215684" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215684" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215684 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215684_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215684 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215684 --><!-- post #2215695 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215695" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215695" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215695"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 07:15 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215695#post2215695" rel="nofollow" id="postcount2215695" name="12"><strong>12</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215695">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215695", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215695" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215695">Ok.  Found it.<br />
+<br />
+Put the file in there, but it doesnt display the html or the php, just the code.  Did I not install something correctly?</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215695" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215695" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215695 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215695_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215695 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215695 --><!-- post #2215739 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215739" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215739" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215739"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 08:08 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215739#post2215739" rel="nofollow" id="postcount2215739" name="13"><strong>13</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215739">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215739", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215739" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215739"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>
+					Originally Posted by <strong>Markness</strong>
+					
+				</div>
+				<div style="font-style:italic">Put the file in there, but it doesnt display the html or the php, just the code.  Did I not install something correctly?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>Do you mean the PHP script displays instead of the output from the script?  If so, did you follow steps #14 and #15 of the <a href="http://www.php.net/manual/en/install.unix.apache2.php">PHP installation guide</a>?<br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215739" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215739" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215739 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215739_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215739 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215739 --><!-- post #2215763 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215763" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post2215763" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215763"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 08:34 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215763#post2215763" rel="nofollow" id="postcount2215763" name="14"><strong>14</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215763">
+				
+				<a class="bigusername" href="/questions/user/markness-179861/">Markness</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215763", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Apr 2005</div>
+				<div>Location: Albany, NY</div>
+				<div>Distribution: Fedora Core 6</div>
+				
+				<div>
+					Posts: 85
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_2215763" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215763">I was using something different.  Ok, so I  have to do those steps.  Where in the config file so I enter that information in for PHP5?  Just tried to enter it somewhere and save and its read only?  I did it through GUI not term.  I dont know how to change it through terminal <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" />  googling now</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- edit note -->
+			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
+				<em>
+				Last edited by Markness : 04-24-2006 at <span class="time">08:44 PM</span>.
+				
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Markness is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215763" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215763" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215763 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215763_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Markness</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/markness-179861/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Markness">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Markness">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=179861">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=179861">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.synergy-industries.com">Visit Markness's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=179861" rel="nofollow">Find More Posts by Markness</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215763 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215763 --><!-- post #2215827 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit2215827" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post2215827" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post2215827"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			04-24-2006, 09:36 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=2215827#post2215827" rel="nofollow" id="postcount2215827" name="15"><strong>15</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_2215827">
+				
+				<a class="bigusername" href="/questions/user/tomdkat-32449/">tomdkat</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2215827", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2003</div>
+				<div>Location: S.F. Bay Area</div>
+				<div>Distribution: Ubuntu 6.10 (Edgy Eft) AMD64</div>
+				
+				<div>
+					Posts: 586
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_2215827" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_2215827">If you're using some GUI tool to edit the Apache config file, just find other &quot;LoadModule&quot; entries and put the line for PHP5 in next to those other lines.  The same goes for the PHP MIME type (the &quot;AddType&quot; line).<br />
+<br />
+Make those two changes to your httpd.conf file and PHP scripts should start executing.  You can edit httpd.conf using any text editor you like.  DO NOT use a word processor since you will need to save the file as straight text.<br />
+<br />
+Peace...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="tomdkat is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_2215827" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=2215827" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 2215827 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2215827_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">tomdkat</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/tomdkat-32449/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/tomdkat">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/tomdkat">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=32449">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=32449">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=32449" rel="nofollow">Find More Posts by tomdkat</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 2215827 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2215827 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -724,8 +3204,31 @@ Last packet sent to the server was 20 ms ago.
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256072" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=2215827" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
+	
+		<td align="right">
+<div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 6</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 85"><strong>1</strong></span></td>
+ 
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page2.html" title="Show results 16 to 30 of 85">2</a></td>
+
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page3.html" title="Show results 31 to 45 of 85">3</a></td>
+
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page2.html" title="Next Page - Results 16 to 30 of 85">&gt;</a></td>
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/apache-problems-438451/page6.html" title="Last Page - Results 76 to 85 of 85">Last <strong>&raquo;</strong></a></td>
+	<td class="vbmenu_control" title="showthread.php?t=438451"><a name="PageNav"></a></td>
+</tr>
+</table>
+</div>
+
+						
+		</td>
 	
 </tr>
 </table>
@@ -737,12 +3240,12 @@ Last packet sent to the server was 20 ms ago.
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=663075&amp;title=Daisy Wiki Installation- Java Errors" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=663075&amp;title=Daisy Wiki Installation- Java Errors" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=663075&amp;title=Daisy Wiki Installation- Java Errors"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=438451&amp;title=Apache problems!" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=438451&amp;title=Apache problems!" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=438451&amp;title=Apache problems!"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/daisy-wiki-installation-java-errors-663075/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/apache-problems-438451/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -761,37 +3264,39 @@ Last packet sent to the server was 20 ms ago.
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=663075" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=663075" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=438451&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=438451" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=438451" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -860,36 +3365,39 @@ Last packet sent to the server was 20 ms ago.
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=607420" title="I have discovered the 'pause' command does not exist on my system.
-It is also not listed under the wiki.linuxquestions.org/wiki/P_commands. My..." target="_blank">Linux pause command not on wiki.linuxquestions.org/wiki/P_commands</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">JHMC</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=430768" title="I have a website on my server, just one css page i wrote and a lil php in there.  My hopes were so high when I tried localhost and say my website..." target="_blank">hello.  Problems with apache, (I believe.)</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">$Linuxnoob</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Fedora</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04-09-2006 <span class="time">05:51 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=352044" title="Well, i've installed Fedora Core 4. When i first installed it, Apache worked just right (note: I dual boot it with windows). Then i restarted the..." target="_blank">Problems with Apache</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">XblueorbX</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">22</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-13-2005 <span class="time">09:31 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=226988" title="Hey y'all.
+
+I have just installed Fedora Core 1 a few days ago after finally getting a Netgear DG834 router. Now  want to get my old apache server..." target="_blank">apache 1.3 problems</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Dill</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">4</span></td>
-	<td class="alt1" align="right"><span class="smallfont">12-18-2007 <span class="time">11:56 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-05-2004 <span class="time">05:01 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=376275" title="Hello,
-
-What do people think about printer friendly wiki (like the button for the threads).
-
-I am at the stage of using wiki but not yet contributing..." target="_blank">Wiki: Show Printable Version / printer friendly version / wiki page setup</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">Emmanuel_uk</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">LQ Suggestions &amp; Feedback</span></td>
-	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">10-24-2005 <span class="time">08:09 AM</span></span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=161699" title="Hi, I'm a newbie to Apache (and Gentoo) and I just installed openssh, vim, apache2, mod_perl, and mod_php onto an otherwise empty system with emerge...." target="_blank">Apache: Several Problems!</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">overbored</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-31-2004 <span class="time">10:01 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=308542" title="How can i create  new wiki wiki web pages . where can i find a detailed tutorial on creating wiki pages. I need to start from a fresh. 
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=36122" title="Hi,
 
-the tutorial..." target="_blank">tutorial on wiki wiki web</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">alix123</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Programming</span></td>
-	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">04-02-2005 <span class="time">02:08 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=154467" title="I just added some items to the wiki. I added them all using the &quot;bottom level wiki namespace&quot; the same way all the other &quot;wiki links&quot; were that I..." target="_blank">wiki: supposed to use the same wiki namespace?</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">liquigel</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">LQ Suggestions &amp; Feedback</span></td>
-	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">03-07-2004 <span class="time">10:11 AM</span></span></td>
+I am running RH8.0. I began trying to run Apache 2.0.40, whcih worked with a single website, but when I configured virtual hosts, apache would..." target="_blank">Apache virtualhost problems, apache install problems</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">nyroc</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">06-09-2003 <span class="time">11:16 PM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -910,7 +3418,7 @@ the tutorial..." target="_blank">tutorial on wiki wiki web</a></span></td>
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:31 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:27 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -971,17 +3479,10 @@ the tutorial..." target="_blank">tutorial on wiki wiki web</a></span></td>
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>

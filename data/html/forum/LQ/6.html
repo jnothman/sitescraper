@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
 <head>
-	<base href="http://www.linuxquestions.org/questions/" />
+	<base href="https://www.linuxquestions.org/questions/" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="Get Grub to Load Isolinux, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="Get Grub to Load Isolinux Linux - Software" />
+<meta name="keywords" content="Dreamweaver Mock?, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="Dreamweaver Mock? Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>Get Grub to Load Isolinux - LinuxQuestions.org</title>
+	<title>Dreamweaver Mock? - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right">View the <a href="http://wiki.linuxquestions.org/wiki/Special:Wantedpages">Most Wanted</a> LQ Wiki articles.</div>
+     <div align="right">Download your favorite Linux distribution at <a href="http://iso.linuxquestions.org/">LQ ISO</a>.</div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/get-grub-to-load-isolinux-663335/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	Get Grub to Load Isolinux
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/dreamweaver-mock-125054/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	Dreamweaver Mock?
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -268,7 +397,7 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3250298" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=647457" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 	
 	
 </tr>
@@ -286,8 +415,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/dreamweaver-mock-125054/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +434,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3250298 -->
+<div id="posts"><!-- post #647457 -->
 
 	<!-- open content container -->
 
@@ -313,25 +442,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3250298" style="padding:0px 0px 3px 0px">
+	<div id="edit647457" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3250298" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post647457" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3250298"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-16-2008, 11:46 PM
+			<a name="post647457"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-11-2003, 06:56 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3250298#post3250298" rel="nofollow" id="postcount3250298" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=647457#post647457" rel="nofollow" id="postcount647457" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,14 +469,14 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3250298">
+			<div id="postmenu_647457">
 				
-				<a class="bigusername" href="/questions/user/halfbrazilian-364885/">halfbrazilian</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3250298", true); </script>
+				<a class="bigusername" href="/questions/user/lramos85-65094/">lramos85</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_647457", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">LQ Newbie</div>
+			<div class="smallfont">Member</div>
 			
 			
 			
@@ -358,12 +487,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Sep 2007</div>
-				
-				
+				<div>Registered: Sep 2003</div>
+				<div>Location: Riverside, Ca</div>
+				<div>Distribution: Gentoo, FC3</div>
 				
 				<div>
-					Posts: 10
+					Posts: 125
 				</div>
 				
 				
@@ -374,14 +503,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3250298" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_647457" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
 				
-				<strong>Get Grub to Load Isolinux</strong>
+				<strong>Dreamweaver Mock?</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,341 +527,9 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3250298">Is it possible to get grub which is installed on a live cd to load isolinux on the same cd? I am trying to make a multiple distro live dvd and at the same time add a few grub entries to point to the hard drive. I figured that if I could get grub to load the isolinux.bin for each distro it would make the task a little easier.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="halfbrazilian is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3250298" class="alt2" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3250298" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3250298 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3250298_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">halfbrazilian</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/halfbrazilian-364885/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/halfbrazilian">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/halfbrazilian">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=364885">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=364885">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=364885" rel="nofollow">Find More Posts by halfbrazilian</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3250298 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3250298 --><!-- post #3250608 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3250608" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3250608" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3250608"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-17-2008, 09:49 AM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3250608#post3250608" rel="nofollow" id="postcount3250608" name="2"><strong>2</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3250608">
-				
-				<a class="bigusername" href="/questions/user/bigrigdriver-13729/">bigrigdriver</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3250608", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Senior Member</div>
-			<div class="smallfont"><a href="/linux/member.html">Contributing Member</a></div
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Jul 2002</div>
-				<div>Location: East Centra Illinois, USA</div>
-				<div>Distribution: openSUSE 10.3  Debian 4.0</div>
-				
-				<div>
-					Posts: 4,511
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3250608" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3250608">This is probably what you need: <a href="http://www.linux.com/feature/54537">http://www.linux.com/feature/54537</a></div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="bigrigdriver is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3250608" class="alt1" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3250608" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3250608 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3250608_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">bigrigdriver</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/bigrigdriver-13729/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/bigrigdriver">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/bigrigdriver">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=13729">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=13729">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=13729" rel="nofollow">Find More Posts by bigrigdriver</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3250608 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3250608 --><!-- post #3250644 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3250644" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3250644" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3250644"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-17-2008, 10:54 AM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3250644#post3250644" rel="nofollow" id="postcount3250644" name="3"><strong>3</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3250644">
-				
-				<a class="bigusername" href="/questions/user/halfbrazilian-364885/">halfbrazilian</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3250644", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">LQ Newbie</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Sep 2007</div>
-				
-				
-				
-				<div>
-					Posts: 10
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt2" id="td_post_3250644" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3250644">Thanks but that was where I actually started the whole project. Instead of having grub boot ioslinux, they simply converted the isolinux.cfg files to menu.lst files.<br />
+		<div id="post_message_647457">Is there any software on linux that can kind of  mock or be better than Macromedia's Dreamweaver, I want to be able to do a website with the capability of changing form design view to code view and for it to do the html for you because that is just a waist of time. If anyone knows something similar please tell me. Thanks.<br />
 <br />
-What I basically want to do is chainload isolinux from grub.</div>
+-luis</div>
 		<!-- / message -->
 	
 		
@@ -744,21 +541,12 @@ What I basically want to do is chainload isolinux from grub.</div>
 		
 		
 		
-		<!-- edit note -->
-			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
-				<em>
-				Last edited by halfbrazilian : 08-17-2008 at <span class="time">02:21 PM</span>.
-				
-				</em>
-			</div>
-		<!-- / edit note -->
-		
 	
 	</td>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="halfbrazilian is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="lramos85 is offline" border="0" />
 
 
 						
@@ -766,7 +554,7 @@ What I basically want to do is chainload isolinux from grub.</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3250644" class="alt2" valign="bottom">
+	<td id="lqtags_647457" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -779,7 +567,7 @@ What I basically want to do is chainload isolinux from grub.</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3250644" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=647457" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -793,32 +581,34 @@ What I basically want to do is chainload isolinux from grub.</div>
 </table>
 
 
-<!-- post 3250644 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3250644_menu" style="display:none">
+<!-- post 647457 popup menu -->
+<div class="vbmenu_popup" id="postmenu_647457_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">halfbrazilian</td>
+		<td class="thead">lramos85</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/halfbrazilian-364885/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/lramos85-65094/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/halfbrazilian">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/halfbrazilian">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=364885">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=364885">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/lramos85">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/lramos85">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=65094">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=65094">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=364885" rel="nofollow">Find More Posts by halfbrazilian</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.sifelink.com">Visit lramos85's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=65094" rel="nofollow">Find More Posts by lramos85</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3250644 popup menu -->
+<!-- / post 647457 popup menu -->
 
 
 	</div>
@@ -829,7 +619,7 @@ What I basically want to do is chainload isolinux from grub.</div>
 
 <!-- / close content container -->
 
-<!-- / post #3250644 --><!-- post #3251788 -->
+<!-- / post #647457 --><!-- post #647479 -->
 
 	<!-- open content container -->
 
@@ -837,25 +627,25 @@ What I basically want to do is chainload isolinux from grub.</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3251788" style="padding:0px 0px 3px 0px">
+	<div id="edit647479" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3251788" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post647479" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3251788"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-18-2008, 01:52 PM
+			<a name="post647479"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-11-2003, 07:08 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3251788#post3251788" rel="nofollow" id="postcount3251788" name="4"><strong>4</strong></a>
+			#<a href="/questions/showthread.php?p=647479#post647479" rel="nofollow" id="postcount647479" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -864,176 +654,10 @@ What I basically want to do is chainload isolinux from grub.</div>
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3251788">
+			<div id="postmenu_647479">
 				
-				<a class="bigusername" href="/questions/user/halfbrazilian-364885/">halfbrazilian</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3251788", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">LQ Newbie</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Sep 2007</div>
-				
-				
-				
-				<div>
-					Posts: 10
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3251788" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3251788">--- Anyone? ---</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="halfbrazilian is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3251788" class="alt1" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3251788" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3251788 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3251788_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">halfbrazilian</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/halfbrazilian-364885/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/halfbrazilian">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/halfbrazilian">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=364885">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=364885">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=364885" rel="nofollow">Find More Posts by halfbrazilian</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3251788 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3251788 --><!-- post #3256324 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3256324" style="padding:0px 0px 3px 0px">
-		
-
-
-
-<table id="post3256324" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3256324"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 02:48 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3256324#post3256324" rel="nofollow" id="postcount3256324" name="5"><strong>5</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3256324">
-				
-				<a class="bigusername" href="/questions/user/knudfl-386037/">knudfl</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256324", true); </script>
+				<a class="bigusername" href="/questions/user/timdsmith-85972/">timdsmith</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_647479", true); </script>
 				
 			</div>
 			
@@ -1048,12 +672,12 @@ What I basically want to do is chainload isolinux from grub.</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Jan 2008</div>
-				<div>Location: Copenhagen, Denmark</div>
-				<div>Distribution: pclos2007,slack12,mandriva2007   (+12 others, for test only)</div>
+				<div>Registered: Nov 2003</div>
+				<div>Location: The Colony, TX</div>
+				<div>Distribution: Slackware, Debian Etch, FreeBSD, MicroSh*t free.</div>
 				
 				<div>
-					Posts: 568
+					Posts: 209
 				</div>
 				
 				
@@ -1064,7 +688,7 @@ What I basically want to do is chainload isolinux from grub.</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3256324" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_647479" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -1073,30 +697,173 @@ What I basically want to do is chainload isolinux from grub.</div>
 		<!-- message -->
 
 
-		<div id="post_message_3256324">1)... grub versus isolinux ... was the keyword for<br />
-google to find this<br />
-<a href="https://lists.ubuntu.com/archives/ubuntu-devel/2006-September/020537.html">https://lists.ubuntu.com/archives/ub...er/020537.html</a><br />
-and probably some more ( 3220 hits )<br />
-<br />
-So if you want to see how it is done, just<br />
-download 'the Warty live CD' (ubuntu)<br />
-<br />
-And you might want to read this<br />
-<a href="http://www.gnu.org/software/grub/manual/grub.html">http://www.gnu.org/software/grub/manual/grub.html</a><br />
-<br />
-As 1) not always works, I would try to find a way<br />
-to let isolinux use or boot into a /grub which also<br />
-could to be on the DVD ... if I was forced to have<br />
-only 1 DVD.<br />
-<br />
-(I wouldn't use such a solution at all. To use a <br />
-universal tool, I would have &quot;Smart Boot Manager&quot; <br />
-or something similar on a separate CD or floppy.<br />
-Will generate a new &quot;menu list&quot; every time you<br />
-have a new situation, and save it to RAM just <br />
-with a push on a button).<br />
-<br />
-Good Luck.</div>
+		<div id="post_message_647479">have you given bluefish a try?</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="timdsmith is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_647479" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=647479" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 647479 popup menu -->
+<div class="vbmenu_popup" id="postmenu_647479_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">timdsmith</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/timdsmith-85972/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/timdsmith">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/timdsmith">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=85972">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=85972">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=85972" rel="nofollow">Find More Posts by timdsmith</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 647479 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #647479 --><!-- post #685300 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit685300" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post685300" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post685300"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			01-05-2004, 06:34 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=685300#post685300" rel="nofollow" id="postcount685300" name="3"><strong>3</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_685300">
+				
+				<a class="bigusername" href="/questions/user/lramos85-65094/">lramos85</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_685300", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Sep 2003</div>
+				<div>Location: Riverside, Ca</div>
+				<div>Distribution: Gentoo, FC3</div>
+				
+				<div>
+					Posts: 125
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_685300" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_685300">is there any others?</div>
 		<!-- / message -->
 	
 		
@@ -1113,7 +880,7 @@ Good Luck.</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="knudfl is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="lramos85 is offline" border="0" />
 
 
 						
@@ -1121,7 +888,7 @@ Good Luck.</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256324" class="alt2" valign="bottom">
+	<td id="lqtags_685300" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -1134,7 +901,7 @@ Good Luck.</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256324" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=685300" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -1148,32 +915,34 @@ Good Luck.</div>
 </table>
 
 
-<!-- post 3256324 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256324_menu" style="display:none">
+<!-- post 685300 popup menu -->
+<div class="vbmenu_popup" id="postmenu_685300_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">knudfl</td>
+		<td class="thead">lramos85</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/knudfl-386037/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/lramos85-65094/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/knudfl">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/knudfl">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=386037">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=386037">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/lramos85">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/lramos85">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=65094">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=65094">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=386037" rel="nofollow">Find More Posts by knudfl</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.sifelink.com">Visit lramos85's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=65094" rel="nofollow">Find More Posts by lramos85</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256324 popup menu -->
+<!-- / post 685300 popup menu -->
 
 
 	</div>
@@ -1184,7 +953,189 @@ Good Luck.</div>
 
 <!-- / close content container -->
 
-<!-- / post #3256324 --><div id="lastpost"></div></div>
+<!-- / post #685300 --><!-- post #685348 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit685348" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post685348" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post685348"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			01-05-2004, 07:07 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=685348#post685348" rel="nofollow" id="postcount685348" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_685348">
+				
+				<a class="bigusername" href="/questions/user/trickykid-560/">trickykid</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_685348", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Guru</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jan 2001</div>
+				
+				
+				
+				<div>
+					Posts: 23,642
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_685348" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_685348"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by lramos85 </i><br />
+<b>is there any others? </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> There is also Quanta and Screem that I know of but nothing in comparison as these are really true WYSIWYG editors. Your not going to have the &quot;view page&quot; type function with these.<br />
+<br />
+It is possible to just load Dreamweaver using wine.<br />
+<br />
+<a href="http://www.frankscorner.org">www.frankscorner.org</a></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="trickykid is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_685348" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=685348" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 685348 popup menu -->
+<div class="vbmenu_popup" id="postmenu_685348_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">trickykid</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/trickykid-560/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/trickykid">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/trickykid">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=560">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=560">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=560" rel="nofollow">Find More Posts by trickykid</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 685348 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #685348 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -1204,7 +1155,7 @@ Good Luck.</div>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256324" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=685348" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
 	
 </tr>
@@ -1217,12 +1168,12 @@ Good Luck.</div>
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=663335&amp;title=Get Grub to Load Isolinux" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=663335&amp;title=Get Grub to Load Isolinux" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=663335&amp;title=Get Grub to Load Isolinux"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=125054&amp;title=Dreamweaver Mock?" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=125054&amp;title=Dreamweaver Mock?" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=125054&amp;title=Dreamweaver Mock?"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/get-grub-to-load-isolinux-663335/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/dreamweaver-mock-125054/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -1241,37 +1192,39 @@ Good Luck.</div>
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=663335" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=663335" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=125054&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=125054" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=125054" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -1340,52 +1293,43 @@ Good Luck.</div>
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=575108" title="I cant boot to my linux. 
-
-Grub says:
-Booting'Ubuntu, kernel 2.6.15-23-386'
-root(hd1,0)
-Filesystem type is fat, partition type 0xC
-kernel..." target="_blank">grub failed to load linux (grub think ext3 partition as fat)</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">khairilthegreat</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=386288" title="I use FC4.
+I am just wondering if there is any software for linux that is close to dreamweaver.  I am pretty picky.  I hate front page and..." target="_blank">Dreamweaver</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">bonniehandi</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
-	<td class="alt2" align="center"><span class="smallfont">7</span></td>
-	<td class="alt1" align="right"><span class="smallfont">08-09-2007 <span class="time">12:12 PM</span></span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">11-25-2005 <span class="time">09:48 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=358439" title="Hi there
-I took the first CD of RHEL 4 copied it the local directory and added my kickstart file to the root dir. Now I want to burn the CD again,..." target="_blank">mkisofs: Error - boot image './isolinux/isolinux.bin' has not an allowable size.</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">ogross74</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Red Hat</span></td>
-	<td class="alt2" align="center"><span class="smallfont">2</span></td>
-	<td class="alt1" align="right"><span class="smallfont">05-15-2007 <span class="time">09:19 AM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=350882" title="I installed a cd writer and a new HD on this older server. It died after that and had to replace the cpu. Now, after fighting with it, I have gotten..." target="_blank">Grub won't load</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">eggoz</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - General</span></td>
-	<td class="alt2" align="center"><span class="smallfont">2</span></td>
-	<td class="alt1" align="right"><span class="smallfont">08-07-2005 <span class="time">08:01 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=271753" title="Hi,
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=360361" title="is there a program with the feature from dreamweaver: &quot;check links site wide&quot; for linux?
 
-Here's HW my specs:
-AMD64 2800+
-Asus K8V SE  Deluxe mobo
-1GB DDR400 RAM
-Asus ATI 9200 pro
-2*200GB Seagate ATA100 HDD
-Asus 8x DVD+/-RW
-Gigabyte..." target="_blank">grub doesn't auto-load kernel, time/date auto-change, k3b cannot load</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">kenji1903</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Red Hat</span></td>
-	<td class="alt2" align="center"><span class="smallfont">16</span></td>
-	<td class="alt1" align="right"><span class="smallfont">03-27-2005 <span class="time">08:48 PM</span></span></td>
+or has anyone gotten dreamweaver mx or flash MX to work..." target="_blank">dreamweaver</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">mifan</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">4</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-06-2005 <span class="time">05:02 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=38479" title="I get &quot;ISOLINUX 1.75 2002-06-14 isolinux failed to get sector size, assuming 8000 isolinux&quot; when booting from my redhat 8.0 CD 1. 
-I downloaded only..." target="_blank">ISOLINUX 1.75 2002-06-14 isolinux failed to get sector size</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">tihe</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - General</span></td>
-	<td class="alt2" align="center"><span class="smallfont">13</span></td>
-	<td class="alt1" align="right"><span class="smallfont">12-16-2002 <span class="time">04:55 AM</span></span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=317473" title="Anyone know the name of a windows mock program for gentoo that has good multimedia capability? 
+
+specifically:
+is geared towards programs like..." target="_blank">Mulitiedia windows mock</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">IMAC</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04-28-2005 <span class="time">03:07 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=230287" title="I've always loved to make websites with Dreamweaver and I was wondering if it was available for Linux or is there an equivalent out there?" target="_blank">Dreamweaver</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">eaglesfan17</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-13-2004 <span class="time">08:41 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=150511" title="Here's a good one. I'm in a beauty pagent.
+
+It's a parody of Miss America that my school puts on every year. There's three sections that I know of:..." target="_blank">Mock Beauty Pagent</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Spaz17</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">General</span></td>
+	<td class="alt2" align="center"><span class="smallfont">4</span></td>
+	<td class="alt1" align="right"><span class="smallfont">02-26-2004 <span class="time">09:11 PM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -1406,7 +1350,7 @@ I downloaded only..." target="_blank">ISOLINUX 1.75 2002-06-14 isolinux failed t
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:30 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:26 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -1467,17 +1411,10 @@ I downloaded only..." target="_blank">ISOLINUX 1.75 2002-06-14 isolinux failed t
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>
@@ -1596,12 +1533,10 @@ pageTracker._trackPageview();
 
 
 <script type="text/javascript">
-var dc_UnitID = 14;
-var dc_PublisherID = 4566;
-var dc_AdLinkColor = 'blue';
-var dc_adprod='ADL';
+var infolink_pid = 8393;
+var infolink_link_color = "0000ff";
 </script>
-<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 
 
 <!-- temp -->

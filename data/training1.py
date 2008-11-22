@@ -360,445 +360,426 @@ data.append(('search/yahoo', [
     "The iPod of games and movies: The PSP's screen has to be seen to be believed. Watching movies and playing games on it makes you forget you're looking at a handheld. The...", "Official page from Sony Computer Entertainment America. ... Home. Games Media & Downloads News Forums Support. PlayStation 3 PSP PlayStation 2. PSP® GAMES ...", "You may even know that the PSP® (PlayStation® Portable) system can do a bunch of ... Communicate with other PSP® systems, play games online, browse the Web and ...",
     "Yahoo! Shortcut", "www.us.playstation.com/PSP", "www.us.playstation.com/PSP/About"
     ]),
-    #('file:html/search/yahoo/9.html', ["", "", "", "", "", "", "", "", "", ""]),
-    #('file:html/search/yahoo/10.html', ["", "", "", "", "", "", "", "", "", ""]),
-    #('file:html/search/yahoo/11.html', ["", "", "", "", "", "", "", "", "", ""]),
-    #('file:html/search/yahoo/12.html', ["", "", "", "", "", "", "", "", "", ""]),
-    #('file:html/search/yahoo/13.html', ["", "", "", "", "", "", "", "", "", ""]),
 ]))
 
 
 data.append(('forum/LQ', [
     ('file:html/forum/LQ/1.html', [
-"""On two systems, firefox 2.0.0.8 and firefox 2.0.0.8 keeps the installed Video DownloadHelper addon disabled. It refers to "missing elements" and grays out the "enable addon button".
-
-The developers of the addon claim that the addon is compatible with firefox versions 1.5 through 3.0.
-
-In fact, some other users report success with this addon on 2.0.0.x, whilst for me just no version of this addon works, not even those ones designed for firefox 2.0.x.
-
-I tried to install the MR Tech Toolkit that could make other addons compatible, but even the MR Tech Toolkit addon is kept disabled by firefox.
-
-I tried to install the addon on a new profile, but it is still kept disabled.
-
-Is there an other way to enable this addon on firefox 2.0.0.x?""",
-"""This could be a file permission problem. If the add on is installed in a system folder then check to see if it is readable by "others". If it is installed in your home folder check to see if the permissions permit you to run it. Keep in mind that Java scripts do not need execute permission to run. Also, if your /home is mounted on a separate partition you may have mounted it with the noexec mount parameter. Again, this will not disable a Java Script application but it would disable a binary application.
-
-My /home partition is mounted with the noexec mount parameter and my Firefox add ons work fine with no messing around. I don't use that particular add on though."""
+    """i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.""",
+    """
+    Quote:
+    Originally posted by doralsoral
+    i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.
+    You may have to install gstreamer plugins. I would just ditch gstreamer for xine. Amarok can use the xine engine and thus play more media types.
+    """,
+    """gstreamer-plugins are already installed.""",
+    """
+    Quote:
+    Originally posted by doralsoral
+    gstreamer-plugins are already installed.
+    So did you try using xine as the output plugin? Some distros have extra gstreamer plugins (not packaged with gstreamer-plugins), so also take a look into that.""",
+    """Which version of gstreamer are you using? I think I ran into a similar problem and ended up downgrading to version 0.8.6 you might try that.""",
 ]),
     ('file:html/forum/LQ/2.html', [
-"""Hello all,
+    """i have a problem...im on slackware 9 using webmin 1.100...but heres the problem..im trying to setup a virtual server so when sombody browses my site...example: something.mydomain.com it takes them to whatever i got the document root set to..but i cant get rid of the default for sum reason...if anybody can tell me how to get rid of the default virtual server i would really appreciate it...the default looks like this..therefore any address i put on my box...it auto takes em to the default virtual server which i dont want...
 
-As of now, I have a standalone system (with Opensuse 10.3 - or SLES 10)
+    Address Any
+    Port Any
+    Server Name myservername
+    Document Root /home/artistik/public_html/
 
-I need for the hostname of the system not to be associated with 127.0.0.1 (and the domain ~not~ to be associated with 127.0.0.2).
-
-I think that hosts can be associated with IP addresses like 192.x.x.x but it seems to require that one be attached to the network or have some kind of access to a gateway - right?
-
-Well, currently, I don't have that but I still need to fix the IP address.
-
-Is there a way to use Yast, Yast2 or some other kind of networking so that the local host ip is other than 127.0.0.1?
-
-TIA""",
-"""why ?
-All unix based machines i.e. linux have localhost set as 127.0.0.1 and lots of applications use that information in the background.
-If your machine is on a network, your own or the internet then it will have another IP address.
-Code:
-
-ifconfig -a
-
-will show what network interfaces are available including local loopback bound to 127.0.0.1
-if there is anything else there then you can run
-Code:
-
-route
-
-to see how they are used.
-if you have a private IP address 192.168.x.x or 10.x.x.x then you should be able to set the IP address
-Code:
-
-man ifconfig
-
-if your IP address is something else then it is being set by your network provider and you should speak to them.
-If you want to spoof an IP address then remember that none of the packets from your target machine will ever get back to you.
-
-let us know how you get on.
-""",
-"""
-Quote:
-Originally Posted by rednuht View Post
-why ?
-All unix based machines i.e. linux have localhost set as 127.0.0.1 and lots of applications use that information in the background.
-Thanks for responding
-
-Basically, the software I am using requires that the hostname not be associated with 127.0.0.1 and that the domain not be associated with 127.0.0.2 - why they made it that way, I have no idea.
-
-Is there a list of steps one can go through to do this?
-
-TIA
-"""
+    i need to find a way to delete this offa webmin but it wont let me...""",
+    """
+    Quote:
+    Originally posted by artistik
+    i need to find a way to delete this offa webmin but it wont let me...
+    What you should do if you're unhappy with what webmin does, is edit your /etc/apache/httpd.conf by hand, remove these entries, and put in your documentroot or whatever as you want.""",
+    """well i did do that...i want so when ppl browse my web adress it takes em to what the document root says....but when i setup a virual server ie: something.mydomain.com and i got that set to a diff documentroot it still goes to the main document root...because webmin has the default virtual server set to any address...and i cant find a way to delete the default server on webmin =p""",
 ]),
     ('file:html/forum/LQ/3.html', [
-"""Ive been successful in the past being able to play asx/mms/asf and so on streams using mplayer and vlc from the command line BUT I have found an internet stream that has me beat.. At least so far. But I vow to fight him till the death! What command line tool can play this stream? Im using CentOS 5.1. I've tried mplayer, vlc,mencoder and it wont play. error outputs below.
+    """Hi,
+    I've been trying to use my gmail from CLI.
+    Here's my .fetchmailrc
+
+    Code:
+
+    poll pop.gmail.com with proto POP3 and options no dns
+    user 'username@gmail.com' is 'username' here options ssl
+
+    Obviously username is replaced with the real one. Also, POP is enabled in my gmail settings (I've been using thunderbird for a while)
 
 
-the stream is: http://assets.espn.go.com/swf/espnra...C&mp3cs=WTEMAM
+    Here's my .muttrc
+    Code:
+
+    set pop_user="username@gmail.com"
+
+    # My email account password
+    set pop_pass="my password"
+
+    # Too many email headers make reading a message difficult
+    ignore *
+    unignore From: To: Cc: Subject: Date: #Only these are shown in the header
+
+    #To ensure that mutt does not put
+    #'username@localhost.localdomain in From
+    set from="username@gmail.com"
+    set use_from=yes
+    set envelope_from="yes"
+
+    #The text editor I want to use to write emails
+    #The default is emacs
+    set editor="emacs -nw"
 
 
-it plays fine in a web browser. But I need to be able to play it command line.
+    the output of fetchmail -vk
 
-thanks!
+    Code:
 
+    sycamorex@debian205:~$ fetchmail -vk
+    Enter password for username@gmail.com@pop.gmail.com: 
+    fetchmail: 6.3.8 querying pop.gmail.com (protocol POP3) at Sun 23 Dec 2007 14:42:05 GMT: poll started
+    Trying to connect to 66.2bla...bla..bla09/995...connected.
+    fetchmail: Issuer Organisation: Equifax
+    fetchmail: Unknown Issuer CommonName
+    fetchmail: Server CommonName: pop.gmail.com
+    fetchmail: pop.gmail.com key fingerprint: 44:A8:E9:2C:FB.....bla bla..blaB2:9E:F1:A9
+    fetchmail: Server certificate verification error: unable to get local issuer certificate
+    fetchmail: Server certificate verification error: certificate not trusted
+    fetchmail: Server certificate verification error: unable to verify the first certificate
+    fetchmail: POP3< +OK Gpop ready for requests from 83.4.bla... bla..blao24pf3879126ugd.0
+    fetchmail: POP3> CAPA
+    fetchmail: POP3< +OK Capability list follows
+    fetchmail: POP3< USER
+    fetchmail: POP3< RESP-CODES
+    fetchmail: POP3< EXPIRE 0
+    fetchmail: POP3< LOGIN-DELAY 300
+    fetchmail: POP3< X-GOOGLE-VERHOEVEN
+    fetchmail: POP3< UIDL
+    fetchmail: POP3< .
+    fetchmail: POP3> USER username@gmail.com
+    fetchmail: POP3< +OK send PASS
+    fetchmail: POP3> PASS *
+    fetchmail: POP3< +OK Welcome.
+    fetchmail: POP3> STAT
+    fetchmail: POP3< +OK 0 0
+    fetchmail: No mail for hemarcin@gmail.com at pop.gmail.com
+    fetchmail: POP3> QUIT
+    fetchmail: POP3< +OK Farewell.
+    fetchmail: 6.3.8 querying pop.gmail.com (protocol POP3) at Sun 23 Dec 2007 14:42:07 GMT: poll completed
+    fetchmail: normal termination, status 1
 
+    when I open mutt and want to write an email - it says that email has been sent but then when I want to check it on my other email account nothing has been delivered.
 
+    can you give me any hint. I'm working with mutt, fetchmail for the first time.
 
+    thanks
+    """,
+    """Well, that's because you maybe just configured GETTING your mail, but not SENDING your mail?
 
-mplayer -dumpstream -dumpfile test.swf "http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&callsign=WTEMAMAAC&mp3cs=WTEMAM"
-MPlayer 1.0rc2-4.1.2 (C) 2000-2007 MPlayer Team
-CPU: Intel(R) Pentium(R) D CPU 3.00GHz (Family: 15, Model: 6, Stepping: 5)
-CPUflags: MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1
-Compiled with runtime CPU detection.
-115 audio & 237 video codecs
-Can't open joystick device /dev/input/js0: No such file or directory
-Can't init input joystick
-mplayer: could not connect to socket
-mplayer: No such file or directory
-Failed to open LIRC support. You will not be able to use your remote control.
+    POP and fetchmail are about getting your mail from your POP/IMAP-account.
 
-Playing http://assets.espn.go.com/swf/espnra...C&mp3cs=WTEMAM.
-Resolving assets.espn.go.com for AF_INET6...
-Couldn't resolve name for AF_INET6: assets.espn.go.com
-Resolving assets.espn.go.com for AF_INET...
-Connecting to server assets.espn.go.com[72.246.48.33]: 80...
-Cache size set to 320 KBytes
-Stream not seekable!
-Core dumped
+    Mutt is just your tool to compose the mail (your mail user agent) - now you need something to get it out there.
 
-Exiting... (End of file)
+    In your case of using gmail it possibly involves relaying over gmail - which is possible.
 
+    I use msmtp to send mail out after composing it in mutt. Msmtp is small and very simple - I don't need an entire sendmail on my notebook just to send out 50 mails a day.
 
-_______________________________________________
+    From within mutt, this would be something like this in your muttrc:
 
-mplayer -playlist "http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&callsign=WTEMAMAAC&mp3cs=WTEMAM"
-MPlayer 1.0rc2-4.1.2 (C) 2000-2007 MPlayer Team
-CPU: Intel(R) Pentium(R) D CPU 3.00GHz (Family: 15, Model: 6, Stepping: 5)
-CPUflags: MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1
-Compiled with runtime CPU detection.
-Resolving assets.espn.go.com for AF_INET6...
-Couldn't resolve name for AF_INET6: assets.espn.go.com
-Resolving assets.espn.go.com for AF_INET...
-Connecting to server assets.espn.go.com[72.246.48.33]: 80...
-Cache size set to 320 KBytes
-115 audio & 237 video codecs
-Can't open joystick device /dev/input/js0: No such file or directory
-Can't init input joystick
-mplayer: could not connect to socket
-mplayer: No such file or directory
-Failed to open LIRC support. You will not be able to use your remote control.
+    set sendmail="/usr/local/bin/msmtp"
 
-Playing http://assets.espn.go.com/swf/espnradio/08/CWS
-Resolving assets.espn.go.com for AF_INET6...
-Couldn't resolve name for AF_INET6: assets.espn.go.com
-Resolving assets.espn.go.com for AF_INET...
-Connecting to server assets.espn.go.com[72.246.48.18]: 80...
-Server returned 400: Bad Request
-STREAM_ASF, URL: http://assets.espn.go.com/swf/espnradio/08/CWS
-Resolving assets.espn.go.com for AF_INET6..
+    And my msmtprc says for gmail-relaying something like this:
 
+    account default
+    host smtp.gmail.com
+    port 587
+    user YOU@gmail.com
+    password PASSWORD
+    protocol smtp
+    tls_starttls on
+    logfile /home/MYHOME/.msmtp.log
 
+    This is totally independent from your POP-fetchmail-setting.""",
+    """thanks, makes sense
 
-____________
-vlc -I dummy "http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&callsign=WTEMAMAAC&mp3cs=WTEMAM"
-VLC media player 0.8.6d Janus
-[00000296] dummy interface: using the dummy interface module...
-[swf @ 0x8573cf4]Compressed SWF format not supported
-[00000311] ffmpeg demuxer error: av_open_input_stream failed
-[00000290] main playlist: nothing to play""",
-"""SWF (Shockwave flash) is a closed format. There are a couple of open source projects, such as swfdec and gnash. However, they're not good enough that I would really recommend them. The only software that I'd recommend that can play a swf file is Adobe's flash plugin. However, it's not standalone and obviously cannot be accessed through a terminal.""",
-"""I might check out that gnash, thanks for replying."""
+    However, what I get in Mutt when I try to send an email is:
+
+    Quote:
+    msmtp: envelope from address YOU@gmail.com not accepted by the server
+    msmtp: server message: 530 5.7.0 Must issue a STARTTLS command first k5sm707424nfh.18
+    msmtp: could not send mail (account default from /home/sycamorex/.msmtprc)
+    Quote:
+    Error sending message, child exited 65 (Data format error.).
+    and the log entry from .msmtp.log
+
+    Quote:
+    Dec 23 16:10:12 host=smtp.gmail.com tls=off auth=off from=YOU@gmail.com recipients=SOMEBODY@gmail.com smtpstatus=530 smtpmsg='530 5.7.0 Must issue a STARTTLS command first k5sm707424nfh.18' errormsg='envelope from address YOU@gmail.com not accepted by the server' exitcode=EX_DATAERR
+    my .msmtprc
+
+    Quote:
+    account default
+    host smtp.gmail.com
+    port 587
+    user YOU@gmail.com
+    password blablabal
+    protocol smtp
+    tls_starttls on
+    logfile /home/sycamorex/Mail/.msmtp.log
+    thanks""",
+    
 ]),
     ('file:html/forum/LQ/4.html', [
-"""Hello.
-
-I'm trying to make pressure control work in gimp-2.4.7 on G-Pen 450 graphic tablet, on slackware 12.1.
-
-Problem:
-1) If in Edit->preferences->Input Devices->configure advanced input devices, tablet device mode is set to "disabled", pressure control doesn't work and I can draw only lines with constant thickness/opacity/etc. (as with mouse)
-2) If in Edit->preferences->Input Devices->configure advanced input devices, tablet device mode is set to "Screen" or "Window", pressure control doesn't work, because when I press pen, pen cursor stops moving (i.e. freezes) until I stop pressing it. I.e. I can place "dots" by pen, but can't draw lines.
-
-Additional info:
-1) Pressure controls work fine in inkscape (version 0.46) or krita (from KDE 3.5.7). Krita detects presure automatically (because device is named as "stylus"), inkscape can use it, when in file->input devices device mode is set to "screen" or "window". However when I'm trying to use similar settings for tablet in gimp, cursor simply freezes when I try to draw something.
-2) gimp 2.4.7 is built from source. In the gimp-2.4.5 (bundled with slackware 12.1) pressure controls didn't work either.
-3) I'm using wizardpen 0.6.0.2 driver.
-4) I've been using this and this HOWTOs to setup tablet. Unfortunately, HOWTOs has gimp-related content removed, and FAQ on gimp site doesn't seem to mention anything related to my problem.
-5) Xorg.conf sections related to tablet(not sure if it's relevant to problem, because pressure control work in krita/inkscape):
-Code:
-
-...
-Section "ServerLayout"
-    Identifier     "X.org Configured"
-    Screen      0  "Screen0" 0 0
-    InputDevice    "Mouse0" "CorePointer"
-    InputDevice    "Keyboard0" "CoreKeyboard"
-    InputDevice    "stylus" "SendCoreEvents"
-EndSection
-...
-Section "InputDevice"
-    Identifier      "stylus"
-    driver          "wizardpen"
-    Option      "Type"      "stylus"
-        Option          "Device"        "/dev/tablet-event"
-    Option          "TopX"          "157"
-    Option          "TopY"          "85"
-    Option          "BottomX"       "32739"
-    Option          "BottomY"       "32745"
-    Option          "MaxX"          "32739"
-    Option          "MaxY"          "32745"
-EndSection
-
-...
-
-6) pressure control work in windows version of gimp, version 2.4.5, but I'd like to make linux version work.
-
-I'd like to know how to solve this problem and how to make pressure control to work in gimp on Linux (maybe I just missed some settings in gimp?). Suggestions are welcome.""",
-"""Problem solved. In extremely strange way.
-Code:
-
-Section "ServerLayout"
-    Identifier     "X.org Configured"
-    Screen      0  "Screen0" 0 0
-    #InputDevice    "Mouse0" "CorePointer"
-    InputDevice    "Keyboard0" "CoreKeyboard"
-    InputDevice    "stylus" "SendCoreEvents"
-EndSection
-
-After commenting out Mouse input device within "serverlayout" section, everything works fine. Mouse still works. I've found solution here.""",
+    """Hi. I use fluxbox as my window manager under Ubuntu, and recently I have been hearing a lot about XGL and Compiz. I know Compiz is a window manager, so I can't get the neat effects with fluxbox. I was wondering, however, if Compiz can run stand alone, without having to load a window environment. Is this possible? If so, how would I go about doing this? Thanks.""",
+    """You run xgl and compiz with gnome or kde.""",
+    """So there is no ability to run compiz in stand-alone? Are there any other xgl window managers that support this that you know of?""",
+    """Hi, After posting this I did some more research, and it turns out that you need a 'Desktop Environment', rather than a 'window manager' in order to use it. You can use KDE, Gnome, or XFCE since they are Desktop Environments. You can't use it with fluxbox or other plain window managers.""",
+    """
+    Quote:
+    Originally Posted by Blazeix
+    Hi, After posting this I did some more research, and it turns out that you need a 'Desktop Environment', rather than a 'window manager' in order to use it. You can use KDE, Gnome, or XFCE since they are Desktop Environments. You can't use it with fluxbox or other plain window managers.
+    What is you are using gdm (or kdm i guess) with fluxbox on top of it?"""
 ]),
     ('file:html/forum/LQ/5.html', [
-"""Hi, I have the very useful knemo in my toolbar, but virginmedia my bb
-provider are quite strict on traffic volume and I've just been hit by
-their traffic managment thingy (STM).
+    """Just wondering the topic of enson vs Cpanel, can someone clear up which one is better and the major differences please?""",
+    """
+    Quote:
+    Originally posted by clacy
+    Just wondering the topic of enson vs Cpanel, can someone clear up which one is better and the major differences please?
+    Okay first of all, what does your Title of this thread have to do with your question?
 
-As they allow different traffic amounts at different times of the day
-I could really use a traffic monitor that can be zeroed, or could I do
-anything with knemo (maybe delete a log or something)
+    And secondly, this question is not a question in regards to this site itself, which the forum you placed it in was made for. I've requested to have this thread moved to a more appropiate forum and I'd like to ask you make better thread titles in the future.""",
+    """Moved: This thread is more suitable in Linux - Software and has been moved accordingly to help your thread/question get the exposure it deserves.
 
-Any info would be greatly appreciated, thanks.""",
-"""knemo reads the data out of /proc/net/dev This file is not writeable even by root. I just tried adding write permission for root and I still can't write to the file.""",
-"""Shutting down your network interface, unloading the driver, reloading it and restarting the network should work.
-
-How to do that depends on what distribution you use.""",
+    --jeremy""",
 ]),
     ('file:html/forum/LQ/6.html', [
-"""Is it possible to get grub which is installed on a live cd to load isolinux on the same cd? I am trying to make a multiple distro live dvd and at the same time add a few grub entries to point to the hard drive. I figured that if I could get grub to load the isolinux.bin for each distro it would make the task a little easier.""",
-"""This is probably what you need: http://www.linux.com/feature/54537""",
-"""Thanks but that was where I actually started the whole project. Instead of having grub boot ioslinux, they simply converted the isolinux.cfg files to menu.lst files.
+    """Is there any software on linux that can kind of mock or be better than Macromedia's Dreamweaver, I want to be able to do a website with the capability of changing form design view to code view and for it to do the html for you because that is just a waist of time. If anyone knows something similar please tell me. Thanks.
 
-What I basically want to do is chainload isolinux from grub.""",
+    -luis""",
+    """have you given bluefish a try?""",
+    """is there any others?""",
+    """Originally posted by lramos85
+    is there any others?
+    There is also Quanta and Screem that I know of but nothing in comparison as these are really true WYSIWYG editors. Your not going to have the "view page" type function with these.
+
+    It is possible to just load Dreamweaver using wine.
+
+    www.frankscorner.org"""
 ]),
     ('file:html/forum/LQ/7.html', [
-"""Hello,
+    """Ok, MDK 10, 2.6 Kernel, trying to help out my wireless problem (using intelpro2200 wireless) and I get this:
+    [jaster@localhost jaster]$ cd ipw2200-0.2
+    [jaster@localhost ipw2200-0.2]$ ls
+    CHANGES ipw2200_eeprom.c ipw2200_main.c ipw2200_wx.h README.ipw2200
+    FILES ipw2200_fw_dma.c ipw2200_rxtx.c ISSUES
+    INSTALL ipw2200.h ipw2200_rxtx.h LICENSE
+    ipw2200_bh.c ipw2200_hw.c ipw2200_wx.c Makefile
+    [jaster@localhost ipw2200-0.2]$ make
+    <stdin>:1:28: linux/rhconfig.h: No such file or directory
+    make -C /lib/modules/2.6.3-7mdk/build SUBDIRS=`pwd` modules
+    make[1]: Entering directory `/usr/src/linux-2.6.3-7mdk'
+    CC scripts/empty.o
+    cc1: Permission denied: opening dependency file scripts/.empty.o.d
+    Assembler messages:
+    FATAL: can't create scripts/.tmp_empty.o: Permission denied
+    make[2]: *** [scripts/empty.o] Error 1
+    make[1]: *** [scripts] Error 2
+    make[1]: Leaving directory `/usr/src/linux-2.6.3-7mdk'
+    make: *** [default] Error 2
 
-I'm running openSuse 10.2 on my laptop and i'm trying to install iTunes with wine and it gives me and error saying: This iTunes installer requires that your computer is running Windows XP or Vista.
 
-All other windows apps work with wine. I read on some forum that iTunes does not work with wine in Suse 10.2? Has anyone worked around this problem if that's the case?
+    Can anyone interpret what the problem is and how I might go about solving it? I'm a newb so keep it simple lol, thanks.""",
+    """
+    Code:
 
-thanks,""",
-"""According to WineHQ's application database (see here), at least some versions of iTunes might run on Wine.
+    FATAL: can't create scripts/.tmp_empty.o: Permission denied
 
-Though I consider iTunes trash software, simply because it has never worked without problems on me The other available software works perfectly with the iPod I own, and that's enough (software like Amarok, GTKpod or one of the Windows things like Winamp plugin).
-
-EDIT: whenever Wine is in question, don't expect anything to run on it. There is no guarantee, and from personal experience I can tell that if a program does run on one Wine version, it might not run on another -- even if the "another" version was newer. Some apps run perfectly fine, others don't run at all, and some may crash at unexpected places. If you really need the Windows programs, buy a legal copy of Windows (XP is good) and either install it as a virtual operating system or just get it some hardware of it's own, preferrably new enough for it to run fast enough for your nerves.""",
+    that's your problem... what are the permissions on /usr/src/linux-2.6.3-7mdk? have you tried running the "make" as root?""",
+    """The permissions would all be at defualt levels. How do I 'run as root'? The stuff is in my home directory atm, please enlighten me lol (yes I'm a total newb but this is how I learn, thanks)""",
 ]),
     ('file:html/forum/LQ/8.html', [
-"""I am running OpenSuSE 10.3 and I have fully installed Daisy. It worked fine- the problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match. I have fully restored, but I cannot get a connection to the repository server- any advice?""",
-"""
-Quote:
-Originally Posted by Tyler_H72 View Post
-I am running OpenSuSE 10.3 and I have fully installed Daisy. It worked fine- the problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match. I have fully restored, but I cannot get a connection to the repository server- any advice?
-Perhaps if you included some error message(s), and what you've tried so far....
+    """Hi everybody,
+    I want to know that whether we can talk on Gtalk network in Linux. Although there is no official software from google, it has released some code for other clients to connect to the network so that people can talk thru Gtalk in Linux. Plz help me, as most of my friends use Gtalk and Windows and they get irritated when they hear the word "Linux".
 
-Are you able to connect to the internet from that box at all?""",
-"""The network connections and such are all fine. I had no problem connecting to the repository server before the backup- it was running perfectly. I restored using the backup tool included with the product, and now when I try to reach the site, it gives the message
+    Robin""",
+    """
+    Quote:
+    Originally Posted by arun-linux View Post
+    Hi everybody,
+    I want to know that whether we can talk on Gtalk network in Linux. Although there is no official software from google, it has released some code for other clients to connect to the network so that people can talk thru Gtalk in Linux. Plz help me, as most of my friends use Gtalk and Windows and they get irritated when they hear the word "Linux".
 
-Could not find component (key [daisy-repository-manager])
+    Robin
+    A brief Google search turns up:
 
-I think that it must be caused by some config file having been changed in the update, but I looked at all of the files that the backup included with it, and thought I am not familiar with the config files for Daisy, I didn't see anything that looked wrong.""",
+    http://www.google.com/talk/otherclients.html
+
+    Pidgin and Kopete both support Gtalk, and run native on Linux.""",
+    """Gtalk uses the Jabber protocol.
+    I use Gaim(now Pidgin).
+
+    Add a new account.
+
+    select the jabber protocol.
+    enter your gmail id (the part before the '@' in full id) as screen name.
+    enter "gmail.com" as server
+
+    example:
+    Protocol: jabber
+    screen name: john.mccain
+    server: gmail.com
+    password: ********
+    local alias: john
+
+    Voila!!!"""
 ]),
     ('file:html/forum/LQ/9.html', [
-"""i hv install RHEL4.0, now i m using firfox 1.5(by default) i want to upgrade this firfox to the latest version of firfox, can any one help me how to make install latest version
+    """I have installed iscsi-target RHEL Machine with the following steps:
 
-i hv already don dis.
-dowload firefox
-extarct firefox-3.0.tar.bz2
-/root/Desktop/firefox/
-but when i put dis command
-/root/Desktop/firefox/firefox &
+I have the following partition table:
 
-it still load the old version of firefox
+1. I downloaded iscsi-target package and followed the process:
+Code:
 
-i hv already done this toooo
-
-
-After make Uninstall and extract firefox folder into /root/
-home direct i made call firefox by using this command
-
-#./firefox/firefox &
-
-error was reported as under
-
-
-./firefox/firefox-bin: error while loading shared libraries: libpangocairo-1.0.so.0: cannot open shared object file: No such file or directory
-
-can any one pls help me to solve dis prob""",
-"""I'm not sure why you put the files in /root/Desktop, I think this will restrict the use to root only due to root ownership of that directory.
-
-I installed ( as root ) to /usr/lib/firefox. I still have a /usr/lib/firefox2.0.0.16 directory with that version in it.
-
-I created a desktop icon, and pointed it to the correct path and executable. I also set a working directory. Works like a charm, I still have the old version installed.
-
-I suspect the command you used returns errors because of the place and path specified. My icon calls firefox with the command '/usr/lib/firefox/firefox'
-
-You do not have to install to /usr/lib if you don't want to, there are other places you can put it. I would stay away from the /root dir though...""",
-"""well u mean to say i can not install FF3
-on RHEL4?????""",
-]),
-    ('file:html/forum/LQ/10.html', [
-"""I have been trying to install Daisy Wiki, but for some reason I am not having much luck. I have installed MySQL and Java 1.6 as described in the Daisy site's installation guide, but when I try to run the daisy-repository-init script, it prompts me for a bunch of information, then outputs the following:
+[root@localhost iscsitarget]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda2              29G  7.4G   20G  27% /
+/dev/sda1             107M  9.6M   92M  10% /boot
+none                  721M     0  721M   0% /dev/shm
+/dev/sda3              20G   76M   19G   1% /home
 
 Code:
 
-Registering driver...
-Successful.
-Exception in thread "main" com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+#vi /etc/ietd.conf
+Target iqn.2008-07.com.scsilinux:storage.disk2.sys1.xyz
+        # Users, who can access this target. The same rules as for discovery
+        # users apply here.
+        # (no users means anyone can access the target)
+        #IncomingUser joe secret
+        #OutgoingUser jim 12charpasswd
+        # Logical Unit definition
+        # You must define one logical unit at least.
+        # Block devices, regular files, LVM, and RAID can be offered
+        # to the initiators as a block device.
+        Lun 0 Path=/dev/sda3,Type=fileio
 
-** BEGIN NESTED EXCEPTION ** 
+Saved the file.
+And Then Started the service:
+Code:
 
-java.net.SocketException
-MESSAGE: java.net.ConnectException: Connection refused
+[root@localhost iscsitarget]# service iscsi-target restart
+Stoping iSCSI target service:                              [  OK  ]
+Starting iSCSI target service:                             [  OK  ]
 
-STACKTRACE:
+Now, I went to setup iscsi-client on new system as:
+Installed the Needed PAckage.
+Pointed iscsi.conf to the target Machine.
+And Then:
+Code:
 
-java.net.SocketException: java.net.ConnectException: Connection refused
-        at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:156)
-        at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:284)
-        at com.mysql.jdbc.Connection.createNewIO(Connection.java:2555)
-        at com.mysql.jdbc.Connection.<init>(Connection.java:1485)
-        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
-        at org.outerj.daisy.jdbcutil.DriverLoader$DriverShim.connect(DriverLoader.java:77)
-        at java.sql.DriverManager.getConnection(DriverManager.java:582)
-        at java.sql.DriverManager.getConnection(DriverManager.java:185)
-        at org.outerj.daisy.install.InstallHelper$DatabaseParams.checkDatabase(InstallHelper.java:203)
-        at org.outerj.daisy.install.RepositoryServerInit.initDatabase(RepositoryServerInit.java:140)
-        at org.outerj.daisy.install.RepositoryServerInit.install(RepositoryServerInit.java:89)
-        at org.outerj.daisy.install.RepositoryServerInit.main(RepositoryServerInit.java:56)
+[root@BL02DL385 ~]# iscsi-ls
+*******************************************************************************
+SFNet iSCSI Driver Version ...4:0.1.11-6(03-Aug-2007)
+*******************************************************************************
+TARGET NAME             : iqn.2008-07.com.logica.bl04mpdsk:storage.lun1
+TARGET ALIAS            :
+HOST ID                 : 2
+BUS ID                  : 0
+TARGET ID               : 0
+TARGET ADDRESS          : 10.14.236.134:3260,1
+SESSION STATUS          : DROPPED AT Thu Jul 10 05:19:36 IST 2008
+SESSION ID              : ISID 00023d000001 TSIH 300
+*******************************************************************************
+[root@BL02DL385 ~]# iscsi-rescan
 
+It means Its Working and showing the target machine.
 
-** END NESTED EXCEPTION **
+Now I am confused of "entry being made in iscsi.conf.Is entry
+Code:
 
+Path=/dev/sda3
 
+correct?
 
-Last packet sent to the server was 20 ms ago.
-        at com.mysql.jdbc.Connection.createNewIO(Connection.java:2621)
-        at com.mysql.jdbc.Connection.<init>(Connection.java:1485)
-        at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:266)
-        at org.outerj.daisy.jdbcutil.DriverLoader$DriverShim.connect(DriverLoader.java:77)
-        at java.sql.DriverManager.getConnection(DriverManager.java:582)
-        at java.sql.DriverManager.getConnection(DriverManager.java:185)
-        at org.outerj.daisy.install.InstallHelper$DatabaseParams.checkDatabase(InstallHelper.java:203)
-        at org.outerj.daisy.install.RepositoryServerInit.initDatabase(RepositoryServerInit.java:140)
-        at org.outerj.daisy.install.RepositoryServerInit.install(RepositoryServerInit.java:89)
-        at org.outerj.daisy.install.RepositoryServerInit.main(RepositoryServerInit.java:56)
+All I am attempting to setup is Red Hat Cluster with two nodes as initiator and the one target Machine.I havent any shared storage an dI am setting up Alternative to the Shared Storage.
 
-Please help me!""",
-"""Well, I solved the problem- just another one of those stupid mistakes that are so easy to overlook. It turns out that when I set up mySQL I entered the skip-networking command in the config file to make it stop giving me that annoying socket error. That was all well and good, but it was preventing the SQL server from working properly. Now I have fixed that and have run into a new problem- I have fully installed Daisy, and it worked fine. The problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match. I have fully restored, but I cannot get a connection to the repository server- any advice?""",
+Pls Help""",
+"""Its Done.Just Pointed the Entry to /dev/sda6 which is unformatted partition.
+I need few more help.
+Code:
+
+When I click on File System on Cluster Tool...It asked for Mount point, Device, Option,Name,filesystem id, filesystem type..What Entry I need to make ?
+
+pls help"""
 ]),
-    ('file:html/forum/LQ/11.html', [
-"""hi,
+    ('file:html/forum/LQ/10.html', [
+"""Got to the final step of setup.
 
-i want some help to develop testcases for functioning GNU-gdbm package.Like
-how it will store database for GNU packages.
+Start the apache daemon by using
 
-regards,
-YMR""",
-]),
-    ('file:html/forum/LQ/12.html', [
-"""So after upgrading to Iceweasel 3, Youtube will not display properly in any browser, Opera, Iceweasel, etc. I really don't know why. I've tried reinstalling the two browsers, their various libraries and plugins, etc, and no luck. Any suggestions?""",
-"""How is it not displaying correctly? Can you show us a screenshot?""",
-"""Yes, how do I do that? I took a screenshot just in case.
+Quote:
+[root@cpe-24-195-24-133 httpd-2.2.0]# /usr/local/apache2/bin/apachect1 start
+-bash: /usr/local/apache2/bin/apachect1: No such file or directory
+any clue? Maybe I downloaded something wrong or im in the wrong dir to be doing this?
 
-Well, until I figure out how to post one, I'll just explain. Youtube has a layout, as you know, with a simple search, etc, at the top, videos being watched below that, featured videos below that on the left, etc, etc.
+update:
 
-As it is displayed in my browsers, everything is on the left hand side of the page. It is not a nice layout, just like a list of everything on the site. The images still come up, and the previews, etc, but it is all just listed, not formatted on the screen.""",
-]),
-    ('file:html/forum/LQ/13.html', [
-"""Hello all,
+Quote:
+[root@cpe-24-195-24-133 ~]# cd /
+[root@cpe-24-195-24-133 /]# ls
+bin dev home lost+found misc net proc sbin srv tmp var
+boot etc lib media mnt opt root selinux sys usr
+[root@cpe-24-195-24-133 /]# cd /usr/local
+[root@cpe-24-195-24-133 local]# ls
+apache2 bin etc games include lib libexec mysql sbin share src
+[root@cpe-24-195-24-133 local]# cd apache2
+[root@cpe-24-195-24-133 apache2]# ls
+bin cgi-bin error icons lib man modules
+build conf htdocs include logs manual
+[root@cpe-24-195-24-133 apache2]# cd bin
+[root@cpe-24-195-24-133 bin]# ls
+ab apu-1-config dbmmanage htcacheclean htpasswd logresolve
+apachectl apxs envvars htdbm httpd rotatelogs
+apr-1-config checkgid envvars-std htdigest httxt2dbm
+[root@cpe-24-195-24-133 bin]# apapchect1
+-bash: apapchect1: command not found
+[root@cpe-24-195-24-133 bin]# apachect1 start
+-bash: apachect1: command not found
+[root@cpe-24-195-24-133 bin]# cd apachect1
+-bash: cd: apachect1: No such file or directory
+[root@cpe-24-195-24-133 bin]#
+everything by envvars and envvars-std is green. Don't know if that means much. I wanted to see if I actually had the files.""",
+"""The last character is the number one... change it to lower case L => apachect"hell" not apachect"one" """,
+"""This is the error I got, but that worked! Thanks!
 
-I have the following in my system:
+Quote:
+[mbenoit@cpe-24-195-24-133 ~]$ /usr/local/apache2/bin/apachectl start
+(13)Permission denied: make_sock: could not bind to address [::]:80
+(13)Permission denied: make_sock: could not bind to address 0.0.0.0:80
+no listening sockets available, shutting down
+Unable to open logs
+[mbenoit@cpe-24-195-24-133 ~]$ """,
+"""
+Quote:
+Originally Posted by Markness
+This is the error I got, but that worked! Thanks!
+That means something else is running and listening on port 80.
 
-- cat /etc/resolv.conf
-search site
-simba: kdcadm
+Run these commands:
 
-- ifconfig
-lo Link encap Loopback
-inet address 127.0.0.1 Mask: 255.0.0.0
-inet 6 addr :: 1/128 Scope: Host
-UP LOOPBACK RUNNING MTU: 16436
-...
-...
+$ ps ax | grep http
+$ ps ax | grep inetd
 
-- iwconfig
-lo no wireless connections
+Please post the output from both commmands.
 
-- route (I get the following)
-Destination: loopback
-Gateway : *
-Genmask : 255.0.0.0
-Flags : U
-Metric : 0
-Ref : 0
-Use : 0
-Iface : lo
+Peace...""",
+"""Huzzah! Here it is.
 
-I need to be able to configure the host so that it is ~not~ using 127.0.0.1 but 192.168.x.x. I need the host of "simba" to be associated with 192.168.x.x and not 127.0.0.1
-
-There is an ethernet interface but it is not showing up in any of the lists above.
-
-I did the following:
-_______________________________________
-Yast -> Network Devices -> Network Card
-- select ifup
-
-I would click on a card except it just displays a message in the listing saying the card has not been configured. The buttons are "ghosted" so you cannot save anything
-_______________________________________
-
-I also changed the /etc/hosts file so that you would get:
-_______________________________________
-
-192.168.1.2 simba.pridelands simba
-________________________________________
-
-But pinging "simba" does not work, it just times out. When I set it back to :
-
-_______________________________________
-
-127.0.0.2 simba.pridelands simba
-________________________________________
-
-Then everything works again ...
-
-Can someone **please** provide detailed steps on how to change my /etc/hosts file so that "simba" has an IP address of 192.168.x.x?
-
-The system is not connected to the network.
-
-TIA""",
-"""Hello all,
-
-Found that eth0 does not seem to be configured on my system (as the loop back is there). Again, there is a ethernet port with this box.
-
-It is not connected to the internet as of now. Does it need to be connected to the internet in order for eth0 to be recognized/configured? Is there some kind of wizard in opensuse 10.3 that will allow for the configuration to take place?
-
-TIA""",
-"""Eth0 is being recognised (use the ifconfig command to check if it's up). 127.0.0.1 is a reserved address, commonly called a loopback address, assigned to your card. It won't use another address until it is connected to a network of some description.""",
+Quote:
+[mbenoit@cpe-24-195-24-133 ~]$ ps ax | grep http
+27883 pts/3 S+ 0:00 grep http
+[mbenoit@cpe-24-195-24-133 ~]$ ps ax | grep inetd
+27886 pts/3 R+ 0:00 grep inetd
+[mbenoit@cpe-24-195-24-133 ~]$ """,
 ]),
 ]))

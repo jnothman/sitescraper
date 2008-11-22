@@ -162,7 +162,7 @@ class htmlXpath(object):
         """
         indices = []
         if self != other:
-            force = self.isAllContent() or other.isAllContent() or len(self) != len(other)
+            force = self.isAllContent() != other.isAllContent() or len(self) != len(other)
             for i, (v1, v2) in enumerate(zip(self, other)):
                 if force or v1 != v2:
                     indices.append(i)
@@ -230,7 +230,7 @@ class htmlDoc(object):
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
-    def __init__(self, url, tree=False, xpaths=False, aggressive=True):
+    def __init__(self, url, tree=False, xpaths=False, aggressive=False):
         self.setUrl(url)
         self.setAggressive(aggressive)
         if not tree:
@@ -297,22 +297,21 @@ class htmlDoc(object):
                 childTags.setdefault(child.tag, 0)
                 childTags[child.tag] += 1
 
-        if self.getAggressive():
-            # add child text content for all tags
-            for childTag, count in childTags.items():
-                if count >= 2:
-                    # add text content for this tag
-                    for sep in ('/', '//'):
-                        childXpath = htmlXpath('%s%s%s' % (xpath, sep, childTag))
-                        childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
-                        if childText:
-                            xpaths.setdefault(childText, [])
-                            xpaths[childText].append(childXpath)
+        # add child text content for all tags
+        for childTag, count in childTags.items():
+            if count >= 2:
+                # add text content for this tag
+                for sep in ('/', '//'):
+                    childXpath = htmlXpath('%s%s%s' % (xpath, sep, childTag))
+                    childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
+                    if childText:
+                        xpaths.setdefault(childText, [])
+                        xpaths[childText].append(childXpath)
 
 
     def getElementText(self, e):
         """Extract text from HtmlElement"""
-        if self.getAggressive():
+        if 0 and self.getAggressive():
             return normalizeStr(e.text_content().strip())
         else:
             text = []
@@ -384,7 +383,7 @@ class htmlDoc(object):
 
         >>> doc = htmlDoc('file:data/html/search/yahoo/1.html')
         >>> xpaths = [htmlXpath('/html[1]/table[1]/tr[1]/td[1]'), htmlXpath('/html[1]/table[1]/tr[2]/td[1]'), htmlXpath('/html[1]/table[1]/tr[3]/td[1]'), htmlXpath('/html[1]/body[1]/a[1]')]
-        >>> [x.get() for x in htmlDoc.reduceXpaths(xpaths, [doc])]
+        >>> [x.get() for x in htmlDoc.removeRedundant(xpaths, [doc])]
         ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
         """
         proposedXpathREs = htmlXpath.abstractSet(xpaths)
@@ -404,7 +403,6 @@ class htmlDoc(object):
                 continue 
             matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
             minPosition = matchedTagIds[0]
-
             # apply this regular expression if the content is ordered
             # of if there are a different number of child elements on each tree at this location
             expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1) or \
@@ -495,11 +493,11 @@ class htmlAttributes(object):
     def extractAttribs(self, element):
         """Return a list of attributes for the element"""
         attribs = []
-        for attrib in element.attrib.items():
-            attrName, attrValue = attrib
+        #print element.attrib.items()
+        for attrName, attrValue in element.attrib.items():
             # punctuation such as '/' and ':' can confuse xpath, so ignore attributes with these characters
-            if not anyIn('/:', attrValue+attrName):# and attrName in ('id', 'class'):
-                attribs.append(attrib)
+            if not anyIn('/:', attrValue+attrName):# and attrName in ('id', 'lass'):
+                attribs.append((attrName, attrValue))
         return attribs
 
 
@@ -537,7 +535,14 @@ class htmlAttributes(object):
         return xpath
 
 
-
+def rankXpaths((xpath1, score1), (xpath2, score2)):
+    """Rank xpaths first on score, then on all content, then on xpath length"""
+    if score1 != score2:
+        return score1 - score2
+    elif xpath1.isAllContent() != xpath2.isAllContent():
+        return xpath1.isAllContent() and -1 or 1
+    else:
+        return len(xpath2.get()) - len(xpath1.get())
 
 def trainModel(urlOutputs):
     """Train the model using the known output for the given urls
@@ -565,14 +570,14 @@ def trainModel(urlOutputs):
     # select best xpath match for each output
     bestXpaths = []
     for i, outputXpathStrs in enumerate(allOutputXpathStrs):
-        rankedXpaths = sorted([(score, 1/float(len(xpathStr)), xpathStr, htmlXpath(xpathStr)) for (xpathStr, score) in outputXpathStrs.items() if score != 0])
+        rankedXpaths = sorted([(htmlXpath(xpathStr), score) for (xpathStr, score) in outputXpathStrs.items() if score != 0], rankXpaths)
         if rankedXpaths:
-            bestXpath = rankedXpaths[0][-1]
+            bestXpath = rankedXpaths[0][0]
             if bestXpath not in bestXpaths:
                 bestXpaths.append(bestXpath)
         if DEBUG:
             print [o[i] for (u, o) in urlOutputs if len(o) > i][0].replace('\n', '')
-            for score, l, s, xpath in rankedXpaths[:5]:
+            for xpath, score in rankedXpaths[:5]:
                 print '%6d: %s' % (score, xpath)
             print
     # store xpaths that were abstracted for a single output, and so must be collapsed together
@@ -582,7 +587,7 @@ def trainModel(urlOutputs):
     A = htmlAttributes(docs)
     attributeXpathStrs = []
     for xpath in abstractedXpaths:
-        collapse = xpath in collapsableXpaths
+        collapse = xpath in collapsableXpaths or xpath.isAllContent()
         attributeXpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
         attributeXpathStrs.append((attributeXpath.get(), collapse))
 
@@ -597,7 +602,7 @@ def trainModel(urlOutputs):
         print 'best:\n', pretty(bestXpaths)
         print 'abstract:\n', pretty(abstractedXpaths)
         #print 'attribute:\n', pretty(attributeXpathStrs)
-    return attributeXpathStrs
+    return unique(attributeXpathStrs)
 
 
 def testModel(url, model):
@@ -605,12 +610,19 @@ def testModel(url, model):
     results = []
     doc = htmlDoc(url, False, True)
     for xpathStr, collapse in model:
-        this_result = doc.getElementsText(doc.getTree().xpath(xpathStr))
-        if this_result:
-            if collapse:
-                results.append(''.join(this_result))
-            else:
-                results.extend(this_result)
+        if '//' in xpathStr and collapse:
+            # need to calculate sections separately to prevent collapsing unrelated parts
+            base, ext = xpathStr.split('//')
+            thisResults = [doc.getElementsText(e.xpath('.//' + ext)) for e in doc.getTree().xpath(base)]
         else:
-            results.append('<NO MATCH>')
+            thisResults = [doc.getElementsText(doc.getTree().xpath(xpathStr))]
+
+        for thisResult in thisResults:
+            if thisResult:
+                if collapse:
+                    results.append(''.join(thisResult))
+                else:
+                    results.extend(thisResult)
+            else:
+                results.append('<NO MATCH>')
     return results

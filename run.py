@@ -73,12 +73,12 @@ def getData(data):
 def testData(data):
     DEBUG = 0
     FUZZY = 0
-    modelSize = 3
+    modelSize = 6
     os.chdir('data')
     accuracies = []
     doc = sitescraper.htmlDoc('', True, True)
     S = 0
-    for site, d in data[S:S+1]:
+    for site, d in data:
         siteAccuracies = []
         model = sitescraper.trainModel(d[:modelSize])
         print site, 'model:'

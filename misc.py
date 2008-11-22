@@ -85,7 +85,10 @@ def average(l):
     >>> average([1, 2, 3, 4, 0])
     2.0
     """
-    return sum(l) / len(l)
+    if l:
+        return sum(l) / len(l)
+    else:
+        return 0
 
 
 def flatten(l):

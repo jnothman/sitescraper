@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="command line tool to play swf internet streams?, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="command line tool to play swf internet streams? Linux - Software" />
+<meta name="keywords" content="mutt/fetchmail, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="mutt/fetchmail Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>command line tool to play swf internet streams? - LinuxQuestions.org</title>
+	<title>mutt/fetchmail - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right">Have you listened to <a href="http://radio.linuxquestions.org">LQ Radio</a>?</div>
+     <div align="right">Did you know LQ has a <a href="http://www.linuxquestions.org/hcl/index.php">Linux Hardware Compatibility List</a>?</div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/command-line-tool-to-play-swf-internet-streams-662002/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	command line tool to play swf internet streams?
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/muttfetchmail-608702/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	mutt/fetchmail
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -268,7 +397,7 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3243604" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=2999626" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 	
 	
 </tr>
@@ -286,8 +415,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/muttfetchmail-608702/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +434,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3243604 -->
+<div id="posts"><!-- post #2999626 -->
 
 	<!-- open content container -->
 
@@ -313,25 +442,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3243604" style="padding:0px 0px 3px 0px">
+	<div id="edit2999626" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3243604" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post2999626" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3243604"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-11-2008, 09:46 AM
+			<a name="post2999626"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-23-2007, 08:50 AM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3243604#post3243604" rel="nofollow" id="postcount3243604" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=2999626#post2999626" rel="nofollow" id="postcount2999626" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,15 +469,15 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3243604">
+			<div id="postmenu_2999626">
 				
-				<a class="bigusername" href="/questions/user/ncsuapex-157367/">ncsuapex</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3243604", true); </script>
+				<a class="bigusername" href="/questions/user/sycamorex-216084/">sycamorex</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2999626", true); </script>
 				
 			</div>
 			
 			<div class="smallfont">Member</div>
-			
+			<div class="smallfont"><a href="/linux/member.html">Contributing Member</a></div
 			
 			
 		
@@ -358,12 +487,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Dec 2004</div>
-				<div>Location: Raleigh, NC</div>
-				<div>Distribution: Centos 2.6.18-53.1.4.el5</div>
+				<div>Registered: Nov 2005</div>
+				<div>Location: London</div>
+				<div>Distribution: Fedora 9, CentOS 5.2, FreeBSD 7.0</div>
 				
 				<div>
-					Posts: 394
+					Posts: 750
 				</div>
 				
 				
@@ -374,14 +503,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3243604" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_2999626" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
 				
-				<strong>command line tool to play swf internet streams?</strong>
+				<strong>mutt/fetchmail</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,81 +527,101 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3243604">Ive been successful in the past being able to play asx/mms/asf and so on streams using mplayer and vlc from the command line BUT I have found an internet stream that has me beat.. At least so far. But I vow to fight him till the death! What command line tool can play this stream? Im using CentOS 5.1. I've tried  mplayer, vlc,mencoder and it wont play. error outputs below.<br />
+		<div id="post_message_2999626">Hi, <br />
+I've been trying to use my gmail from CLI. <br />
+Here's my .fetchmailrc<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 50px;
+		text-align: left;
+		overflow: auto">poll pop.gmail.com with proto POP3 and options no dns
+user 'username@gmail.com' is 'username' here options ssl</pre>
+</div>Obviously username is replaced with the real one. Also, POP is enabled in my gmail settings (I've been using thunderbird for a while)<br />
 <br />
 <br />
-the stream is: <a href="http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&amp;callsign=WTEMAMAAC&amp;mp3cs=WTEMAM">http://assets.espn.go.com/swf/espnra...C&amp;mp3cs=WTEMAM</a><br />
+Here's my .muttrc<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 306px;
+		text-align: left;
+		overflow: auto">set pop_user=&quot;username@gmail.com&quot;
+
+# My email account password
+set pop_pass=&quot;my password&quot;
+
+# Too many email headers make reading a message difficult
+ignore *
+unignore From: To: Cc: Subject: Date: #Only these are shown in the header
+
+#To ensure that mutt does not put
+#'username@localhost.localdomain in From
+set from=&quot;username@gmail.com&quot;
+set use_from=yes
+set envelope_from=&quot;yes&quot;
+
+#The text editor I want to use to write emails
+#The default is emacs
+set editor=&quot;emacs -nw&quot;</pre>
+</div><br />
+the output of fetchmail -vk<br />
 <br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" dir="ltr" style="
+		margin: 0px;
+		padding: 3px;
+		border: 1px inset;
+		width: 98%;
+		height: 498px;
+		text-align: left;
+		overflow: auto">sycamorex@debian205:~$ fetchmail -vk
+Enter password for username@gmail.com@pop.gmail.com: 
+fetchmail: 6.3.8 querying pop.gmail.com (protocol POP3) at Sun 23 Dec 2007 14:42:05 GMT: poll started
+Trying to connect to 66.2bla...bla..bla09/995...connected.
+fetchmail: Issuer Organisation: Equifax
+fetchmail: Unknown Issuer CommonName
+fetchmail: Server CommonName: pop.gmail.com
+fetchmail: pop.gmail.com key fingerprint: 44:A8:E9:2C:FB.....bla bla..blaB2:9E:F1:A9
+fetchmail: Server certificate verification error: unable to get local issuer certificate
+fetchmail: Server certificate verification error: certificate not trusted
+fetchmail: Server certificate verification error: unable to verify the first certificate
+fetchmail: POP3&lt; +OK Gpop ready for requests from 83.4.bla... bla..blao24pf3879126ugd.0
+fetchmail: POP3&gt; CAPA
+fetchmail: POP3&lt; +OK Capability list follows
+fetchmail: POP3&lt; USER
+fetchmail: POP3&lt; RESP-CODES
+fetchmail: POP3&lt; EXPIRE 0
+fetchmail: POP3&lt; LOGIN-DELAY 300
+fetchmail: POP3&lt; X-GOOGLE-VERHOEVEN
+fetchmail: POP3&lt; UIDL
+fetchmail: POP3&lt; .
+fetchmail: POP3&gt; USER username@gmail.com
+fetchmail: POP3&lt; +OK send PASS
+fetchmail: POP3&gt; PASS *
+fetchmail: POP3&lt; +OK Welcome.
+fetchmail: POP3&gt; STAT
+fetchmail: POP3&lt; +OK 0 0
+fetchmail: No mail for hemarcin@gmail.com at pop.gmail.com
+fetchmail: POP3&gt; QUIT
+fetchmail: POP3&lt; +OK Farewell.
+fetchmail: 6.3.8 querying pop.gmail.com (protocol POP3) at Sun 23 Dec 2007 14:42:07 GMT: poll completed
+fetchmail: normal termination, status 1</pre>
+</div>when I open mutt and want to write an email - it says that email has been sent but then when I want to check it on my other email account nothing has been delivered.<br />
 <br />
-it plays fine in a web browser. But I need to be able to play it command line.<br />
+can you give me any hint. I'm working with mutt, fetchmail for the first time.<br />
 <br />
-thanks!<br />
-<br />
-<br />
-<br />
-<br />
-<br />
- mplayer -dumpstream -dumpfile test.swf &quot;http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&amp;callsign=WTEMAMAAC&amp;mp3cs=WTEMAM&quot;<br />
-MPlayer 1.0rc2-4.1.2 (C) 2000-2007 MPlayer Team<br />
-CPU: Intel(R) Pentium(R) D CPU 3.00GHz (Family: 15, Model: 6, Stepping: 5)<br />
-CPUflags:  MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1<br />
-Compiled with runtime CPU detection.<br />
-115 audio &amp; 237 video codecs<br />
-Can't open joystick device /dev/input/js0: No such file or directory<br />
-Can't init input joystick<br />
-mplayer: could not connect to socket<br />
-mplayer: No such file or directory<br />
-Failed to open LIRC support. You will not be able to use your remote control.<br />
-<br />
-Playing <a href="http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&amp;callsign=WTEMAMAAC&amp;mp3cs=WTEMAM">http://assets.espn.go.com/swf/espnra...C&amp;mp3cs=WTEMAM</a>.<br />
-Resolving assets.espn.go.com for AF_INET6...<br />
-Couldn't resolve name for AF_INET6: assets.espn.go.com<br />
-Resolving assets.espn.go.com for AF_INET...<br />
-Connecting to server assets.espn.go.com[72.246.48.33]: 80...<br />
-Cache size set to 320 KBytes<br />
-Stream not seekable!<br />
-Core dumped <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
-<br />
-Exiting... (End of file)<br />
-<br />
-<br />
-_______________________________________________<br />
-<br />
- mplayer -playlist &quot;http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&amp;callsign=WTEMAMAAC&amp;mp3cs=WTEMAM&quot;<br />
-MPlayer 1.0rc2-4.1.2 (C) 2000-2007 MPlayer Team<br />
-CPU: Intel(R) Pentium(R) D CPU 3.00GHz (Family: 15, Model: 6, Stepping: 5)<br />
-CPUflags:  MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1<br />
-Compiled with runtime CPU detection.<br />
-Resolving assets.espn.go.com for AF_INET6...<br />
-Couldn't resolve name for AF_INET6: assets.espn.go.com<br />
-Resolving assets.espn.go.com for AF_INET...<br />
-Connecting to server assets.espn.go.com[72.246.48.33]: 80...<br />
-Cache size set to 320 KBytes<br />
-115 audio &amp; 237 video codecs<br />
-Can't open joystick device /dev/input/js0: No such file or directory<br />
-Can't init input joystick<br />
-mplayer: could not connect to socket<br />
-mplayer: No such file or directory<br />
-Failed to open LIRC support. You will not be able to use your remote control.<br />
-<br />
-Playing <a href="http://assets.espn.go.com/swf/espnradio/08/CWS">http://assets.espn.go.com/swf/espnradio/08/CWS</a><br />
-                                                     Resolving assets.espn.go.com for AF_INET6...<br />
-Couldn't resolve name for AF_INET6: assets.espn.go.com<br />
-Resolving assets.espn.go.com for AF_INET...<br />
-Connecting to server assets.espn.go.com[72.246.48.18]: 80...<br />
-Server returned 400: Bad Request<br />
-STREAM_ASF, URL: <a href="http://assets.espn.go.com/swf/espnradio/08/CWS">http://assets.espn.go.com/swf/espnradio/08/CWS</a><br />
-                                                              Resolving assets.espn.go.com for AF_INET6..<br />
-<br />
-<br />
-<br />
-____________<br />
-vlc -I dummy &quot;http://assets.espn.go.com/swf/espnradio/08/stations_stw1.swf?&amp;callsign=WTEMAMAAC&amp;mp3cs=WTEMAM&quot;<br />
-VLC media player 0.8.6d Janus<br />
-[00000296] dummy interface: using the dummy interface module...<br />
-[swf @ 0x8573cf4]Compressed SWF format not supported<br />
-[00000311] ffmpeg demuxer error: av_open_input_stream failed<br />
-[00000290] main playlist: nothing to play</div>
+thanks</div>
 		<!-- / message -->
 	
 		
@@ -484,12 +633,21 @@ VLC media player 0.8.6d Janus<br />
 		
 		
 		
+		<!-- edit note -->
+			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
+				<em>
+				Last edited by sycamorex : 12-23-2007 at <span class="time">09:07 AM</span>.
+				
+				</em>
+			</div>
+		<!-- / edit note -->
+		
 	
 	</td>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ncsuapex is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="sycamorex is offline" border="0" />
 
 
 						
@@ -497,7 +655,7 @@ VLC media player 0.8.6d Janus<br />
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3243604" class="alt2" valign="bottom">
+	<td id="lqtags_2999626" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -510,7 +668,7 @@ VLC media player 0.8.6d Janus<br />
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3243604" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=2999626" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -524,32 +682,32 @@ VLC media player 0.8.6d Janus<br />
 </table>
 
 
-<!-- post 3243604 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3243604_menu" style="display:none">
+<!-- post 2999626 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2999626_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">ncsuapex</td>
+		<td class="thead">sycamorex</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/ncsuapex-157367/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/sycamorex-216084/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/ncsuapex">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ncsuapex">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=157367">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=157367">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/sycamorex">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/sycamorex">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=216084">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=216084">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=157367" rel="nofollow">Find More Posts by ncsuapex</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=216084" rel="nofollow">Find More Posts by sycamorex</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3243604 popup menu -->
+<!-- / post 2999626 popup menu -->
 
 
 	</div>
@@ -560,7 +718,7 @@ VLC media player 0.8.6d Janus<br />
 
 <!-- / close content container -->
 
-<!-- / post #3243604 --><!-- post #3243637 -->
+<!-- / post #2999626 --><!-- post #2999668 -->
 
 	<!-- open content container -->
 
@@ -568,25 +726,25 @@ VLC media player 0.8.6d Janus<br />
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3243637" style="padding:0px 0px 3px 0px">
+	<div id="edit2999668" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3243637" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post2999668" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3243637"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-11-2008, 10:10 AM
+			<a name="post2999668"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-23-2007, 09:32 AM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3243637#post3243637" rel="nofollow" id="postcount3243637" name="2"><strong>2</strong></a>
+			#<a href="/questions/showthread.php?p=2999668#post2999668" rel="nofollow" id="postcount2999668" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -595,10 +753,10 @@ VLC media player 0.8.6d Janus<br />
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3243637">
+			<div id="postmenu_2999668">
 				
-				<a class="bigusername" href="/questions/user/berticus-190488/">Berticus</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3243637", true); </script>
+				<a class="bigusername" href="/questions/user/su-shee-366145/">Su-Shee</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2999668", true); </script>
 				
 			</div>
 			
@@ -613,12 +771,12 @@ VLC media player 0.8.6d Janus<br />
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Jul 2005</div>
-				
-				<div>Distribution: Arch</div>
+				<div>Registered: Sep 2007</div>
+				<div>Location: Berlin</div>
+				<div>Distribution: Slackware</div>
 				
 				<div>
-					Posts: 148
+					Posts: 357
 				</div>
 				
 				
@@ -629,7 +787,7 @@ VLC media player 0.8.6d Janus<br />
 		
 	</td>
 	
-	<td colspan="2" class="alt1" id="td_post_3243637" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_2999668" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -638,7 +796,32 @@ VLC media player 0.8.6d Janus<br />
 		<!-- message -->
 
 
-		<div id="post_message_3243637">SWF (Shockwave flash) is a closed format. There are a couple of open source projects, such as swfdec and gnash. However, they're not good enough that I would really recommend them. The only software that I'd recommend that can play a swf file is Adobe's flash plugin. However, it's not standalone and obviously cannot be accessed through a terminal.</div>
+		<div id="post_message_2999668">Well, that's because you maybe just configured GETTING your mail, but not SENDING your mail?<br />
+<br />
+POP and fetchmail are about getting your mail from your POP/IMAP-account. <br />
+<br />
+Mutt is just your tool to compose the mail (your mail user agent) - now you need something to get it out there. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /> <br />
+<br />
+In your case of using gmail it possibly involves relaying over gmail - which is possible. <br />
+<br />
+I use msmtp to send mail out after composing it in mutt. Msmtp is small and very simple - I don't need an entire sendmail on my notebook just to send out 50  mails a day.<br />
+<br />
+From within mutt, this would be something like this in your muttrc: <br />
+<br />
+set sendmail=&quot;/usr/local/bin/msmtp&quot;<br />
+<br />
+And my msmtprc says for gmail-relaying something like this: <br />
+<br />
+account default<br />
+host smtp.gmail.com<br />
+port 587<br />
+user <a href="mailto:YOU@gmail.com">YOU@gmail.com</a><br />
+password PASSWORD<br />
+protocol smtp<br />
+tls_starttls on<br />
+logfile /home/MYHOME/.msmtp.log<br />
+<br />
+This is totally independent from your POP-fetchmail-setting.</div>
 		<!-- / message -->
 	
 		
@@ -655,7 +838,7 @@ VLC media player 0.8.6d Janus<br />
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Berticus is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Su-Shee is offline" border="0" />
 
 
 						
@@ -663,7 +846,7 @@ VLC media player 0.8.6d Janus<br />
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3243637" class="alt1" valign="bottom">
+	<td id="lqtags_2999668" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -676,7 +859,7 @@ VLC media player 0.8.6d Janus<br />
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3243637" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=2999668" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -690,32 +873,32 @@ VLC media player 0.8.6d Janus<br />
 </table>
 
 
-<!-- post 3243637 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3243637_menu" style="display:none">
+<!-- post 2999668 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2999668_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Berticus</td>
+		<td class="thead">Su-Shee</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/berticus-190488/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/su-shee-366145/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Berticus">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Berticus">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=190488">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=190488">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Su-Shee">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Su-Shee">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=366145">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=366145">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=190488" rel="nofollow">Find More Posts by Berticus</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=366145" rel="nofollow">Find More Posts by Su-Shee</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3243637 popup menu -->
+<!-- / post 2999668 popup menu -->
 
 
 	</div>
@@ -726,7 +909,7 @@ VLC media player 0.8.6d Janus<br />
 
 <!-- / close content container -->
 
-<!-- / post #3243637 --><!-- post #3244896 -->
+<!-- / post #2999668 --><!-- post #2999717 -->
 
 	<!-- open content container -->
 
@@ -734,25 +917,25 @@ VLC media player 0.8.6d Janus<br />
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3244896" style="padding:0px 0px 3px 0px">
+	<div id="edit2999717" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3244896" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post2999717" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3244896"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-12-2008, 10:49 AM
+			<a name="post2999717"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-23-2007, 10:13 AM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3244896#post3244896" rel="nofollow" id="postcount3244896" name="3"><strong>3</strong></a>
+			#<a href="/questions/showthread.php?p=2999717#post2999717" rel="nofollow" id="postcount2999717" name="3"><strong>3</strong></a>
 			
 		
 		</td>
@@ -761,15 +944,15 @@ VLC media player 0.8.6d Janus<br />
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3244896">
+			<div id="postmenu_2999717">
 				
-				<a class="bigusername" href="/questions/user/ncsuapex-157367/">ncsuapex</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3244896", true); </script>
+				<a class="bigusername" href="/questions/user/sycamorex-216084/">sycamorex</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2999717", true); </script>
 				
 			</div>
 			
 			<div class="smallfont">Member</div>
-			
+			<div class="smallfont"><a href="/linux/member.html">Contributing Member</a></div
 			
 			
 		
@@ -779,12 +962,12 @@ VLC media player 0.8.6d Janus<br />
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Dec 2004</div>
-				<div>Location: Raleigh, NC</div>
-				<div>Distribution: Centos 2.6.18-53.1.4.el5</div>
+				<div>Registered: Nov 2005</div>
+				<div>Location: London</div>
+				<div>Distribution: Fedora 9, CentOS 5.2, FreeBSD 7.0</div>
 				
 				<div>
-					Posts: 394
+					Posts: 750
 				</div>
 				
 				
@@ -795,7 +978,7 @@ VLC media player 0.8.6d Janus<br />
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3244896" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_2999717" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -804,698 +987,68 @@ VLC media player 0.8.6d Janus<br />
 		<!-- message -->
 
 
-		<div id="post_message_3244896">I might check out that gnash, thanks for replying.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ncsuapex is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3244896" class="alt2" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3244896" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3244896 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3244896_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">ncsuapex</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/ncsuapex-157367/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/ncsuapex">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ncsuapex">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=157367">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=157367">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=157367" rel="nofollow">Find More Posts by ncsuapex</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3244896 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3244896 --><!-- post #3256341 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3256341" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3256341" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3256341"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 03:07 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3256341#post3256341" rel="nofollow" id="postcount3256341" name="4"><strong>4</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3256341">
-				
-				<a class="bigusername" href="/questions/user/ncsuapex-157367/">ncsuapex</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256341", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Dec 2004</div>
-				<div>Location: Raleigh, NC</div>
-				<div>Distribution: Centos 2.6.18-53.1.4.el5</div>
-				
-				<div>
-					Posts: 394
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3256341" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3256341">what a PAIN IN THE ASS that gnash is to install and I couldn't get it to record anything.. oh well<br />
+		<div id="post_message_2999717">thanks, makes sense <br />
 <br />
+However, what I get in Mutt when I try to send an email is:<br />
 <br />
-I found out that Audacity 1.3.5 has a Timer Record option! yay! Ive been waiting on this from audacity for years.. So all I have to do is make sure the player is playing the stream and set audacity to record for x time frame.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ncsuapex is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3256341" class="alt1" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3256341" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3256341 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256341_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">ncsuapex</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/ncsuapex-157367/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/ncsuapex">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ncsuapex">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=157367">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=157367">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=157367" rel="nofollow">Find More Posts by ncsuapex</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3256341 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3256341 --><!-- post #3256360 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3256360" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3256360" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3256360"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 03:25 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3256360#post3256360" rel="nofollow" id="postcount3256360" name="5"><strong>5</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3256360">
-				
-				<a class="bigusername" href="/questions/user/erv-329740/">ErV</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256360", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Mar 2007</div>
-				<div>Location: Russia</div>
-				<div>Distribution: Slackware 12.1</div>
-				
-				<div>
-					Posts: 372
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt2" id="td_post_3256360" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3256360">*.swf isn't a stream. You can't play one until it is fully downloaded.<br />
-It's a flash movie. You can use either firefox plugin, or you can use windows standalone flash players with wine (I do it this way). <br />
-<br />
-The link you've provided is a &quot;player&quot; (for another audio stream) written in flash (works in firefox with flash plugin just fine). Most likely you won't be able to play that link outside of browser. But this &quot;player&quot; gets it's audio data from somewhere, and if you'll be able to guess from where, then you'll be able to play it without using that &quot;player&quot;.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ErV is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3256360" class="alt2" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3256360" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3256360 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256360_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">ErV</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/erv-329740/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/ErV">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ErV">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=329740">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=329740">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="http://lostcode.110mb.com/">Visit ErV's homepage!</a></td></tr>
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=329740" rel="nofollow">Find More Posts by ErV</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3256360 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3256360 --><!-- post #3256374 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3256374" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3256374" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3256374"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 03:48 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3256374#post3256374" rel="nofollow" id="postcount3256374" name="6"><strong>6</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3256374">
-				
-				<a class="bigusername" href="/questions/user/roystonlodge-412637/">roystonlodge</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256374", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Jun 2008</div>
-				
-				
-				
-				<div>
-					Posts: 62
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3256374" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3256374">You can download a standalone Flash Player from <a href="http://www.adobe.com/support/flashplayer/downloads.html">http://www.adobe.com/support/flashplayer/downloads.html</a>, which you can launch from the command line.<br />
-<br />
-I've been trying to get it to work under Damn Small Linux, so I can play downloaded .swf games, but with little success.  It runs if I install the GTK2 myDSL extension, but crashes rather quickly.  If anybody has any ideas on what I could do to correct that problem, I'd be most appreciative.<br />
-<br />
-The Adobe site doesn't list any options that the flashplayer supports from the command line.  If anybody knows of any, I'd also be appreciative.  Maybe if I had those command line options I could find a way to run flashplayer without it crashing.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="roystonlodge is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3256374" class="alt1" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3256374" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3256374 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256374_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">roystonlodge</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/roystonlodge-412637/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/roystonlodge">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/roystonlodge">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=412637">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=412637">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=412637" rel="nofollow">Find More Posts by roystonlodge</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3256374 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3256374 --><!-- post #3256387 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3256387" style="padding:0px 0px 3px 0px">
-		
-
-
-
-<table id="post3256387" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3256387"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 04:07 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3256387#post3256387" rel="nofollow" id="postcount3256387" name="7"><strong>7</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3256387">
-				
-				<a class="bigusername" href="/questions/user/erv-329740/">ErV</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256387", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Mar 2007</div>
-				<div>Location: Russia</div>
-				<div>Distribution: Slackware 12.1</div>
-				
-				<div>
-					Posts: 372
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt2" id="td_post_3256387" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3256387"><div style="margin:20px; margin-top:5px; ">
+<div style="margin:20px; margin-top:5px; ">
 	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
 	<table cellpadding="3" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td class="bbcodeblock" style="border:1px inset">
 			
-				<div>
-					Originally Posted by <strong>roystonlodge</strong>
-					<a href="showthread.php?p=3256374#post3256374" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
-				</div>
-				<div style="font-style:italic">I've been trying to get it to work under Damn Small Linux, so I can play downloaded .swf games, but with little success.  It runs if I install the GTK2 myDSL extension, but crashes rather quickly.  If anybody has any ideas on what I could do to correct that problem, I'd be most appreciative.</div>
+				msmtp: envelope from address <a href="mailto:YOU@gmail.com">YOU@gmail.com</a> not accepted by the server<br />
+msmtp: server message: 530 5.7.0 Must issue a STARTTLS command first k5sm707424nfh.18<br />
+msmtp: could not send mail (account default from /home/sycamorex/.msmtprc)
 			
 		</td>
 	</tr>
 	</table>
-</div>You can use Windows standalone flashplayer with Wine. It always works very well. Windows standalone flash player (or &quot;projector&quot;) should be available somewhere on the Adobe site, might be called something like &quot;sa_flashplayer_9_debug.exe&quot;. I also have &quot;SAFlashPlayer.exe&quot; which I use to play downloaded flash games, but I have no idea where I got it from.</div>
+</div><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Error sending message, child exited 65 (Data format error.).
+			
+		</td>
+	</tr>
+	</table>
+</div>and the log entry from .msmtp.log<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Dec 23 16:10:12 host=smtp.gmail.com tls=off auth=off from=YOU@gmail.com recipients=SOMEBODY@gmail.com smtpstatus=530 smtpmsg='530 5.7.0 Must issue a STARTTLS command first k5sm707424nfh.18' errormsg='envelope from address <a href="mailto:YOU@gmail.com">YOU@gmail.com</a> not accepted by the server' exitcode=EX_DATAERR
+			
+		</td>
+	</tr>
+	</table>
+</div>my .msmtprc<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				account default<br />
+host smtp.gmail.com<br />
+port 587<br />
+user <a href="mailto:YOU@gmail.com">YOU@gmail.com</a><br />
+password blablabal<br />
+protocol smtp<br />
+tls_starttls on<br />
+logfile /home/sycamorex/Mail/.msmtp.log
+			
+		</td>
+	</tr>
+	</table>
+</div>thanks</div>
 		<!-- / message -->
 	
 		
@@ -1512,7 +1065,7 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ErV is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="sycamorex is offline" border="0" />
 
 
 						
@@ -1520,7 +1073,7 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256387" class="alt2" valign="bottom">
+	<td id="lqtags_2999717" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -1533,7 +1086,7 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256387" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=2999717" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -1547,34 +1100,32 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 </table>
 
 
-<!-- post 3256387 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256387_menu" style="display:none">
+<!-- post 2999717 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2999717_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">ErV</td>
+		<td class="thead">sycamorex</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/erv-329740/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/sycamorex-216084/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/ErV">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ErV">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=329740">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=329740">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/sycamorex">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/sycamorex">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=216084">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=216084">View HCL Entries</a></td></tr>
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="http://lostcode.110mb.com/">Visit ErV's homepage!</a></td></tr>
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=329740" rel="nofollow">Find More Posts by ErV</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=216084" rel="nofollow">Find More Posts by sycamorex</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256387 popup menu -->
+<!-- / post 2999717 popup menu -->
 
 
 	</div>
@@ -1585,7 +1136,351 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 
 <!-- / close content container -->
 
-<!-- / post #3256387 --><div id="lastpost"></div></div>
+<!-- / post #2999717 --><!-- post #3002732 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3002732" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post3002732" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3002732"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			12-27-2007, 05:08 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3002732#post3002732" rel="nofollow" id="postcount3002732" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3002732">
+				
+				<a class="bigusername" href="/questions/user/andrew.46-373926/">andrew.46</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3002732", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Oct 2007</div>
+				
+				<div>Distribution: Slackware 12.1</div>
+				
+				<div>
+					Posts: 151
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_3002732" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3002732">Hi,<br />
+<br />
+ Have a look at:<br />
+<br />
+<a href="http://www.andrews-corner.org/mutt.html">http://www.andrews-corner.org/mutt.html</a><br />
+<br />
+ there is a section on msmtp as well<br />
+<br />
+       Andrew</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrew.46 is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3002732" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3002732" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3002732 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3002732_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">andrew.46</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/andrew.46-373926/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/andrew.46">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrew.46">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=373926">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=373926">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.andrews-corner.org">Visit andrew.46's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=373926" rel="nofollow">Find More Posts by andrew.46</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3002732 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3002732 --><!-- post #3043428 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit3043428" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post3043428" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post3043428"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			02-02-2008, 05:15 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=3043428#post3043428" rel="nofollow" id="postcount3043428" name="5"><strong>5</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_3043428">
+				
+				<a class="bigusername" href="/questions/user/sycamorex-216084/">sycamorex</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3043428", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			<div class="smallfont"><a href="/linux/member.html">Contributing Member</a></div
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Nov 2005</div>
+				<div>Location: London</div>
+				<div>Distribution: Fedora 9, CentOS 5.2, FreeBSD 7.0</div>
+				
+				<div>
+					Posts: 750
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_3043428" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_3043428">Ok, finally I managed to do it. I got all the certificates and c_rehashed them and I got rid of those errors. Then I had a problem with msmtp, but what turned out was that in .muttrc the path to msmtp was not correct<br />
+<br />
+thanks guys</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="sycamorex is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_3043428" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=3043428" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 3043428 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3043428_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">sycamorex</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/sycamorex-216084/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/sycamorex">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/sycamorex">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=216084">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=216084">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=216084" rel="nofollow">Find More Posts by sycamorex</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 3043428 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3043428 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -1605,7 +1500,7 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256387" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3043428" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
 	
 </tr>
@@ -1618,12 +1513,12 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=662002&amp;title=command line tool to play swf internet streams?" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=662002&amp;title=command line tool to play swf internet streams?" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=662002&amp;title=command line tool to play swf internet streams?"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=608702&amp;title=mutt/fetchmail" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=608702&amp;title=mutt/fetchmail" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=608702&amp;title=mutt/fetchmail"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/command-line-tool-to-play-swf-internet-streams-662002/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/muttfetchmail-608702/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -1642,37 +1537,39 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=662002" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=662002" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=608702&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=608702" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=608702" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -1741,38 +1638,42 @@ The Adobe site doesn't list any options that the flashplayer supports from the c
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=638494" title="Hi
-
-I have a server (debian) with a dvb-interface (nova-t-usb2) and I need a way to record dvb streams remotely. (I live in..." target="_blank">record dvb streams (with subtitles !!) from the command line</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">henning</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=592137" title="How can I change the location of where fetchmail downloads emails to the mbox file? Each time I start mutt, it asks me if I want to create a Mail..." target="_blank">fetchmail and mutt</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">fakie_flip</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
-	<td class="alt2" align="center"><span class="smallfont">4</span></td>
-	<td class="alt1" align="right"><span class="smallfont">06-27-2008 <span class="time">02:35 AM</span></span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">10-18-2007 <span class="time">03:19 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=573085" title="There's a nice command line tool called &quot;convert&quot; that I want to install, but I don't know the name of the package that I could apt-get. Does anyone..." target="_blank">convert command line picture tool</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">benchcomptons</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Debian</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=591117" title="I have fetchmail downloading my emails from gmail and fetchyahoo downloading my emails from yahoo mail. I need to learn how to setup procmail to..." target="_blank">procmail, mutt, evolution, fetchmail</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">fakie_flip</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">10-15-2007 <span class="time">12:12 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=580560" title="hello all,
+
+I'm trying to set up mutt on my account, with fetchmail to pull email from my pop3 account, along with procmail to process it. 
+
+The..." target="_blank">Help with mutt/procmail/fetchmail configs</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">evilchild</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
 	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">07-29-2007 <span class="time">12:14 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">08-30-2007 <span class="time">08:09 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=532103" title="I have instaled the Mplayer and read before in the FFmpeg site about the command line tool ffmpeg for video capture. But have not encountered, when I..." target="_blank">where is the ffmpeg command line tool?</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">leodemario</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Desktop</span></td>
-	<td class="alt2" align="center"><span class="smallfont">5</span></td>
-	<td class="alt1" align="right"><span class="smallfont">02-25-2007 <span class="time">03:11 PM</span></span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=483774" title="I use fetchmail,mutt,procmail,sendmail on RH 9.0. I
+need to configure a slack 10.0 partition for the same.
+
+Not being familiar with slackware, I'd..." target="_blank">config fetchmail,mutt,procmail,sendmail</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Tim Johnson</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Slackware</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-15-2006 <span class="time">02:20 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=381433" title="Hi there,
-I'm using FC4 and I wouldlike to know, how do I get IP from DHCP. I want to use some kind of command-line tool as I was used on debian..." target="_blank">DHCP command line tool</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">cold</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Fedora</span></td>
-	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">11-09-2005 <span class="time">10:14 AM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=225529" title="Is there a command line tool to control the sound volume? I would like to increase or decrease the volume of a currently playing mp3 file using the..." target="_blank">command line tool to control volume?</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">infected</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Programming</span></td>
-	<td class="alt2" align="center"><span class="smallfont">4</span></td>
-	<td class="alt1" align="right"><span class="smallfont">09-02-2004 <span class="time">08:58 AM</span></span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=153479" title="I'm trying to set things up so that I can read/send email from the console. I want to use Mutt to read mail, but I have several pop3 accounts on..." target="_blank">email from the console (fetchmail/procmail/mutt/postfix)</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">TedMaul</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">03-04-2004 <span class="time">12:07 PM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -1793,7 +1694,7 @@ I'm using FC4 and I wouldlike to know, how do I get IP from DHCP. I want to use 
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:29 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:25 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -1854,17 +1755,10 @@ I'm using FC4 and I wouldlike to know, how do I get IP from DHCP. I want to use 
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>

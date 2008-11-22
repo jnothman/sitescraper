@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="Anything but 127.0.0.1, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="Anything but 127.0.0.1 Linux - Software" />
+<meta name="keywords" content="webmin/apache, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="webmin/apache Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>Anything but 127.0.0.1 - LinuxQuestions.org</title>
+	<title>webmin/apache - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right">Visit <a href="http://jeremy.linuxquestions.org/">Jeremy's Blog</a>.</div>
+     <div align="right">Help answer threads with <a href="/questions/lqsearch.php?do=noreplies">0 replies</a>.</div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/anything-but-127.0.0.1-664277/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	Anything but 127.0.0.1
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/webminapache-82935/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	webmin/apache
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -268,9 +397,26 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3254615" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=429148" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+	
+	<td align="right">
+<div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
 	
 	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 16"><strong>1</strong></span></td>
+ 
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Show results 16 to 16 of 16">2</a></td>
+
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="showthread.php?t=82935"><a name="PageNav"></a></td>
+</tr>
+</table>
+</div>
+</td>
 </tr>
 </table>
 <!-- / controls above postbits -->
@@ -286,8 +432,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/webminapache-82935/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +451,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3254615 -->
+<div id="posts"><!-- post #429148 -->
 
 	<!-- open content container -->
 
@@ -313,25 +459,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3254615" style="padding:0px 0px 3px 0px">
+	<div id="edit429148" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3254615" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post429148" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3254615"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 03:59 AM
+			<a name="post429148"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-17-2003, 07:07 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3254615#post3254615" rel="nofollow" id="postcount3254615" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=429148#post429148" rel="nofollow" id="postcount429148" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,10 +486,10 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3254615">
+			<div id="postmenu_429148">
 				
-				<a class="bigusername" href="/questions/user/mufasa-151679/">Mufasa</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3254615", true); </script>
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_429148", true); </script>
 				
 			</div>
 			
@@ -358,12 +504,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Nov 2004</div>
-				
-				
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
 				
 				<div>
-					Posts: 62
+					Posts: 60
 				</div>
 				
 				
@@ -374,14 +520,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3254615" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_429148" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
-				
-				<strong>Anything but 127.0.0.1</strong>
+				<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/icons_lq/icon10.gif" alt="Talking" border="0" />
+				<strong>webmin/apache</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,19 +544,14 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3254615">Hello all,<br />
+		<div id="post_message_429148">i have a problem...im on slackware 9 using webmin 1.100...but heres the problem..im trying to setup a virtual server so when sombody browses my site...example: something.mydomain.com it takes them to whatever i got the document root set to..but i cant get rid of the default for sum reason...if anybody can tell me how to get rid of the default virtual server i would really appreciate it...the default looks like this..therefore any address i put on my box...it auto takes em to the default virtual server which i dont want...<br />
 <br />
-As of now, I have a standalone system (with Opensuse 10.3 - or SLES 10)<br />
+Address Any<br />
+ Port Any<br />
+Server Name myservername<br />
+ Document Root /home/artistik/public_html/<br />
 <br />
-I need for the hostname of the system not to be associated with 127.0.0.1 (and the domain ~not~ to be associated with 127.0.0.2). <br />
-<br />
-I think that hosts can be associated with IP addresses like 192.x.x.x but it seems to require that one be attached to the network or have some kind of access to a gateway - right?<br />
-<br />
-Well, currently, I don't have that but I still need to fix the IP address.<br />
-<br />
-Is there a way to use Yast, Yast2 or some other kind of networking so that the local host ip is other than 127.0.0.1?<br />
-<br />
-TIA</div>
+i need to find a way to delete this offa webmin but it wont let me...</div>
 		<!-- / message -->
 	
 		
@@ -427,7 +568,7 @@ TIA</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Mufasa is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
 						
@@ -435,7 +576,7 @@ TIA</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3254615" class="alt2" valign="bottom">
+	<td id="lqtags_429148" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -448,7 +589,7 @@ TIA</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3254615" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=429148" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -462,32 +603,34 @@ TIA</div>
 </table>
 
 
-<!-- post 3254615 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3254615_menu" style="display:none">
+<!-- post 429148 popup menu -->
+<div class="vbmenu_popup" id="postmenu_429148_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Mufasa</td>
+		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/mufasa-151679/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Mufasa">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Mufasa">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=151679">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=151679">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=151679" rel="nofollow">Find More Posts by Mufasa</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3254615 popup menu -->
+<!-- / post 429148 popup menu -->
 
 
 	</div>
@@ -498,7 +641,7 @@ TIA</div>
 
 <!-- / close content container -->
 
-<!-- / post #3254615 --><!-- post #3254662 -->
+<!-- / post #429148 --><!-- post #429515 -->
 
 	<!-- open content container -->
 
@@ -506,25 +649,25 @@ TIA</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3254662" style="padding:0px 0px 3px 0px">
+	<div id="edit429515" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3254662" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post429515" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3254662"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 04:57 AM
+			<a name="post429515"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-17-2003, 11:58 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3254662#post3254662" rel="nofollow" id="postcount3254662" name="2"><strong>2</strong></a>
+			#<a href="/questions/showthread.php?p=429515#post429515" rel="nofollow" id="postcount429515" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -533,215 +676,10 @@ TIA</div>
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3254662">
+			<div id="postmenu_429515">
 				
-				<a class="bigusername" href="/questions/user/rednuht-201110/">rednuht</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3254662", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Aug 2005</div>
-				
-				
-				
-				<div>
-					Posts: 228
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3254662" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3254662">why ?<br />
-All unix based machines i.e. linux have localhost set as 127.0.0.1 and lots of applications use that information in the background.<br />
-If your machine is on a network, your own or the internet then it will have another IP address.<br />
-<div style="margin:20px; margin-top:5px">
-	<div class="smallfont" style="margin-bottom:2px">Code:</div>
-	<pre class="bbcodeblock" dir="ltr" style="
-		margin: 0px;
-		padding: 3px;
-		border: 1px inset;
-		width: 98%;
-		height: 34px;
-		text-align: left;
-		overflow: auto">ifconfig -a</pre>
-</div>will show what network interfaces are available including local loopback bound to 127.0.0.1<br />
-if there is anything else there then you can run<br />
-<div style="margin:20px; margin-top:5px">
-	<div class="smallfont" style="margin-bottom:2px">Code:</div>
-	<pre class="bbcodeblock" dir="ltr" style="
-		margin: 0px;
-		padding: 3px;
-		border: 1px inset;
-		width: 98%;
-		height: 34px;
-		text-align: left;
-		overflow: auto">route</pre>
-</div>to see how they are used.<br />
-if you have a private IP address 192.168.x.x or 10.x.x.x then you should be able to set the IP address <div style="margin:20px; margin-top:5px">
-	<div class="smallfont" style="margin-bottom:2px">Code:</div>
-	<pre class="bbcodeblock" dir="ltr" style="
-		margin: 0px;
-		padding: 3px;
-		border: 1px inset;
-		width: 98%;
-		height: 34px;
-		text-align: left;
-		overflow: auto">man ifconfig</pre>
-</div>if your IP address is something else then it is being set by your network provider and you should speak to them.<br />
-If you want to spoof an IP address then remember that none of the packets from your target machine will ever get back to you.<br />
-<br />
-let us know how you get on.</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="rednuht is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3254662" class="alt1" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3254662" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3254662 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3254662_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">rednuht</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/rednuht-201110/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/rednuht">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/rednuht">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=201110">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=201110">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=201110" rel="nofollow">Find More Posts by rednuht</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3254662 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3254662 --><!-- post #3254862 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3254862" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3254862" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3254862"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 08:38 AM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3254862#post3254862" rel="nofollow" id="postcount3254862" name="3"><strong>3</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3254862">
-				
-				<a class="bigusername" href="/questions/user/mufasa-151679/">Mufasa</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3254862", true); </script>
+				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_429515", true); </script>
 				
 			</div>
 			
@@ -756,12 +694,12 @@ let us know how you get on.</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Nov 2004</div>
-				
+				<div>Registered: Jul 2003</div>
+				<div>Location: London</div>
 				
 				
 				<div>
-					Posts: 62
+					Posts: 548
 				</div>
 				
 				
@@ -772,206 +710,36 @@ let us know how you get on.</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3254862" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_429515" style="border-right: 1px solid #FFFFFF">
 	
 		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong>Re: webmin/apache</strong>
+			</div>
+			<hr size="1" style="color:#FFFFFF" />
+			<!-- / icon and title -->
 		
 		
 
 		<!-- message -->
 
 
-		<div id="post_message_3254862"><div style="margin:20px; margin-top:5px; ">
+		<div id="post_message_429515"><div style="margin:20px; margin-top:5px; ">
 	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
 	<table cellpadding="3" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td class="bbcodeblock" style="border:1px inset">
 			
-				<div>
-					Originally Posted by <strong>rednuht</strong>
-					<a href="showthread.php?p=3254662#post3254662" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
-				</div>
-				<div style="font-style:italic">why ?<br />
-All unix based machines i.e. linux have localhost set as 127.0.0.1 and lots of applications use that information in the background.</div>
+				<i>Originally posted by artistik </i><br />
+<b>i need to find a way to delete this offa webmin but it wont let me... </b>
 			
 		</td>
 	</tr>
 	</table>
-</div>Thanks for responding <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /><br />
-<br />
-Basically, the software I am using requires that the hostname not be associated with 127.0.0.1 and that the domain not be associated with 127.0.0.2 - why they made it that way, I have no idea.<br />
-<br />
-Is there a list of steps one can go through to do this?<br />
-<br />
-TIA</div>
-		<!-- / message -->
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	</td>
-</tr>
-<tr>
-	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Mufasa is offline" border="0" />
-
-
-						
-		
-		
-		&nbsp;
-	</td>
-	<td id="lqtags_3254862" class="alt2" valign="bottom">
-	
-        &nbsp;
-	
-	</td>
-	
-	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
-	
-		<!-- controls -->
-	
-		
-		
-		
-			<a href="newreply.php?do=newreply&amp;p=3254862" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
-		
-		
-		
-		
-			
-		
-		
-		<!-- / controls -->
-	</td>
-</tr>
-</table>
-
-
-<!-- post 3254862 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3254862_menu" style="display:none">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">Mufasa</td>
-	</tr>
-	
-	<tr><td class="vbmenu_option"><a href="/questions/user/mufasa-151679/">View Public Profile</a></td></tr>
-	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Mufasa">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Mufasa">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=151679">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=151679">View HCL Entries</a></td></tr>
-	
-	
-	
-	
-	
-	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=151679" rel="nofollow">Find More Posts by Mufasa</a></td></tr>
-	
-	
-	
-	</table>
-</div>
-<!-- / post 3254862 popup menu -->
-
-
-	</div>
-	
-		</div>	
-	</div>
-</div>
-
-<!-- / close content container -->
-
-<!-- / post #3254862 --><!-- post #3255305 -->
-
-	<!-- open content container -->
-
-<div align="center">
-	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
-
-	<div id="edit3255305" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
-
-
-
-<table id="post3255305" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
-<tr>
-	
-		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
-			<!-- status icon and date -->
-			<a name="post3255305"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 03:58 PM
-			
-			<!-- / status icon and date -->				
-		</td>
-		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
-			&nbsp;
-		
-			#<a href="/questions/showthread.php?p=3255305#post3255305" rel="nofollow" id="postcount3255305" name="4"><strong>4</strong></a>
-			
-		
-		</td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
-			
-			<div id="postmenu_3255305">
-				
-				<a class="bigusername" href="/questions/user/rednuht-201110/">rednuht</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3255305", true); </script>
-				
-			</div>
-			
-			<div class="smallfont">Member</div>
-			
-			
-			
-		
-			
-
-			
-			
-			<div class="smallfont">
-				&nbsp;<br />
-				<div>Registered: Aug 2005</div>
-				
-				
-				
-				<div>
-					Posts: 228
-				</div>
-				
-				
-				
-				
-				<div>    </div>
-			</div>					
-		
-	</td>
-	
-	<td colspan="2" class="alt1" id="td_post_3255305" style="border-right: 1px solid #FFFFFF">
-	
-		
-		
-		
-
-		<!-- message -->
-
-
-		<div id="post_message_3255305">as root edit /etc/hosts<br />
-it will have examples and it is a simple one to one list of hostnames to ip address mappings.<br />
-remember to make a back up first !</div>
+</div>What you should do if you're unhappy with what webmin does, is edit your /etc/apache/httpd.conf by hand, remove these entries, and put in your documentroot or whatever as you want.</div>
 		<!-- / message -->
 	
 		
@@ -988,7 +756,7 @@ remember to make a back up first !</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="rednuht is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
 
 
 						
@@ -996,7 +764,7 @@ remember to make a back up first !</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3255305" class="alt1" valign="bottom">
+	<td id="lqtags_429515" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -1009,7 +777,7 @@ remember to make a back up first !</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3255305" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=429515" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -1023,32 +791,34 @@ remember to make a back up first !</div>
 </table>
 
 
-<!-- post 3255305 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3255305_menu" style="display:none">
+<!-- post 429515 popup menu -->
+<div class="vbmenu_popup" id="postmenu_429515_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">rednuht</td>
+		<td class="thead">andrewlkho</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/rednuht-201110/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/rednuht">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/rednuht">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=201110">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=201110">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=201110" rel="nofollow">Find More Posts by rednuht</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://andrewho.co.uk/">Visit andrewlkho's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=36278" rel="nofollow">Find More Posts by andrewlkho</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3255305 popup menu -->
+<!-- / post 429515 popup menu -->
 
 
 	</div>
@@ -1059,7 +829,7 @@ remember to make a back up first !</div>
 
 <!-- / close content container -->
 
-<!-- / post #3255305 --><!-- post #3255328 -->
+<!-- / post #429515 --><!-- post #430397 -->
 
 	<!-- open content container -->
 
@@ -1067,25 +837,25 @@ remember to make a back up first !</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3255328" style="padding:0px 0px 3px 0px">
+	<div id="edit430397" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3255328" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post430397" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3255328"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 04:19 PM
+			<a name="post430397"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-18-2003, 01:35 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3255328#post3255328" rel="nofollow" id="postcount3255328" name="5"><strong>5</strong></a>
+			#<a href="/questions/showthread.php?p=430397#post430397" rel="nofollow" id="postcount430397" name="3"><strong>3</strong></a>
 			
 		
 		</td>
@@ -1094,10 +864,10 @@ remember to make a back up first !</div>
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3255328">
+			<div id="postmenu_430397">
 				
-				<a class="bigusername" href="/questions/user/mufasa-151679/">Mufasa</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3255328", true); </script>
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_430397", true); </script>
 				
 			</div>
 			
@@ -1112,12 +882,12 @@ remember to make a back up first !</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Nov 2004</div>
-				
-				
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
 				
 				<div>
-					Posts: 62
+					Posts: 60
 				</div>
 				
 				
@@ -1128,7 +898,7 @@ remember to make a back up first !</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3255328" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_430397" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -1137,44 +907,1592 @@ remember to make a back up first !</div>
 		<!-- message -->
 
 
-		<div id="post_message_3255328">Have gotten a little more information now.<br />
+		<div id="post_message_430397">well i did do that...i want so when ppl browse my web adress it takes em to what the document root says....but when i setup a virual server ie: something.mydomain.com and i got that set to a diff documentroot it still goes to the main document root...because webmin has the default virtual server set to any address...and i cant find a way to delete the default server on webmin =p</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_430397" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=430397" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 430397 popup menu -->
+<div class="vbmenu_popup" id="postmenu_430397_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">artistik</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 430397 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #430397 --><!-- post #430962 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit430962" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post430962" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post430962"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-18-2003, 06:42 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=430962#post430962" rel="nofollow" id="postcount430962" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_430962">
+				
+				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_430962", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2003</div>
+				<div>Location: London</div>
+				
+				
+				<div>
+					Posts: 548
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_430962" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_430962">can you post the relevant sections of your httpd.conf please?  or at least a link to it...</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_430962" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=430962" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 430962 popup menu -->
+<div class="vbmenu_popup" id="postmenu_430962_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">andrewlkho</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://andrewho.co.uk/">Visit andrewlkho's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=36278" rel="nofollow">Find More Posts by andrewlkho</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 430962 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #430962 --><!-- post #431222 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit431222" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post431222" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post431222"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-18-2003, 09:22 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=431222#post431222" rel="nofollow" id="postcount431222" name="5"><strong>5</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_431222">
+				
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_431222", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
+				
+				<div>
+					Posts: 60
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_431222" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_431222"><a href="http://www.d0hp.org/httpd.conf">www.d0hp.org/httpd.conf</a> try that..</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_431222" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=431222" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 431222 popup menu -->
+<div class="vbmenu_popup" id="postmenu_431222_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">artistik</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 431222 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #431222 --><!-- post #431726 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit431726" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post431726" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post431726"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 04:17 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=431726#post431726" rel="nofollow" id="postcount431726" name="6"><strong>6</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_431726">
+				
+				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_431726", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2003</div>
+				<div>Location: London</div>
+				
+				
+				<div>
+					Posts: 548
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_431726" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_431726">I'm not entirely sure what you want to do.  Do you want to make it so that when they access your webserver, they get directed to /home/trin/public_html?  If so, then replace all of the /home/artistik/public_html entries with /home/trin/public_html, and restart the apache web server:<br />
+apachectl restart<br />
+Or are you trying to do something else?</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_431726" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=431726" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 431726 popup menu -->
+<div class="vbmenu_popup" id="postmenu_431726_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">andrewlkho</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://andrewho.co.uk/">Visit andrewlkho's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=36278" rel="nofollow">Find More Posts by andrewlkho</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 431726 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #431726 --><!-- post #431738 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit431738" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post431738" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post431738"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 04:28 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=431738#post431738" rel="nofollow" id="postcount431738" name="7"><strong>7</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_431738">
+				
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_431738", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
+				
+				<div>
+					Posts: 60
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_431738" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_431738">im trying to make it so when they try to access like web.d0hp.org or any other address i have up...it takes them to some other directory besides /home/artistik/public_html but i still wanna leave <a href="http://www.d0hp.org">www.d0hp.org</a> up...as the /home/artistik/public_html</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_431738" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=431738" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 431738 popup menu -->
+<div class="vbmenu_popup" id="postmenu_431738_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">artistik</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 431738 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #431738 --><!-- post #431747 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit431747" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post431747" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post431747"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 04:33 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=431747#post431747" rel="nofollow" id="postcount431747" name="8"><strong>8</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_431747">
+				
+				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_431747", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2003</div>
+				<div>Location: London</div>
+				
+				
+				<div>
+					Posts: 548
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_431747" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_431747">Okay,several things here.<br />
+When you create virtualhosts, you *must* create one first for your default document root, a &lt;VirtualHost&gt; directive for that is a must.  That's the main thing, and probably the main problem.<br />
+Secondly, I belive that in the virtualhost specification, you need to specify the servername directive.<br />
 <br />
-Basically, it seems as though the OS is not recognizing my ethernet card. <br />
+I hope this helps, the first part is the most important.  I haven't done any virtualhosting based on domain name, only on port number, which is slightly different, but I hope the above information is correct</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_431747" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=431747" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 431747 popup menu -->
+<div class="vbmenu_popup" id="postmenu_431747_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">andrewlkho</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://andrewho.co.uk/">Visit andrewlkho's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=36278" rel="nofollow">Find More Posts by andrewlkho</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 431747 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #431747 --><!-- post #431888 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit431888" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post431888" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post431888"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 07:26 AM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=431888#post431888" rel="nofollow" id="postcount431888" name="9"><strong>9</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_431888">
+				
+				<a class="bigusername" href="/questions/user/cooner-41050/">Cooner</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_431888", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Jul 2003</div>
+				<div>Location: Hastings, MN. USA</div>
+				<div>Distribution:  Slackware 9, Mandrake 9.1, FreeBSD 5.1, Win98, WinNT, Win2K, WinXP</div>
+				
+				<div>
+					Posts: 108
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_431888" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_431888">Here is an example of what works for me<br />
 <br />
-This is what I have done thus far:<br />
+NameVirtualHost 192.168.1.16<br />
 <br />
--&gt; uname -a<br />
-Linux simba 2.6.22.5-31-default #1 SMP 2007/09/21 UTC x86_64 x86_64 x86_64 GNU/Linux<br />
+#<br />
+# VirtualHost example:<br />
+# Almost any Apache directive may go into a VirtualHost container.<br />
+# The first VirtualHost section is used for requests without a known<br />
+# server name.<br />
+#<br />
+#&lt;VirtualHost *&gt;<br />
+#    ServerAdmin <a href="mailto:webmaster@dummy-host.example.com">webmaster@dummy-host.example.com</a><br />
+#    DocumentRoot /www/docs/dummy-host.example.com<br />
+#    ServerName dummy-host.example.com<br />
+#    ErrorLog logs/dummy-host.example.com-error_log<br />
+#    CustomLog logs/dummy-host.example.com-access_log common<br />
+#&lt;/VirtualHost&gt;<br />
+&lt;VirtualHost 192.168.1.16&gt;<br />
+	UseCanonicalName off<br />
+	ServerAdmin <a href="mailto:Cooner@myweb.com">Cooner@myweb.com</a><br />
+	DocumentRoot /var/www/html<br />
+	ServerName myweb.thisweb.com	#Default<br />
+	ErrorLog /var/log/apache/myweb.thisweb.com-errorlog<br />
+	CustomLog /var/log/apache/myweb.thisweb.com-access_log common<br />
+&lt;/VirtualHost&gt;<br />
+&lt;VirtualHost 192.168.1.16&gt;<br />
+	UseCanonicalName off<br />
+	ServerAdmin <a href="mailto:Cooner@myweb.com">Cooner@myweb.com</a><br />
+	DocumentRoot /var/www/html/myweb2<br />
+	ServerName myweb2.thisweb.com<br />
+	ErrorLog /var/log/apache/myweb2.thisweb.com-errorlog<br />
+	CustomLog /var/log/apache/myweb2.thisweb.com-access_log common<br />
+&lt;/VirtualHost&gt;<br />
+&lt;VirtualHost 192.168.1.16&gt;<br />
+	UseCanonicalName off<br />
+    	ServerAdmin <a href="mailto:Cooner@myweb.com">Cooner@myweb.com</a><br />
+    	DocumentRoot /var/www/html/myweb3<br />
+    	ServerName myweb3.thisweb.com<br />
+    	ErrorLog /var/log/apache/myweb3.thisweb.com-error_log<br />
+    	CustomLog /var/log/apache/myweb3.thisweb.com-access_log common<br />
+&lt;/VirtualHost&gt;</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Cooner is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_431888" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=431888" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 431888 popup menu -->
+<div class="vbmenu_popup" id="postmenu_431888_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Cooner</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/cooner-41050/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Cooner">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Cooner">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=41050">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=41050">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=41050" rel="nofollow">Find More Posts by Cooner</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 431888 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #431888 --><!-- post #432406 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit432406" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post432406" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post432406"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 02:11 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=432406#post432406" rel="nofollow" id="postcount432406" name="10"><strong>10</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_432406">
+				
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432406", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
+				
+				<div>
+					Posts: 60
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_432406" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_432406">check this out..heres how this looks ...<a href="http://www.d0hp.org/snapshot4.png">www.d0hp.org/snapshot4.png</a></div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_432406" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=432406" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 432406 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432406_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">artistik</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 432406 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #432406 --><!-- post #432476 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit432476" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post432476" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post432476"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 03:04 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=432476#post432476" rel="nofollow" id="postcount432476" name="11"><strong>11</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_432476">
+				
+				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432476", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				
+				<div>Distribution: RedHat</div>
+				
+				<div>
+					Posts: 35
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_432476" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_432476">Looks like you are on the right track, but I would suggest manually editing the httpd.conf file instead of using webmin.<br />
 <br />
--&gt; lspci | grep Ethernet<br />
-00:0f.0 Ethernet controller: nVidia Corporation Unknown Device 07dc (rev a2)<br />
+I use &lt;Virtualhost *&gt; and it has always worked like a charm for me. I have no default setting. <br />
 <br />
--&gt; ifconfig -a<br />
-lo Link encap Loopback<br />
-inet address : 127.0.0.1 Mask: 255.0.0.0<br />
-inet 6 addr:: 1/128 Scope:Host<br />
-UP LOOPBACK RUNNINGMTU: 16436<br />
-....<br />
-[snip]<br />
-....<br />
+(snip of my httpd.conf)<br />
+# Use name-based virtual hosting.<br />
+# Make sure you have this un-commented<br />
+NameVirtualHost *<br />
 <br />
-Main thing: The loopback address(lo) is mentioned but not the ethernet (eth0).<br />
+&lt;VirtualHost *&gt;<br />
+    DocumentRoot /var/www/html/<br />
+    ServerName <a href="http://www.somedomain.com">www.somedomain.com</a><br />
+&lt;/VirtualHost&gt;<br />
 <br />
--&gt; cat /etc/udev/rules.d/30-net_persistent_names.rules<br />
+&lt;VirtualHost *&gt;<br />
+    DocumentRoot /var/www/html/ftp<br />
+    ServerName ftp.somedomain.com<br />
+&lt;/VirtualHost&gt;<br />
 <br />
-There is no such file in this directory <br />
+#&lt;VirtualHost _default_:*&gt;<br />
+#&lt;/VirtualHost&gt;<br />
+(end snip)<br />
 <br />
--&gt; ifup eth0<br />
-Interface eth0 is not available<br />
+Works for me, might give it a try. This is on 1.3.20 Apache by the way. Don't know if anything got changed in later versions.<br />
 <br />
--&gt; ifdowneth0<br />
-Interface eth0 is not available<br />
+good luck!</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_432476" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=432476" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 432476 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432476_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Electric_Blue</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=45575" rel="nofollow">Find More Posts by Electric_Blue</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 432476 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #432476 --><!-- post #432493 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit432493" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post432493" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post432493"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 03:26 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=432493#post432493" rel="nofollow" id="postcount432493" name="12"><strong>12</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_432493">
+				
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432493", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
+				
+				<div>
+					Posts: 60
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_432493" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_432493">thanks for the tips guy....thy helped and i think it works now with Electric_Blue's last example...but it was all just a process of elimination...i do thank ya...ether of you hang on irc?<br />
 <br />
-I am working with Opensuse 10.3. Yast does not autodetect my ethernet card - but - I was not connected to the network when installing the OS.<br />
+one more thing..i did chmod 665 /home/artistik/public_html/ and i keep getting Forbidden<br />
 <br />
-What can I do now?<br />
+ You don't have permission to access / on this server.<br />
 <br />
-TIA</div>
+any other modes to use?</div>
 		<!-- / message -->
 	
 		
@@ -1189,7 +2507,7 @@ TIA</div>
 		<!-- edit note -->
 			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
 				<em>
-				Last edited by Mufasa : Yesterday at <span class="time">08:54 AM</span>.
+				Last edited by artistik : 08-19-2003 at <span class="time">03:34 PM</span>.
 				
 				</em>
 			</div>
@@ -1199,8 +2517,8 @@ TIA</div>
 	</td>
 </tr>
 <tr>
-	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Mufasa is offline" border="0" />
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
 						
@@ -1208,20 +2526,20 @@ TIA</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3255328" class="alt2" valign="bottom">
+	<td id="lqtags_432493" class="alt1" valign="bottom">
 	
         &nbsp;
 	
 	</td>
 	
-	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
 	
 		<!-- controls -->
 	
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3255328" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=432493" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -1235,32 +2553,34 @@ TIA</div>
 </table>
 
 
-<!-- post 3255328 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3255328_menu" style="display:none">
+<!-- post 432493 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432493_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Mufasa</td>
+		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/mufasa-151679/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Mufasa">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Mufasa">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=151679">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=151679">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=151679" rel="nofollow">Find More Posts by Mufasa</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3255328 popup menu -->
+<!-- / post 432493 popup menu -->
 
 
 	</div>
@@ -1271,7 +2591,7 @@ TIA</div>
 
 <!-- / close content container -->
 
-<!-- / post #3255328 --><!-- post #3256420 -->
+<!-- / post #432493 --><!-- post #432675 -->
 
 	<!-- open content container -->
 
@@ -1279,37 +2599,37 @@ TIA</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256420" style="padding:0px 0px 3px 0px">
-		
+	<div id="edit432675" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3256420" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post432675" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256420"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 04:48 PM
+			<a name="post432675"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 05:23 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256420#post3256420" rel="nofollow" id="postcount3256420" name="6"><strong>6</strong></a>
+			#<a href="/questions/showthread.php?p=432675#post432675" rel="nofollow" id="postcount432675" name="13"><strong>13</strong></a>
 			
 		
 		</td>
 	
 </tr>
 <tr valign="top">
-	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256420">
+			<div id="postmenu_432675">
 				
-				<a class="bigusername" href="/questions/user/rednuht-201110/">rednuht</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256420", true); </script>
+				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432675", true); </script>
 				
 			</div>
 			
@@ -1324,12 +2644,12 @@ TIA</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Aug 2005</div>
+				<div>Registered: Aug 2003</div>
 				
-				
+				<div>Distribution: RedHat</div>
 				
 				<div>
-					Posts: 228
+					Posts: 35
 				</div>
 				
 				
@@ -1340,7 +2660,7 @@ TIA</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt1" id="td_post_3256420" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_432675" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -1349,9 +2669,188 @@ TIA</div>
 		<!-- message -->
 
 
-		<div id="post_message_3256420">boot with ubuntu or knoppix live CDs and see what they think of your network card.<br />
-dmesg may also give you more information if there was a problem setting up the network card. <br />
-a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://ubuntuforums.org/showthread.php?t=676032">http://ubuntuforums.org/showthread.php?t=676032</a></div>
+		<div id="post_message_432675">look and see who the owner of that directory is<br />
+apache will generally want to own everything in the directory, but it's not necessary.<br />
+<br />
+If it is owned by root with 665 I don't think you will be able to get in. You will also need to do this with -R for recursive through the structure.<br />
+<br />
+chmod -R 665 /home/artistik/public_html<br />
+<br />
+otherwise it will only change permissions on the directory itself and not the files in it<br />
+<br />
+<br />
+If still no access might try<br />
+chown -R apache:apache /home/artistik/public_html<br />
+<br />
+then if it still won't let you in just blow the directory (777) wide open until you figure out which one of the permissions is causing you problems.<br />
+<br />
+Great job!</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_432675" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=432675" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 432675 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432675_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Electric_Blue</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=45575" rel="nofollow">Find More Posts by Electric_Blue</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 432675 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #432675 --><!-- post #432748 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit432748" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post432748" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post432748"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 06:20 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=432748#post432748" rel="nofollow" id="postcount432748" name="14"><strong>14</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_432748">
+				
+				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432748", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: south carolina</div>
+				<div>Distribution: Slackware 11</div>
+				
+				<div>
+					Posts: 60
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_432748" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_432748">heh none of that is workin.. =/</div>
 		<!-- / message -->
 	
 		
@@ -1368,7 +2867,7 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="rednuht is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
 						
@@ -1376,7 +2875,7 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256420" class="alt1" valign="bottom">
+	<td id="lqtags_432748" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -1389,7 +2888,7 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256420" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=432748" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -1403,32 +2902,34 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 </table>
 
 
-<!-- post 3256420 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256420_menu" style="display:none">
+<!-- post 432748 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432748_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">rednuht</td>
+		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/rednuht-201110/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/rednuht">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/rednuht">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=201110">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=201110">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=201110" rel="nofollow">Find More Posts by rednuht</a></td></tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.eastcoasthosting.org">Visit artistik's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=48730" rel="nofollow">Find More Posts by artistik</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256420 popup menu -->
+<!-- / post 432748 popup menu -->
 
 
 	</div>
@@ -1439,7 +2940,193 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 
 <!-- / close content container -->
 
-<!-- / post #3256420 --><div id="lastpost"></div></div>
+<!-- / post #432748 --><!-- post #432854 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit432854" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post432854" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post432854"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			08-19-2003, 08:06 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=432854#post432854" rel="nofollow" id="postcount432854" name="15"><strong>15</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_432854">
+				
+				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_432854", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				
+				<div>Distribution: RedHat</div>
+				
+				<div>
+					Posts: 35
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_432854" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_432854">ahh<br />
+i just went and tried to access your site. I see you do have it forwarding directories, BUT it looks as though your <br />
+<br />
+<a href="http://www.d0hp.org/">http://www.d0hp.org/</a><br />
+<br />
+<b>You don't have permission to access / on this server</b> <br />
+<br />
+Is being directed to the / directory, which indeed, no one should have access to <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+<br />
+Look at the changes you made to the httpd.conf and make sure you didn't put a space after / or something that is causing it to try and open webpages on the uppermost level of your file system.<br />
+<br />
+Looks like you are almost there.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- edit note -->
+			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
+				<em>
+				Last edited by Electric_Blue : 08-19-2003 at <span class="time">08:08 PM</span>.
+				
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_432854" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=432854" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 432854 popup menu -->
+<div class="vbmenu_popup" id="postmenu_432854_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Electric_Blue</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=45575" rel="nofollow">Find More Posts by Electric_Blue</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 432854 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #432854 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -1459,8 +3146,29 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256420" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=432854" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
+	
+		<td align="right">
+<div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 15 of 16"><strong>1</strong></span></td>
+ 
+<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Show results 16 to 16 of 16">2</a></td>
+
+	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="showthread.php?t=82935"><a name="PageNav"></a></td>
+</tr>
+</table>
+</div>
+
+						
+		</td>
 	
 </tr>
 </table>
@@ -1472,12 +3180,12 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=664277&amp;title=Anything but 127.0.0.1" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=664277&amp;title=Anything but 127.0.0.1" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=664277&amp;title=Anything but 127.0.0.1"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/anything-but-127.0.0.1-664277/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/webminapache-82935/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -1496,37 +3204,39 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=664277" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=664277" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=82935&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=82935" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=82935" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -1595,45 +3305,37 @@ a quick google comes up with nvidia nforce drivers and 64 linux <a href="http://
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=623421" title="I know 127.0.0.1 is the loopback address.
-What does 127.0.1.1 mean ?" target="_blank">what does 127.0.1.1 mean ???</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">cryincold</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Networking</span></td>
-	<td class="alt2" align="center"><span class="smallfont">2</span></td>
-	<td class="alt1" align="right"><span class="smallfont">02-24-2008 <span class="time">11:15 PM</span></span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=247283" title="I installed webmin but when i went to the apache server in webmin, it said I neded to go to module config and that apache 2 executable wasn't there...." target="_blank">webmin apache 2</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">dienerk</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Suse/Novell</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">10-26-2004 <span class="time">07:18 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=586800" title="Hi, 
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=139729" title="Hello,
 
-I know that there are a lot of thread on this subject but none gives me a positive outcome.
-The box is running debian 4 and sendmail..." target="_blank">Sendmail : relay=[127.0.0.1] [127.0.0.1], dsn=4.0.0, stat=Deferred: Connection refuse</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">macadam</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can access Webmin through Apache on port 80. I read the instructions..." target="_blank">Webmin Through Apache using mod_proxy...</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">ech310n</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - General</span></td>
 	<td class="alt2" align="center"><span class="smallfont">0</span></td>
-	<td class="alt1" align="right"><span class="smallfont">09-24-2007 <span class="time">10:44 PM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">01-28-2004 <span class="time">04:12 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=576329" title="Hi all,
-
-I need help regarding below error. I am able to send mail but its not receiving email getting below error in log file. 
-
-Aug 11 02:27:15..." target="_blank">mailer=relay, pri=30008, relay=[127.0.0.1] [127.0.0.1], dsn=4.0.0, stat=Deferred: Con</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">pralhad</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=61066" title="Ive got Apache 2 installed on Mandrake 9.1 and Webmin wont work with it.. Webmin wants me to enter the Apache server root directory so it can find..." target="_blank">Apache 2 and Webmin</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">bogomip_bandit</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">08-11-2007 <span class="time">10:49 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">05-21-2003 <span class="time">07:10 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=276893" title="Hi,
-
-I don't fully understand what the loopback address is but I know that it is associated with my computer.  I installed FC2 with the stock..." target="_blank">Is 127.0.0.1 behind the firewall?</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">albean</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=57219" title="I need sum help configuring apache through webmin. I am looking for a walk through that will show me how to post a web page. I have it installed and..." target="_blank">webmin and apache</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">SSBN</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Networking</span></td>
 	<td class="alt2" align="center"><span class="smallfont">3</span></td>
-	<td class="alt1" align="right"><span class="smallfont">01-12-2005 <span class="time">11:20 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">05-02-2003 <span class="time">09:59 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=252153" title="can anyone help me with this ? The double entry can't be good..." target="_blank">DSN: Data format error &amp; relay=[127.0.0.1] [127.0.0.1]</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">calmbomb</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=23096" title="I just uninstalled Webmin because I had a few problems with it not picking up the updated Apache version then I recompiled Apache (with default..." target="_blank">Cannot Start Apache Through Webmin</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">John_Saunders</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
-	<td class="alt2" align="center"><span class="smallfont">0</span></td>
-	<td class="alt1" align="right"><span class="smallfont">11-07-2004 <span class="time">03:24 PM</span></span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">06-10-2002 <span class="time">10:17 PM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -1654,7 +3356,7 @@ I don't fully understand what the loopback address is but I know that it is asso
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:29 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:25 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -1715,17 +3417,10 @@ I don't fully understand what the loopback address is but I know that it is asso
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>

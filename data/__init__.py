@@ -1,1 +1,1 @@
-__all__ = ['training1', 'training2', 'training3']
+__all__ = ['training1', 'training2', 'training3', 'archive']

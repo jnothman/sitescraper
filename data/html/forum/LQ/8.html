@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="Daisy Repository Connection Issues, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="Daisy Repository Connection Issues Linux - Software" />
+<meta name="keywords" content="Gtalk Problem ??, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="Gtalk Problem ?? Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>Daisy Repository Connection Issues - LinuxQuestions.org</title>
+	<title>Gtalk Problem ?? - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right"><a href="http://www.linuxquestions.org/reviews/index.php/cat/2">Review</a> your favorite Linux distribution.</div>
+     <div align="right">Did you know LQ has a <a href="http://www.linuxquestions.org/hcl/index.php">Linux Hardware Compatibility List</a>?</div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/daisy-repository-connection-issues-664637/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	Daisy Repository Connection Issues
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/gtalk-problem-669496/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	Gtalk Problem ??
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -258,7 +387,20 @@ google_leaderboard_white_text
 
 
 
-
+<table class="tborder" align="center" border="0" cellpadding="3" cellspacing="1" width="100%">
+		<tr><th class="tcat" colspan="2">
+			Tags used in this thread
+		</th></tr>
+	
+		<tr><td style="width:175px" class="alt1">
+			Popular LQ Tags
+		</td><td class="alt1">
+			<a rel="tag" class="lqtag" href="/questions/tags/gtalknetwork">gtalknetwork</a>
+		</td></tr>
+	
+	
+</table>
+<br />
 
 
 
@@ -268,7 +410,7 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256199" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3278402" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 	
 	
 </tr>
@@ -286,8 +428,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/gtalk-problem-669496/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +447,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3256199 -->
+<div id="posts"><!-- post #3278402 -->
 
 	<!-- open content container -->
 
@@ -313,25 +455,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256199" style="padding:0px 0px 3px 0px">
+	<div id="edit3278402" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3256199" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post3278402" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256199"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 12:34 PM
+			<a name="post3278402"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			09-12-2008, 10:41 AM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256199#post3256199" rel="nofollow" id="postcount3256199" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=3278402#post3278402" rel="nofollow" id="postcount3278402" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,10 +482,10 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256199">
+			<div id="postmenu_3278402">
 				
-				<a class="bigusername" href="/questions/user/tylerh72-409029/">Tyler_H72</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256199", true); </script>
+				<a class="bigusername" href="/questions/user/arun-linux-393824/">arun-linux</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3278402", true); </script>
 				
 			</div>
 			
@@ -358,12 +500,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: May 2008</div>
+				<div>Registered: Feb 2008</div>
 				
-				<div>Distribution: OpenSuSE</div>
+				
 				
 				<div>
-					Posts: 22
+					Posts: 7
 				</div>
 				
 				
@@ -374,14 +516,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3256199" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_3278402" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
-				<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/icons_lq/icon5.gif" alt="Question" border="0" />
-				<strong>Daisy Repository Connection Issues</strong>
+				<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/icons_lq/icon3.gif" alt="Lightbulb" border="0" />
+				<strong>Gtalk Problem ??</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,7 +540,15 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3256199">I am running OpenSuSE 10.3 and I have fully installed Daisy.  It worked fine- the problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match. I have fully restored, but I cannot get a connection to the repository server- any advice?</div>
+		<div id="post_message_3278402">Hi everybody,<br />
+                       I want to know that whether we can talk on Gtalk network in Linux. Although there is no official software from google, it has released some code for other clients to connect to the network so that people can talk thru Gtalk in Linux. Plz help me, as most of my friends use Gtalk and Windows and they get irritated when they hear the word &quot;Linux&quot;.<br />
+<br />
+Robin<br />
+<br />
+<br />
+-- <br />
+Robin Paul<br />
+e-mail:robinpaul85@gmail.com</div>
 		<!-- / message -->
 	
 		
@@ -415,7 +565,7 @@ google_leaderboard_white_text
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Tyler_H72 is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="arun-linux is offline" border="0" />
 
 
 						
@@ -423,9 +573,28 @@ google_leaderboard_white_text
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256199" class="alt2" valign="bottom">
+	<td id="lqtags_3278402" class="alt2" valign="bottom">
 	
-        &nbsp;
+	
+	<table class="tborder" align="center" border="0" cellpadding="0" cellspacing="1" width="99%">
+	<tr>
+	
+		<td class="alt2 lqtags" style="width:1px;text-align:center">
+	
+	
+		<img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/tags.gif" title="Please login to tag this post" alt="Tag This Post" border="0" />
+	
+	
+		</td><td class="alt2 lqtags">
+	
+	
+		<a rel="tag" class="lqtag" href="/questions/tags/gtalknetwork">gtalknetwork</a>
+	
+	</td></tr>
+
+	
+	</table>
+
 	
 	</td>
 	
@@ -436,7 +605,7 @@ google_leaderboard_white_text
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256199" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=3278402" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -450,32 +619,32 @@ google_leaderboard_white_text
 </table>
 
 
-<!-- post 3256199 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256199_menu" style="display:none">
+<!-- post 3278402 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3278402_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Tyler_H72</td>
+		<td class="thead">arun-linux</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/tylerh72-409029/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/arun-linux-393824/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Tyler_H72">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Tyler_H72">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=409029">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=409029">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/arun-linux">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/arun-linux">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=393824">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=393824">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=409029" rel="nofollow">Find More Posts by Tyler_H72</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=393824" rel="nofollow">Find More Posts by arun-linux</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256199 popup menu -->
+<!-- / post 3278402 popup menu -->
 
 
 	</div>
@@ -486,7 +655,7 @@ google_leaderboard_white_text
 
 <!-- / close content container -->
 
-<!-- / post #3256199 --><!-- post #3256216 -->
+<!-- / post #3278402 --><!-- post #3278414 -->
 
 	<!-- open content container -->
 
@@ -494,25 +663,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256216" style="padding:0px 0px 3px 0px">
+	<div id="edit3278414" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3256216" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post3278414" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256216"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 12:48 PM
+			<a name="post3278414"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			09-12-2008, 11:00 AM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256216#post3256216" rel="nofollow" id="postcount3256216" name="2"><strong>2</strong></a>
+			#<a href="/questions/showthread.php?p=3278414#post3278414" rel="nofollow" id="postcount3278414" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -521,14 +690,14 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256216">
+			<div id="postmenu_3278414">
 				
 				<a class="bigusername" href="/questions/user/tb0ne-38158/">TB0ne</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256216", true); </script>
+				<script type="text/javascript"> vbmenu_register("postmenu_3278414", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">Member</div>
+			<div class="smallfont">Senior Member</div>
 			
 			
 			
@@ -544,7 +713,7 @@ google_leaderboard_white_text
 				<div>Distribution: SuSE, Mandrake, RedHat, Gentoo, Slack</div>
 				
 				<div>
-					Posts: 678
+					Posts: 1,113
 				</div>
 				
 				
@@ -555,7 +724,7 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt1" id="td_post_3256216" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_3278414" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -564,24 +733,29 @@ google_leaderboard_white_text
 		<!-- message -->
 
 
-		<div id="post_message_3256216"><div style="margin:20px; margin-top:5px; ">
+		<div id="post_message_3278414"><div style="margin:20px; margin-top:5px; ">
 	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
 	<table cellpadding="3" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td class="bbcodeblock" style="border:1px inset">
 			
 				<div>
-					Originally Posted by <strong>Tyler_H72</strong>
-					<a href="showthread.php?p=3256199#post3256199" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
+					Originally Posted by <strong>arun-linux</strong>
+					<a href="showthread.php?p=3278402#post3278402" rel="nofollow"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/viewpost.gif" border="0" alt="View Post" /></a>
 				</div>
-				<div style="font-style:italic">I am running OpenSuSE 10.3 and I have fully installed Daisy.  It worked fine- the problem is that I am trying to restore from a backup made on a different system, so I am concerned that the config files might not match. I have fully restored, but I cannot get a connection to the repository server- any advice?</div>
+				<div style="font-style:italic">Hi everybody,<br />
+                       I want to know that whether we can talk on Gtalk network in Linux. Although there is no official software from google, it has released some code for other clients to connect to the network so that people can talk thru Gtalk in Linux. Plz help me, as most of my friends use Gtalk and Windows and they get irritated when they hear the word &quot;Linux&quot;.<br />
+<br />
+Robin</div>
 			
 		</td>
 	</tr>
 	</table>
-</div>Perhaps if you included some error message(s), and what you've tried so far....<br />
+</div>A brief Google search turns up:<br />
 <br />
-Are you able to connect to the internet from that box at all?</div>
+<a href="http://www.google.com/talk/otherclients.html">http://www.google.com/talk/otherclients.html</a><br />
+<br />
+Pidgin and Kopete both support Gtalk, and run native on Linux.</div>
 		<!-- / message -->
 	
 		
@@ -606,7 +780,7 @@ Are you able to connect to the internet from that box at all?</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256216" class="alt1" valign="bottom">
+	<td id="lqtags_3278414" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -619,7 +793,7 @@ Are you able to connect to the internet from that box at all?</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256216" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=3278414" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -633,8 +807,8 @@ Are you able to connect to the internet from that box at all?</div>
 </table>
 
 
-<!-- post 3256216 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256216_menu" style="display:none">
+<!-- post 3278414 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3278414_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
 		<td class="thead">TB0ne</td>
@@ -658,7 +832,7 @@ Are you able to connect to the internet from that box at all?</div>
 	
 	</table>
 </div>
-<!-- / post 3256216 popup menu -->
+<!-- / post 3278414 popup menu -->
 
 
 	</div>
@@ -669,7 +843,7 @@ Are you able to connect to the internet from that box at all?</div>
 
 <!-- / close content container -->
 
-<!-- / post #3256216 --><!-- post #3256228 -->
+<!-- / post #3278414 --><!-- post #3278513 -->
 
 	<!-- open content container -->
 
@@ -677,25 +851,25 @@ Are you able to connect to the internet from that box at all?</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256228" style="padding:0px 0px 3px 0px">
+	<div id="edit3278513" style="padding:0px 0px 3px 0px">
 		
 
 
 
-<table id="post3256228" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post3278513" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256228"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 01:01 PM
+			<a name="post3278513"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			09-12-2008, 12:52 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256228#post3256228" rel="nofollow" id="postcount3256228" name="3"><strong>3</strong></a>
+			#<a href="/questions/showthread.php?p=3278513#post3278513" rel="nofollow" id="postcount3278513" name="3"><strong>3</strong></a>
 			
 		
 		</td>
@@ -704,15 +878,15 @@ Are you able to connect to the internet from that box at all?</div>
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256228">
+			<div id="postmenu_3278513">
 				
-				<a class="bigusername" href="/questions/user/tylerh72-409029/">Tyler_H72</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256228", true); </script>
+				<a class="bigusername" href="/questions/user/ciden-314443/">ciden</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3278513", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">LQ Newbie</div>
-			
+			<div class="smallfont">Member</div>
+			<div class="smallfont"><a href="/linux/member.html">Contributing Member</a></div
 			
 			
 		
@@ -722,12 +896,12 @@ Are you able to connect to the internet from that box at all?</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: May 2008</div>
-				
-				<div>Distribution: OpenSuSE</div>
+				<div>Registered: Dec 2006</div>
+				<div>Location: Punjab, India</div>
+				<div>Distribution: Debian</div>
 				
 				<div>
-					Posts: 22
+					Posts: 195
 				</div>
 				
 				
@@ -738,7 +912,7 @@ Are you able to connect to the internet from that box at all?</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3256228" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_3278513" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
@@ -747,11 +921,23 @@ Are you able to connect to the internet from that box at all?</div>
 		<!-- message -->
 
 
-		<div id="post_message_3256228">The network connections and such are all fine. I had no problem connecting to the repository server before the backup- it was running perfectly.  I restored using the backup tool included with the product, and now when I try to reach the site, it gives the message<br />
+		<div id="post_message_3278513">Gtalk uses the Jabber protocol.<br />
+I use Gaim(now Pidgin).<br />
 <br />
-Could not find component (key [daisy-repository-manager])<br />
+Add a new account.<br />
 <br />
-I think that it must be caused by some config file having been changed in the update, but I looked at all of the files that the backup included with it, and thought I am not familiar with the config files for Daisy, I didn't see anything that looked wrong.</div>
+select the jabber protocol.<br />
+enter your gmail id (the part before the '@' in full id) as screen name.<br />
+enter &quot;gmail.com&quot; as server<br />
+<br />
+example:<br />
+Protocol: jabber<br />
+screen name: john.mccain<br />
+server: gmail.com<br />
+password: ********<br />
+local alias: john<br />
+<br />
+Voila!!!</div>
 		<!-- / message -->
 	
 		
@@ -768,7 +954,7 @@ I think that it must be caused by some config file having been changed in the up
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Tyler_H72 is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="ciden is offline" border="0" />
 
 
 						
@@ -776,7 +962,7 @@ I think that it must be caused by some config file having been changed in the up
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256228" class="alt2" valign="bottom">
+	<td id="lqtags_3278513" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -789,7 +975,7 @@ I think that it must be caused by some config file having been changed in the up
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256228" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=3278513" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -803,32 +989,32 @@ I think that it must be caused by some config file having been changed in the up
 </table>
 
 
-<!-- post 3256228 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256228_menu" style="display:none">
+<!-- post 3278513 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3278513_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">Tyler_H72</td>
+		<td class="thead">ciden</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/tylerh72-409029/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/ciden-314443/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/Tyler_H72">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Tyler_H72">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=409029">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=409029">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/ciden">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/ciden">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=314443">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=314443">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=409029" rel="nofollow">Find More Posts by Tyler_H72</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=314443" rel="nofollow">Find More Posts by ciden</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256228 popup menu -->
+<!-- / post 3278513 popup menu -->
 
 
 	</div>
@@ -839,7 +1025,7 @@ I think that it must be caused by some config file having been changed in the up
 
 <!-- / close content container -->
 
-<!-- / post #3256228 --><div id="lastpost"></div></div>
+<!-- / post #3278513 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -859,7 +1045,7 @@ I think that it must be caused by some config file having been changed in the up
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256228" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3278513" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
 	
 </tr>
@@ -872,12 +1058,12 @@ I think that it must be caused by some config file having been changed in the up
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=664637&amp;title=Daisy Repository Connection Issues" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=664637&amp;title=Daisy Repository Connection Issues" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=664637&amp;title=Daisy Repository Connection Issues"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=669496&amp;title=Gtalk Problem ??" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=669496&amp;title=Gtalk Problem ??" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=669496&amp;title=Gtalk Problem ??"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/daisy-repository-connection-issues-664637/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/gtalk-problem-669496/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -896,37 +1082,39 @@ I think that it must be caused by some config file having been changed in the up
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=664637" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=664637" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=669496&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=669496" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=669496" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -995,41 +1183,42 @@ I think that it must be caused by some config file having been changed in the up
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=663075" title="I have been trying to install Daisy Wiki, but for some reason I am not having much luck.  I have installed MySQL and Java 1.6 as described in the..." target="_blank">Daisy Wiki Installation- Java Errors</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">Tyler_H72</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
-	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">Yesterday <span class="time">10:26 AM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=588118" title="Hi, I'm on OpenSuse 10.3 here, on a LG LW65-P4XP (15.4&quot; Wide) laptop.
-
-1 - How can I add online repositories?
-
-2 - How can I find my correct Graphics..." target="_blank">[10.3] Adding a repository and LG LW65 notebook issues</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">RN87</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=535963" title="I'm using Gaim messenger for connecting to gtalk, yahoo and hotmail msn. I can very easily connect to hotmail. When I configured Gaim for gtalk using..." target="_blank">Problem connecting to gtalk using Gaim</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">yogeshuk</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Suse/Novell</span></td>
 	<td class="alt2" align="center"><span class="smallfont">1</span></td>
-	<td class="alt1" align="right"><span class="smallfont">09-29-2007 <span class="time">05:07 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">03-10-2007 <span class="time">03:53 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=369242" title="hi there,
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=514270" title="Hi 
 
-i'm trying to install daisy 1.3 so i can use the NTLM authentication but i can't seam o understand the installation guide found on the..." target="_blank">daisy 1.3 cms with NTLM</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">paul_mat</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Networking</span></td>
-	<td class="alt2" align="center"><span class="smallfont">0</span></td>
-	<td class="alt1" align="right"><span class="smallfont">10-03-2005 <span class="time">01:03 AM</span></span></td>
+Could someone suggest me a suitable alternative to google talk client on fedora (which supports voice too ) ...
+I currently use gaim to connect..." target="_blank">alternative to gtalk on linux</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">crimsonflame123</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">12-28-2006 <span class="time">01:28 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=307579" title="i want to daisy chain some motherboards together. has anybody tried this before? thanks in advance..." target="_blank">Does anybody know how to daisy</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">Hard2boot</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">General</span></td>
-	<td class="alt2" align="center"><span class="smallfont">3</span></td>
-	<td class="alt1" align="right"><span class="smallfont">03-29-2005 <span class="time">09:49 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=86504" title="I have just installed Mandrake 9.1.  I have an Iomega ZIP 100 drive on the parallel port (working - sort of), with the CANON BJC4550 printer..." target="_blank">Daisy-chained || printer</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">beckwith</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Hardware</span></td>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=506241" title="Hi ... 
+
+I am behind my university's proxy server and have been using gaim as my client to connect to gtalk ...
+but recently due to some strange..." target="_blank">How to unblock Gtalk!</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">crimsonflame123</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">0</span></td>
-	<td class="alt1" align="right"><span class="smallfont">08-28-2003 <span class="time">02:50 AM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">11-30-2006 <span class="time">10:00 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=443328" title="has anybody tried to run gtalk on linux. there is thsi software called Jabber jingle and kopete when compiled with jingle support can do voice chats..." target="_blank">Gtalk simulation on linux</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">ronban</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">05-11-2006 <span class="time">11:01 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=359267" title="Hi all,
+   I configured gtalk with gaim according to the methods published by google. But it crashes everytime I send message to buddies. Also, I..." target="_blank">gaim for gtalk</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">ohliumliu</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09-02-2005 <span class="time">09:14 AM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -1050,7 +1239,7 @@ i'm trying to install daisy 1.3 so i can use the NTLM authentication but i can't
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:30 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:26 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -1111,17 +1300,10 @@ i'm trying to install daisy 1.3 so i can use the NTLM authentication but i can't
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>

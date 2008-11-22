@@ -88,6 +88,33 @@ Team Lead - is good at understanding functional requirements, is good at underst
 
 These were my quick outputs. Will need to add more to these.
 
+""",
+"""
+Let's first define software development as going through the life cycle of requirements gathering, design and analysis, implementation, testing, deployment and maintenance so here is an elaboration on each:
+
+Requirements gathering - This is where the "what" part of the software is determined as in finding out what is needed. Usually this involves talking to non-technical people and converting their requests into technical documentation known as a specification or spec. Business analysts are usually the role that handles this aspect of a project.
+
+Design and analysis - This is where a plan is put forth as to what to do. Architects, business analysts and developers can all be involved here as this is where that specification is refined enough to be put into actual software.
+
+Implementation - This is where the developers write the code to produce the requested software.
+
+Testing - This is where what was done is verified to see that it was in fact done.
+
+Deployment and maintenance - This is where the software is pushed out into the wild in a sense. Systems administrators are typically responsible for keeping an eye on the servers in the case of a web roll out though in other cases there may be techincal support people that get to see the software to handle any incoming calls.
+
+Those are the major parts as I know them with a project manager to keep an eye on the project, a team lead which is usually one of the developers to be the person that any technical squabble can be resolved such as developers putting the finger at each other when there is a bug when their code is integrated, and sometimes someone from the business that is requesting the work may also play a role.
+
+Junior/Intermediate/Senior - These will vary considerably as a Senior .Net developer may not have decades of experience that a COBOL or assembler programmer may have.
+
+Architects are sometimes used though at my last job there wasn't such a position, just developers that took requirements from the CTO or CEO and wrote the software and had a tester who also deployed it.
+
+Another point is to be aware of different methodologies that exist in software development like the traditional Waterfall where things are done one stage at a time and in order with no backtracking over several months, that is what is requested initially is what gets done without any changes or updated, compared to Agile where the requirements may change weekly and this is accomodated.
+
+Application / Systems / Web - these are usually nearly the same thing these days as my last title was Senior Application Developer and the company was an Application Service Provider though more typically I say that I am a Web Developer. Systems tends to refer to working with an Operating System or something close to the O/S like configuring IIS or MS-SQL Servers for performance.
+
+Administrators are those that run things and this could be networks, systems or databases. If you have other jargon in mind I think that should be viewed as a separate question as this answer is pretty long already I think.
+
+JB
 """
 ]),
     ('file:html/forum/stackoverflow/2.html', ["Can I get more than 1000 records from a DirectorySearcher in Asp.Net?",
@@ -150,8 +177,7 @@ using(DirectorySearcher srch = new DirectorySearcher(dirEnt, "(objectClass=Group
 """@naspinski: I also replied on your comment on your previous post.
 
 Not only dispose DirectorySearcher, but also dispose the SearchResultCollection as well. It is using some unmanaged resources.
-
-"""
+""",
 ]),
     ('file:html/forum/stackoverflow/3.html', ["What is the best way to check the strength of a password?",
 """
@@ -189,6 +215,21 @@ def validate_password(passwd):
 
                             You can adjust the above to meet your needs.
 
+""",
+"""
+http://webtecker.com/2008/03/26/collection-of-password-strength-scripts/
+""",
+"""
+The two simplest metrics to check for are:
+
+   1. Length. I'd say 8 characters as a minimum.
+      2. Number of different character classes the password contains. These are usually, lowercase letters, uppercase letters, numbers and punctuation and other symbols. A strong password will contain characters from at least three of these classes; if you force a number or other non-alphabetic character you significantly reduce the effectiveness of dictionary attacks.
+""",
+"""
+I like using Microsoft's password checker
+""",
+"""
+If you have the time, run a password cracker against it.
 """,
 ]),
     ('file:html/forum/stackoverflow/4.html', ["Application Level Replication Technologies",

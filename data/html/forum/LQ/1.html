@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="vBulletin 3.6.10" />
 
-<meta name="keywords" content="Firefox disables an addon, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
-<meta name="description" content="Firefox disables an addon Linux - Software" />
+<meta name="keywords" content="gstreamer/amarok, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
+<meta name="description" content="gstreamer/amarok Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
@@ -17,14 +17,14 @@
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "2db13d30f09861936770b4a95d7a3b4b96a53190";
+var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-
+<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -47,7 +47,7 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleFetchAds();
 </script>
 	
-	<title>Firefox disables an addon - LinuxQuestions.org</title>
+	<title>gstreamer/amarok - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
 	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
 </head>
@@ -58,7 +58,7 @@ var vb_disable_ajax = parseInt("0", 10);
 <tr>
     <td align="left"><a href="/questions/index.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/LinuxQuestions.png" border="0" alt="LinuxQuestions.org" /></a></td>
     <td align="right">
-     <div align="right">LinuxAnswers - the LQ <a href="http://www.linuxquestions.org/linux/answers/">Linux tutorial</a> section.</div>
+     <div align="right"><em>Support LQ:</em> Use code <strong>LQCO20</strong> and save <strong>20%</strong> on <a href="http://www.lqconsulting.com/client/packages.php?spt=2">CrossOver Office</a></div>
     </td>
 </tr>
 </table>
@@ -159,13 +159,9 @@ function log_out()
 		
 				
 			
-				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
-				
-				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
-				
+				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
 			
-			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
-						
+			
 		
 		
 	</tr>
@@ -173,6 +169,139 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
+
+<!-- NAVBAR POPUP MENUS -->
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="/questions/search.php" method="post">
+				<input type="hidden" name="do" value="process" />
+				<input type="hidden" name="showposts" value="1" />
+				<input type="hidden" name="quicksearch" value="1" />
+				<input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tags</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search LQ Wiki</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
+              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
+            </form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Tutorials/Articles</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/linux/search/node" method="post">
+			<input name="op" value="Search" type="hidden">
+			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search HCL</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+
+		<form method="get" action="/hcl/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="thead">Search Reviews</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="/reviews/showcat.php">
+			<input name="cat" value="all" type="hidden">
+			<input name="stype" value="1" type="hidden">
+			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search Bookmarks</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form action="/bookmarks/search/" method="post">
+			<input type="hidden" name="range" value="all">
+			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="thead">Search ISOs</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+		<form method="get" action="http://iso.linuxquestions.org/search.php">
+			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
+		</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
+				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
+			</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -197,8 +326,8 @@ function log_out()
 </td>
 			</tr>
 			<tr>
-				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/firefox-disables-an-addon-664450/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	Firefox disables an addon
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/gstreameramarok-378388/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
+	gstreamer/amarok
 
 </strong></td>
 			</tr>
@@ -226,7 +355,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="2db13d30f09861936770b4a95d7a3b4b96a53190" />
+	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -268,7 +397,7 @@ google_leaderboard_white_text
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
 <tr valign="bottom">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3255386" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=1927645" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 	
 	
 </tr>
@@ -286,8 +415,8 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="#goto_threadtools">Thread Tools</a>
-		
+		<a href="/questions/linux-software-2/gstreameramarok-378388/?nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
 	</td>
 	
 	
@@ -305,7 +434,7 @@ google_leaderboard_white_text
 
 
 
-<div id="posts"><!-- post #3255386 -->
+<div id="posts"><!-- post #1927645 -->
 
 	<!-- open content container -->
 
@@ -313,25 +442,25 @@ google_leaderboard_white_text
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3255386" style="padding:0px 0px 3px 0px">
+	<div id="edit1927645" style="padding:0px 0px 3px 0px">
 	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3255386" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post1927645" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3255386"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			08-21-2008, 05:20 PM
+			<a name="post1927645"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			10-30-2005, 02:12 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3255386#post3255386" rel="nofollow" id="postcount3255386" name="1"><strong>1</strong></a>
+			#<a href="/questions/showthread.php?p=1927645#post1927645" rel="nofollow" id="postcount1927645" name="1"><strong>1</strong></a>
 			
 		
 		</td>
@@ -340,14 +469,14 @@ google_leaderboard_white_text
 <tr valign="top">
 	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3255386">
+			<div id="postmenu_1927645">
 				
-				<a class="bigusername" href="/questions/user/jszucs-5780/">J_Szucs</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3255386", true); </script>
+				<a class="bigusername" href="/questions/user/doralsoral-53301/">doralsoral</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1927645", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">Senior Member</div>
+			<div class="smallfont">Member</div>
 			
 			
 			
@@ -358,12 +487,12 @@ google_leaderboard_white_text
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Nov 2001</div>
-				<div>Location: Budapest, Hungary</div>
-				<div>Distribution: SuSE 6.4-10.1, Dsl linux, FreeBSD 4.3-6.2, Mandrake 8.2, Redhat, UHU</div>
+				<div>Registered: Aug 2003</div>
+				<div>Location: raleigh</div>
+				<div>Distribution: Gentoo 2005.1 x86_64</div>
 				
 				<div>
-					Posts: 1,005
+					Posts: 931
 				</div>
 				
 				
@@ -374,14 +503,14 @@ google_leaderboard_white_text
 		
 	</td>
 	
-	<td colspan="2" class="alt2" id="td_post_3255386" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt2" id="td_post_1927645" style="border-right: 1px solid #FFFFFF">
 	
 		
 		
 			<!-- icon and title -->
 			<div class="smallfont">
 				
-				<strong>Firefox disables an addon</strong>
+				<strong>gstreamer/amarok</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
 			<!-- / icon and title -->
@@ -398,17 +527,7 @@ google_leaderboard_white_text
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
-		<div id="post_message_3255386">On two systems, firefox 2.0.0.8 and firefox 2.0.0.8 keeps the installed Video DownloadHelper addon disabled. It refers to &quot;missing elements&quot; and grays out the &quot;enable addon button&quot;.<br />
-<br />
-The developers of the addon claim that the addon is compatible with firefox versions 1.5 through 3.0.<br />
-<br />
-In fact, some other users report success with this addon on 2.0.0.x, whilst for me just no version of this addon works, not even those ones designed for firefox 2.0.x.<br />
-<br />
-I tried to install the MR Tech Toolkit that could make other addons compatible, but even the MR Tech Toolkit addon is kept disabled by  firefox.<br />
-<br />
-I tried to install the addon on a new profile, but it is still kept disabled.<br />
-<br />
-Is there an other way to enable this addon on firefox 2.0.0.x?</div>
+		<div id="post_message_1927645">i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.</div>
 		<!-- / message -->
 	
 		
@@ -425,7 +544,7 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="J_Szucs is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="doralsoral is offline" border="0" />
 
 
 						
@@ -433,7 +552,7 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3255386" class="alt2" valign="bottom">
+	<td id="lqtags_1927645" class="alt2" valign="bottom">
 	
         &nbsp;
 	
@@ -446,7 +565,7 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3255386" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=1927645" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -460,32 +579,32 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 </table>
 
 
-<!-- post 3255386 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3255386_menu" style="display:none">
+<!-- post 1927645 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1927645_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">J_Szucs</td>
+		<td class="thead">doralsoral</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/jszucs-5780/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/doralsoral-53301/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/J_Szucs">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/J_Szucs">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=5780">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=5780">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/doralsoral">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/doralsoral">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=53301">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=53301">View HCL Entries</a></td></tr>
 	
 	
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=5780" rel="nofollow">Find More Posts by J_Szucs</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=53301" rel="nofollow">Find More Posts by doralsoral</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3255386 popup menu -->
+<!-- / post 1927645 popup menu -->
 
 
 	</div>
@@ -496,7 +615,7 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 
 <!-- / close content container -->
 
-<!-- / post #3255386 --><!-- post #3256485 -->
+<!-- / post #1927645 --><!-- post #1927706 -->
 
 	<!-- open content container -->
 
@@ -504,25 +623,25 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 	<div class="page" style="width:100%; text-align:left">
 		<div style="padding:0px 0px 0px 0px">
 
-	<div id="edit3256485" style="padding:0px 0px 3px 0px">
-		
+	<div id="edit1927706" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
 
 
 
-<table id="post3256485" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<table id="post1927706" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
 <tr>
 	
 		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
 			<!-- status icon and date -->
-			<a name="post3256485"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
-			Yesterday, 05:52 PM
+			<a name="post1927706"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			10-30-2005, 03:09 PM
 			
 			<!-- / status icon and date -->				
 		</td>
 		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
 			&nbsp;
 		
-			#<a href="/questions/showthread.php?p=3256485#post3256485" rel="nofollow" id="postcount3256485" name="2"><strong>2</strong></a>
+			#<a href="/questions/showthread.php?p=1927706#post1927706" rel="nofollow" id="postcount1927706" name="2"><strong>2</strong></a>
 			
 		
 		</td>
@@ -531,14 +650,14 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 <tr valign="top">
 	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
 			
-			<div id="postmenu_3256485">
+			<div id="postmenu_1927706">
 				
-				<a class="bigusername" href="/questions/user/stressjunkie-225006/">stress_junkie</a>
-				<script type="text/javascript"> vbmenu_register("postmenu_3256485", true); </script>
+				<a class="bigusername" href="/questions/user/reddazz-79057/">reddazz</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1927706", true); </script>
 				
 			</div>
 			
-			<div class="smallfont">Senior Member</div>
+			<div class="smallfont">Moderator</div>
 			
 			
 			
@@ -549,12 +668,12 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 			
 			<div class="smallfont">
 				&nbsp;<br />
-				<div>Registered: Dec 2005</div>
-				<div>Location: Massachusetts, USA</div>
-				<div>Distribution: PCLinuxOS, Kubuntu 8.04 32 bit and 64 bit</div>
+				<div>Registered: Nov 2003</div>
+				<div>Location: N. E. England</div>
+				<div>Distribution: FreeBSD, openSUSE, CentOS</div>
 				
 				<div>
-					Posts: 2,016
+					Posts: 15,933
 				</div>
 				
 				
@@ -565,18 +684,36 @@ Is there an other way to enable this addon on firefox 2.0.0.x?</div>
 		
 	</td>
 	
-	<td colspan="2" class="alt1" id="td_post_3256485" style="border-right: 1px solid #FFFFFF">
+	<td colspan="2" class="alt1" id="td_post_1927706" style="border-right: 1px solid #FFFFFF">
 	
 		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong>Re: gstreamer/amarok</strong>
+			</div>
+			<hr size="1" style="color:#FFFFFF" />
+			<!-- / icon and title -->
 		
 		
 
 		<!-- message -->
 
 
-		<div id="post_message_3256485">This could be a file permission problem. If the add on is installed in a system folder then check to see if it is readable by &quot;others&quot;. If it is installed in your home folder check to see if the permissions permit you to run it. Keep in mind that Java scripts do not need execute permission to run. Also, if your /home is mounted on a separate partition you may have mounted it with the noexec mount parameter. Again, this will not disable a Java Script application but it would disable a binary application.<br />
-<br />
-My /home partition is mounted with the noexec mount parameter and my Firefox add ons work fine with no messing around. I don't use that particular add on though.</div>
+		<div id="post_message_1927706"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by doralsoral </i><br />
+<b>i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed. </b>
+			
+		</td>
+	</tr>
+	</table>
+</div>You may have to install gstreamer plugins. I would just ditch gstreamer for xine. Amarok can use the xine engine and thus play more media types.</div>
 		<!-- / message -->
 	
 		
@@ -588,21 +725,12 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 		
 		
 		
-		<!-- edit note -->
-			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
-				<em>
-				Last edited by stress_junkie : Yesterday at <span class="time">05:54 PM</span>.
-				
-				</em>
-			</div>
-		<!-- / edit note -->
-		
 	
 	</td>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
-		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="stress_junkie is offline" border="0" />
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="reddazz is offline" border="0" />
 
 
 						
@@ -610,7 +738,7 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 		
 		&nbsp;
 	</td>
-	<td id="lqtags_3256485" class="alt1" valign="bottom">
+	<td id="lqtags_1927706" class="alt1" valign="bottom">
 	
         &nbsp;
 	
@@ -623,7 +751,7 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 		
 		
 		
-			<a href="newreply.php?do=newreply&amp;p=3256485" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+			<a href="newreply.php?do=newreply&amp;p=1927706" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
 		
 		
 		
@@ -637,32 +765,34 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 </table>
 
 
-<!-- post 3256485 popup menu -->
-<div class="vbmenu_popup" id="postmenu_3256485_menu" style="display:none">
+<!-- post 1927706 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1927706_menu" style="display:none">
 	<table cellpadding="4" cellspacing="1" border="0">
 	<tr>
-		<td class="thead">stress_junkie</td>
+		<td class="thead">reddazz</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/stressjunkie-225006/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/questions/user/reddazz-79057/">View Public Profile</a></td></tr>
 	
-	<tr><td class="vbmenu_option"><a href="/linux/blog/stress_junkie">View LQ Blog</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/bookmarks/user/stress_junkie">View Bookmarks</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=225006">View Review Entries</a></td></tr>
-	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=225006">View HCL Entries</a></td></tr>
-	
-	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/reddazz">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/reddazz">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=79057">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=79057">View HCL Entries</a></td></tr>
 	
 	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=reddazz">View LQ Wiki Contributions</a></td></tr>
 	
 	
-		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=225006" rel="nofollow">Find More Posts by stress_junkie</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=79057" rel="nofollow">Find More Posts by reddazz</a></td></tr>
 	
 	
 	
 	</table>
 </div>
-<!-- / post 3256485 popup menu -->
+<!-- / post 1927706 popup menu -->
 
 
 	</div>
@@ -673,7 +803,519 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 
 <!-- / close content container -->
 
-<!-- / post #3256485 --><div id="lastpost"></div></div>
+<!-- / post #1927706 --><!-- post #1927745 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit1927745" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post1927745" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post1927745"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			10-30-2005, 03:48 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=1927745#post1927745" rel="nofollow" id="postcount1927745" name="3"><strong>3</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_1927745">
+				
+				<a class="bigusername" href="/questions/user/doralsoral-53301/">doralsoral</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1927745", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Member</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Aug 2003</div>
+				<div>Location: raleigh</div>
+				<div>Distribution: Gentoo 2005.1 x86_64</div>
+				
+				<div>
+					Posts: 931
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_1927745" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_1927745">gstreamer-plugins are already installed.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="doralsoral is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_1927745" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=1927745" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 1927745 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1927745_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">doralsoral</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/doralsoral-53301/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/doralsoral">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/doralsoral">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=53301">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=53301">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=53301" rel="nofollow">Find More Posts by doralsoral</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 1927745 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1927745 --><!-- post #1928114 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit1928114" style="padding:0px 0px 3px 0px">
+	<!-- this is not the last post shown on the page -->	
+
+
+
+<table id="post1928114" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post1928114"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			10-30-2005, 09:39 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=1928114#post1928114" rel="nofollow" id="postcount1928114" name="4"><strong>4</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_1928114">
+				
+				<a class="bigusername" href="/questions/user/reddazz-79057/">reddazz</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1928114", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">Moderator</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: Nov 2003</div>
+				<div>Location: N. E. England</div>
+				<div>Distribution: FreeBSD, openSUSE, CentOS</div>
+				
+				<div>
+					Posts: 15,933
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt1" id="td_post_1928114" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_1928114"><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by doralsoral </i><br />
+<b>gstreamer-plugins are already installed. </b>
+			
+		</td>
+	</tr>
+	</table>
+</div>So did you try using xine as the output plugin? Some distros have extra gstreamer plugins (not packaged with gstreamer-plugins), so also take a look into that.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="reddazz is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_1928114" class="alt1" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=1928114" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 1928114 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1928114_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">reddazz</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/reddazz-79057/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/reddazz">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/reddazz">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=79057">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=79057">View HCL Entries</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://wiki.linuxquestions.org/index.php?title=Special:Contributions&amp;target=reddazz">View LQ Wiki Contributions</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=79057" rel="nofollow">Find More Posts by reddazz</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 1928114 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1928114 --><!-- post #1928146 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 0px 0px 0px">
+
+	<div id="edit1928146" style="padding:0px 0px 3px 0px">
+		
+
+
+
+<table id="post1928146" class="tborder" cellpadding="3" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+	
+		<td colspan="2" class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-right: 0px" >		
+			<!-- status icon and date -->
+			<a name="post1928146"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/post_old.gif" alt="Old" border="0" /></a>
+			10-30-2005, 10:02 PM
+			
+			<!-- / status icon and date -->				
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #FFFFFF; border-left: 0px" align="right">
+			&nbsp;
+		
+			#<a href="/questions/showthread.php?p=1928146#post1928146" rel="nofollow" id="postcount1928146" name="5"><strong>5</strong></a>
+			
+		
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #FFFFFF; border-top: 0px; border-bottom: 0px">
+			
+			<div id="postmenu_1928146">
+				
+				<a class="bigusername" href="/questions/user/backstander-118670/">Backstander</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1928146", true); </script>
+				
+			</div>
+			
+			<div class="smallfont">LQ Newbie</div>
+			
+			
+			
+		
+			
+
+			
+			
+			<div class="smallfont">
+				&nbsp;<br />
+				<div>Registered: May 2004</div>
+				<div>Location: USA</div>
+				<div>Distribution: Red Hat, Fedora, KNOPPIX, DSL, Slackware</div>
+				
+				<div>
+					Posts: 22
+				</div>
+				
+				
+				
+				
+				<div>    </div>
+			</div>					
+		
+	</td>
+	
+	<td colspan="2" class="alt2" id="td_post_1928146" style="border-right: 1px solid #FFFFFF">
+	
+		
+		
+		
+
+		<!-- message -->
+
+
+		<div id="post_message_1928146">Which version of gstreamer are you using?  I think I ran into a similar problem and ended up downgrading to version 0.8.6 you might try that.</div>
+		<!-- / message -->
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Backstander is offline" border="0" />
+
+
+						
+		
+		
+		&nbsp;
+	</td>
+	<td id="lqtags_1928146" class="alt2" valign="bottom">
+	
+        &nbsp;
+	
+	</td>
+	
+	<td class="alt2" align="right" style="border: 1px solid #FFFFFF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+	
+		
+		
+		
+			<a href="newreply.php?do=newreply&amp;p=1928146" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/quote.gif" alt="Reply With Quote" border="0" /></a>
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</table>
+
+
+<!-- post 1928146 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1928146_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Backstander</td>
+	</tr>
+	
+	<tr><td class="vbmenu_option"><a href="/questions/user/backstander-118670/">View Public Profile</a></td></tr>
+	
+	<tr><td class="vbmenu_option"><a href="/linux/blog/Backstander">View LQ Blog</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Backstander">View Bookmarks</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=118670">View Review Entries</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=118670">View HCL Entries</a></td></tr>
+	
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="/questions/search.php?do=finduser&amp;u=118670" rel="nofollow">Find More Posts by Backstander</a></td></tr>
+	
+	
+	
+	</table>
+</div>
+<!-- / post 1928146 popup menu -->
+
+
+	</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1928146 --><div id="lastpost"></div></div>
 
 <div align="center">
 <script type="text/javascript">
@@ -693,7 +1335,7 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr valign="top">
 	
-		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=3256485" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
+		<td class="smallfont"><a href="newreply.php?do=newreply&amp;noquote=1&amp;p=1928146" rel="nofollow"><img src="http://linuxquestions.cachefly.net/images/questions/images/buttons/reply.gif" alt="Reply" border="0" /></a></td>
 		
 	
 </tr>
@@ -706,12 +1348,12 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 <br />
 
 <div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=664450&amp;title=Firefox disables an addon" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=664450&amp;title=Firefox disables an addon" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=664450&amp;title=Firefox disables an addon"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
+<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=378388&amp;title=gstreamer/amarok" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
+<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=378388&amp;title=gstreamer/amarok" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
+<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=378388&amp;title=gstreamer/amarok"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
 <br /><br />
 	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/firefox-disables-an-addon-664450/#top" rel="nofollow">Back to Top</a>
+		<a href="/questions/linux-software-2/gstreameramarok-378388/#top" rel="nofollow">Back to Top</a>
 	<strong>&raquo;</strong>
 </div>
 
@@ -730,37 +1372,39 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 <!-- end currently active users -->
 
 
-<!-- controls for non-popup browsers -->
-
-
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
-<tr>
-	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
-	
-</tr>
-<tr valign="top">
-	<td class="alt1" colspan="2">
-	
-	<!-- thread tools -->
-	<div class="smallfont">
-		
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=664450" rel="nofollow">Show Printable Version</a></div>
-			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=664450" rel="nofollow">Email this Page</a></div>
-		
-		
-		
-	</div>
-	<!-- / thread tools -->
-	
-	</td>
-	
-</tr>
-
-</table>
+<!-- popup menu contents -->
 <br />
 
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="postings.php?t=378388&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=378388" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=378388" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	</table>
+</form>
+</div>
+<!-- / thread tools menu -->
 
-<!-- / controls for non-popup browsers -->
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
 
 
 <!-- forum rules and admin links -->
@@ -829,38 +1473,40 @@ My /home partition is mounted with the noexec mount parameter and my Firefox add
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=587646" title="Published at LXer:
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=382337" title="hi i am running kbuntu breezy 5.10
 
-Taking some tentative steps into the world of web development, James Archibald discovers the sleek power and functionality of the..." target="_blank">LXer: Firefox addon makes web development easy</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">LXer</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Syndicated Linux News</span></td>
-	<td class="alt2" align="center"><span class="smallfont">0</span></td>
-	<td class="alt1" align="right"><span class="smallfont">09-26-2007 <span class="time">10:12 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=457226" title="hi
-
-i ppreciate the functionality of google toolbar that permit to serch in the displayed page the keyword just typed in the google search....
-does..." target="_blank">firefox  google toolbar like addon</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">bong.mau</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">General</span></td>
-	<td class="alt2" align="center"><span class="smallfont">5</span></td>
-	<td class="alt1" align="right"><span class="smallfont">06-22-2006 <span class="time">09:45 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=422972" title="Just thought id share for those who have not used it a great little addon to ur window manager, &quot;yakuake&quot; press F12 and get a nice transparent shell..." target="_blank">Great little addon</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">waveform2</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Slackware</span></td>
-	<td class="alt2" align="center"><span class="smallfont">3</span></td>
-	<td class="alt1" align="right"><span class="smallfont">03-08-2006 <span class="time">08:30 PM</span></span></td>
-</tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=298128" title="Hello all,
-
-Recently I was surfing google for something and came across this image:
-
-xlr8films.org/bar_unknown.gif (i cant post urls for some odd..." target="_blank">An addon question..?</a></span></td>
-	<td class="alt2" nowrap="nowrap"><span class="smallfont">xlr8films</span></td>
-	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Newbie</span></td>
+sound on my system works perfect on kaffeine using gstreamer engine whereas lately amarok has started acting..." target="_blank">amarok--gstreamer warning</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">whatpot</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">2</span></td>
-	<td class="alt1" align="right"><span class="smallfont">03-05-2005 <span class="time">10:10 PM</span></span></td>
+	<td class="alt1" align="right"><span class="smallfont">07-20-2006 <span class="time">11:57 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=345041" title="Has anyone managed to get GStreamer working with amaroK on SuSE 9.3?  I've installed the GStreamer plugin rpms and the GStreamer engine for amaroK..." target="_blank">GStreamer and amaroK problems on SuSE 9.3</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">cleidh_mor</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">6</span></td>
+	<td class="alt1" align="right"><span class="smallfont">07-22-2005 <span class="time">02:35 AM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=297120" title="I am currently trying to install amaroK 1.2 on my fedora core 3 box...
+i can compile gstreamer-0.8.9 fine, aswell as gst-plugins-0.8.7
+but when i go..." target="_blank">amaroK / gstreamer plugin trouble</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">(-)Ions</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">05-10-2005 <span class="time">04:39 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=316140" title="I compiled amarok cvs from source but the gstreamer plugin is not available in the configure engine dropbox. I have gstreamer core library version..." target="_blank">amarok gstreamer problem</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">abattoir</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Mandriva</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04-22-2005 <span class="time">02:21 PM</span></span></td>
+</tr><tr>
+	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=251333" title="Can anyone tell me where can I find mandrake rpms for the gstreamer audio engine.
+The problem is I don't want to download 10.1 because I am connected..." target="_blank">GStreamer 8 rpms for amarok</a></span></td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">ernesto_cgf</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Mandriva</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">11-05-2004 <span class="time">03:33 PM</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -881,7 +1527,7 @@ xlr8films.org/bar_unknown.gif (i cant post urls for some odd..." target="_blank"
 <br />
 <br />
 <div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">11:28 PM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:25 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
@@ -942,17 +1588,10 @@ xlr8films.org/bar_unknown.gif (i cant post urls for some odd..." target="_blank"
 </ul>
 </td></tr>
 </table>
-<div style="text-align:center;margin-bottom:5px"><script type="text/javascript"><!--
-google_ad_client = "pub-4420048478783872";
-google_ad_slot = "0736170647";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</div>
+<div style="text-align:center;margin-bottom:5px">
+<script type="text/javascript">
+  GA_googleFillSlot("LQ_Top_Sky");
+</script></div>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>
