@@ -230,12 +230,18 @@ class htmlDoc(object):
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
-    def __init__(self, url, tree=False, xpaths=False, aggressive=False):
+    def __init__(self, url, tree=False, xpaths=False, aggressive=False, html=''):
         self.setUrl(url)
         self.setAggressive(aggressive)
         if not tree:
-            tree = self.parseUrl()
+            if html:
+                tree = self.parseHTML(html)
+            else:
+                tree = self.parseUrl()
         self.setTree(tree)
+        if self.getAggressive():
+            self.cleanTags()
+
         if not xpaths:
             xpaths = {}
             self.extractXpaths(self.getTree().getroot(), xpaths)
@@ -245,6 +251,9 @@ class htmlDoc(object):
 
     def __len__(self):
         return len(self.getXpaths())
+
+    def __str__(self):
+        return lxmlHtml.tostring(self.getTree())
 
     def getUrl(self):
         return self._url
@@ -271,13 +280,18 @@ class htmlDoc(object):
             fp = open(url)
         else:
             fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': htmlDoc.USER_AGENT}))
-        tree = lxmlHtml.parse(fp)
-        # remove tags that are not useful
-        if self.getAggressive():
-            for tag in htmlDoc.IGNORE_TAGS:
-                for item in tree.findall('.//' + tag):
-                    item.drop_tree()
-        return tree
+        return lxmlHtml.parse(fp)
+
+    def parseHTML(self, html):
+        """Create tree from passed html"""
+        return lxmlHtml.document_fromstring(html).getroottree()
+
+
+    def cleanTags(self):
+        """Remove tags that are not useful"""
+        for tag in htmlDoc.IGNORE_TAGS:
+            for item in self.getTree().findall('.//' + tag):
+                item.drop_tree()
 
 
     def render(self):
@@ -574,7 +588,7 @@ def trainModel(urlOutputs):
     # select best xpath match for each output
     bestXpaths = []
     for i, outputXpathStrs in enumerate(allOutputXpathStrs):
-        rankedXpaths = sorted([(htmlXpath(xpathStr), score) for (xpathStr, score) in outputXpathStrs.items() if score != 0], rankXpaths)
+        rankedXpaths = sorted([(htmlXpath(xpathStr), score) for (xpathStr, score) in outputXpathStrs.items() if score < 0], rankXpaths)
         if rankedXpaths:
             bestXpath = rankedXpaths[0][0]
             if bestXpath not in bestXpaths:
@@ -609,10 +623,10 @@ def trainModel(urlOutputs):
     return unique(attributeXpathStrs)
 
 
-def testModel(url, model):
+def applyModel(model, url, html=''):
     """Use the model to extract output for a url of the same form"""
-    doc = htmlDoc(url, False, True)
-    if not doc.getTree().getroot():
+    doc = htmlDoc(url, xpaths=True, html=html)
+    if doc.getTree().getroot() is None:
         print 'Error: %s has no root node' % url
         return []
 
