@@ -230,15 +230,29 @@ class htmlDoc(object):
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
 
-    def __init__(self, url, tree=False, xpaths=False, aggressive=False, html=''):
-        self.setUrl(url)
-        self.setAggressive(aggressive)
-        if not tree:
-            if html:
-                tree = self.parseHTML(html)
+    def __init__(self, input, tree=False, xpaths=False, aggressive=False):
+        """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
+        try:
+            if os.path.exists(input):
+                # input is a path
+                fp = open(input)
             else:
-                tree = self.parseUrl()
+                fp = urllib2.urlopen(urllib2.Request(input, None, {'User-agent': htmlDoc.USER_AGENT}))
+        except ValueError:
+            # invalid url, so try treating input as HTML
+            if input:
+                url = 'input was HTML'
+                tree = lxmlHtml.document_fromstring(input).getroottree()
+            else:
+                url = 'input was empty'
+                tree = None
+        else:
+            url = input
+            tree = lxmlHtml.parse(fp)
+
+        self.setUrl(url)
         self.setTree(tree)
+        self.setAggressive(aggressive)
         if self.getAggressive():
             self.cleanTags()
 
@@ -272,19 +286,6 @@ class htmlDoc(object):
         return self._aggressive
     def setAggressive(self, aggressive):
         self._aggressive = aggressive
-
-    def parseUrl(self):
-        """Fetch url and return an ElementTree of the parsed XML"""
-        url = self.getUrl()
-        if os.path.exists(url):
-            fp = open(url)
-        else:
-            fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': htmlDoc.USER_AGENT}))
-        return lxmlHtml.parse(fp)
-
-    def parseHTML(self, html):
-        """Create tree from passed html"""
-        return lxmlHtml.document_fromstring(html).getroottree()
 
 
     def cleanTags(self):
@@ -562,7 +563,7 @@ def rankXpaths((xpath1, score1), (xpath2, score2)):
     else:
         return len(xpath2.get()) - len(xpath1.get())
 
-def trainModel(urlOutputs):
+def trainModel(examples):
     """Train the model using the known output for the given urls
 
     >>> from data import training
@@ -572,12 +573,12 @@ def trainModel(urlOutputs):
     >>> trainModel(asx)
     [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
     """
-    docs = [htmlDoc(url) for (url, outputs) in urlOutputs]
-    htmlDoc.removeStatic(docs)
+    docs = [htmlDoc(input) for (input, _) in examples]
+    #htmlDoc.removeStatic(docs)
 
     allOutputXpathStrs = []
     # rate xpaths by the similarity of their content with the output
-    for doc, (url, outputs) in zip(docs, urlOutputs):
+    for doc, (_, outputs) in zip(docs, examples):
         for i, output in enumerate(outputs):
             if i == len(allOutputXpathStrs): allOutputXpathStrs.append({})
             for xpath, score in doc.matchXpaths(normalizeStr(output)):
@@ -594,7 +595,7 @@ def trainModel(urlOutputs):
             if bestXpath not in bestXpaths:
                 bestXpaths.append(bestXpath)
         if DEBUG:
-            print [o[i] for (u, o) in urlOutputs if len(o) > i][0].replace('\n', '')
+            print [o[i] for (_, o) in examples if len(o) > i][0].replace('\n', '')
             for xpath, score in rankedXpaths[:5]:
                 print '%6d: %s' % (score, xpath)
             print
@@ -623,13 +624,13 @@ def trainModel(urlOutputs):
     return unique(attributeXpathStrs)
 
 
-def applyModel(model, url, html=''):
+def applyModel(model, input):
     """Use the model to extract output for a url of the same form"""
-    doc = htmlDoc(url, xpaths=True, html=html)
+    doc = htmlDoc(input, xpaths=True)
     if doc.getTree().getroot() is None:
-        print 'Error: %s has no root node' % url
+        print 'Error: %s has no root node' % input
         return []
-
+    
     results = []
     for xpathStr, collapse in model:
         if '//' in xpathStr and collapse:
@@ -638,11 +639,12 @@ def applyModel(model, url, html=''):
             thisResults = [doc.getElementsText(e.xpath('.//' + ext)) for e in doc.getTree().xpath(base)]
         else:
             thisResults = [doc.getElementsText(doc.getTree().xpath(xpathStr))]
-
+        
         for thisResult in thisResults:
             if thisResult:
                 if collapse:
                     results.append(''.join(thisResult))
                 else:
                     results.extend(thisResult)
+
     return results
