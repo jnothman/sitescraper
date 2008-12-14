@@ -11,6 +11,7 @@ import os
 import re
 import string
 import urllib2
+from StringIO import StringIO
 from difflib import SequenceMatcher
 
 currentDir = os.path.abspath(os.path.dirname(__file__))
@@ -229,28 +230,31 @@ class htmlDoc(object):
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
-
     def __init__(self, input, tree=False, xpaths=False, aggressive=False):
         """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
-        try:
-            if os.path.exists(input):
-                # input is a path
-                fp = open(input)
-            else:
-                fp = urllib2.urlopen(urllib2.Request(input, None, {'User-agent': htmlDoc.USER_AGENT}))
-        except ValueError:
-            # invalid url, so try treating input as HTML
-            if input:
-                url = 'input was HTML'
-                tree = lxmlHtml.document_fromstring(input).getroottree()
-            else:
-                url = 'input was empty'
-                tree = None
-        else:
+        if not input:
+            # empty input
+            url = 'input was empty'
+            fp = None
+        elif os.path.exists(input):
+            # input is a local file
             url = input
-            tree = lxmlHtml.parse(fp)
+            fp = open(url)
+        elif re.match('http://.*\..*', input):
+            # input is a url
+            url = input
+            fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': htmlDoc.USER_AGENT}))
+        else:
+            # try treating input as HTML
+            url = 'input was HTML'
+            fp = StringIO(input)
+            #tree = lxmlHtml.document_fromstring(input).getroottree()
 
         self.setUrl(url)
+        if fp:
+            tree = lxmlHtml.parse(fp)
+        else:
+            tree = None
         self.setTree(tree)
         self.setAggressive(aggressive)
         if self.getAggressive():
@@ -646,5 +650,7 @@ def applyModel(model, input):
                     results.append(''.join(thisResult))
                 else:
                     results.extend(thisResult)
+            else:
+                results.append('')
 
     return results
