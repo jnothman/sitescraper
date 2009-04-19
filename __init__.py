@@ -347,7 +347,7 @@ class htmlDoc(object):
                     text.append(child.tail)
             return normalizeStr(''.join(text).strip())
     def getElementsText(self, es):
-        return [text for text in [self.getElementText(e) for e in es] if text]
+        return [text for text in [self.getElementText(e) for e in es]]
 
     def matchXpaths(self, output):
         """Return the amount of overlap at xpath with the desired output""" 
