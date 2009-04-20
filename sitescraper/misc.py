@@ -52,18 +52,6 @@ def allIn(l1, l2):
     return True
 
 
-def difference(l1, l2):
-    """Return indices in list that differ
-
-    >>> difference([1,2,2,4], [1,2,3,4])
-    [2]
-    """
-    indices = []
-    for i, (v1, v2) in enumerate(zip(l1, l2)):
-        if v1 != v2:
-            indices.append(i)
-    return indices
-
 def unique(l):
     """Return unique elements of list
 
@@ -134,13 +122,13 @@ def pretty(var, depth=0):
     else:
         return str(var)
 
-
+"""
 def buildUrlRE(urls):
-    """create a regular expression to match all given urls
+    ""create a regular expression to match all given urls
 
     >>> print buildUrlRE(['http://www.google.com.au/search?q=gelati&ie=utf-8', 'http://www.google.com.au/search?q=pasta&ie=utf-8', 'http://www.google.com.au/search?q=pizza&ie=utf-8'])
     http\\:\\/\\/www\\.google\\.com\\.au\\/search\\?q\\=.*\\&ie\\=utf\\-8
-    """
+    ""
     # find common start and end of urls
     start_i = commonStart(urls)
     # escape url
@@ -155,7 +143,7 @@ def buildUrlRE(urls):
         if not p.match(url):
             raise Exception("url (%s) does not match regular expression (%s)" % (url, urlRE))
     return urlRE
-
+"""
 
 def commonStart(ss):
     """Takes a list of strings and returns first index where strings differ
