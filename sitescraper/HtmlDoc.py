@@ -1,6 +1,7 @@
 import os
 import re
 from StringIO import StringIO
+from collections import defaultdict
 from difflib import SequenceMatcher
 from lxml import html as lxmlHtml
 from misc import normalizeStr, sortDict, extractInt, unique
@@ -8,10 +9,10 @@ from HtmlXpath import HtmlXpath
 
 
 
-class HtmlDoc(object):
+class HtmlDoc:
     """Encapsulates the Xpaths of an XML document
 
-    >>> doc = HtmlDoc('file:data/html/search/yahoo/1.html')
+    >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
     >>> xpaths = {}
     >>> doc.extractXpaths(doc.getTree().getroot(), xpaths)
     >>> len(xpaths)
@@ -22,8 +23,6 @@ class HtmlDoc(object):
 
     # ignore content from these tags
     IGNORE_TAGS = 'style', 'script', 'meta', 'link'
-    # merge these style tags content with parent
-    #MERGE_TAGS = 'br', 'font', 'b', 'i', 'em', 'u', 's', 'strong', 'big', 'small', 'tt'
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
@@ -33,14 +32,14 @@ class HtmlDoc(object):
             # empty input
             url = 'input was empty'
             fp = None
-        elif os.path.exists(input):
-            # input is a local file
-            url = input
-            fp = open(url)
         elif re.match('http://.*\..*', input):
             # input is a url
             url = input
             fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': HtmlDoc.USER_AGENT}))
+        elif len(input) < 1000 and os.path.exists(input):
+            # input is a local file
+            url = input
+            fp = open(url)
         else:
             # try treating input as HTML
             url = 'input was HTML'
@@ -54,10 +53,10 @@ class HtmlDoc(object):
         self.setTree(tree)
 
         if not xpaths:
-            xpaths = {}
+            xpaths = defaultdict(list)
             self.extractXpaths(self.getTree().getroot(), xpaths)
         self.setXpaths(xpaths)
-        self.sequence = SequenceMatcher()#lambda x: x in ' \t\r\n')
+        self.sequence = SequenceMatcher()
         
 
     def __len__(self):
@@ -91,52 +90,34 @@ class HtmlDoc(object):
         text = self.getElementText(e)
         xpath = HtmlXpath(self.getTree().getpath(e)).normalize()
         if text:
-            if text in xpaths and xpath in xpaths[text]:
-                raise Exception('duplicate: %s %s' % (xpath, text))
-            xpaths.setdefault(text, [])
             xpaths[text].append(xpath)
 
-        childTags = {}#'*': 2}
+        # extract text for each group of tags
+        childTags = defaultdict(int)
         for child in e:
-            if type(child.tag) == type(str()):
+            if type(child.tag) == str:
                 self.extractXpaths(child, xpaths)
-                childTags.setdefault(child.tag, 0)
                 childTags[child.tag] += 1
-
-        # add child text content for all tags
         for childTag, count in childTags.items():
             if count >= 2:
                 # add text content for this tag
-                #for sep in ('/', '//'):
-                childXpath = HtmlXpath('%s/%s' % (xpath, childTag))
+                childXpath = HtmlXpath('%s/%s' % (xpath, childTag), HtmlXpath.COLLAPSE)
                 childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
                 if childText:
-                    xpaths.setdefault(childText, [])
                     xpaths[childText].append(childXpath)
 
 
     def getElementText(self, e):
-        """Extract text from HtmlElement"""
+        """Extract text under this HtmlElement"""
         return normalizeStr(e.text_content().strip())
-        """
-        text = []
-        if e.text:
-            text.append(e.text)
-        for child in e:
-            #if child.tag in HtmlDoc.MERGE_TAGS:
-            #    text.append(child.text_content())
-            if child.tail:
-                text.append(child.tail)
-        return normalizeStr(''.join(text).strip())
-        """
     def getElementsText(self, es):
         return [text for text in [self.getElementText(e) for e in es]]
 
     def getElementHTML(self, e):
         """Extract HTML under this element"""
-        return  e.text if e.text else '' + \
+        return  (e.text if e.text else '') + \
                 ''.join([lxmlHtml.tostring(c) for c in e.getchildren()]) + \
-                e.tail if e.tail else ''
+                (e.tail if e.tail else '')
     def getElementsHTML(self, es):
         return [html for html in [self.getElementHTML(e) for e in es]]
 
@@ -196,7 +177,7 @@ class HtmlDoc(object):
     def removeRedundant(xpaths, docs):
         """Reduce xpath list by replacing similar xpaths with a regular expression
 
-        >>> doc = HtmlDoc('file:data/html/search/yahoo/1.html')
+        >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
         >>> xpaths = [HtmlXpath('/html[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[3]/td[1]'), HtmlXpath('/html[1]/body[1]/a[1]')]
         >>> [x.get() for x in HtmlDoc.removeRedundant(xpaths, [doc])]
         ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
@@ -204,8 +185,7 @@ class HtmlDoc(object):
         proposedXpathREs = HtmlXpath.abstractSet(xpaths)
         acceptedXpathREs = []
         # Try most common regular expressions first to bias towards them
-        for xpathREstr, partition in sortDict(proposedXpathREs, reverse=True):
-            xpathRE = HtmlXpath(xpathREstr)
+        for xpathRE, partition in sortDict(proposedXpathREs, reverse=True):
             matchedXpaths = []
             matchedTags = []
             for xpath in xpaths:
@@ -221,7 +201,7 @@ class HtmlDoc(object):
             # apply this regular expression if the content is ordered
             # of if there are a different number of child elements on each tree at this location
             expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1) or \
-                        len(unique([len(doc.getTree().xpath(xpathREstr)) for doc in docs])) > 1
+                        len(unique([len(doc.getTree().xpath(xpathRE.get())) for doc in docs])) > 1
             if expandReg:
                 # restrict xpath regular expressions to lowest index encountered
                 if minPosition > 1:

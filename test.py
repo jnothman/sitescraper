@@ -11,22 +11,21 @@ def regressionTest():
     for module in test.__all__:
         website = getattr(test, module)
         data = [(open('test/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:3]]
-        print str(module)
-        model = trainModel(data)
+        print '\n' + str(module)
+        model = trainModel(data, False and True)
         # normalize xpath by extracting tag types
         normalizeModel = lambda model: sorted([([t for t in HtmlXpath(xpath).tags() if t != 'tbody'], flag) for (xpath, flag) in model])
         if normalizeModel(website.model) != normalizeModel(model):
             print 'Expected:'
             print '\n'.join([str(s) for s in normalizeModel(website.model)])
-            print misc.pretty(website.model)
+            print '\n'.join([str(s) for s in website.model])
             print 'Get:'
             print '\n'.join([str(s) for s in normalizeModel(model)])
-            print misc.pretty(model)
+            print '\n'.join([str(s) for s in model])
         else:
             print 'Passed'
-        #print applyModel(model, data[0][0])
+            #print applyModel(model, data[0][0])
         print
-
 
 
 

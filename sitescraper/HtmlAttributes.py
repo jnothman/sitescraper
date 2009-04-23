@@ -1,9 +1,10 @@
 import re
+from collections import defaultdict
 from misc import flatten, anyIn, allIn
 
 
 
-class HtmlAttributes(object):
+class HtmlAttributes:
     """Extract attributes from XML tree and store them reverse indexed by attribute
 
     >>>
@@ -86,10 +87,9 @@ class HtmlAttributes(object):
 
     def commonAttribs(self, elements):
         """Return a list of common attributes among a group of elements"""
-        common = {}
+        common = defaultdict(int)
         for e in elements:
             for attrib in self.extractAttribs(e):
-                common.setdefault(attrib, 0)
                 common[attrib] += 1
         return [attrib for (attrib, count) in common.items() if count == len(elements)]
 

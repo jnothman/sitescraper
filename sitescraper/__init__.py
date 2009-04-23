@@ -9,27 +9,26 @@
 #if currentDir not in sys.path:
 #    sys.path.insert(0, currentDir)
 
-UNDEFINED = -1
-DEBUG = 0
 
-
+from collections import defaultdict
 from HtmlDoc import HtmlDoc
 from HtmlXpath import HtmlXpath
 from HtmlAttributes import HtmlAttributes
-from misc import normalizeStr, unique
+from misc import normalizeStr, unique, pretty
 
 
 
 def _rankXpaths((xpath1, score1), (xpath2, score2)):
-    """Rank xpaths first on score, then on all content, then on xpath length"""
+    """Rank xpaths first on score, then on xpath length, and finally alphabetically"""
     if score1 != score2:
         return score1 - score2
-    elif xpath1.isAllContent() != xpath2.isAllContent():
-        return xpath1.isAllContent() and -1 or 1
-    else:
+    elif len(xpath1.get()) != len(xpath2.get()):
         return len(xpath2.get()) - len(xpath1.get())
+    else:
+        return -1 if xpath1.get() < xpath2.get() else 1
 
-def trainModel(examples):
+
+def trainModel(examples, debug=False):
     """Train the model using the known output for the given urls
 
     >>> from data import training
@@ -40,50 +39,43 @@ def trainModel(examples):
     [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
     """
     docs = [HtmlDoc(input) for (input, _) in examples]
-    #htmlDoc.removeStatic(docs)
-
-    allOutputXpathStrs = []
+    allOutputXpaths = []
     # rate xpaths by the similarity of their content with the output
     for doc, (_, outputs) in zip(docs, examples):
         for i, output in enumerate(outputs):
-            if i == len(allOutputXpathStrs): allOutputXpathStrs.append({})
+            if i == len(allOutputXpaths): allOutputXpaths.append(defaultdict(int))
             for xpath, score in doc.matchXpaths(normalizeStr(output)):
-                xpathStr = xpath.get()
-                allOutputXpathStrs[i].setdefault(xpathStr, 0)
-                allOutputXpathStrs[i][xpathStr] += score
+                allOutputXpaths[i][xpath] += score
 
     # select best xpath match for each output
     bestXpaths = []
-    for i, outputXpathStrs in enumerate(allOutputXpathStrs):
-        rankedXpaths = sorted([(HtmlXpath(xpathStr), score) for (xpathStr, score) in outputXpathStrs.items() if score < 0], _rankXpaths)
-        if rankedXpaths:
-            bestXpath = rankedXpaths[0][0]
+    for i, outputXpaths in enumerate(allOutputXpaths):
+        rankedXpathScores = sorted([(xpath, score) for (xpath, score) in outputXpaths.items() if score < 0], _rankXpaths)
+        if rankedXpathScores:
+            bestXpath = rankedXpathScores[0][0]
             if bestXpath not in bestXpaths:
                 bestXpaths.append(bestXpath)
-        if DEBUG:
+        if debug:
             print [o[i] for (_, o) in examples if len(o) > i][0].replace('\n', '')
-            for xpath, score in rankedXpaths[:5]:
+            for xpath, score in rankedXpathScores[:5]:
                 print '%6d: %s' % (score, xpath)
             print
-    # store xpaths that were abstracted for a single output, and so must be collapsed together
-    collapsableXpaths = [xpath for xpath in bestXpaths if not xpath.isNormalized()]
     abstractedXpaths = HtmlDoc.removeRedundant(bestXpaths[:], docs)
+
     # replace xpath indices with attributes where possible
     A = HtmlAttributes(docs)
     attributeXpathStrs = []
     for xpath in abstractedXpaths:
-        collapse = xpath in collapsableXpaths or xpath.isAllContent()
         attributeXpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
-        attributeXpathStrs.append((attributeXpath.get(), collapse))
+        attributeXpathStrs.append((attributeXpath.get(), xpath.mode()))
 
-    if DEBUG:
+    if debug:
         """for i, output in enumerate(outputs):
             print
             print output
             for xpath, score in allOutputXpathStrs[i].items()[:5]:
                 if score < 0:
                     print '%6d: %s' % (score, xpath)"""
-        print 'C:\n', pretty(collapsableXpaths)
         print 'best:\n', pretty(bestXpaths)
         print 'abstract:\n', pretty(abstractedXpaths)
         #print 'attribute:\n', pretty(attributeXpathStrs)
@@ -99,12 +91,12 @@ def applyModel(model, input):
     
     results = []
     for xpathStr, collapse in model:
-        if '//' in xpathStr and collapse:
+        """if '//' in xpathStr and collapse:
             # need to calculate sections separately to prevent collapsing unrelated parts
             base, ext = xpathStr.split('//')
             thisResults = [doc.getElementsHTML(e.xpath('.//' + ext)) for e in doc.getTree().xpath(base)]
-        else:
-            thisResults = [doc.getElementsHTML(doc.getTree().xpath(xpathStr))]
+        else:"""
+        thisResults = [doc.getElementsHTML(doc.getTree().xpath(xpathStr))]
         
         for thisResult in thisResults:
             if thisResult:

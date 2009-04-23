@@ -1,4 +1,5 @@
 import re
+from collections import defaultdict
 from misc import anyIn
 
 
@@ -15,9 +16,11 @@ class HtmlXpath(object):
     >>> list(x)
     ['html', 'body', 'p[1]']
     """
+    MODES = DEFAULT, COLLAPSE = 0, 1
     sepRE = re.compile('/+')
 
-    def __init__(self, xpathStr):
+    def __init__(self, xpathStr, mode=DEFAULT):
+        self._mode = mode
         self.set(xpathStr)
 
     def __len__(self):
@@ -44,11 +47,14 @@ class HtmlXpath(object):
     def __str__(self):
         return self.get()
 
-    def __eq__(self, other):
-        return self.get() == other.get()
+    def __cmp__(self, other):
+        return cmp(self.get(), other.get())
+
+    def __hash__(self):
+        return hash(self.get())
 
     def copy(self):
-        return HtmlXpath(self.get())
+        return HtmlXpath(self.get(), self.mode())
 
     def get(self): 
         return self._xpathStr
@@ -56,6 +62,9 @@ class HtmlXpath(object):
     def set(self, xpathStr): 
         self._xpathStr = xpathStr
         return self
+
+    def mode(self):
+        return self._mode
 
     def sections(self):
         """Return sections of xpath
@@ -117,36 +126,21 @@ class HtmlXpath(object):
         >>> HtmlXpath('/a[1]//b[2]').isNormalized()
         False
         """
-        if anyIn(['*', '//'], self.get()):
-            return False
-        else:
-            return self.copy().normalize() == self
-
-    def isAllContent(self):
-        """xpaths with '//' as a separator will return all sub nodes
-
-        >>> HtmlXpath('/a[1]/b/c').isAllContent()
-        False
-        >>> HtmlXpath('/a[1]/b//c').isAllContent()
-        True
-        """
-        return '//' in self.get()
+        return self.copy().normalize() == self
 
     def diff(self, other):
-        """Returns indices where xpaths differ. Return all indices if are different length.
+        """Returns indices where xpaths differ.
 
         >>> HtmlXpath('/a/c/c').diff(HtmlXpath('/a/b/c'))
         [1]
         >>> HtmlXpath('/a/b/c').diff(HtmlXpath('/a/b/c/d/e'))
-        [0, 1, 2]
+        [3, 4]
         """
         indices = []
         if self != other:
-            force = self.isAllContent() != other.isAllContent() or len(self) != len(other)
-            for i, (v1, v2) in enumerate(zip(self, other)):
-                if force or v1 != v2:
+            for i in range(max(len(self), len(other))):
+                if i >= len(self) or i >= len(other) or self[i] != other[i]:
                     indices.append(i)
-            #indices.extend(range(i+1, max(len(self), len(other))))
         return indices
 
     def abstractSet(xpaths):
@@ -167,23 +161,18 @@ class HtmlXpath(object):
         >>> [x for (x, partition) in sortDict(HtmlXpath.abstractSet(xpaths), reverse=True)[:5]]
         ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/span[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[2]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[1]/h3[1]/a[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/*', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/*']
         """
-        xpathREstrs = {}
+        xpathREs = defaultdict(int)
         for xpath1 in xpaths:
             for xpath2 in xpaths:
-                if xpath1 != xpath2:
+                if len(xpath1) == len(xpath2):
                     diff = xpath1.diff(xpath2)
                     if len(diff) == 1:
                         partition = diff[0]
-                        # use common element if possible, else '*' to match any
-                        x1pathTag = xpath1.tags()[partition]
-                        if x1pathTag == xpath2.tags()[partition]:
-                            abstraction = x1pathTag
-                            #else:
-                            #    abstraction = '*'
+                        # use common element if possible
+                        tag = xpath1.tags()[partition]
+                        if tag == xpath2.tags()[partition]:
                             xpathRE = xpath1.copy()
-                            xpathRE[partition] = abstraction
-                            xpathREstr = xpathRE.get()
-                            xpathREstrs.setdefault((xpathREstr, partition), 0)
-                            xpathREstrs[(xpathREstr, partition)] += 1
-        return xpathREstrs
+                            xpathRE[partition] = tag
+                            xpathREs[(xpathRE, partition)] += 1
+        return xpathREs
     abstractSet = staticmethod(abstractSet)
