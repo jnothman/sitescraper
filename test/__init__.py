@@ -1,12 +1,25 @@
 __all__ = [
-    #'ASX', 
-    #'ninemsn_weather',
-    #'theage',
     #'amazon',
-
-    'yahoo_search',
-    #'linuxquestions',
+    #'ASX', 
+    #'bbc_news',
+    #'BOM',
+    #'msn_weather',
+    #'rottentomatoes',
+    #'slashdot',
+    #'theage',
+    #'theaustralian',
+    #'theonion',
+    #'ubuntuforums',
+    #'yahoo_finance',
+    #'yahoo_weather',
+    'msn_search',
+    #'google_search',
+    #'ebay',
+    #'google_finance',
     #'imdb',
+    #'linuxquestions',
+    #'stackoverflow',
+    #'yahoo_search',
 ]
 
 
