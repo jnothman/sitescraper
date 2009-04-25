@@ -1,1 +1,0 @@
-http://weather.ninemsn.com.au/%s/%s
