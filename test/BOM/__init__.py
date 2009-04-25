@@ -13,5 +13,5 @@ data = [
 
 
 model = [
-    ('/html/body/table[2]/tbody/tr/td/a', 0),
+    '/html/body/table[2]/tbody/tr/td/a',
 ]

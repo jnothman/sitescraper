@@ -12,5 +12,5 @@ data = [
 
 
 model = [
-    ('/html/body/div/div[2]/div/div/div/div[7]/ul/li', 0),
+    '/html/body/div/div[2]/div/div/div/div[7]/ul/li',
 ]

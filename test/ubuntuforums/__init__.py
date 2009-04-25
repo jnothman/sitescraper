@@ -93,6 +93,6 @@ CRS.
 
 
 model = [
-    ('/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/strong', 0),
-    ('/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div[2]', 0),
+    '/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/strong',
+    '/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tbody/tr[2]/td[2]/div[2]',
 ]

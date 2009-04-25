@@ -4,8 +4,8 @@ from StringIO import StringIO
 from collections import defaultdict
 from difflib import SequenceMatcher
 from lxml import html as lxmlHtml
-from misc import normalizeStr, sortDict, extractInt, unique
 from HtmlXpath import HtmlXpath
+from common import normalizeStr, unique
 
 
 
@@ -101,7 +101,7 @@ class HtmlDoc:
         for childTag, count in childTags.items():
             if count >= 2:
                 # add text content for this tag
-                childXpath = HtmlXpath('%s/%s' % (xpath, childTag), HtmlXpath.COLLAPSE)
+                childXpath = HtmlXpath('%s/%s' % (xpath, childTag), HtmlXpath.COLLAPSE_MODE)
                 childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
                 if childText:
                     xpaths[childText].append(childXpath)
@@ -164,51 +164,3 @@ class HtmlDoc:
             # don't bother calculating if string lengths are too far off, just give maximum difference
             score = abs(len(s1) - len(s2))**power
         return score
-
-    """def removeStatic(docs):
-        ""Remove content that is static and so appears across all documents""
-        if len(docs) > 1:
-            for text, xpaths in docs[0].getXpaths().items():
-                if all((text, xpaths) in doc.getXpaths().items() for doc in docs):
-                    for doc in docs:
-                        doc.getXpaths().pop(text)
-    removeStatic = staticmethod(removeStatic)"""
-
-    def removeRedundant(xpaths, docs):
-        """Reduce xpath list by replacing similar xpaths with a regular expression
-
-        >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
-        >>> xpaths = [HtmlXpath('/html[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[3]/td[1]'), HtmlXpath('/html[1]/body[1]/a[1]')]
-        >>> [x.get() for x in HtmlDoc.removeRedundant(xpaths, [doc])]
-        ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
-        """
-        proposedXpathREs = HtmlXpath.abstractSet(xpaths)
-        acceptedXpathREs = []
-        # Try most common regular expressions first to bias towards them
-        for xpathRE, partition in sortDict(proposedXpathREs, reverse=True):
-            matchedXpaths = []
-            matchedTags = []
-            for xpath in xpaths:
-                diff = xpathRE.diff(xpath)
-                if len(diff) == 1:
-                    matchedXpaths.append(xpath)
-                    matchedTags.append(xpath[diff[0]])
-            if len(matchedXpaths) < 2:
-                # not enough matching xpaths to abstract
-                continue 
-            matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
-            minPosition = matchedTagIds[0]
-            # apply this regular expression if the content is ordered
-            # of if there are a different number of child elements on each tree at this location
-            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1) or \
-                        len(unique([len(doc.getTree().xpath(xpathRE.get())) for doc in docs])) > 1
-            if expandReg:
-                # restrict xpath regular expressions to lowest index encountered
-                if minPosition > 1:
-                    xpathRE[partition] += '[position()>%d]' % (minPosition - 1)
-                acceptedXpathREs.append(xpathRE)
-                # remove this xpaths now so they can't be used by another regular expression
-                for xpath in matchedXpaths:
-                    xpaths.remove(xpath)
-        return xpaths + acceptedXpathREs
-    removeRedundant = staticmethod(removeRedundant)

@@ -3,10 +3,15 @@ __all__ = [
     #'ASX', 
     #'bbc_news',
     #'BOM',
+    #'google_finance',
     #'google_search',
+    #'imdb',
+    #'linuxquestions',
+    #'msn_search',
     #'msn_weather',
     #'rottentomatoes',
     #'slashdot',
+    #'stackoverflow',
     #'theage',
     #'theaustralian',
     #'theonion',
@@ -14,13 +19,8 @@ __all__ = [
     #'yahoo_finance',
     #'yahoo_weather',
 
-    #'msn_search',
     #'ebay',
-    'google_finance',
-    #'imdb',
-    #'linuxquestions',
-    #'stackoverflow',
-    #'yahoo_search',
+    'yahoo_search',
 ]
 
 

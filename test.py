@@ -3,28 +3,32 @@ import os
 import string
 import re
 
-from sitescraper import trainModel, applyModel, HtmlXpath, misc
+from sitescraper import trainModel, applyModel
+from sitescraper.HtmlXpath import HtmlXpath
 import test
 
 
 def regressionTest():
     for module in test.__all__:
         website = getattr(test, module)
-        data = [(open('test/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:3]]
+        data = [(open('test/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:]]
         print '\n' + str(module)
-        model = trainModel(data, False and True)
+        model = trainModel(data, True)
+
         # normalize xpath by extracting tag types
-        normalizeModel = lambda model: sorted([([t for t in HtmlXpath(xpath).tags() if t != 'tbody'], flag) for (xpath, flag) in model])
+        normalizeModel = lambda model: sorted([([t for t in HtmlXpath(xpathStr).tags() if t != 'tbody'], flag) for (xpathStr, flag) in [(xpathStr if type(xpathStr) == tuple else (xpathStr, 0)) for xpathStr in model]])
         if normalizeModel(website.model) != normalizeModel(model):
+            modelStr = lambda model: '\n'.join([str(s) for s in model])
             print 'Expected:'
-            print '\n'.join([str(s) for s in normalizeModel(website.model)])
-            print '\n'.join([str(s) for s in website.model])
+            print modelStr(normalizeModel(website.model))
+            print modelStr(website.model)
             print 'Get:'
-            print '\n'.join([str(s) for s in normalizeModel(model)])
-            print '\n'.join([str(s) for s in model])
+            print modelStr(normalizeModel(model))
+            print modelStr(model)
+            break
         else:
             print 'Passed'
-            #print applyModel(model, data[0][0])
+            print applyModel(model, data[0][0])
         print
 
 

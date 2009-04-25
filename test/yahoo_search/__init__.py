@@ -22,7 +22,7 @@ data = [
 
 
 model = [
-    ('/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div/h3/a', False),
-    ('/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div[2]', False),
-    ('/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/span', False),
+    '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div/h3/a',
+    '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div[2]',
+    '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/span',
 ]

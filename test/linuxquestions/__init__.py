@@ -424,6 +424,6 @@ Quote:
 
 
 model = [
-    ('/html/body/div/div/div/table[2]/tbody/tr/td/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div[3]', False),
-    ('/html/body/div/div/div/table[2]/tbody/tr/td/div[4]/div/div[position()>2]/div/div/div/table/tbody/tr[2]/td[2]/div[1]', False),
+    '/html/body/div/div/div/table[2]/tbody/tr/td/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div[3]',
+    '/html/body/div/div/div/table[2]/tbody/tr/td/div[4]/div/div[position()>2]/div/div/div/table/tbody/tr[2]/td[2]',
 ]

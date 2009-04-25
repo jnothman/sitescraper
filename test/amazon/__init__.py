@@ -13,6 +13,6 @@ data = [
 ]
 
 model = [
-    ('/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div/a', 0),
-    ('/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div[2]/span', 0),
+    '/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div/a',
+    '/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div[2]/span',
 ]

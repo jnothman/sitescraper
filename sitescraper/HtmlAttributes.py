@@ -1,6 +1,6 @@
 import re
 from collections import defaultdict
-from misc import flatten, anyIn, allIn
+from common import flatten
 
 
 
@@ -47,30 +47,10 @@ class HtmlAttributes:
         docs = [doc for doc in self.docs if doc.getTree().xpath(xpath.get())]
         for i, section in enumerate(xpath.walk()):
             sectionElements = flatten([doc.getTree().xpath(section) for doc in docs])
-            #siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
-            #if len(siblingElements) < 0:
-            if i < 2:
-                # don't need to restrict html/body tags because are unique
-                proposedAttribs = []
-            else:
-                proposedAttribs = self.commonAttribs(sectionElements)
-            """if len(sectionElements) == len(Xs):
-                # expect a single result, so add index
-                index = 0
-                for e in sectionElements:
-                    index += 1
-                    while 1:
-                        e = e.getprevious()
-                        if e:
-                            print proposedAttribs, e.attrib.items()
-                            if allIn(proposedAttribs, e.attrib.items()):
-                                index += 1
-                        else:
-                            break
-                sectionXpath = self.addAttribs(section, section.count('/')*[[]] + [proposedAttribs])
-                print int(round(index // len(Xs))), sectionXpath, [X.getTree().xpath(sectionXpath) for X in Xs]
-                #proposedAttribs.append(index)"""
-            acceptedAttribs.append(proposedAttribs)
+            siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
+            siblingAttribs = flatten([self.extractAttribs(e) for e in siblingElements])
+            proposedAttribs = self.commonAttribs(sectionElements)
+            acceptedAttribs.append([a for a in proposedAttribs if a not in siblingAttribs])
         return acceptedAttribs
 
 
@@ -80,7 +60,7 @@ class HtmlAttributes:
         #print element.attrib.items()
         for attrName, attrValue in element.attrib.items():
             # punctuation such as '/' and ':' can confuse xpath, so ignore attributes with these characters
-            if not anyIn('/:', attrValue+attrName):# and attrName in ('id', 'lass'):
+            if not self.anyIn('/:', attrValue+attrName):# and attrName in ('id', 'lass'):
                 attribs.append((attrName, attrValue))
         return attribs
 
@@ -116,4 +96,30 @@ class HtmlAttributes:
         for i, section in enumerate(xpath):
             xpath[i] = re.sub(attribRE, '', xpath[i])
         return xpath
+
+    def anyIn(self, l1, l2):
+        """Return values in l1 that exist in l2
+
+        >>> anyIn([1,2], [2,3])
+        2
+        >>> anyIn([1,2], [3])
+        
+        """
+        for v1 in l1:
+            if v1 in l2:
+                return v1
+        return None
+
+    def allIn(self, l1, l2):
+        """Return true if all of first list is in second list
+
+        >>> allIn([1,2], [2,3])
+        False
+        >>> allIn([1,2], [1,2])
+        True
+        """
+        for v1 in l1:
+            if v1 not in l2:
+                return False
+        return True
 

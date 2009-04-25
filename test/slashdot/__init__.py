@@ -18,13 +18,13 @@ data = [
     ('5.html', ["Sun Says Project Indiana is Not a Linux Copy ", """ eldavojohn writes "Ian Murdock (Debian author & Sun's OS Chief) made some comments about Project Indiana that many have said is an attempt to make Solaris simply "more Linux-like." But Murdock quashes any concerns that this is just another Linux clone — muddying up the waters of distribution selection. He says that it's more a 'best of both worlds' attempt to make an OS that appeals to a broader audience. From the article, "Project Indiana will include a revamped package management system, which should prove popular with developers unaccustomed to Solaris. The OS has some clunky, archaic aspects, and Murdock thinks the new package system will modernize Solaris.""  
 """
 ]),
-    ('file:html/news/slashdot/6.html', ["HP May Be Developing Its Own Version of Linux ", """vondiggity writes to tell us that HP is working on several different ways to make an end run around Vista. Among the plans is also a supposed rumor that certain factions within HP are developing their own flavor of Linux. Executives at HP deny that any meaningful amount of resources are being directed into plans for a mass-market operating system, stating their main goal is to innovate on top of Vista. "Still, the sources say employees in HP's PC division are exploring the possibility of building a mass-market operating system. HP's software would be based on Linux, the open-source operating system that is already widely available, but it would be simpler and easier for mainstream users, the sources say. The goal may be to make HP less dependent on Windows and to strengthen HP's hand against Apple (AAPL), which has gained market share in recent years by offering easy-to-use computers with its own operating system."
+    ('6.html', ["HP May Be Developing Its Own Version of Linux ", """vondiggity writes to tell us that HP is working on several different ways to make an end run around Vista. Among the plans is also a supposed rumor that certain factions within HP are developing their own flavor of Linux. Executives at HP deny that any meaningful amount of resources are being directed into plans for a mass-market operating system, stating their main goal is to innovate on top of Vista. "Still, the sources say employees in HP's PC division are exploring the possibility of building a mass-market operating system. HP's software would be based on Linux, the open-source operating system that is already widely available, but it would be simpler and easier for mainstream users, the sources say. The goal may be to make HP less dependent on Windows and to strengthen HP's hand against Apple (AAPL), which has gained market share in recent years by offering easy-to-use computers with its own operating system."
 """
 ]),
 ]
 
 
 model = [
-    ('/html/body/div[3]/div[4]/div[3]/div[2]/div[2]/div/div/div/h3', 0),
-    ('/html/body/div[3]/div[4]/div[3]/div[2]/div[2]/div/div[3]/div[2]', 0),
+    '/html/body/div[3]/div[4]/div[3]/div[2]/div[2]/div/div/div/h3',
+    '/html/body/div[3]/div[4]/div[3]/div[2]/div[2]/div/div[3]/div[2]',
 ]

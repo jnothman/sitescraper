@@ -1,55 +1,9 @@
-from __future__ import division
-import sys
-import os
+#
+# Common functions used by multiple classes
+#
+
 import re
-
-# XXX couldn't get relative imports working so adjust the path
-#currentDir = os.path.abspath(os.path.dirname(__file__))
-#if currentDir not in sys.path:
-#    sys.path.insert(0, currentDir)
-#parentDir = os.path.join(currentDir, os.path.pardir)
-#if parentDir not in sys.path:
-#    sys.path.insert(0, parentDir)
-
-
-
-def sortDict(d, reverse=False):
-    """Sort dictionary keys by their values
-
-    >>> sortDict({"Richard": 23, "Andrew": 21, "James": 15})
-    ['James', 'Andrew', 'Richard']
-    """
-    e = d.keys()
-    e.sort(cmp=lambda a,b: cmp(d[a],d[b]))
-    if reverse:
-        e.reverse()
-    return e
-
-
-def anyIn(l1, l2):
-    """Return values in l1 that exist in l2
-
-    >>> anyIn([1,2], [2,3])
-    2
-    >>> anyIn([1,2], [3])
-    
-    """
-    for v1 in l1:
-        if v1 in l2:
-            return v1
-    return None
-def allIn(l1, l2):
-    """Return true if all of first list is in second list
-
-    >>> allIn([1,2], [2,3])
-    False
-    >>> allIn([1,2], [1,2])
-    True
-    """
-    for v1 in l1:
-        if v1 not in l2:
-            return False
-    return True
+import string
 
 
 def unique(l):
@@ -65,18 +19,6 @@ def unique(l):
         seen[item] = 1
         result.append(item)
     return result
-
-
-def average(l):
-    """The list average value
-
-    >>> average([1, 2, 3, 4, 0])
-    2.0
-    """
-    if l:
-        return sum(l) / len(l)
-    else:
-        return 0
 
 
 def flatten(l):
@@ -97,7 +39,7 @@ def extractInt(s):
     >>> extractInt('hello 99!')
     99
     """
-    return int('0' + ''.join(c for c in s if c in '1234567890'))
+    return int('0' + ''.join(c for c in s if c in string.digits))
 
 
 def normalizeStr(s):
@@ -143,16 +85,15 @@ def buildUrlRE(urls):
         if not p.match(url):
             raise Exception("url (%s) does not match regular expression (%s)" % (url, urlRE))
     return urlRE
-"""
 
 def commonStart(ss):
-    """Takes a list of strings and returns first index where strings differ
+    ""Takes a list of strings and returns first index where strings differ
 
     >>> commonStart(['happy birthday', 'happy holiday'])
     6
     >>> commonStart(['happy', 'happy'])
     5
-    """
+    ""
     try:
         first_s = ss[0]
         for i, ch in enumerate(first_s):
@@ -167,5 +108,8 @@ def commonStart(ss):
         i += 1
     return i
 
+
 # reverse a string efficiently
 strReverse = lambda s: ''.join([s[-1 - i] for i in xrange(len(s))])
+"""
+
