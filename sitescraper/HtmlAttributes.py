@@ -37,16 +37,16 @@ class HtmlAttributes:
 
 
     def __init__(self, docs):
-        self.docs = docs
+        self._docs = docs
 
 
     def uniqueAttribs(self, xpath):
         """Return a list of attributes that uniquely distinguish the element at each segment"""
         acceptedAttribs = []
         # select examples which contain the relevant xpath
-        docs = [doc for doc in self.docs if doc.getTree().xpath(xpath.get())]
+        docs = [doc for doc in self._docs if doc.tree().xpath(xpath.get())]
         for i, section in enumerate(xpath.walk()):
-            sectionElements = flatten([doc.getTree().xpath(section) for doc in docs])
+            sectionElements = flatten([doc.tree().xpath(section) for doc in docs])
             siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
             siblingAttribs = flatten([self.extractAttribs(e) for e in siblingElements])
             proposedAttribs = self.commonAttribs(sectionElements)

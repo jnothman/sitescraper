@@ -1,6 +1,6 @@
 __all__ = [
     #'amazon',
-    #'asx', 
+    'asx', 
     #'bbc_news',
     #'bom',
     #'checkdns',
@@ -20,9 +20,9 @@ __all__ = [
     #'theonion',
     #'ubuntuforums',
     #'yahoo_finance',
-    #'yahoo_weather',
+    'yahoo_weather',
 
-    'ebay',
+    #'ebay',
     #'yahoo_search',
 ]
 

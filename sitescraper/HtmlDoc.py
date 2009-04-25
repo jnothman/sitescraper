@@ -1,5 +1,6 @@
 import os
 import re
+import urllib2
 from StringIO import StringIO
 from collections import defaultdict
 from difflib import SequenceMatcher
@@ -26,69 +27,59 @@ class HtmlDoc:
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
-    def __init__(self, input, tree=False, xpaths=False):
+    def __init__(self, input, output, tree=False, xpaths=False):
         """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
+        self._url = None
         if not input:
             # empty input
-            url = 'input was empty'
             fp = None
         elif re.match('http://.*\..*', input):
             # input is a url
-            url = input
-            fp = urllib2.urlopen(urllib2.Request(url, None, {'User-agent': HtmlDoc.USER_AGENT}))
+            self._url = input
+            fp = urllib2.urlopen(urllib2.Request(input, None, {'User-agent': HtmlDoc.USER_AGENT}))
         elif len(input) < 1000 and os.path.exists(input):
             # input is a local file
-            url = input
-            fp = open(url)
+            self._url = input
+            fp = open(input)
         else:
             # try treating input as HTML
-            url = 'input was HTML'
             fp = StringIO(input)
-
-        self.setUrl(url)
-        if fp:
-            tree = lxmlHtml.parse(fp)
-        else:
-            tree = None
-        self.setTree(tree)
-
+        self._tree = lxmlHtml.parse(fp) if fp else None
+        # Remove tags that are not useful
+        for tag in HtmlDoc.IGNORE_TAGS:
+            for item in self._tree.findall('.//' + tag):
+                item.drop_tree()
+        
         if not xpaths:
             xpaths = defaultdict(list)
-            self.extractXpaths(self.getTree().getroot(), xpaths)
-        self.setXpaths(xpaths)
-        self.sequence = SequenceMatcher()
+            self.extractXpaths(self._tree.getroot(), xpaths)
+        self._xpaths = xpaths
+        self._output = output
+        self._sequence = SequenceMatcher()
         
 
     def __len__(self):
-        return len(self.getXpaths())
+        return len(self._xpaths)
 
     def __str__(self):
-        return lxmlHtml.tostring(self.getTree())
+        return lxmlHtml.tostring(self._tree)
 
-    def getUrl(self):
+    def url(self): 
         return self._url
-    def setUrl(self, url):
-        self._url = url
 
-    def getTree(self):
+    def tree(self): 
         return self._tree
-    def setTree(self, tree):
-        self._tree = tree
-        # Remove tags that are not useful
-        for tag in HtmlDoc.IGNORE_TAGS:
-            for item in self.getTree().findall('.//' + tag):
-                item.drop_tree()
 
-    def getXpaths(self):
+    def xpaths(self):
         return self._xpaths
-    def setXpaths(self, xpaths):
-        self._xpaths = xpaths
 
+    def output(self):
+        return self._output
 
     def extractXpaths(self, e, xpaths):
         """Return a hashtable of the xpath to each text element"""
         text = self.getElementText(e)
-        xpath = HtmlXpath(self.getTree().getpath(e)).normalize()
+        xpath = HtmlXpath(self._tree.getpath(e)).normalize()
         if text:
             xpaths[text].append(xpath)
 
@@ -124,14 +115,13 @@ class HtmlDoc:
 
     def matchXpaths(self, output):
         """Return the amount of overlap at xpath with the desired output""" 
-        allXpaths = self.getXpaths()
-        if output in allXpaths:
+        if output in self._xpaths:
             # exact match so can return xpaths directly with a perfect match
-            return [(xpath, self.similarity(output, output)) for xpath in allXpaths[output]]
+            return [(xpath, self.similarity(output, output)) for xpath in self._xpaths[output]]
         else:
             # no exact match so return similarities of xpaths
             result = []
-            for (text, xpaths) in allXpaths.items():
+            for (text, xpaths) in self._xpaths.items():
                 score = self.similarity(output, text)
                 result.extend((xpath, score) for xpath in xpaths)
             return result
@@ -148,7 +138,7 @@ class HtmlDoc:
         margin = 5
         power = 1
         if len(s1)/margin < len(s2) < len(s1)*margin: 
-            s = self.sequence
+            s = self._sequence
             if s.a != s1:
                 s.set_seq1(s1)
             if s.b != s2:

@@ -14,14 +14,14 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 
 
 class HtmlModel:
-    def __init__(self, examples, debug=False):
-        self.examples = examples
-        self.debug = debug
-        self.model = self.trainModel()
+    def __init__(self, docs, debug=False):
+        self._docs = docs
+        self._debug = debug
+        self._model = self.trainModel()
 
 
     def get(self):
-        return self.model
+        return self._model
 
 
     def trainModel(self):
@@ -34,11 +34,11 @@ class HtmlModel:
         >>> trainModel(asx)
         [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
         """
-        docs = [HtmlDoc(input) for (input, _) in self.examples]
+        # XXX names here too verbose
         allOutputXpaths = []
         # rate xpaths by the similarity of their content with the output
-        for doc, (_, outputs) in zip(docs, self.examples):
-            for i, output in enumerate(outputs):
+        for doc in self._docs:
+            for i, output in enumerate(doc.output()):
                 if i == len(allOutputXpaths): allOutputXpaths.append(defaultdict(int))
                 for xpath, score in doc.matchXpaths(normalizeStr(output)):
                     allOutputXpaths[i][xpath] += score
@@ -49,20 +49,20 @@ class HtmlModel:
             if outputXpaths:
                 rankedXpathScores = sorted([(xpath, score) for (xpath, score) in outputXpaths.items() if score < 0], self._rankXpaths)
                 bestXpaths.append([xpath for (xpath, score) in rankedXpathScores if score == rankedXpathScores[0][1]])
-                if self.debug:
-                    print [o[i] for (_, o) in self.examples if len(o) > i][0].replace('\n', '')
+                if self._debug:
+                    print [doc.output()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
                     for xpath, score in rankedXpathScores[:5]:
                         print '%6d: %s' % (score, xpath)
                     print
-        if self.debug:
+        if self._debug:
             for xpaths in bestXpaths:
                 print 'best:\n', pretty(xpaths)
-        cleanXpaths = self.cleanXpaths(bestXpaths, docs)
-        if self.debug:
+        cleanXpaths = self.cleanXpaths(bestXpaths)
+        if self._debug:
             print 'reduced:\n', pretty(cleanXpaths)
 
         # replace xpath indices with attributes where possible
-        A = HtmlAttributes(docs)
+        A = HtmlAttributes(self._docs)
         attributeXpathStrs = []
         for xpath in cleanXpaths:
             attributeXpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
@@ -70,10 +70,11 @@ class HtmlModel:
             if xpath.mode():
                 record = record, xpath.mode()
             attributeXpathStrs.append(record)
-        if self.debug:
+        if self._debug:
             print 'attribute:\n', pretty(attributeXpathStrs)
 
         return unique(attributeXpathStrs)
+
 
     def _rankXpaths(self, (xpath1, score1), (xpath2, score2)):
         """Rank xpaths first on score, then on xpath length, and finally alphabetically"""
@@ -86,7 +87,7 @@ class HtmlModel:
 
 
 
-    def cleanXpaths(self, xpathsGroup, docs):
+    def cleanXpaths(self, xpathsGroup):
         """Reduce xpath list by replacing similar xpaths with a regular expression
 
         >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
@@ -96,7 +97,7 @@ class HtmlModel:
         """
         acceptedXpaths = []
         proposedXpaths = self.abstractXpaths(xpathsGroup)
-        if self.debug:
+        if self._debug:
             print [(xpath.get(), count) for (xpath, count) in proposedXpaths]
         # Try most common regular expressions first to bias towards them
         for abstractXpath, partition in proposedXpaths:
@@ -118,7 +119,7 @@ class HtmlModel:
             # apply this regular expression if the content is ordered
             # of if there are a different number of child elements on each tree at this location
             expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1) or \
-                        len(unique([len(doc.getTree().xpath(abstractXpath.get())) for doc in docs])) > 1
+                        len(unique([len(doc.tree().xpath(abstractXpath.get())) for doc in self._docs])) > 1
             if expandReg:
                 # restrict xpath regular expressions to lowest index encountered
                 if minPosition > 1:
@@ -129,7 +130,7 @@ class HtmlModel:
                     for xpaths in xpathsGroup:
                         if matchedXpath in xpaths:
                             xpathsGroup.remove(xpaths)
-        if self.debug:                            
+        if self._debug:                            
             for xpaths in xpathsGroup:
                 if len(xpaths) > 1:
                     print 'not abstracted:', ', '.join([xpath.get() for xpath in xpaths])
@@ -174,6 +175,7 @@ class HtmlModel:
         # sort abstract xpaths by usefulness
         return sorted(abstractXpaths.keys(), cmp=lambda a,b: self._rankAbstractions((a, abstractXpaths[a]), (b, abstractXpaths[b])))
 
+
     def _rankAbstractions(self, ((xpath1, partition1), count1), ((xpath2, partition2), count2)):
         """Rank xpaths first on count, then on xpath length, and finally alphabetically"""
         if count1 != count2:
@@ -186,7 +188,7 @@ class HtmlModel:
 
 
 
-    """def removeStatic(self, docs):
+    """def removeStatic(self):
         ""Remove content that is static and so appears across all documents""
         if len(docs) > 1:
             for text, xpaths in docs[0].getXpaths().items():
@@ -194,4 +196,3 @@ class HtmlModel:
                     for doc in docs:
                         doc.getXpaths().pop(text)
     """
-

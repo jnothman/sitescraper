@@ -3,34 +3,36 @@ import os
 import string
 import re
 
-from sitescraper import trainModel, applyModel
+from sitescraper import sitescraper
 from sitescraper.HtmlXpath import HtmlXpath
 import testdata
 
 
 def regressionTest():
+    ss = sitescraper(debug=True)
     for module in testdata.__all__:
         website = getattr(testdata, module)
-        data = [(open('testdata/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:]]
+        for url, output in website.data:
+            ss.add(open('testdata/%s/%s' % (module, url)).read(), output)
         print '\n' + str(module)
-        model = trainModel(data, True)
+        ss.train()
 
         # normalize xpath by extracting tag types
         normalizeModel = lambda model: sorted([([t for t in HtmlXpath(xpathStr).tags() if t != 'tbody'], flag) for (xpathStr, flag) in [(xpathStr if type(xpathStr) == tuple else (xpathStr, 0)) for xpathStr in model]])
-        if normalizeModel(website.model) != normalizeModel(model):
+        if normalizeModel(website.model) != normalizeModel(ss.model()):
             modelStr = lambda model: '\n'.join([str(s) for s in model])
             print 'Expected:'
             print modelStr(normalizeModel(website.model))
             print modelStr(website.model)
             print 'Get:'
-            print modelStr(normalizeModel(model))
-            print modelStr(model)
+            print modelStr(normalizeModel(ss.model()))
+            print modelStr(ss.model())
             break
         else:
             print 'Passed'
-            #model = ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]']
-            print applyModel(model, data[0][0])
+            print ss.scrape(website.data[0][0])
         print
+        ss.clear()
 
 
 def docTests():

@@ -1,9 +1,7 @@
 #
 # Author: Richard Penman
-# License: LGPL
-# Description: 
-# Model the desired information in a webpage
+# License: GPL
+# Description: Web scraping made easy
 #
 
-
-from sitescraper import trainModel, applyModel
+from sitescraper import sitescraper
