@@ -5,13 +5,13 @@ import re
 
 from sitescraper import trainModel, applyModel
 from sitescraper.HtmlXpath import HtmlXpath
-import test
+import testdata
 
 
 def regressionTest():
-    for module in test.__all__:
-        website = getattr(test, module)
-        data = [(open('test/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:]]
+    for module in testdata.__all__:
+        website = getattr(testdata, module)
+        data = [(open('testdata/%s/%s' % (module, url)).read(), values) for (url, values) in website.data[:]]
         print '\n' + str(module)
         model = trainModel(data, True)
 
@@ -28,11 +28,48 @@ def regressionTest():
             break
         else:
             print 'Passed'
+            #model = ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]']
             print applyModel(model, data[0][0])
         print
 
 
+def docTests():
+    from sitescraper import common
+    import unittest
+    import doctest
+    import sitescraper as ss
+    suite = unittest.TestSuite()
+    from sitescraper.HtmlXpath import HtmlXpath
+    #for mod in [ss.common, ss.HtmlAttributes, ss.HtmlDoc, ss.HtmlModel, ss.HtmlXpath]:
+    #    suite.addTest(doctest.DocTestSuite(mod))
+    suite.addTest(doctest.DocTestSuite(ss))
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
 
+
+"""
+if __name__ == '__main__':
+    from optparse import OptionParser
+    parser = OptionParser('usage: %prog --doc|--get=<data>|--test=<data>')
+    parser.add_option("-d", "--doc", dest="doc", action="store_true", default=False, help="Run doctests")
+    parser.add_option("-g", "--get", dest="get", action="store", help="Get url data")
+    parser.add_option("-t", "--test", dest="test", action="store", help="Run sitescraper over this test data")
+    options, args = parser.parse_args()
+    
+    fn = None
+    if options.doc:
+        docTests()
+    elif options.get:
+        fn, file = getData, options.get
+    elif options.test:
+        fn, file = testData, options.test
+    else:
+        parser.print_help()
+
+    if fn:
+        import data
+        fn(getattr(data, file).data)
+"""
 
 if __name__ == '__main__':
     title_data = [

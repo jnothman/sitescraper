@@ -113,3 +113,6 @@ def commonStart(ss):
 strReverse = lambda s: ''.join([s[-1 - i] for i in xrange(len(s))])
 """
 
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()

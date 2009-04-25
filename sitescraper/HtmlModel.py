@@ -55,7 +55,8 @@ class HtmlModel:
                         print '%6d: %s' % (score, xpath)
                     print
         if self.debug:
-            print 'best:\n', pretty(bestXpaths)
+            for xpaths in bestXpaths:
+                print 'best:\n', pretty(xpaths)
         cleanXpaths = self.cleanXpaths(bestXpaths, docs)
         if self.debug:
             print 'reduced:\n', pretty(cleanXpaths)
@@ -66,7 +67,6 @@ class HtmlModel:
         for xpath in cleanXpaths:
             attributeXpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
             record = attributeXpath.get()
-            record = xpath.get()
             if xpath.mode():
                 record = record, xpath.mode()
             attributeXpathStrs.append(record)

@@ -15,6 +15,7 @@ from HtmlDoc import HtmlDoc
 from HtmlXpath import HtmlXpath
 
 
+
 def trainModel(examples, debug=False):
     """Scrape html example to generate model"""
     model = HtmlModel(examples, debug)
