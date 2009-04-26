@@ -6,12 +6,12 @@ from collections import defaultdict
 class HtmlXpath(object):
     """Encapsulate an xpath
 
-    >>> x = HtmlXpath('/html/body//a')
-    >>> x[1]
-    'body'
+    >>> x = HtmlXpath('/html/body/a[1]')
+    >>> x[2]
+    'a[1]'
     >>> x[2] = 'p[1]'
     >>> x.get()
-    '/html/body//p[1]'
+    '/html/body/p[1]'
     >>> list(x)
     ['html', 'body', 'p[1]']
     """
@@ -19,8 +19,8 @@ class HtmlXpath(object):
     sepRE = re.compile('/+')
 
     def __init__(self, xpathStr, mode=DEFAULT_MODE):
-        #if type(xpathStr) == tuple:
-        #    xpathStr, mode = xpathStr
+        if type(xpathStr) != str:
+            raise Exception(xpathStr)
         self.set(xpathStr)
         self._mode = mode
 
@@ -32,7 +32,7 @@ class HtmlXpath(object):
     def __setitem__(self, i, v):
         xpath = self.get()
         starts, ends = [], []
-        for j, match in enumerate(re.finditer(HtmlXpath.sepRE, xpath)):
+        for j, match in enumerate(HtmlXpath.sepRE.finditer(xpath)):
             starts.append(match.end())
             if match.start() > 0:
                 ends.append(match.start())
@@ -73,15 +73,18 @@ class HtmlXpath(object):
         ['a', 'b', 'c']
         >>> HtmlXpath('/a[1]/b').sections()
         ['a[1]', 'b']
-        >>> HtmlXpath('/a/b//c').sections()
-        ['a', 'b', 'c']
         """
-        return re.split(HtmlXpath.sepRE, self.get())[1:]
+        try:
+            return HtmlXpath.sepRE.split(self.get())[1:]
+        except:
+            print 'problem:', self.get()
+            print type(self.get())
+            raise
 
     def tags(self):
         """Return list of tags in xpath
         
-        >>> HtmlXpath('/a/b[1]//c').tags()
+        >>> HtmlXpath('/a/b[1]/c').tags()
         ['a', 'b', 'c']
         """
         removeIndex = lambda s: '[' in s and s[:s.index('[')] or s
@@ -94,11 +97,9 @@ class HtmlXpath(object):
         ['/a', '/a/b', '/a/b/c']
         >>> HtmlXpath('/a[1]/b').walk()
         ['/a[1]', '/a[1]/b']
-        >>> HtmlXpath('/a/b//c').walk()
-        ['/a', '/a/b', '/a/b//c']
         """
         xpaths = []
-        for match in re.finditer(HtmlXpath.sepRE, self.get()):
+        for match in HtmlXpath.sepRE.finditer(self.get()):
             end = match.start()
             if end > 0:
                 xpaths.append(self.get()[:end])
@@ -122,8 +123,6 @@ class HtmlXpath(object):
         >>> HtmlXpath('/a[1]/b[2]').isNormalized()
         True
         >>> HtmlXpath('/a[1]/b').isNormalized()
-        False
-        >>> HtmlXpath('/a[1]//b[2]').isNormalized()
         False
         """
         return self.copy().normalize() == self

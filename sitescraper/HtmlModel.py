@@ -14,91 +14,87 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 
 
 class HtmlModel:
-    def __init__(self, docs, debug=False):
+    def __init__(self, docs, attributes=True, debug=False):
+        """
+        'docs' are the HTML webpages to model
+        'attributes' are whether to replace the xpath indices with attributes
+        'debug' is whether to print internal information of the model generation
+        """
         self._docs = docs
+        self._attributes = attributes
         self._debug = debug
-        self._model = self.trainModel()
+        self._model = None # model is not generated yet
 
 
     def get(self):
+        if self._model is None:
+            # need to generate model
+            model = self.trainModel()
+            if self._debug:
+                print 'model:\n', pretty(model)
+            if self._attributes:
+                model = self.addAttributes(model)
+                if self._debug:
+                    print 'attributes:\n', pretty(model)
+            self._model = []
+            for xpath in model:
+                record = xpath.get()
+                if xpath.mode() != HtmlXpath.DEFAULT_MODE:
+                    record = record, xpath.mode()
+                self._model.append(record)
         return self._model
 
 
     def trainModel(self):
-        """Train the model using the known output for the given urls
-
-        >>> from data import training
-        >>> os.chdir('data')
-        >>> modelSize = 3
-        >>> asx = training.data[0][1][:modelSize]
-        >>> trainModel(asx)
-        [("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[@class='last']", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[6]", False), ("/html[1]/body[1]/div[@class='a9721']/div[@id='container']/div[@id='wrap']/div[@id='content']/div[@id='col']/table[@cellspacing='0'][@class='datatable']/tr[2]/td[7]", False)]
-        """
-        # XXX names here too verbose
-        allOutputXpaths = []
+        """Train the model using the known output for the given urls"""
+        outputScores = []
         # rate xpaths by the similarity of their content with the output
         for doc in self._docs:
             for i, output in enumerate(doc.output()):
-                if i == len(allOutputXpaths): allOutputXpaths.append(defaultdict(int))
+                if i == len(outputScores): outputScores.append(defaultdict(int))
                 for xpath, score in doc.matchXpaths(normalizeStr(output)):
-                    allOutputXpaths[i][xpath] += score
+                    outputScores[i][xpath] += score
 
         # select best xpath match for each output
-        bestXpaths = []
-        for i, outputXpaths in enumerate(allOutputXpaths):
-            if outputXpaths:
-                rankedXpathScores = sorted([(xpath, score) for (xpath, score) in outputXpaths.items() if score < 0], self._rankXpaths)
-                bestXpaths.append([xpath for (xpath, score) in rankedXpathScores if score == rankedXpathScores[0][1]])
-                if self._debug:
-                    print [doc.output()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
-                    for xpath, score in rankedXpathScores[:5]:
-                        print '%6d: %s' % (score, xpath)
-                    print
+        accurateXpaths = []
+        for xpathScores in outputScores:
+            # allow 0 to be the worst xpath match, which is an element that half matches
+            bestScore = min([0] + [score for (xpath, score) in xpathScores.items()])
+            accurateXpaths.append([xpath for (xpath, score) in xpathScores.items() if score == bestScore])
         if self._debug:
-            for xpaths in bestXpaths:
-                print 'best:\n', pretty(xpaths)
-        cleanXpaths = self.cleanXpaths(bestXpaths)
-        if self._debug:
-            print 'reduced:\n', pretty(cleanXpaths)
+            for i, xpaths in enumerate(accurateXpaths):
+                print [doc.output()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
+                print pretty(xpaths)
+        return self.refineXpaths(accurateXpaths)
 
-        # replace xpath indices with attributes where possible
+
+    def addAttributes(self, xpaths):
+        """Replace xpath indices with attributes where possible"""
         A = HtmlAttributes(self._docs)
-        attributeXpathStrs = []
-        for xpath in cleanXpaths:
-            attributeXpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
-            record = attributeXpath.get()
-            if xpath.mode():
-                record = record, xpath.mode()
-            attributeXpathStrs.append(record)
-        if self._debug:
-            print 'attribute:\n', pretty(attributeXpathStrs)
-
-        return unique(attributeXpathStrs)
+        xpathAttribStrs = []
+        for xpath in xpaths:
+            xpathAttribStrs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
+        return xpathAttribStrs
 
 
-    def _rankXpaths(self, (xpath1, score1), (xpath2, score2)):
-        """Rank xpaths first on score, then on xpath length, and finally alphabetically"""
-        if score1 != score2:
-            return score1 - score2
-        elif len(xpath1.get()) != len(xpath2.get()):
-            return len(xpath2.get()) - len(xpath1.get())
-        else:
-            return -1 if xpath1.get() < xpath2.get() else 1
-
-
-
-    def cleanXpaths(self, xpathsGroup):
+    def refineXpaths(self, xpathsGroup):
         """Reduce xpath list by replacing similar xpaths with a regular expression
 
-        >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
-        >>> xpaths = [HtmlXpath('/html[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/table[1]/tr[3]/td[1]'), HtmlXpath('/html[1]/body[1]/a[1]')]
-        >>> [x.get() for x in HtmlDoc.removeRedundant(xpaths, [doc])]
-        ['/html[1]/body[1]/a[1]', '/html[1]/table[1]/tr/td[1]']
+        >>> doc = HtmlDoc('file:test/yahoo_search/1.html', [])
+        >>> xpathsGroup = [
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[1]')],
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[2]')],
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[3]/td[1]'),],
+            [HtmlXpath('/html[1]/body[1]/a[1]')],
+        ]
+        >>> #[xpath.get() for xpath in HtmlModel(doc).cleanXpaths(xpathsGroup)]
+        >>> HtmlModel(doc).refineXpaths(xpathsGroup)
+        ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr/td[1]']
         """
-        acceptedXpaths = []
         proposedXpaths = self.abstractXpaths(xpathsGroup)
         if self._debug:
             print [(xpath.get(), count) for (xpath, count) in proposedXpaths]
+        acceptedXpaths = []
         # Try most common regular expressions first to bias towards them
         for abstractXpath, partition in proposedXpaths:
             matchedXpaths = []
@@ -159,7 +155,7 @@ class HtmlModel:
         """
         abstractXpaths = defaultdict(int)
         for xpaths1 in xpathsGroup:
-            for xpath1 in xpaths1:
+            for xpath1 in sorted(xpaths1, cmp=self._rankXpaths):
                 for xpath2 in flatten([xpaths for xpaths in xpathsGroup if xpaths != xpaths1]):
                     if len(xpath1) == len(xpath2):
                         diff = xpath1.diff(xpath2)
@@ -175,6 +171,12 @@ class HtmlModel:
         # sort abstract xpaths by usefulness
         return sorted(abstractXpaths.keys(), cmp=lambda a,b: self._rankAbstractions((a, abstractXpaths[a]), (b, abstractXpaths[b])))
 
+    def _rankXpaths(self, xpath1, xpath2):
+        """Rank xpath importance first on xpath length, then on alphabetically"""
+        if len(xpath1.get()) != len(xpath2.get()):
+            return len(xpath2.get()) - len(xpath1.get())
+        else:
+            return -1 if xpath1.get() < xpath2.get() else 1
 
     def _rankAbstractions(self, ((xpath1, partition1), count1), ((xpath2, partition2), count2)):
         """Rank xpaths first on count, then on xpath length, and finally alphabetically"""

@@ -48,11 +48,11 @@ class sitescraper:
         
         results = []
         for record in self._model:
-            if type(record) == tuple:
-                xpathStr, mode = record
-            elif type(record) == str:
+            if type(record) == str:
                 xpathStr = record
                 mode = HtmlXpath.DEFAULT_MODE
+            elif type(record) == tuple:
+                xpathStr, mode = record
             else:
                 raise SiteScraperError('Invalid model %s' % str(record))
 
@@ -74,7 +74,7 @@ class sitescraper:
             self._docs.append(HtmlDoc(url, output=output))
         self._examples = []
         # train the model
-        self._model = HtmlModel(self._docs, self._debug).get()
+        self._model = HtmlModel(self._docs, debug=self._debug).get()
 
 
 
