@@ -1,10 +1,3 @@
-#
-# Author: Richard Penman
-# License: LGPL
-# Description: 
-# Model the desired information in a webpage
-#
-
 from collections import defaultdict
 from HtmlDoc import HtmlDoc
 from HtmlXpath import HtmlXpath
@@ -16,6 +9,8 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 class HtmlModel:
     def __init__(self, docs, attributes=True, debug=False):
         """
+        Models the desired information in a webpage
+
         'docs' are the HTML webpages to model
         'attributes' are whether to replace the xpath indices with attributes
         'debug' is whether to print internal information of the model generation
@@ -80,20 +75,19 @@ class HtmlModel:
     def refineXpaths(self, xpathsGroup):
         """Reduce xpath list by replacing similar xpaths with a regular expression
 
-        >>> doc = HtmlDoc('file:test/yahoo_search/1.html', [])
-        >>> xpathsGroup = [
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[1]')],
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[2]')],
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[3]/td[1]'),],
-            [HtmlXpath('/html[1]/body[1]/a[1]')],
+        >>> doc = HtmlDoc('../testdata/yahoo_search/1.html', [])
+        >>> xpathsGroup = [\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[1]')],\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[2]')],\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[3]'),],\
+            [HtmlXpath('/html[1]/body[1]/a[1]')],\
         ]
-        >>> #[xpath.get() for xpath in HtmlModel(doc).cleanXpaths(xpathsGroup)]
-        >>> HtmlModel(doc).refineXpaths(xpathsGroup)
-        ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr/td[1]']
+        >>> [xpath.get() for xpath in HtmlModel([doc]).refineXpaths(xpathsGroup)]
+        ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr']
         """
         proposedXpaths = self.abstractXpaths(xpathsGroup)
         if self._debug:
-            print [(xpath.get(), count) for (xpath, count) in proposedXpaths]
+            print [(xpath.get(), partition) for (xpath, partition) in proposedXpaths]
         acceptedXpaths = []
         # Try most common regular expressions first to bias towards them
         for abstractXpath, partition in proposedXpaths:
@@ -137,21 +131,16 @@ class HtmlModel:
 
     def abstractXpaths(self, xpathsGroup):
         """Abstract set of xpaths using regular expressions, with most useful abstractions first in the list
-        Return a dictionary with each abstracted xpath and the number of original xpaths that match
+        Return a list of tuples with the abstracted xpath and the index of the abstraction
         
-        >>> xpaths = []
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]/p[1]/strong[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[1]/h3[1]/a[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/div[1]/h3[1]/a[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/div[1]/h3[1]/a[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/div[2]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/div[2]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/span[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/span[1]'))
-        >>> xpaths.append(HtmlXpath('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/span[1]'))
-        >>> [x for (x, partition) in sortDict(HtmlXpath.abstractSet(xpaths), reverse=True)[:5]]
-        ['/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/span[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[2]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/div[1]/h3[1]/a[1]', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[2]/div[1]/*', '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[3]/div[1]/*']
+        >>> xpathsGroup = [\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[1]')],\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[2]')],\
+            [HtmlXpath('/html[1]/body[1]/table[1]/tr[3]'),],\
+            [HtmlXpath('/html[1]/body[1]/a[1]')],\
+        ]
+        >>> [(xpath.get(), count) for (xpath, count) in HtmlModel([]).abstractXpaths(xpathsGroup)]
+        [('/html[1]/body[1]/table[1]/tr', 3), ('/html[1]/body[1]/table[1]/tr/td[1]', 3)]
         """
         abstractXpaths = defaultdict(int)
         for xpaths1 in xpathsGroup:
@@ -161,9 +150,9 @@ class HtmlModel:
                         diff = xpath1.diff(xpath2)
                         if len(diff) == 1:
                             partition = diff[0]
-                            # use common element if possible
                             tag = xpath1.tags()[partition]
                             if tag == xpath2.tags()[partition]:
+                                # found an element where can abstract index
                                 abstractXpath = xpath1.copy()
                                 abstractXpath[partition] = tag
                                 abstractXpaths[(abstractXpath, partition)] += 1

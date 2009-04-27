@@ -13,11 +13,10 @@ from common import normalizeStr, unique
 class HtmlDoc:
     """Encapsulates the Xpaths of an XML document
 
-    >>> doc = HtmlDoc('file:test/yahoo_search/1.html')
-    >>> xpaths = {}
-    >>> doc.extractXpaths(doc.getTree().getroot(), xpaths)
+    >>> doc = HtmlDoc('../testdata/yahoo_search/1.html', [])
+    >>> xpaths = doc.extractXpaths(doc.tree().getroot())
     >>> len(xpaths)
-    438
+    294
     >>> [(xpath.get(), count) for (xpath, count) in doc.matchXpaths("Bargain prices on Digital Cameras, store variety for Digital Cameras. Compare prices and buy online at Shopzilla.")]
     [('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]', -113)]
     """
@@ -27,7 +26,7 @@ class HtmlDoc:
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
-    def __init__(self, input, output, tree=False, xpaths=False):
+    def __init__(self, input, output, xpaths=None):
         """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
         self._url = None
         if not input:
@@ -51,8 +50,7 @@ class HtmlDoc:
                 item.drop_tree()
         
         if not xpaths:
-            xpaths = defaultdict(list)
-            self.extractXpaths(self._tree.getroot(), xpaths)
+            xpaths = self.extractXpaths(self._tree.getroot())
         self._xpaths = xpaths
         self._output = output
         self._sequence = SequenceMatcher()
@@ -76,8 +74,14 @@ class HtmlDoc:
     def output(self):
         return self._output
 
-    def extractXpaths(self, e, xpaths):
+    def extractXpaths(self, e):
         """Return a hashtable of the xpath to each text element"""
+        xpaths = defaultdict(list)
+        self._extractXpaths(e, xpaths)
+        return xpaths
+
+    def _extractXpaths(self, e, xpaths):
+        """Recursively find the xpaths"""
         text = self.getElementText(e)
         xpath = HtmlXpath(self._tree.getpath(e)).normalize()
         if text:
@@ -87,7 +91,7 @@ class HtmlDoc:
         childTags = defaultdict(int)
         for child in e:
             if type(child.tag) == str:
-                self.extractXpaths(child, xpaths)
+                self._extractXpaths(child, xpaths)
                 childTags[child.tag] += 1
         for childTag, count in childTags.items():
             if count >= 2:
@@ -96,7 +100,6 @@ class HtmlDoc:
                 childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
                 if childText:
                     xpaths[childText].append(childXpath)
-
 
     def getElementText(self, e):
         """Extract text under this HtmlElement"""
@@ -131,8 +134,7 @@ class HtmlDoc:
         """
         >>> s = 'hello world'
         >>> matches = {'I say now, hello world!': 1, 'ello orld': 2, 'hello': 3, 'hello world': 4, '': 5}
-        >>> doc = HtmlDoc('', True, True)
-        >>> sorted([(doc.similarity(s, k), v) for (k, v) in matches.items()])
+        >>> sorted([(HtmlDoc('<html></html>', [], True).similarity(s, k), v) for (k, v) in matches.items()])
         [(-11, 4), (-7, 2), (1, 1), (1, 3), (11, 5)]
         """
         margin = 5

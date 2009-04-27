@@ -1,7 +1,7 @@
 #
 # Author: Richard Penman
 # License: GPL
-# Description: Web scraping made easy
+# Description: SiteScraper makes web scraping made easy
 #
 
 from sitescraper import sitescraper

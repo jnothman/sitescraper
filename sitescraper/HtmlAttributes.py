@@ -7,20 +7,21 @@ from common import flatten
 class HtmlAttributes:
     """Extract attributes from XML tree and store them reverse indexed by attribute
 
-    >>>
-    >>> d1 = HtmlDoc('file:data/html/search/yahoo/1.html')
-    >>> d2 = HtmlDoc('file:data/html/search/yahoo/2.html')
-    >>> d3 = HtmlDoc('file:data/html/search/yahoo/3.html')
+    >>> from HtmlDoc import HtmlDoc
+    >>> from HtmlXpath import HtmlXpath
+    >>> d1 = HtmlDoc('../testdata/yahoo_search/1.html', [])
+    >>> d2 = HtmlDoc('../testdata/yahoo_search/2.html', [])
+    >>> d3 = HtmlDoc('../testdata/yahoo_search/3.html', [])
     >>> a = HtmlAttributes([d1, d2, d2])
-    >>> xpath = '/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li/div[1]/span[1]'
-    >>> e1 = d1.getTree().xpath(xpath)[0]
+    >>> xpath = '/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div[2]'
+    >>> e1 = d1.tree().xpath(xpath)[0]
     >>> a.extractAttribs(e1)
-    [('class', 'url')]
-    >>> attribs = a.uniqueAttribs(htmlXpath(xpath))
+    [('class', 'abstr')]
+    >>> attribs = a.uniqueAttribs(HtmlXpath(xpath))
     >>> attribs
-    [[], [], [('id', 'doc')], [('id', 'bd')], [('id', 'results')], [('id', 'left')], [('id', 'main')], [('id', 'web')], [('start', '1')], [], [('class', 'res')], [('class', 'url')]]
-    >>> a.addAttribs(htmlXpath(xpath), attribs).get()
-    "/html[1]/body[1]/div[@id='doc']/div[@id='bd']/div[@id='results']/div[@id='left']/div[@id='main']/div[@id='web']/ol[@start='1']/li/div[@class='res']/span[@class='url']"
+    [[('lang', 'en')], [('id', 'ysch')], [('id', 'doc')], [('id', 'bd')], [('id', 'results')], [('id', 'left')], [('id', 'main')], [('id', 'web')], [('start', '1')], [], [('class', 'res')], [('class', 'abstr')]]
+    >>> a.addAttribs(HtmlXpath(xpath), attribs).get()
+    "/html[@lang='en']/body[@id='ysch']/div[@id='doc']/div[@id='bd']/div[@id='results']/div[@id='left']/div[@id='main']/div[@id='web']/ol[@start='1']/li/div[@class='res']/div[@class='abstr']"
 
     >> tree = lxmlHtml.fromstring("<html><body node='0'><c class='1' node='1'>C<d class='2'></d></c><c class='1' node='2'>D</c></body</html>").getroottree()
     >> a = HtmlAttributes(tree)
@@ -89,7 +90,8 @@ class HtmlAttributes:
 
     def removeAttribs(self, xpath):
         """
-        >>> HtmlAttributes([]).removeAttribs(htmlXpath("/a[1]/b[@class='abc']/c")).get()
+        >>> from HtmlXpath import HtmlXpath
+        >>> HtmlAttributes([]).removeAttribs(HtmlXpath("/a[1]/b[@class='abc']/c")).get()
         '/a[1]/b/c'
         """
         attribRE = re.compile('\[@.*?\]')
@@ -100,9 +102,9 @@ class HtmlAttributes:
     def anyIn(self, l1, l2):
         """Return values in l1 that exist in l2
 
-        >>> anyIn([1,2], [2,3])
+        >>> HtmlAttributes([]).anyIn([1,2], [2,3])
         2
-        >>> anyIn([1,2], [3])
+        >>> HtmlAttributes([]).anyIn([1,2], [3])
         
         """
         for v1 in l1:
@@ -113,9 +115,9 @@ class HtmlAttributes:
     def allIn(self, l1, l2):
         """Return true if all of first list is in second list
 
-        >>> allIn([1,2], [2,3])
+        >>> HtmlAttributes([]).allIn([1,2], [2,3])
         False
-        >>> allIn([1,2], [1,2])
+        >>> HtmlAttributes([]).allIn([1,2], [1,2])
         True
         """
         for v1 in l1:

@@ -1,15 +1,3 @@
-#
-# Author: Richard Penman
-# License: LGPL
-# Description: 
-# Interface to scraper
-#
-
-#currentDir = os.path.abspath(os.path.dirname(__file__))
-#if currentDir not in sys.path:
-#    sys.path.insert(0, currentDir)
-
-
 from HtmlModel import HtmlModel
 from HtmlDoc import HtmlDoc
 from HtmlXpath import HtmlXpath
@@ -18,6 +6,7 @@ from HtmlXpath import HtmlXpath
 
 class sitescraper:
     def __init__(self, model=None, debug=False):
+        """Interface to SiteScraper"""
         self.clear()
         self._model = model
         self._debug = debug
@@ -57,8 +46,8 @@ class sitescraper:
                 raise SiteScraperError('Invalid model %s' % str(record))
 
             # extract data for this xpath
-            output = doc.getElementsHTML if html else doc.getElementsText
-            for result in [output(doc.tree().xpath(xpathStr))]:
+            outputFn = doc.getElementsHTML if html else doc.getElementsText
+            for result in [outputFn(doc.tree().xpath(xpathStr))]:
                 if result:
                     if mode == HtmlXpath.COLLAPSE_MODE:
                         results.append(''.join(result))

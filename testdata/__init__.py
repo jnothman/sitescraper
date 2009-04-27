@@ -20,7 +20,7 @@ __all__ = [
     #'theonion',
     #'ubuntuforums',
     #'yahoo_finance',
-    'yahoo_weather',
+    #'yahoo_weather',
 
     #'ebay',
     #'yahoo_search',

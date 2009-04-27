@@ -1,6 +1,4 @@
-#
 # Common functions used by multiple classes
-#
 
 import re
 import string

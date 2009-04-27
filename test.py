@@ -38,6 +38,7 @@ def regressionTests():
 
 
 def docTests():
+    """run sitescraper doctests"""
     import os
     import sys 
     import unittest
