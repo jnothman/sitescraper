@@ -964,6 +964,6 @@ data = [
 
 
 model = [
-    '/html/body/div/div[2]/div[3]/div/div/h3/a',
+    '/html/body/div/div[2]/h2/a',
     '/html/body/div/div[2]/div[3]/div/div/div',
 ]

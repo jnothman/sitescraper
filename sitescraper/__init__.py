@@ -5,23 +5,29 @@ from HtmlXpath import HtmlXpath
 
 
 class sitescraper:
+    """The interface to SiteScraper"""
+    #___________________________________________________________________________
+
     def __init__(self, model=None, debug=False):
-        """Interface to SiteScraper"""
         self.clear()
         self._model = model
         self._debug = debug
+    #___________________________________________________________________________
 
     def clear(self):
         self._docs = []
         self._examples = []
         self._model = None
-
+    #___________________________________________________________________________
+    
     def model(self): 
         return self._model
-
+    #___________________________________________________________________________
+    
     def add(self, url, output):
         """Add this training data"""
         self._examples.append((url, output))
+    #___________________________________________________________________________
 
     def scrape(self, url, html=False):
         """Scrape data from this url using model from current training data
@@ -56,6 +62,7 @@ class sitescraper:
                 else:
                     results.append(None)
         return results
+    #___________________________________________________________________________
 
     def train(self):
         """Train model from given examples"""
@@ -64,6 +71,7 @@ class sitescraper:
         self._examples = []
         # train the model
         self._model = HtmlModel(self._docs, debug=self._debug).get()
+    #___________________________________________________________________________
 
 
 

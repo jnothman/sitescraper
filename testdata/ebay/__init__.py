@@ -11,6 +11,8 @@ data = [
 ]
 
 
+# ebay's formatting is inconsistent depending on whether the price is marked down
+# consequently this model will get duplicate results for the prices
 model = [
     '/html/body/div[3]/div[4]/div[2]/div/div/div[2]/div[2]/div/div[4]/div/div[3]/table/tbody/tr/td[2]/a',
     '/html/body/div[3]/div[4]/div[2]/div/div/div[2]/div[2]/div/div[4]/div/div[3]/table/tbody/tr/td[5]/div',

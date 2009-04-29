@@ -17,18 +17,23 @@ class HtmlXpath(object):
     """
     DEFAULT_MODE, COLLAPSE_MODE = 0, 1
     sepRE = re.compile('/+')
+    #___________________________________________________________________________
 
     def __init__(self, xpathStr, mode=DEFAULT_MODE):
         if type(xpathStr) != str:
             raise Exception(xpathStr)
         self.set(xpathStr)
         self._mode = mode
+    #___________________________________________________________________________
 
     def __len__(self):
         return len(self.sections())
+    #___________________________________________________________________________
 
     def __getitem__(self, i):
         return self.sections()[i]
+    #___________________________________________________________________________
+
     def __setitem__(self, i, v):
         xpath = self.get()
         starts, ends = [], []
@@ -41,30 +46,39 @@ class HtmlXpath(object):
         ends.append(len(xpath))
         self.set(xpath[:starts[i]] + v + xpath[ends[i]:])
         return self
+    #___________________________________________________________________________
 
     def __iter__(self):
         return self.sections().__iter__()
+    #___________________________________________________________________________
 
     def __str__(self):
         return self.get()
+    #___________________________________________________________________________
 
     def __cmp__(self, other):
         return cmp(self.get(), other.get())
+    #___________________________________________________________________________
 
     def __hash__(self):
         return hash(self.get())
+    #___________________________________________________________________________
 
     def copy(self):
         return HtmlXpath(self.get(), self.mode())
+    #___________________________________________________________________________
 
     def get(self): 
         return self._xpathStr
+    #___________________________________________________________________________
 
     def set(self, xpathStr): 
         self._xpathStr = xpathStr
+    #___________________________________________________________________________
 
     def mode(self):
         return self._mode
+    #___________________________________________________________________________
 
     def sections(self):
         """Return sections of xpath
@@ -80,6 +94,7 @@ class HtmlXpath(object):
             print 'problem:', self.get()
             print type(self.get())
             raise
+    #___________________________________________________________________________
 
     def tags(self):
         """Return list of tags in xpath
@@ -89,6 +104,7 @@ class HtmlXpath(object):
         """
         removeIndex = lambda s: '[' in s and s[:s.index('[')] or s
         return [removeIndex(s) for s in self.sections()]
+    #___________________________________________________________________________
 
     def walk(self):
         """Return list of sub xpaths
@@ -105,7 +121,7 @@ class HtmlXpath(object):
                 xpaths.append(self.get()[:end])
         xpaths.append(self.get())
         return xpaths
-
+    #___________________________________________________________________________
 
     def normalize(self):
         """A normalized xpath has an index defined at each node. ElementTree treats indexless nodes as a regular expression.
@@ -117,6 +133,7 @@ class HtmlXpath(object):
             if section != '*' and not section.endswith(']'):
                 self[i] = section + '[1]'
         return self
+    #___________________________________________________________________________
 
     def isNormalized(self):
         """
@@ -126,6 +143,7 @@ class HtmlXpath(object):
         False
         """
         return self.copy().normalize() == self
+    #___________________________________________________________________________
 
     def diff(self, other):
         """Returns indices where xpaths differ.
@@ -141,3 +159,4 @@ class HtmlXpath(object):
                 if i >= len(self) or i >= len(other) or self[i] != other[i]:
                     indices.append(i)
         return indices
+    #___________________________________________________________________________

@@ -35,11 +35,11 @@ class HtmlAttributes:
     >> a.addCommonAttribs(attribs, ['/html[1]/body[1]/c[1]', '/html[1]/body[1]/c[2]'])
     ["/html[1]/body[1][@node='0']/c[1][@class='1']", "/html[1]/body[1][@node='0']/c[2][@class='1']"]
     """
-
+    #___________________________________________________________________________
 
     def __init__(self, docs):
         self._docs = docs
-
+    #___________________________________________________________________________
 
     def uniqueAttribs(self, xpath):
         """Return a list of attributes that uniquely distinguish the element at each segment"""
@@ -53,7 +53,7 @@ class HtmlAttributes:
             proposedAttribs = self.commonAttribs(sectionElements)
             acceptedAttribs.append([a for a in proposedAttribs if a not in siblingAttribs])
         return acceptedAttribs
-
+    #___________________________________________________________________________
 
     def extractAttribs(self, element):
         """Return a list of attributes for the element"""
@@ -61,10 +61,10 @@ class HtmlAttributes:
         #print element.attrib.items()
         for attrName, attrValue in element.attrib.items():
             # punctuation such as '/' and ':' can confuse xpath, so ignore attributes with these characters
-            if not self.anyIn('/:', attrValue+attrName):# and attrName in ('id', 'lass'):
+            if not self.anyIn('/: ', attrValue+attrName):# and attrName in ('id', 'lass'):
                 attribs.append((attrName, attrValue))
         return attribs
-
+    #___________________________________________________________________________
 
     def commonAttribs(self, elements):
         """Return a list of common attributes among a group of elements"""
@@ -73,6 +73,7 @@ class HtmlAttributes:
             for attrib in self.extractAttribs(e):
                 common[attrib] += 1
         return [attrib for (attrib, count) in common.items() if count == len(elements)]
+    #___________________________________________________________________________
 
     def addAttribs(self, xpath, allAttribs):
         """Add attributes to xpath"""
@@ -87,6 +88,7 @@ class HtmlAttributes:
                     section += "[@%s='%s']" % attrib
             xpath[i] = section
         return xpath
+    #___________________________________________________________________________
 
     def removeAttribs(self, xpath):
         """
@@ -98,6 +100,7 @@ class HtmlAttributes:
         for i, section in enumerate(xpath):
             xpath[i] = re.sub(attribRE, '', xpath[i])
         return xpath
+    #___________________________________________________________________________
 
     def anyIn(self, l1, l2):
         """Return values in l1 that exist in l2
@@ -111,6 +114,7 @@ class HtmlAttributes:
             if v1 in l2:
                 return v1
         return None
+    #___________________________________________________________________________
 
     def allIn(self, l1, l2):
         """Return true if all of first list is in second list
@@ -124,4 +128,4 @@ class HtmlAttributes:
             if v1 not in l2:
                 return False
         return True
-
+    #___________________________________________________________________________

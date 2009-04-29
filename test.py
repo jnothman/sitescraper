@@ -7,6 +7,7 @@ from sitescraper import sitescraper
 from sitescraper.HtmlXpath import HtmlXpath
 import testdata
 
+#_______________________________________________________________________________
 
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
@@ -33,9 +34,9 @@ def regressionTests():
         else:
             # test passed
             print 'Passed'
-            print ss.scrape(website.data[0][0])
+            #print ss.scrape('testdata/%s/%s' % (module, website.data[0][0]))
         ss.clear()
-
+#_______________________________________________________________________________
 
 def docTests():
     """run sitescraper doctests"""
@@ -53,7 +54,7 @@ def docTests():
         suite.addTest(doctest.DocTestSuite(mod))
     runner = unittest.TextTestRunner()
     runner.run(suite)
-
+#_______________________________________________________________________________
 
 if __name__ == '__main__':
     from optparse import OptionParser
@@ -68,3 +69,4 @@ if __name__ == '__main__':
         regressionTests()
     else:
         parser.print_help()
+#_______________________________________________________________________________

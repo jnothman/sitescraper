@@ -7,10 +7,11 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 
 
 class HtmlModel:
+    """Models the desired information in a webpage"""
+    #___________________________________________________________________________
+
     def __init__(self, docs, attributes=True, debug=False):
         """
-        Models the desired information in a webpage
-
         'docs' are the HTML webpages to model
         'attributes' are whether to replace the xpath indices with attributes
         'debug' is whether to print internal information of the model generation
@@ -19,9 +20,10 @@ class HtmlModel:
         self._attributes = attributes
         self._debug = debug
         self._model = None # model is not generated yet
-
+    #___________________________________________________________________________
 
     def get(self):
+        """Get a string list representation of the model"""
         if self._model is None:
             # need to generate model
             model = self.trainModel()
@@ -38,7 +40,7 @@ class HtmlModel:
                     record = record, xpath.mode()
                 self._model.append(record)
         return self._model
-
+    #___________________________________________________________________________
 
     def trainModel(self):
         """Train the model using the known output for the given urls"""
@@ -61,7 +63,7 @@ class HtmlModel:
                 print [doc.output()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
                 print pretty(xpaths)
         return self.refineXpaths(accurateXpaths)
-
+    #___________________________________________________________________________
 
     def addAttributes(self, xpaths):
         """Replace xpath indices with attributes where possible"""
@@ -70,7 +72,7 @@ class HtmlModel:
         for xpath in xpaths:
             xpathAttribStrs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
         return xpathAttribStrs
-
+    #___________________________________________________________________________
 
     def refineXpaths(self, xpathsGroup):
         """Reduce xpath list by replacing similar xpaths with a regular expression
@@ -126,9 +128,8 @@ class HtmlModel:
                     print 'not abstracted:', ', '.join([xpath.get() for xpath in xpaths])
 
         return [xpaths[0] for xpaths in xpathsGroup if xpaths] + acceptedXpaths
+    #___________________________________________________________________________
     
-
-
     def abstractXpaths(self, xpathsGroup):
         """Abstract set of xpaths using regular expressions, with most useful abstractions first in the list
         Return a list of tuples with the abstracted xpath and the index of the abstraction
@@ -159,6 +160,7 @@ class HtmlModel:
 
         # sort abstract xpaths by usefulness
         return sorted(abstractXpaths.keys(), cmp=lambda a,b: self._rankAbstractions((a, abstractXpaths[a]), (b, abstractXpaths[b])))
+    #___________________________________________________________________________
 
     def _rankXpaths(self, xpath1, xpath2):
         """Rank xpath importance first on xpath length, then on alphabetically"""
@@ -166,6 +168,7 @@ class HtmlModel:
             return len(xpath2.get()) - len(xpath1.get())
         else:
             return -1 if xpath1.get() < xpath2.get() else 1
+    #___________________________________________________________________________
 
     def _rankAbstractions(self, ((xpath1, partition1), count1), ((xpath2, partition2), count2)):
         """Rank xpaths first on count, then on xpath length, and finally alphabetically"""
@@ -175,9 +178,7 @@ class HtmlModel:
             return len(xpath2.get()) - len(xpath1.get())
         else:
             return -1 if xpath1.get() < xpath2.get() else 1
-
-
-
+    #___________________________________________________________________________
 
     """def removeStatic(self):
         ""Remove content that is static and so appears across all documents""
@@ -187,3 +188,4 @@ class HtmlModel:
                     for doc in docs:
                         doc.getXpaths().pop(text)
     """
+    #___________________________________________________________________________
