@@ -50,10 +50,8 @@ class HtmlDoc:
             for item in self._tree.findall('.//' + tag):
                 item.drop_tree()
         
-        if not xpaths:
-            xpaths = self.extractXpaths(self._tree.getroot())
-        self._xpaths = xpaths
         self._output = output
+        self._xpaths = xpaths if xpaths else self.extractXpaths()
         self._sequence = SequenceMatcher()
     #___________________________________________________________________________
 
@@ -81,10 +79,10 @@ class HtmlDoc:
         return self._output
     #___________________________________________________________________________
 
-    def extractXpaths(self, e):
-        """Return a hashtable of the xpath to each text element"""
+    def extractXpaths(self):
+        """Extract a hashtable of the xpath to each text element"""
         xpaths = defaultdict(list)
-        self._extractXpaths(e, xpaths)
+        self._extractXpaths(self._tree.getroot(), xpaths)
         return xpaths
     #___________________________________________________________________________
 

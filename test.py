@@ -11,7 +11,7 @@ import testdata
 
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
-    ss = sitescraper(debug=True)
+    ss = sitescraper(debug=False, html=True)
     for module in testdata.__all__:
         website = getattr(testdata, module)
         for url, output in website.data:
@@ -19,23 +19,31 @@ def regressionTests():
         print '\n' + str(module)
         ss.train()
 
-        # normalize xpath by extracting tag types
-        normalizeModel = lambda model: sorted([([t for t in HtmlXpath(xpathStr).tags() if t != 'tbody'], flag) for (xpathStr, flag) in [(xpathStr if type(xpathStr) == tuple else (xpathStr, 0)) for xpathStr in model]])
-        if normalizeModel(website.model) != normalizeModel(ss.model()):
-            # expected xpath did not match so test failed
-            modelStr = lambda model: '\n'.join([str(s) for s in model])
-            print 'Expected:'
-            print modelStr(normalizeModel(website.model))
-            print modelStr(website.model)
-            print 'Get:'
-            print modelStr(normalizeModel(ss.model()))
-            print modelStr(ss.model())
-            break
-        else:
+        url = website.data[0][0]
+        if ss.scrape(url) == sitescraper(model=website.model, html=True).scrape(url):
             # test passed
             print 'Passed'
-            #print ss.scrape('testdata/%s/%s' % (module, website.data[0][0]))
+        else:
+            # expected xpath did not match so test failed
+            print 'Expected:'
+            printModel(website.model)
+            print 'Scraped:'
+            printModel(ss.model())
         ss.clear()
+#_______________________________________________________________________________
+
+def printModel(model):
+    """Print the model in a readable form for debugging"""
+    padding = ' '
+    print padding, 'Raw model:'
+    print padding*2, '\n'.join(str(m) for m in model)
+    print padding, 'Tags:'
+    for xpathStr in sorted(model):
+        if type(xpathStr) == tuple:
+            xpathStr, mode = xpathStr
+        else:
+            mode = 0
+        print padding*2, HtmlXpath(xpathStr).tags(), mode
 #_______________________________________________________________________________
 
 def docTests():
