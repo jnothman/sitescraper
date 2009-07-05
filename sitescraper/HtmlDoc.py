@@ -144,6 +144,9 @@ class HtmlDoc:
 
     def similarity(self, s1, s2):
         """
+        Calculate the similarity of two strings, using the LCS algorithm.
+        A lower score means a better match.
+
         >>> s = 'hello world'
         >>> matches = {'I say now, hello world!': 1, 'ello orld': 2, 'hello': 3, 'hello world': 4, '': 5}
         >>> sorted([(HtmlDoc('<html></html>', [], True).similarity(s, k), v) for (k, v) in matches.items()])

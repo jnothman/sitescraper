@@ -35,9 +35,10 @@ class HtmlModel:
                     print 'attributes:\n', pretty(model)
             self._model = []
             for xpath in model:
-                record = xpath.get()
                 if xpath.mode() != HtmlXpath.DEFAULT_MODE:
-                    record = record, xpath.mode()
+                    record = xpath.get(), xpath.mode()
+                else:
+                    record = xpath.get()
                 self._model.append(record)
         return self._model
     #___________________________________________________________________________
@@ -88,9 +89,10 @@ class HtmlModel:
         ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr']
         """
         proposedXpaths = self.abstractXpaths(xpathsGroup)
+        acceptedXpaths = [None for _ in xpathsGroup]
         if self._debug:
             print [(xpath.get(), partition) for (xpath, partition) in proposedXpaths]
-        acceptedXpaths = []
+
         # Try most common regular expressions first to bias towards them
         for abstractXpath, partition in proposedXpaths:
             matchedXpaths = []
@@ -116,18 +118,30 @@ class HtmlModel:
                 # restrict xpath regular expressions to lowest index encountered
                 if minPosition > 1:
                     abstractXpath[partition] += '[position()>%d]' % (minPosition - 1)
-                acceptedXpaths.append(abstractXpath)
-                # remove this xpaths now so they can't be used by another regular expression
+                # remove these abstracted xpaths now so can't be used by another regular expression
                 for matchedXpath in matchedXpaths:
-                    for xpaths in xpathsGroup:
+                    for i, xpaths in enumerate(xpathsGroup):
                         if matchedXpath in xpaths:
-                            xpathsGroup.remove(xpaths)
-        if self._debug:                            
-            for xpaths in xpathsGroup:
-                if len(xpaths) > 1:
-                    print 'not abstracted:', ', '.join([xpath.get() for xpath in xpaths])
+                            xpathsGroup[i] = []
+                            acceptedXpaths[i] = abstractXpath
 
-        return [xpaths[0] for xpaths in xpathsGroup if xpaths] + acceptedXpaths
+        return self._mergeXpaths(xpathsGroup, acceptedXpaths)
+    #___________________________________________________________________________
+    
+    def _mergeXpaths(self, l1, l2):
+        """Merge lists of xpaths, taking element from l2 if l1 empty"""
+        mergedXpaths = []
+        getElement = lambda e: e[0] if type(e) == list else e
+        for e1, e2 in zip(l1, l2):
+            if e1:
+                v = getElement(e1)
+            elif e2:
+                v = getElement(e2)
+            else:
+                continue
+            if v not in mergedXpaths:
+                mergedXpaths.append(v)
+        return mergedXpaths 
     #___________________________________________________________________________
     
     def abstractXpaths(self, xpathsGroup):
@@ -178,14 +192,4 @@ class HtmlModel:
             return len(xpath2.get()) - len(xpath1.get())
         else:
             return -1 if xpath1.get() < xpath2.get() else 1
-    #___________________________________________________________________________
-
-    """def removeStatic(self):
-        ""Remove content that is static and so appears across all documents""
-        if len(docs) > 1:
-            for text, xpaths in docs[0].getXpaths().items():
-                if all((text, xpaths) in doc.getXpaths().items() for doc in docs):
-                    for doc in docs:
-                        doc.getXpaths().pop(text)
-    """
     #___________________________________________________________________________

@@ -14,6 +14,10 @@ class sitescraper:
         self._debug = debug
     #___________________________________________________________________________
 
+    def __len__(self):
+        return len(self._examples)
+    #___________________________________________________________________________
+
     def clear(self):
         self._docs = []
         self._examples = []
