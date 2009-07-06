@@ -27,7 +27,7 @@ class HtmlDoc:
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
     #___________________________________________________________________________
 
-    def __init__(self, input, output, xpaths=None):
+    def __init__(self, input, outputs, xpaths=None):
         """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
         self._url = None
         if not input:
@@ -50,8 +50,8 @@ class HtmlDoc:
             for item in self._tree.findall('.//' + tag):
                 item.drop_tree()
         
-        self._output = output
-        self._xpaths = xpaths if xpaths else self.extractXpaths()
+        self._outputs = outputs
+        self._xpaths = xpaths if xpaths is not None else self.extractXpaths()
         self._sequence = SequenceMatcher()
     #___________________________________________________________________________
 
@@ -75,8 +75,8 @@ class HtmlDoc:
         return self._xpaths
     #___________________________________________________________________________
 
-    def output(self):
-        return self._output
+    def outputs(self):
+        return self._outputs
     #___________________________________________________________________________
 
     def extractXpaths(self):
@@ -102,7 +102,7 @@ class HtmlDoc:
         for childTag, count in childTags.items():
             if count >= 2:
                 # add text content for this tag
-                childXpath = HtmlXpath('%s/%s' % (xpath, childTag), HtmlXpath.COLLAPSE_MODE)
+                childXpath = HtmlXpath('%s/%s' % (xpath, childTag))#, HtmlXpath.COLLAPSE_MODE)
                 childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
                 if childText:
                     xpaths[childText].append(childXpath)
@@ -114,7 +114,7 @@ class HtmlDoc:
     #___________________________________________________________________________
 
     def getElementsText(self, es):
-        return [text for text in [self.getElementText(e) for e in es]]
+        return [self.getElementText(e) for e in es]
     #___________________________________________________________________________
 
     def getElementHTML(self, e):
@@ -125,7 +125,7 @@ class HtmlDoc:
     #___________________________________________________________________________
 
     def getElementsHTML(self, es):
-        return [html for html in [self.getElementHTML(e) for e in es]]
+        return [self.getElementHTML(e) for e in es]
     #___________________________________________________________________________
 
     def matchXpaths(self, output):

@@ -20,6 +20,8 @@ class sitescraper:
 
     def clear(self):
         self._docs = []
+        self._previousInput = None
+        self._previousDoc = None
         self._examples = []
         self._model = None
     #___________________________________________________________________________
@@ -28,50 +30,47 @@ class sitescraper:
         return self._model
     #___________________________________________________________________________
     
-    def add(self, url, output):
+    def add(self, input, outputs):
         """Add this training data"""
-        self._examples.append((url, output))
+        self._examples.append((input, outputs))
     #___________________________________________________________________________
 
-    def scrape(self, url, html=False):
-        """Scrape data from this url using model from current training data
-        The html flag determines whether to extract text or the raw HTML"""
+    def scrape(self, input, html=False):
+        """Scrape data from this input using model from current training data
+        The html flag determines whether to extract the raw HTML instead of parsed text"""
         if self._examples:
             self.train() # new examples to train
         if not self._model:
             raise SiteScraperError('Error: can not scrape because model is not trained')
 
-        doc = HtmlDoc(url, output=[], xpaths=True)
+        if self._previousInput != input:
+            self._previousInput = input
+            self._previousDoc = HtmlDoc(input, outputs=[], xpaths=[])
+        doc = self._previousDoc
         if doc.tree().getroot() is None:
             raise SiteScraperError('Error: %s has no root node' % input)
         
+        outputFn = doc.getElementsHTML if html else doc.getElementsText
         results = []
-        for record in self._model:
-            if type(record) == str:
-                xpathStr = record
-                mode = HtmlXpath.DEFAULT_MODE
-            elif type(record) == tuple:
-                xpathStr, mode = record
+        for xpathStr in self._model:
+            isGroup = type(xpathStr) == list
+            if isGroup:
+                xpathStr = xpathStr[0]
+            result = outputFn(doc.tree().xpath(xpathStr))
+            if isGroup:
+                results.append(result)
             else:
-                raise SiteScraperError('Invalid model %s' % str(record))
-
-            # extract data for this xpath
-            outputFn = doc.getElementsHTML if html else doc.getElementsText
-            for result in [outputFn(doc.tree().xpath(xpathStr))]:
                 if result:
-                    if mode == HtmlXpath.COLLAPSE_MODE:
-                        results.append(''.join(result))
-                    else:
-                        results.extend(result)
+                    results.append(' '.join(result))
                 else:
-                    results.append(None)
+                    results.append(None) # XXX need None?
         return results
     #___________________________________________________________________________
 
     def train(self):
         """Train model from given examples"""
-        for url, output in self._examples:
-            self._docs.append(HtmlDoc(url, output=output))
+        for input, outputs in self._examples:
+            self._docs.append(HtmlDoc(input, outputs=outputs))
         self._examples = []
         # train the model
         self._model = HtmlModel(self._docs, debug=self._debug).get()

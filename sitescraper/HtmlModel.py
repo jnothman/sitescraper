@@ -27,56 +27,68 @@ class HtmlModel:
         if self._model is None:
             # need to generate model
             model = self.trainModel()
-            if self._debug:
-                print 'model:\n', pretty(model)
-            if self._attributes:
-                model = self.addAttributes(model)
-                if self._debug:
-                    print 'attributes:\n', pretty(model)
             self._model = []
-            for xpath in model:
-                if xpath.mode() != HtmlXpath.DEFAULT_MODE:
-                    record = xpath.get(), xpath.mode()
+            for record in model:
+                if type(record) == list:
+                    self._model.append([record[0].get()])
                 else:
-                    record = xpath.get()
-                self._model.append(record)
+                    self._model.append(record.get())
         return self._model
     #___________________________________________________________________________
 
     def trainModel(self):
         """Train the model using the known output for the given urls"""
-        outputScores = []
         # rate xpaths by the similarity of their content with the output
-        for doc in self._docs:
-            for i, output in enumerate(doc.output()):
-                if i == len(outputScores): outputScores.append(defaultdict(int))
-                for xpath, score in doc.matchXpaths(normalizeStr(output)):
-                    outputScores[i][xpath] += score
+        modelXpaths = []
+        for i in range(len(self._docs[0].outputs())):
+            isGroup = False
+            xpaths = []
+            for doc in self._docs:
+                outputs = doc.outputs()[i]
+                if type(outputs) == list: 
+                    isGroup = True
+                else:
+                    outputs = [outputs]
+                for output in outputs:
+                    outputScores = defaultdict(int)
+                    for xpath, score in doc.matchXpaths(normalizeStr(output)):
+                        outputScores[xpath] += score
 
-        # select best xpath match for each output
-        accurateXpaths = []
-        for xpathScores in outputScores:
-            # allow 0 to be the worst xpath match, which is an element that half matches
-            bestScore = min([0] + [score for (xpath, score) in xpathScores.items()])
-            accurateXpaths.append([xpath for (xpath, score) in xpathScores.items() if score == bestScore])
-        if self._debug:
-            for i, xpaths in enumerate(accurateXpaths):
-                print [doc.output()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
-                print pretty(xpaths)
-        return self.refineXpaths(accurateXpaths)
+                    # select best xpath match for each output
+                    bestScore = min([score for (xpath, score) in outputScores.items()])
+                    if bestScore > 0: 
+                        print "Warning: could not find '%s' (score=%d)" % (output, score)
+                    xpaths.extend([xpath for (xpath, score) in outputScores.items() if score == bestScore])
+                    #xpaths.append(min([(score, xpath) for (xpath, score) in outputScores.items()])[1])
+            if isGroup:
+                modelXpaths.append([self.abstractXpaths(xpaths)])
+            else:
+                modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
+
+            """if self._debug:
+                for i, xpaths in enumerate(modelXpaths):
+                    print [doc.outputs()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
+                    print pretty(xpaths)"""
+        if self._attributes:
+            modelXpaths = self.addAttributes(modelXpaths)
+        return modelXpaths
     #___________________________________________________________________________
 
     def addAttributes(self, xpaths):
         """Replace xpath indices with attributes where possible"""
         A = HtmlAttributes(self._docs)
-        xpathAttribStrs = []
+        xpathAttribs = []
         for xpath in xpaths:
-            xpathAttribStrs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
-        return xpathAttribStrs
+            isGroup = type(xpath) == list
+            if isGroup:
+                xpath = xpath[0]
+            xpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
+            xpathAttribs.append([xpath] if isGroup else xpath)
+        return xpathAttribs
     #___________________________________________________________________________
 
-    def refineXpaths(self, xpathsGroup):
-        """Reduce xpath list by replacing similar xpaths with a regular expression
+    def abstractXpaths(self, xpaths):
+        """Find a single xpath to represent this group of xpaths by replacing similar xpaths with a regular expression
 
         >>> doc = HtmlDoc('../testdata/yahoo_search/1.html', [])
         >>> xpathsGroup = [\
@@ -88,107 +100,32 @@ class HtmlModel:
         >>> [xpath.get() for xpath in HtmlModel([doc]).refineXpaths(xpathsGroup)]
         ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr']
         """
-        proposedXpaths = self.abstractXpaths(xpathsGroup)
-        acceptedXpaths = [None for _ in xpathsGroup]
-        if self._debug:
-            print [(xpath.get(), partition) for (xpath, partition) in proposedXpaths]
-
-        # Try most common regular expressions first to bias towards them
-        for abstractXpath, partition in proposedXpaths:
-            matchedXpaths = []
-            matchedTags = []
-            for xpaths in xpathsGroup:
-                for xpath in xpaths:
-                    diff = abstractXpath.diff(xpath)
+        abstractXpaths = defaultdict(list)
+        for xpath1 in xpaths:
+            for xpath2 in xpaths:
+                if len(xpath1) == len(xpath2):
+                    diff = xpath1.diff(xpath2)
                     if len(diff) == 1:
-                        matchedXpaths.append(xpath)
-                        matchedTags.append(xpath[diff[0]])
-                        break
-            if len(matchedXpaths) < 2:
-                # not enough matching xpaths to abstract
-                continue 
+                        partition = diff[0]
+                        tag = xpath1.tags()[partition]
+                        if tag == xpath2.tags()[partition]:
+                            # found an element where can abstract index
+                            abstractXpath = xpath1.copy()
+                            abstractXpath[partition] = tag
+                            abstractXpaths[(abstractXpath, partition)].append(extractInt(xpath1[partition]))
 
-            matchedTagIds = sorted(extractInt(tag) for tag in matchedTags)
-            minPosition = matchedTagIds[0]
-            # apply this regular expression if the content is ordered
-            # of if there are a different number of child elements on each tree at this location
-            expandReg = matchedTagIds == range(minPosition, len(matchedTagIds)+1) or \
-                        len(unique([len(doc.tree().xpath(abstractXpath.get())) for doc in self._docs])) > 1
-            if expandReg:
-                # restrict xpath regular expressions to lowest index encountered
-                if minPosition > 1:
-                    abstractXpath[partition] += '[position()>%d]' % (minPosition - 1)
-                # remove these abstracted xpaths now so can't be used by another regular expression
-                for matchedXpath in matchedXpaths:
-                    for i, xpaths in enumerate(xpathsGroup):
-                        if matchedXpath in xpaths:
-                            xpathsGroup[i] = []
-                            acceptedXpaths[i] = abstractXpath
-
-        return self._mergeXpaths(xpathsGroup, acceptedXpaths)
+        # find the most popular regular expression
+        abstractXpath, partition = sorted([(len(v), k) for (k, v) in abstractXpaths.items()])[-1][1]
+        # restrict xpath regular expressions to lowest index encountered
+        minPosition = min(abstractXpaths[(abstractXpath, partition)])
+        if minPosition > 1:
+            abstractXpath[partition] += '[position()>%d]' % (minPosition - 1)
+        return abstractXpath
     #___________________________________________________________________________
     
-    def _mergeXpaths(self, l1, l2):
-        """Merge lists of xpaths, taking element from l2 if l1 empty"""
-        mergedXpaths = []
-        getElement = lambda e: e[0] if type(e) == list else e
-        for e1, e2 in zip(l1, l2):
-            if e1:
-                v = getElement(e1)
-            elif e2:
-                v = getElement(e2)
-            else:
-                continue
-            if v not in mergedXpaths:
-                mergedXpaths.append(v)
-        return mergedXpaths 
-    #___________________________________________________________________________
-    
-    def abstractXpaths(self, xpathsGroup):
-        """Abstract set of xpaths using regular expressions, with most useful abstractions first in the list
-        Return a list of tuples with the abstracted xpath and the index of the abstraction
-        
-        >>> xpathsGroup = [\
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[1]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[1]')],\
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[2]/td[1]'), HtmlXpath('/html[1]/body[1]/table[1]/tr[2]')],\
-            [HtmlXpath('/html[1]/body[1]/table[1]/tr[3]'),],\
-            [HtmlXpath('/html[1]/body[1]/a[1]')],\
-        ]
-        >>> [(xpath.get(), count) for (xpath, count) in HtmlModel([]).abstractXpaths(xpathsGroup)]
-        [('/html[1]/body[1]/table[1]/tr', 3), ('/html[1]/body[1]/table[1]/tr/td[1]', 3)]
-        """
-        abstractXpaths = defaultdict(int)
-        for xpaths1 in xpathsGroup:
-            for xpath1 in sorted(xpaths1, cmp=self._rankXpaths):
-                for xpath2 in flatten([xpaths for xpaths in xpathsGroup if xpaths != xpaths1]):
-                    if len(xpath1) == len(xpath2):
-                        diff = xpath1.diff(xpath2)
-                        if len(diff) == 1:
-                            partition = diff[0]
-                            tag = xpath1.tags()[partition]
-                            if tag == xpath2.tags()[partition]:
-                                # found an element where can abstract index
-                                abstractXpath = xpath1.copy()
-                                abstractXpath[partition] = tag
-                                abstractXpaths[(abstractXpath, partition)] += 1
-
-        # sort abstract xpaths by usefulness
-        return sorted(abstractXpaths.keys(), cmp=lambda a,b: self._rankAbstractions((a, abstractXpaths[a]), (b, abstractXpaths[b])))
-    #___________________________________________________________________________
-
     def _rankXpaths(self, xpath1, xpath2):
         """Rank xpath importance first on xpath length, then on alphabetically"""
         if len(xpath1.get()) != len(xpath2.get()):
-            return len(xpath2.get()) - len(xpath1.get())
-        else:
-            return -1 if xpath1.get() < xpath2.get() else 1
-    #___________________________________________________________________________
-
-    def _rankAbstractions(self, ((xpath1, partition1), count1), ((xpath2, partition2), count2)):
-        """Rank xpaths first on count, then on xpath length, and finally alphabetically"""
-        if count1 != count2:
-            return count2 - count1
-        elif len(xpath1.get()) != len(xpath2.get()):
             return len(xpath2.get()) - len(xpath1.get())
         else:
             return -1 if xpath1.get() < xpath2.get() else 1

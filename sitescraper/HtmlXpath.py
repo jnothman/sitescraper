@@ -15,15 +15,13 @@ class HtmlXpath(object):
     >>> list(x)
     ['html', 'body', 'p[1]']
     """
-    DEFAULT_MODE, COLLAPSE_MODE = 0, 1
     sepRE = re.compile('/+')
     #___________________________________________________________________________
 
-    def __init__(self, xpathStr, mode=DEFAULT_MODE):
+    def __init__(self, xpathStr):
         if type(xpathStr) != str:
             raise Exception(xpathStr)
         self.set(xpathStr)
-        self._mode = mode
     #___________________________________________________________________________
 
     def __len__(self):
@@ -65,7 +63,7 @@ class HtmlXpath(object):
     #___________________________________________________________________________
 
     def copy(self):
-        return HtmlXpath(self.get(), self.mode())
+        return HtmlXpath(self.get())
     #___________________________________________________________________________
 
     def get(self): 
@@ -76,9 +74,6 @@ class HtmlXpath(object):
         self._xpathStr = xpathStr
     #___________________________________________________________________________
 
-    def mode(self):
-        return self._mode
-    #___________________________________________________________________________
 
     def sections(self):
         """Return sections of xpath
