@@ -87,23 +87,34 @@ class HtmlDoc:
     #___________________________________________________________________________
 
     def _extractXpaths(self, e, xpaths):
-        """Recursively find the xpaths"""
+        """Recursively find the xpaths - a helper method for extractXpaths()"""
         text = self.getElementText(e)
         xpath = HtmlXpath(self._tree.getpath(e)).normalize()
         if text:
             xpaths[text].append(xpath)
+        # extract URLs, which are contained in attributes
+        if e.tag == 'a':
+            link_xpath = str(xpath) + '/@href'
+            link_url = e.xpath(link_xpath)
+            if link_url:
+                xpaths[link_url[0]].append(HtmlXpath(link_xpath))
+        elif e.tag == 'img':
+            image_xpath = str(xpath) + '/@src'
+            image_src = e.xpath(image_xpath)
+            if image_src:
+                xpaths[image_src[0]].append(HtmlXpath(image_xpath))
 
         # extract text for each group of tags
         childTags = defaultdict(int)
         for child in e:
-            if type(child.tag) == str:
+            if isinstance(child.tag, str):
                 self._extractXpaths(child, xpaths)
                 childTags[child.tag] += 1
         for childTag, count in childTags.items():
             if count >= 2:
                 # add text content for this tag
                 childXpath = HtmlXpath('%s/%s' % (xpath, childTag))#, HtmlXpath.COLLAPSE_MODE)
-                childText = ' '.join(self.getElementsText(e.xpath(childXpath.get())))
+                childText = ' '.join([self.getElementText(c) for c in e.xpath(str(childXpath))])
                 if childText:
                     xpaths[childText].append(childXpath)
     #___________________________________________________________________________
@@ -113,21 +124,13 @@ class HtmlDoc:
         return normalizeStr(e.text_content().strip())
     #___________________________________________________________________________
 
-    def getElementsText(self, es):
-        return [self.getElementText(e) for e in es]
-    #___________________________________________________________________________
-
     def getElementHTML(self, e):
         """Extract HTML under this element"""
         return  (e.text if e.text else '') + \
                 ''.join([lxmlHtml.tostring(c) for c in e.getchildren()]) + \
                 (e.tail if e.tail else '')
     #___________________________________________________________________________
-
-    def getElementsHTML(self, es):
-        return [self.getElementHTML(e) for e in es]
-    #___________________________________________________________________________
-
+    
     def matchXpaths(self, output):
         """Return the amount of overlap at xpath with the desired output""" 
         if output in self._xpaths:

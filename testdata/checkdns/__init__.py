@@ -5,7 +5,7 @@
 
 data = [
     ('1.html', ['Automatically clearing "Preferred Networks" list',
-    """
+    ["""
     Automatically clearing "Preferred Networks" list
 
     Postby Jack B. Pollack on Sat Oct 06, 2007 2:05 am
@@ -180,9 +180,9 @@ data = [
 
 
     [/quote]""",
-    ]),
+    ]]),
     ('2.html', ["Wireless connection speed decreases strangely", 
-    """My wireless connection decreases from 56mbps to 1.0mbps for no reason after
+    ["""My wireless connection decreases from 56mbps to 1.0mbps for no reason after
     half-hour. I'm using linksys router and tried power cycling the router but to
     no avail. The only way I can do is to repair the connection and it returns to
     maximum speed.""",
@@ -320,9 +320,9 @@ data = [
 
     Regards,
     --PA""",
-    ]),
+    ]]),
     ('3.html', ["Connecting Wireless Network from Building to Building",
-    """We have a requirement to connect a number of notebooks in a building to a
+    ["""We have a requirement to connect a number of notebooks in a building to a
     ship - wirelessly.
 
     The current proposal is to have a wireless bridge on the ship, bridging to a
@@ -595,9 +595,9 @@ data = [
     MS Windows-MVP
     http://www.microsoft.com/windowsxp/expe ... owman.mspx
     http://blogs.digitalmediaphile.com/barb/""",
-    ]),
+    ]]),
     ('4.html', ["Automatically assign SSID, Authentication and Network Key",
-    """My brain is mush from trying to find an answer to this issue, but I'm hoping
+    ["""My brain is mush from trying to find an answer to this issue, but I'm hoping
     that someone here in the community has been driven as nuts as I and still
     forged forward and found the answer.
 
@@ -690,9 +690,9 @@ data = [
     on one of the pages I followed that looks extremely promising. I'll need to
     get it to one of our dev's to see if they can work out a method whereby we
     can get the job done. Thanks much for the lead![/quote]""",
-    ]),
+    ]]),
     ('5.html', ["US Robotics Routers?",
-    """Anyone have any experience with these in a home network environment?
+    ["""Anyone have any experience with these in a home network environment?
 
     Supposedly they will allow a mixed environment of some "B" and some "G"
     devices to operate at their designed speed instead of dropping back the
@@ -758,9 +758,9 @@ data = [
     the XP(Home) system. With a .11g router I see anywhere from 18 Mbps to
     54 Mbps on the laptops depending on where I am in the house. Signing in
     with the .11b PDA seems to result in no changes.""",
-    ]),
+    ]]),
     ('6.html', ["Disallow a wireless network",
-    """Is there a way to disallow a wireless network connection? We've got a case
+    ["""Is there a way to disallow a wireless network connection? We've got a case
     where we have two wireless networks on campus - one is using WPA2 and we and
     the notebooks are setup to automatically connect - we aren't broadcasting the
     SSID. However - there is also an unsecured public wireless and the notebooks
@@ -959,11 +959,11 @@ data = [
     To the moon and back with 64 Kbits of RAM and 512 Kbits of ROM.
     http://en.wikipedia.org/wiki/Apollo_Guidance_Computer
     [/quote]""",
-    ]),
+    ]]),
 ]
 
 
 model = [
     '/html/body/div/div[2]/h2/a',
-    '/html/body/div/div[2]/div[3]/div/div/div',
+    ['/html/body/div/div[2]/div[3]/div/div/div'],
 ]

@@ -26,13 +26,7 @@ class HtmlModel:
         """Get a string list representation of the model"""
         if self._model is None:
             # need to generate model
-            model = self.trainModel()
-            self._model = []
-            for record in model:
-                if type(record) == list:
-                    self._model.append([record[0].get()])
-                else:
-                    self._model.append(record.get())
+            self._model = [xpath.get() for xpath in self.trainModel()]
         return self._model
     #___________________________________________________________________________
 
@@ -45,7 +39,7 @@ class HtmlModel:
             xpaths = []
             for doc in self._docs:
                 outputs = doc.outputs()[i]
-                if type(outputs) == list: 
+                if isinstance(outputs, list):
                     isGroup = True
                 else:
                     outputs = [outputs]
@@ -61,7 +55,7 @@ class HtmlModel:
                     xpaths.extend([xpath for (xpath, score) in outputScores.items() if score == bestScore])
                     #xpaths.append(min([(score, xpath) for (xpath, score) in outputScores.items()])[1])
             if isGroup:
-                modelXpaths.append([self.abstractXpaths(xpaths)])
+                modelXpaths.append(self.abstractXpaths(xpaths))
             else:
                 modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
 
@@ -79,11 +73,7 @@ class HtmlModel:
         A = HtmlAttributes(self._docs)
         xpathAttribs = []
         for xpath in xpaths:
-            isGroup = type(xpath) == list
-            if isGroup:
-                xpath = xpath[0]
-            xpath = A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath))
-            xpathAttribs.append([xpath] if isGroup else xpath)
+            xpathAttribs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
         return xpathAttribs
     #___________________________________________________________________________
 
@@ -110,7 +100,7 @@ class HtmlModel:
                         tag = xpath1.tags()[partition]
                         if tag == xpath2.tags()[partition]:
                             # found an element where can abstract index
-                            abstractXpath = xpath1.copy()
+                            abstractXpath = HtmlXpath([str(xpath1)])
                             abstractXpath[partition] = tag
                             abstractXpaths[(abstractXpath, partition)].append(extractInt(xpath1[partition]))
 
@@ -125,8 +115,8 @@ class HtmlModel:
     
     def _rankXpaths(self, xpath1, xpath2):
         """Rank xpath importance first on xpath length, then on alphabetically"""
-        if len(xpath1.get()) != len(xpath2.get()):
-            return len(xpath2.get()) - len(xpath1.get())
+        if len(str(xpath1)) != len(str(xpath2)):
+            return len(str(xpath2)) - len(str(xpath1))
         else:
-            return -1 if xpath1.get() < xpath2.get() else 1
+            return -1 if str(xpath1) < str(xpath2) else 1
     #___________________________________________________________________________

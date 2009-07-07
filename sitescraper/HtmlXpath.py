@@ -15,12 +15,11 @@ class HtmlXpath(object):
     >>> list(x)
     ['html', 'body', 'p[1]']
     """
+    COLLAPSE_MODE, ABSTRACT_MODE = 0, 1
     sepRE = re.compile('/+')
     #___________________________________________________________________________
 
     def __init__(self, xpathStr):
-        if type(xpathStr) != str:
-            raise Exception(xpathStr)
         self.set(xpathStr)
     #___________________________________________________________________________
 
@@ -33,16 +32,16 @@ class HtmlXpath(object):
     #___________________________________________________________________________
 
     def __setitem__(self, i, v):
-        xpath = self.get()
+        xpathStr = str(self)
         starts, ends = [], []
-        for j, match in enumerate(HtmlXpath.sepRE.finditer(xpath)):
+        for j, match in enumerate(HtmlXpath.sepRE.finditer(xpathStr)):
             starts.append(match.end())
             if match.start() > 0:
                 ends.append(match.start())
             if j > i: 
                 break
-        ends.append(len(xpath))
-        self.set(xpath[:starts[i]] + v + xpath[ends[i]:])
+        ends.append(len(xpathStr))
+        self.set(xpathStr[:starts[i]] + v + xpathStr[ends[i]:])
         return self
     #___________________________________________________________________________
 
@@ -51,15 +50,15 @@ class HtmlXpath(object):
     #___________________________________________________________________________
 
     def __str__(self):
-        return self.get()
+        return self._xpathStr
     #___________________________________________________________________________
 
     def __cmp__(self, other):
-        return cmp(self.get(), other.get())
+        return cmp(str(self), str(other))
     #___________________________________________________________________________
 
     def __hash__(self):
-        return hash(self.get())
+        return hash(str(self.get()))
     #___________________________________________________________________________
 
     def copy(self):
@@ -67,11 +66,22 @@ class HtmlXpath(object):
     #___________________________________________________________________________
 
     def get(self): 
-        return self._xpathStr
+        return str(self) if self._mode == HtmlXpath.COLLAPSE_MODE else [str(self)]
     #___________________________________________________________________________
 
     def set(self, xpathStr): 
-        self._xpathStr = xpathStr
+        if isinstance(xpathStr, str):
+            self._mode = HtmlXpath.COLLAPSE_MODE
+            self._xpathStr = xpathStr
+        elif isinstance(xpathStr, list):
+            self._mode = HtmlXpath.ABSTRACT_MODE
+            self._xpathStr = xpathStr[0]
+        else:
+            raise Exception("Invalid type for HtmlXpath '%s'" % type(xpathStr))
+    #___________________________________________________________________________
+
+    """def mode(self):
+        return self._mode"""
     #___________________________________________________________________________
 
 
@@ -83,12 +93,7 @@ class HtmlXpath(object):
         >>> HtmlXpath('/a[1]/b').sections()
         ['a[1]', 'b']
         """
-        try:
-            return HtmlXpath.sepRE.split(self.get())[1:]
-        except:
-            print 'problem:', self.get()
-            print type(self.get())
-            raise
+        return HtmlXpath.sepRE.split(str(self))[1:]
     #___________________________________________________________________________
 
     def tags(self):
@@ -110,11 +115,11 @@ class HtmlXpath(object):
         ['/a[1]', '/a[1]/b']
         """
         xpaths = []
-        for match in HtmlXpath.sepRE.finditer(self.get()):
+        for match in HtmlXpath.sepRE.finditer(str(self)):
             end = match.start()
             if end > 0:
-                xpaths.append(self.get()[:end])
-        xpaths.append(self.get())
+                xpaths.append(str(self)[:end])
+        xpaths.append(str(self))
         return xpaths
     #___________________________________________________________________________
 

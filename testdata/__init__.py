@@ -1,10 +1,10 @@
 # the available test cases
 __all__ = [
-    'amazon',
-    'asx', 
-    'bbc_news',
-    'bom',
-    'checkdns',
+    #'amazon',
+    #'asx', 
+    #'bbc_news',
+    #'bom',
+    #'checkdns',
     'cnet',
     'ebay',
     'google_finance',

@@ -45,13 +45,17 @@ class HtmlAttributes:
         """Return a list of attributes that uniquely distinguish the element at each segment"""
         acceptedAttribs = []
         # select examples which contain the relevant xpath
-        docs = [doc for doc in self._docs if doc.tree().xpath(xpath.get())]
+        docs = [doc for doc in self._docs if doc.tree().xpath(str(xpath))]
         for i, section in enumerate(xpath.walk()):
             sectionElements = flatten([doc.tree().xpath(section) for doc in docs])
-            siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
-            siblingAttribs = flatten([self.extractAttribs(e) for e in siblingElements])
-            proposedAttribs = self.commonAttribs(sectionElements)
-            acceptedAttribs.append([a for a in proposedAttribs if a not in siblingAttribs])
+            try:
+                siblingElements = flatten([[s for s in e.itersiblings() if s.tag == e.tag] for e in sectionElements])
+            except AttributeError:
+                pass
+            else:
+                siblingAttribs = flatten([self.extractAttribs(e) for e in siblingElements])
+                proposedAttribs = self.commonAttribs(sectionElements)
+                acceptedAttribs.append([a for a in proposedAttribs if a not in siblingAttribs])
         return acceptedAttribs
     #___________________________________________________________________________
 
@@ -82,7 +86,7 @@ class HtmlAttributes:
             if attribs:
                 section = re.sub('\[\d+\]', '', section)
             for attrib in attribs:
-                if type(attrib) == int:
+                if isinstance(attrib, int):
                     section += '[%d]' % attrib
                 else:
                     section += "[@%s='%s']" % attrib

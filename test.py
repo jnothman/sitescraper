@@ -11,7 +11,7 @@ import testdata
 
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
-    ss = sitescraper(debug=False, html=True)
+    ss = sitescraper(debug=False)
     for module in testdata.__all__:
         website = getattr(testdata, module)
         for url, output in website.data:
@@ -20,7 +20,7 @@ def regressionTests():
         ss.train()
 
         url = website.data[0][0]
-        if ss.scrape(url) == sitescraper(model=website.model, html=True).scrape(url):
+        if ss.scrape(url) == sitescraper(model=website.model).scrape(url):
             # test passed
             print 'Passed'
         else:
@@ -39,11 +39,7 @@ def printModel(model):
     print padding*2, '\n'.join(str(m) for m in model)
     print padding, 'Tags:'
     for xpathStr in sorted(model):
-        if type(xpathStr) == tuple:
-            xpathStr, mode = xpathStr
-        else:
-            mode = 0
-        print padding*2, HtmlXpath(xpathStr).tags(), mode
+        print padding*2, HtmlXpath(xpathStr).tags()
 #_______________________________________________________________________________
 
 def docTests():

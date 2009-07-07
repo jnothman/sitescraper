@@ -50,13 +50,13 @@ class sitescraper:
         if doc.tree().getroot() is None:
             raise SiteScraperError('Error: %s has no root node' % input)
         
-        outputFn = doc.getElementsHTML if html else doc.getElementsText
+        outputFn = doc.getElementHTML if html else doc.getElementText
         results = []
         for xpathStr in self._model:
-            isGroup = type(xpathStr) == list
+            isGroup = isinstance(xpathStr, list)
             if isGroup:
                 xpathStr = xpathStr[0]
-            result = outputFn(doc.tree().xpath(xpathStr))
+            result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(xpathStr)]
             if isGroup:
                 results.append(result)
             else:
