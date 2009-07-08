@@ -41,7 +41,7 @@ class HtmlXpath(object):
             if j > i: 
                 break
         ends.append(len(xpathStr))
-        self.set(xpathStr[:starts[i]] + v + xpathStr[ends[i]:])
+        self._xpathStr = xpathStr[:starts[i]] + v + xpathStr[ends[i]:]
         return self
     #___________________________________________________________________________
 

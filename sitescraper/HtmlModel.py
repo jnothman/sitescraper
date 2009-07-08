@@ -34,30 +34,38 @@ class HtmlModel:
         """Train the model using the known output for the given urls"""
         # rate xpaths by the similarity of their content with the output
         modelXpaths = []
-        for i in range(len(self._docs[0].outputs())):
+        moreData = True
+        i = 0
+        while moreData:
             isGroup = False
             xpaths = []
             for doc in self._docs:
-                outputs = doc.outputs()[i]
-                if isinstance(outputs, list):
-                    isGroup = True
-                else:
-                    outputs = [outputs]
-                for output in outputs:
-                    outputScores = defaultdict(int)
-                    for xpath, score in doc.matchXpaths(normalizeStr(output)):
-                        outputScores[xpath] += score
+                if i < len(doc.outputs()):
+                    outputs = doc.outputs()[i]
+                    if isinstance(outputs, list):
+                        isGroup = True
+                    else:
+                        outputs = [outputs]
+                    for output in outputs:
+                        outputScores = defaultdict(int)
+                        for xpath, score in doc.matchXpaths(normalizeStr(output)):
+                            outputScores[xpath] += score
 
-                    # select best xpath match for each output
-                    bestScore = min([score for (xpath, score) in outputScores.items()])
-                    if bestScore > 0: 
-                        print "Warning: could not find '%s' (score=%d)" % (output, score)
-                    xpaths.extend([xpath for (xpath, score) in outputScores.items() if score == bestScore])
-                    #xpaths.append(min([(score, xpath) for (xpath, score) in outputScores.items()])[1])
-            if isGroup:
-                modelXpaths.append(self.abstractXpaths(xpaths))
+                        # select best xpath match for each output
+                        bestScore = min([score for (xpath, score) in outputScores.items()])
+                        if bestScore > 0: 
+                            print "Warning: could not find '%s' (score=%d)" % (output, score)
+                        xpaths.extend([xpath for (xpath, score) in outputScores.items() if score == bestScore])
+                        #xpaths.append(min([(score, xpath) for (xpath, score) in outputScores.items()])[1])
+            if xpaths:
+                if isGroup:
+                    modelXpaths.append(self.abstractXpaths(xpaths))
+                    print [x.get() for x in modelXpaths]
+                else:
+                    modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
+                i += 1
             else:
-                modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
+                moreData = False # reached the end of expected output data
 
             """if self._debug:
                 for i, xpaths in enumerate(modelXpaths):

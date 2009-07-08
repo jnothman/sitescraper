@@ -27,6 +27,8 @@ class sitescraper:
     #___________________________________________________________________________
     
     def model(self): 
+        if self._examples:
+            self.train() # new examples to train
         return self._model
     #___________________________________________________________________________
     
@@ -38,9 +40,7 @@ class sitescraper:
     def scrape(self, input, html=False):
         """Scrape data from this input using model from current training data
         The html flag determines whether to extract the raw HTML instead of parsed text"""
-        if self._examples:
-            self.train() # new examples to train
-        if not self._model:
+        if not self.model():
             raise SiteScraperError('Error: can not scrape because model is not trained')
 
         if self._previousInput != input:
@@ -63,7 +63,7 @@ class sitescraper:
                 if result:
                     results.append(' '.join(result))
                 else:
-                    results.append(None) # XXX need None?
+                    results.append(None) # distinguish empty match from no match
         return results
     #___________________________________________________________________________
 
