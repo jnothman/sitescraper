@@ -7,7 +7,7 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 
 
 class HtmlModel:
-    """Models the desired information in a webpage"""
+    """Generates a model to extract the desired information in a webpage"""
     #___________________________________________________________________________
 
     def __init__(self, docs, attributes=True, debug=False):
@@ -60,7 +60,6 @@ class HtmlModel:
             if xpaths:
                 if isGroup:
                     modelXpaths.append(self.abstractXpaths(xpaths))
-                    print [x.get() for x in modelXpaths]
                 else:
                     modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
                 i += 1

@@ -5,7 +5,9 @@ from HtmlXpath import HtmlXpath
 
 
 class sitescraper:
-    """The interface to SiteScraper"""
+    """This class is the interface to SiteScraper.
+    
+    It maintains the state of the model and training data, which it passes through to the backend classes."""
     #___________________________________________________________________________
 
     def __init__(self, model=None, debug=False):
