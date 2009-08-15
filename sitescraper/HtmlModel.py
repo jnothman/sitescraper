@@ -97,26 +97,30 @@ class HtmlModel:
         >>> [xpath.get() for xpath in HtmlModel([doc]).refineXpaths(xpathsGroup)]
         ['/html[1]/body[1]/a[1]', '/html[1]/body[1]/table[1]/tr']
         """
-        abstractXpaths = defaultdict(list)
+        popularity = defaultdict(list)
         for xpath1 in xpaths:
             for xpath2 in xpaths:
-                if len(xpath1) == len(xpath2):
+                if len(xpath1) == len(xpath2) and xpath1 != xpath2:
                     diff = xpath1.diff(xpath2)
-                    if len(diff) == 1:
-                        partition = diff[0]
+                    abstractXpath = HtmlXpath([str(xpath1)])
+                    indices = []
+                    for partition in diff:
                         tag = xpath1.tags()[partition]
-                        if tag == xpath2.tags()[partition]:
-                            # found an element where can abstract index
-                            abstractXpath = HtmlXpath([str(xpath1)])
-                            abstractXpath[partition] = tag
-                            abstractXpaths[(abstractXpath, partition)].append(extractInt(xpath1[partition]))
+                        if tag != xpath2.tags()[partition]:
+                            tag = '*' # have different tags
+                        abstractXpath[partition] = tag
+                        indices.append(extractInt(xpath1[partition]))
+                    popularity[(abstractXpath, diff)].append(indices)
+                    #if self._debug:
+                    #    print 'Abstracted: %s' % abstractXpath
 
         # find the most popular regular expression
-        abstractXpath, partition = sorted([(len(v), k) for (k, v) in abstractXpaths.items()])[-1][1]
+        abstractXpath, diff = sorted([(len(v), k) for (k, v) in popularity.items()])[-1][1]
         # restrict xpath regular expressions to lowest index encountered
-        minPosition = min(abstractXpaths[(abstractXpath, partition)])
-        if minPosition > 1:
-            abstractXpath[partition] += '[position()>%d]' % (minPosition - 1)
+        for i, partition in enumerate(diff):
+            minIndex = min([indices[i] for indices in popularity[(abstractXpath, diff)]])
+            if minIndex > 1:
+                abstractXpath[partition] += '[position()>%d]' % (minIndex - 1)
         return abstractXpath
     #___________________________________________________________________________
     
