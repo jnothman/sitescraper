@@ -10,6 +10,6 @@ data = [
 ]
 
 model = [
-    ['/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div/a'],
-    ['/html/body/div[5]/div[2]/div[2]/div/div/div[3]/div[2]/span'],
+    ["/html[1]/body[1]/div[@id='searchTemplate']/div[@id='rightResults']/div[@id='Results']/div[@class='listView']/div/div[@class='productData']/div[@class='productTitle']/a[1]"],
+    ["/html[1]/body[1]/div[@id='searchTemplate']/div[@id='rightResults']/div[@id='Results']/div[@class='listView']/div/div[@class='productData']/div[2]/span[1]"]
 ]

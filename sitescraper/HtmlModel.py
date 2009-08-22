@@ -120,8 +120,10 @@ class HtmlModel:
         # find the most popular regular expression
         abstractXpath, diff = sorted([(len(v), k) for (k, v) in popularity.items()])[-1][1]
         # restrict xpath regular expressions to lowest index encountered
-        for i, partition in enumerate(diff):
-            minIndex = min([indices[i] for indices in popularity[(abstractXpath, diff)]])
+        minIndices = [min(indices) for indices in zip(*popularity[(abstractXpath, diff)])]
+        for partition, minIndex in zip(diff, minIndices):
+            #minIndex = min([indices[i] for indices in popularity[(abstractXpath, diff)]])
+            #minIndex = min(indices)
             if minIndex > 1:
                 abstractXpath[partition] += '[position()>%d]' % (minIndex - 1)
         return abstractXpath

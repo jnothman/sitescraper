@@ -272,5 +272,5 @@ data = [
 
 
 model = [
-    ('/html/body/div/div[7]/div/div[2]/div[2]/p', 1),
+    '/html/body/div/div[7]/div/div[2]/div[2]/p',
 ]

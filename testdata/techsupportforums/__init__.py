@@ -5,7 +5,7 @@
 
 data = [
     ('1.html', ["Wireless not finding any networks when other computers are able to - Tech Support Forum",
-    """Hello again, network messiahs!
+    ["""Hello again, network messiahs!
 
     So I just bought a new Sony Vaio laptop (Windows Vista) but it's unable to find my wireless router. The weird thing is however, the computer (running Windows XP) from which I am typing from right now is able to find the connection effortlessly.
 
@@ -131,10 +131,10 @@ The only program I'm aware of that currently relies on IPv6 is the new Windows M
 
 
 
-Next, I'd uninstall the NIC drivers totally, reboot and install them again.""",
+Next, I'd uninstall the NIC drivers totally, reboot and install them again."""]
     ]),
     ('2.html', ["Keep Losing Internet Connection - Tech Support Forum",
-    """Recently, I have been getting problems connecting my computer to the internet through my router. Sometimes, when I boot up the computer, there is no internet connection available. I would have to reboot my modem, router, and/or computer, and sometimes more than once, for it to work again. Even after I have got internet working again, it it would randomly cut off again after a period of time, where I would have to reboot the devices again, and repeat the cycle.
+    ["""Recently, I have been getting problems connecting my computer to the internet through my router. Sometimes, when I boot up the computer, there is no internet connection available. I would have to reboot my modem, router, and/or computer, and sometimes more than once, for it to work again. Even after I have got internet working again, it it would randomly cut off again after a period of time, where I would have to reboot the devices again, and repeat the cycle.
 
 I have the computer connected directly to the router using an ethernet cable. My laptop, which connects wirelessly, picks up the internet connection perfectly, even while my computer is having problems. This leads me to believe it is possibly a configuration problem on the computer end. Does anyone have any ideas of what this problem could be?
 
@@ -351,10 +351,10 @@ Have you tried a different cable and a different port on the router?""",
     """Finally. Looks like it's working now. I switched the port on the router and rebooted. At first, there was no internet connection. Then I actually diabled the internet connection on the computer, and then reenabled. It then started working and without dropouts (so far, been like 4 hours).
 
 Thanks John for all your help.""",
-    """Hopefully, it was as simple as that.""",
+    """Hopefully, it was as simple as that."""]
     ]),
     ('3.html', ["[SOLVED] Major Internet Connection Issue - Tech Support Forum",
-    """THE PREAMBLE
+    ["""THE PREAMBLE
 ---------------
 I feel so guilty posting such a potentially trivial problem here, but I've had a look around, and I haven't seen anything that might help me in my situation... and frankly, I don't know enough about this voodoo stuff to risk prodding about where I'm not wanted.
 So, any help would be much appreciated!
@@ -478,11 +478,11 @@ I saw your previous thread:
 and I am glad to hear you have your issues resolved.
 Enjoy your "new" XP machine.
 Thanks,
-Bill""",
+Bill"""]
     ]),
     ('4.html',
     ["Limited or No Connectivity - Tech Support Forum",
-    """It's driving me insane, I've searched all over the net, tried every troubleshooting thing I've found and all to no avail.
+    ["""It's driving me insane, I've searched all over the net, tried every troubleshooting thing I've found and all to no avail.
 
 I have two computers, an HP desktop and a Toshiba laptop. Both with Windows XP SP2. I'm using a Linksys Wireless G UBS adapter with the laptop. And a SpeedStream homenetworking modem from Bell Aliant
 
@@ -502,11 +502,10 @@ Did you try totally disabling Norton to see if they connect?""",
 So I disabled the firewall and the computers were able to ping themselves but even with the firewalls down I'm still getting the limited to no connectivity when I try to encrypt the network. I'm also not able to file or printer share.""",
     """If you can connect with encryption disabled, but can't connect with it enabled, we're closing in.
 
-If you're using WEP, use ONLY the HEX key option and not the ASCII passphrase option.""",
+If you're using WEP, use ONLY the HEX key option and not the ASCII passphrase option."""]
     ]),
-    ('5.html', [
-    "Wireless, Laptop Help. - Tech Support Forum",
-    """So here is my problem, I had to reboot my laptop beacuse It was at loading your personal details for 30 mins, I restarted 3-4 times so I rebooted. Wireless Internet was working before that when I rebooted but now it doesn't work obviously beacsue I rebooted, Router and cables are in place but I can't find find the Icon on which I can search for Internet connections in area.
+    ('5.html', ["Wireless, Laptop Help. - Tech Support Forum",
+    ["""So here is my problem, I had to reboot my laptop beacuse It was at loading your personal details for 30 mins, I restarted 3-4 times so I rebooted. Wireless Internet was working before that when I rebooted but now it doesn't work obviously beacsue I rebooted, Router and cables are in place but I can't find find the Icon on which I can search for Internet connections in area.
 
 Most likely problem is that I don't have wireless card Installed on this computer Which I am using, And if i also need it on my laptop?
 
@@ -563,11 +562,10 @@ Paste the results in a message here.
 
 If you are on a machine with no network connection, use a floppy, USB disk, or a CD-RW disk to transfer a text file with the information to allow pasting it here.""",
     """Edit: Its fine now, fixed the problem. I had to install the wireless driver on to the laptop, thanks for the help anyway. Just one more request please how do I block websites from popping up.""",
-    """I'm not sure I understand the question about websites "popping up". How about some specifics?""",
+    """I'm not sure I understand the question about websites "popping up". How about some specifics?"""]
     ]),
-    ('6.html', [
-    "Computer Crashes whenever I'm connected to my wireless network! HELP! - Tech Support Forum",
-    """I'm running Windows XP and connecting to our wireless router via a USB Stick. The problem is everytime I connect to the network and/or go online my computer freezes and I have to reset the comp, it may last for an hour before it happens, or sometimes even only 30 seconds. If I disable the network connection it's fine and never crashes, only when I'm connected.
+    ('6.html', ["Computer Crashes whenever I'm connected to my wireless network! HELP! - Tech Support Forum",
+    ["""I'm running Windows XP and connecting to our wireless router via a USB Stick. The problem is everytime I connect to the network and/or go online my computer freezes and I have to reset the comp, it may last for an hour before it happens, or sometimes even only 30 seconds. If I disable the network connection it's fine and never crashes, only when I'm connected.
 I tried wiping my hard drive and doing a fresh install and it hasnt cured it. Any ideas? It only happens to my computer too , there are 3 on the network, one connected directly to the router upstairs and a laptop via a WiFi Card.
 Help me techsupport forum...you're my only hope.""",
     """I'd consider the drivers for the wireless USB adapter. If updating the drives doesn't help, perhaps it's time to pick up a different adapter. I'd recommend a PCI or PCMCIA model, I find them a bit more stable than USB models.""",
@@ -587,12 +585,12 @@ I noticed u suggested to buy a new adapter, but I just wanna know if there is an
     """I also am having the same problem. I have updated to all new drivers and still get the BSOD whenever the network is turned on. Could a usb link be the problem? My computer has never experienced this before, I have always had a good wireless reception but never used a usb link.""",
     """All of you folks need to post your own individual threads with complete details of the issue if you want help. Tagging onto another post is NOT the way to get help.
 
-I'm closing this thread.""",
+I'm closing this thread."""]
     ]),
 ]
 
 
 model = [
     '/html/head/title',
-    '/html/body/div/div[2]/div/div/div/div/table/tbody/tr[2]/td[2]/div[2]',
+    ['/html/body/div/div[2]/div/div/div/div/table/tr[2]/td[2]/div[2]']
 ]

@@ -1,30 +1,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 <head>
 	<base href="http://www.linuxquestions.org/questions/" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta name="generator" content="vBulletin 3.6.10" />
+<meta name="generator" content="vBulletin 3.8.1" />
 
 <meta name="keywords" content="webmin/apache, Linux,how to,tutorial,operating system,linux,red hat,mandrake,security,linux help,installation,question,forum" />
 <meta name="description" content="webmin/apache Linux - Software" />
 
 
 <!-- CSS Stylesheet -->
-<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style-2178917a-00007.css" id="vbulletin_css" />
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.1 CSS
+* Style: 'LQ Style - child of default'; Style ID: 7
+*/
+@import url("clientscript/vbulletin_css/style-40d9bcc6-00007.css");
+</style>
+<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_important.css?v=381" />
+
 
 <!-- / CSS Stylesheet -->
 
+<script type="text/javascript" src="clientscript/yui/yahoo-dom-event/yahoo-dom-event.js?v=381"></script>
+<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=381"></script>
 <script type="text/javascript">
 <!--
 var SESSIONURL = "";
-var SECURITYTOKEN = "1a94b939a0ccb7c0234ee7f10dd631d8d1532de7";
+var SECURITYTOKEN = "guest";
 var IMGDIR_MISC = "http://linuxquestions.cachefly.net/images/questions/images/misc";
 var vb_disable_ajax = parseInt("0", 10);
 // -->
 </script>
 
 <script type="text/javascript" src="/questions/clientscript/vbulletin_global.js"></script>
-<script type="text/javascript" src="/questions/clientscript/vbulletin_menu.js"></script>
+
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="LQ Latest Threads" href="/syndicate/lqlatest.xml" />
 <link rel="alternate" type="application/rss+xml" title="LQ News and Articles" href="/syndicate/lqnews.rss" />
@@ -42,14 +52,19 @@ var vb_disable_ajax = parseInt("0", 10);
   GA_googleAddSlot("ca-pub-4420048478783872", "LQ_Top_Leader");
   GA_googleAddSlot("ca-pub-4420048478783872", "LQ_Top_Sky");
   GA_googleAddSlot("ca-pub-4420048478783872", "LQ_MPU_Bottom");
+  GA_googleAddSlot("ca-pub-4420048478783872", "LQ_AfterPost_Leader");
 </script>
 <script type="text/javascript">
   GA_googleFetchAds();
 </script>
+
+
+
+			<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/livetopic.css" id="livetopic" /><script type="text/javascript" src="clientscript/post_thanks.js"></script>
 	
-	<title>webmin/apache - LinuxQuestions.org</title>
+	<title> webmin/apache - LinuxQuestions.org</title>
 	<script src="vbspell.js"></script>
-	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=3610"></script>
+	<script type="text/javascript" src="clientscript/vbulletin_post_loader.js?v=381"></script>
 </head>
 <body onload="">
 <!-- logo -->
@@ -69,52 +84,37 @@ var vb_disable_ajax = parseInt("0", 10);
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 
 
-<!-- // Start Welcome Headers // -->
-<!-- google_ad_section_start(weight=ignore) -->
 
+
+<div class="vbmenu_popup" id="vbbloglinks_menu" style="display:none;margin-top:3px" align="left">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tr>
+		<td class="thead"><a href="blog.php">Blogs</a></td>
+	</tr>
 	
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?do=list">Recent Entries</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?do=list&amp;blogtype=best">Best Entries</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?do=bloglist&amp;blogtype=best">Best Blogs</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="blog.php?do=bloglist">Blog List</a></td>
+	</tr>
 	
+	<tr>
+		<td class="vbmenu_option"><a href="blog_search.php?do=search">Search Blogs</a></td>
+	</tr>
 	
-	
-		<!-- guest welcome message -->
-		<br />
-		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
-		<tr> 
-			<td class="alt1">
-				Welcome to <strong>LinuxQuestions.org</strong>, a friendly and active Linux Community. <br /><br />
-You are currently viewing LQ as a guest.  By joining our community you will have access to post topics, receive our newsletter, use the advanced search, subscribe to threads and access many other special features. Registration is quick, simple and absolutely free. <a href="/questions/register.php"><strong>Join our community</strong></a> today!<br /><br />
-<strong>Note that registered members see fewer ads, and ContentLink is completely disabled once you log in.</strong><br /><br />
-Are you new to LinuxQuestions.org?  Visit the following links:<br />
-<a href="/linux/answers/LinuxQuestions_org/How_to_Use_LinuxQuestions_org">Site Howto</a> |
-<a href="/questions/faq.php">Site FAQ</a> |
-<a href="/linux/sitemap.html">Sitemap</a> | 
-<a href="/questions/register.php">Register Now</a>
-<br /><br />If you have any problems with the registration process or your account login, please <a href="/questions/sendmessage.php">contact us</a>.  If you need to reset your password, <a href="/questions/login.php?do=lostpw">click here</a>.
-
-			</td>
-		</tr>
-		</table>
-		<!-- / guest welcome message -->
-	
-
-
-<!-- google_ad_section_end -->
-<!-- // End Welcome Headers // -->
-<!--
- -->
-<br />
-<!--
-<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="80%" align="center">
-		<tr> 
-			<td class="alt1">
-<div align="center" style="color:#FF0000;"></div>
-</td>
-</tr>
-</table><br /> -->
+	</table>
+</div>
 <script type="text/javascript">
 <!--
 function log_out()
@@ -135,9 +135,10 @@ function log_out()
 </script>
 <div style="text-align:center;margin-bottom:15px"> 
 
-<script type="text/javascript">
-  GA_googleFillSlot("LQ_Top_Leader");
-</script>
+<script language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/409337/0/225/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</script><noscript><a href="http://adserver.adtechus.com/adlink/3.0/5159/409337/0/225/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" target="_blank"><img src="http://adserver.adtechus.com/adserv/3.0/5159/409337/0/225/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" border="0" width="728" height="90"></a></noscript>
 </div>
 <!-- START: LQ Table Top -->
 <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
@@ -159,9 +160,13 @@ function log_out()
 		
 				
 			
-				<td id="navbar_search" class="vbmenu_control"><a href="/questions/search.php" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+				<td class="vbmenu_control"><a href="/questions/search.php" accesskey="4">Search</a></td>
+				
+				<td class="vbmenu_control"><a href="/questions/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
 			
-			
+			<td class="vbmenu_control"><a href="/questions/forumdisplay.php?do=markread" rel="nofollow">Mark Forums Read</a></td>
+						
 		
 		
 	</tr>
@@ -169,139 +174,6 @@ function log_out()
 </div>
 <!-- / nav buttons bar -->
 
-
-<!-- NAVBAR POPUP MENUS -->
-	
-	
-	<!-- header quick search form -->
-	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none">
-		<table cellpadding="4" cellspacing="1" border="0">
-		<tr>
-			<td class="thead">Search Forums</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-			<form action="/questions/search.php" method="post">
-				<input type="hidden" name="do" value="process" />
-				<input type="hidden" name="showposts" value="1" />
-				<input type="hidden" name="quicksearch" value="1" />
-				<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
-				<input type="text" class="bginput" name="query" size="20" /><input type="submit" class="button" value="Go"  /><br />
-			</form>
-			</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option"><a href="/questions/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search Tags</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite"><form action="/questions/search.php" method="post"><input type="text" class="bginput" name="tag" size="20" /><input type="hidden" name="do" value="process" /><input type="hidden" name="posttags" value="1" /><input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" /><input type="submit" class="button" value="Go"  /><br /></form>
-			</td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search LQ Wiki</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-            <form action="http://wiki.linuxquestions.org/wiki/Special:Search">
-              <input name="fulltext" value="Search" type="hidden">              <input name="search" class="bginput" type="text" size="20"><input type="submit" class="button" value="Go"  /><br />
-            </form>
-			</td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search Tutorials/Articles</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-		<form action="/linux/search/node" method="post">
-			<input name="op" value="Search" type="hidden">
-			<input class="bginput" name="edit[keys]" size="20" type="text"><input type="submit" class="button" value="Go"  /><br />
-		</form>
-			</td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search HCL</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-
-		<form method="get" action="/hcl/showcat.php">
-			<input name="cat" value="all" type="hidden">
-			<input name="stype" value="1" type="hidden">
-			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
-		</form>
-			</td>
-		</tr>
-		<tr>
-			<td class="thead">Search Reviews</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-		<form method="get" action="/reviews/showcat.php">
-			<input name="cat" value="all" type="hidden">
-			<input name="stype" value="1" type="hidden">
-			<input name="si" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
-		</form>
-			</td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search Bookmarks</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-		<form action="/bookmarks/search/" method="post">
-			<input type="hidden" name="range" value="all">
-			<input name="terms" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
-		</form>
-			</td>
-		</tr>
-
-		<tr>
-			<td class="thead">Search ISOs</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-		<form method="get" action="http://iso.linuxquestions.org/search.php">
-			<input name="query" size="20" class="bginput" type="text"><input type="submit" class="button" value="Go"  /><br />
-		</form>
-			</td>
-		</tr>
-		</table>
-	</div>
-	<!-- / header quick search form -->
-	
-
-	
-<!-- / NAVBAR POPUP MENUS -->
-
-<!-- PAGENAV POPUP -->
-
-	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
-		<table cellpadding="4" cellspacing="1" border="0">
-		<tr>
-			<td class="thead" nowrap="nowrap">Go to Page...</td>
-		</tr>
-		<tr>
-			<td class="vbmenu_option" title="nohilite">
-			<form action="index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
-				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4" />
-				<input type="button" class="button" id="pagenav_ibtn" value="Go" />
-			</form>
-			</td>
-		</tr>
-		</table>
-	</div>
-
-<!-- / PAGENAV POPUP -->
 
 
 <!-- breadcrumb, login, pm info -->
@@ -327,7 +199,7 @@ function log_out()
 			</tr>
 			<tr>
 				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="/questions/linux-software-2/webminapache-82935/"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/navbits_finallink.gif" alt="Reload this Page" border="0" /></a> <strong>
-	webmin/apache
+	 webmin/apache
 
 </strong></td>
 			</tr>
@@ -355,7 +227,7 @@ function log_out()
 		</tr>
 		</table>
 		<input type="hidden" name="s" value="" />
-	<input type="hidden" name="securitytoken" value="1a94b939a0ccb7c0234ee7f10dd631d8d1532de7" />
+	<input type="hidden" name="securitytoken" value="guest" />
 		<input type="hidden" name="do" value="login" />		
 		<input type="hidden" name="vb_login_md5password" />
 		<input type="hidden" name="vb_login_md5password_utf" />
@@ -370,10 +242,38 @@ function log_out()
 </table>
 <!-- / breadcrumb, login, pm info -->
 
+
 	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top:0px">
 	<tr>
 		<td class="alt1" width="100%"><strong>Linux - Software</strong> <span class="smallfont">This forum is for Software issues.<br />
 Having a problem installing a new program?  Want to know which application is best for the job?  Post your question in this forum.</span></td>
+	</tr>
+	</table>
+
+
+
+	<br />
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+	<tr>
+		<td class="thead">Notices</td>
+	</tr>
+	<tr>
+		<td class="alt1"><div class="navbar_notice" id="navbar_notice_1">
+	Welcome to <strong>LinuxQuestions.org</strong>, a friendly and active Linux Community. <br /><br />
+You are currently viewing LQ as a guest.  By joining our community you will have the ability to post topics, receive our newsletter, use the advanced search, subscribe to threads and access many other special features. Registration is quick, simple and absolutely free. <a href="/questions/register.php"><strong>Join our community</strong></a> today!<br /><br />
+<strong>Note that registered members see fewer ads, and ContentLink is completely disabled once you log in.</strong><br /><br />
+Are you new to LinuxQuestions.org?  Visit the following links:<br />
+<a href="/linux/answers/LinuxQuestions_org/How_to_Use_LinuxQuestions_org">Site Howto</a> |
+<a href="/questions/faq.php">Site FAQ</a> |
+<a href="/linux/sitemap.html">Sitemap</a> | 
+<a href="/questions/register.php">Register Now</a>
+<br /><br />If you have any problems with the registration process or your account login, please <a href="/questions/sendmessage.php">contact us</a>.  If you need to reset your password, <a href="/questions/login.php?do=lostpw">click here</a>.<br /><br />
+</div><div class="navbar_notice" id="navbar_notice_9">
+	Follow LinuxQuestions.org on your favorite social networks:<br /><br />
+Twitter: <a href="http://twitter.com/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+identi.ca: <a href="http://identi.ca/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+Facebook: <a href="http://www.facebook.com/LinuxQuestions.org" rel="nofollow">@linuxquestions</a>
+</div></td>
 	</tr>
 	</table>
 
@@ -410,9 +310,9 @@ google_leaderboard_white_text
  
 <td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Show results 16 to 16 of 16">2</a></td>
 
-	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="showthread.php?t=82935&amp;page=2" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
 	
-	<td class="vbmenu_control" title="showthread.php?t=82935"><a name="PageNav"></a></td>
+	
 </tr>
 </table>
 </div>
@@ -432,11 +332,9 @@ google_leaderboard_white_text
 		</div>
 	</td>
 	<td class="vbmenu_control" id="threadtools" nowrap="nowrap">
-		<a href="/questions/linux-software-2/webminapache-82935/?nojs=1#goto_threadtools">Thread Tools</a>
-		<script type="text/javascript"> vbmenu_register("threadtools"); </script>
+		<a href="#goto_threadtools">Thread Tools</a>
+		
 	</td>
-	
-	
 	
 	
 	
@@ -457,10 +355,10 @@ google_leaderboard_white_text
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit429148" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -488,18 +386,14 @@ google_leaderboard_white_text
 			
 			<div id="postmenu_429148">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_429148", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -511,13 +405,21 @@ google_leaderboard_white_text
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_429148" style="border-right: 1px solid #FFFFFF">
@@ -526,7 +428,7 @@ google_leaderboard_white_text
 		
 			<!-- icon and title -->
 			<div class="smallfont">
-				<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/icons_lq/icon10.gif" alt="Talking" border="0" />
+				<img class="inlineimg" src="http://http.cdnlayer.com/lq/images/questions/images/icons_lq/icon10.gif" alt="Talking" border="0" />
 				<strong>webmin/apache</strong>
 			</div>
 			<hr size="1" style="color:#FFFFFF" />
@@ -538,9 +440,10 @@ google_leaderboard_white_text
 
 
 <div style="float: right; margin-left: 5px; margin-bottom: 5px; margin-top: -3px; margin-right: -3px">
-<script type="text/javascript">
-  GA_googleFillSlot("LQ_MPU_FirstPost");
-</script>
+<script language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/409335/0/170/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</script><noscript><a href="http://adserver.adtechus.com/adlink/3.0/5159/409335/0/170/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" target="_blank"><img src="http://adserver.adtechus.com/adserv/3.0/5159/409335/0/170/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" border="0" width="300" height="250"></a></noscript>
 <br />[<a href="/questions/lqlogin.php">Log in</a> to <strong>get rid</strong> of this advertisement]
 </div>
 
@@ -568,6 +471,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -594,6 +498,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		
 		
 		
+		
 			
 		
 		
@@ -602,6 +507,9 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 </table>
 
+<div align="center"><!-- lq_leader_afterpost --> </div>
+
+ <div id="post_thanks_box_429148"></div>
 
 <!-- post 429148 popup menu -->
 <div class="vbmenu_popup" id="postmenu_429148_menu" style="display:none">
@@ -610,12 +518,13 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -635,7 +544,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -647,10 +556,10 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit429515" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -678,18 +587,14 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 			
 			<div id="postmenu_429515">
 				
-				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<a class="bigusername" href="/user/andrewlkho-36278/">andrewlkho</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_429515", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -701,13 +606,21 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 				<div>
 					Posts: 548
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_429515" style="border-right: 1px solid #FFFFFF">
@@ -756,6 +669,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
 
 
@@ -782,6 +696,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		
 		
 		
+		
 			
 		
 		
@@ -790,6 +705,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_429515"></div>
 
 <!-- post 429515 popup menu -->
 <div class="vbmenu_popup" id="postmenu_429515_menu" style="display:none">
@@ -798,12 +714,13 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<td class="thead">andrewlkho</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/andrewlkho-36278/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -823,7 +740,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -835,10 +752,10 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit430397" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -866,18 +783,14 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 			
 			<div id="postmenu_430397">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_430397", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -889,13 +802,25 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_430397" style="border-right: 1px solid #FFFFFF">
@@ -924,6 +849,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -950,6 +876,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		
 		
 		
+		
 			
 		
 		
@@ -958,6 +885,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_430397"></div>
 
 <!-- post 430397 popup menu -->
 <div class="vbmenu_popup" id="postmenu_430397_menu" style="display:none">
@@ -966,12 +894,13 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -991,7 +920,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1003,10 +932,10 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit430962" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1034,18 +963,14 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 			
 			<div id="postmenu_430962">
 				
-				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<a class="bigusername" href="/user/andrewlkho-36278/">andrewlkho</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_430962", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1057,13 +982,21 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 				<div>
 					Posts: 548
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_430962" style="border-right: 1px solid #FFFFFF">
@@ -1092,6 +1025,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
 
 
@@ -1118,6 +1052,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		
 		
 		
+		
 			
 		
 		
@@ -1126,6 +1061,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_430962"></div>
 
 <!-- post 430962 popup menu -->
 <div class="vbmenu_popup" id="postmenu_430962_menu" style="display:none">
@@ -1134,12 +1070,13 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<td class="thead">andrewlkho</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/andrewlkho-36278/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -1159,7 +1096,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1171,10 +1108,10 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit431222" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1202,18 +1139,14 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 			
 			<div id="postmenu_431222">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_431222", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1225,13 +1158,25 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_431222" style="border-right: 1px solid #FFFFFF">
@@ -1243,7 +1188,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<!-- message -->
 
 
-		<div id="post_message_431222"><a href="http://www.d0hp.org/httpd.conf">www.d0hp.org/httpd.conf</a> try that..</div>
+		<div id="post_message_431222"><a href="http://www.d0hp.org/httpd.conf" target="_blank">www.d0hp.org/httpd.conf</a> try that..</div>
 		<!-- / message -->
 	
 		
@@ -1260,6 +1205,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -1286,6 +1232,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		
 		
 		
+		
 			
 		
 		
@@ -1294,6 +1241,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_431222"></div>
 
 <!-- post 431222 popup menu -->
 <div class="vbmenu_popup" id="postmenu_431222_menu" style="display:none">
@@ -1302,12 +1250,13 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -1327,7 +1276,7 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1339,10 +1288,10 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit431726" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1370,18 +1319,14 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 			
 			<div id="postmenu_431726">
 				
-				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<a class="bigusername" href="/user/andrewlkho-36278/">andrewlkho</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_431726", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1393,13 +1338,21 @@ i need to find a way to delete this offa webmin but it wont let me...</div>
 				<div>
 					Posts: 548
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_431726" style="border-right: 1px solid #FFFFFF">
@@ -1430,6 +1383,7 @@ Or are you trying to do something else?</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
 
 
@@ -1456,6 +1410,7 @@ Or are you trying to do something else?</div>
 		
 		
 		
+		
 			
 		
 		
@@ -1464,6 +1419,7 @@ Or are you trying to do something else?</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_431726"></div>
 
 <!-- post 431726 popup menu -->
 <div class="vbmenu_popup" id="postmenu_431726_menu" style="display:none">
@@ -1472,12 +1428,13 @@ Or are you trying to do something else?</div>
 		<td class="thead">andrewlkho</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/andrewlkho-36278/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -1497,7 +1454,7 @@ Or are you trying to do something else?</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1509,10 +1466,10 @@ Or are you trying to do something else?</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit431738" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1540,18 +1497,14 @@ Or are you trying to do something else?</div>
 			
 			<div id="postmenu_431738">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_431738", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1563,13 +1516,25 @@ Or are you trying to do something else?</div>
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_431738" style="border-right: 1px solid #FFFFFF">
@@ -1581,7 +1546,7 @@ Or are you trying to do something else?</div>
 		<!-- message -->
 
 
-		<div id="post_message_431738">im trying to make it so when they try to access like web.d0hp.org or any other address i have up...it takes them to some other directory besides /home/artistik/public_html but i still wanna leave <a href="http://www.d0hp.org">www.d0hp.org</a> up...as the /home/artistik/public_html</div>
+		<div id="post_message_431738">im trying to make it so when they try to access like web.d0hp.org or any other address i have up...it takes them to some other directory besides /home/artistik/public_html but i still wanna leave <a href="http://www.d0hp.org" target="_blank">www.d0hp.org</a> up...as the /home/artistik/public_html</div>
 		<!-- / message -->
 	
 		
@@ -1598,6 +1563,7 @@ Or are you trying to do something else?</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -1624,6 +1590,7 @@ Or are you trying to do something else?</div>
 		
 		
 		
+		
 			
 		
 		
@@ -1632,6 +1599,7 @@ Or are you trying to do something else?</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_431738"></div>
 
 <!-- post 431738 popup menu -->
 <div class="vbmenu_popup" id="postmenu_431738_menu" style="display:none">
@@ -1640,12 +1608,13 @@ Or are you trying to do something else?</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -1665,7 +1634,7 @@ Or are you trying to do something else?</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1677,10 +1646,10 @@ Or are you trying to do something else?</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit431747" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1708,18 +1677,14 @@ Or are you trying to do something else?</div>
 			
 			<div id="postmenu_431747">
 				
-				<a class="bigusername" href="/questions/user/andrewlkho-36278/">andrewlkho</a>
+				<a class="bigusername" href="/user/andrewlkho-36278/">andrewlkho</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_431747", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1731,13 +1696,21 @@ Or are you trying to do something else?</div>
 				<div>
 					Posts: 548
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_431747" style="border-right: 1px solid #FFFFFF">
@@ -1770,6 +1743,7 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="andrewlkho is offline" border="0" />
 
 
@@ -1796,6 +1770,7 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 		
 		
 		
+		
 			
 		
 		
@@ -1804,6 +1779,7 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 </tr>
 </table>
 
+ <div id="post_thanks_box_431747"></div>
 
 <!-- post 431747 popup menu -->
 <div class="vbmenu_popup" id="postmenu_431747_menu" style="display:none">
@@ -1812,12 +1788,13 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 		<td class="thead">andrewlkho</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/andrewlkho-36278/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/andrewlkho-36278/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/andrewlkho">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/andrewlkho">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=36278">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=36278">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -1837,7 +1814,7 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -1849,10 +1826,10 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit431888" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -1880,18 +1857,14 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 			
 			<div id="postmenu_431888">
 				
-				<a class="bigusername" href="/questions/user/cooner-41050/">Cooner</a>
+				<a class="bigusername" href="/user/cooner-41050/">Cooner</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_431888", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -1903,13 +1876,21 @@ I hope this helps, the first part is the most important.  I haven't done any vir
 				<div>
 					Posts: 108
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_431888" style="border-right: 1px solid #FFFFFF">
@@ -1978,6 +1959,7 @@ NameVirtualHost 192.168.1.16<br />
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Cooner is offline" border="0" />
 
 
@@ -2004,6 +1986,7 @@ NameVirtualHost 192.168.1.16<br />
 		
 		
 		
+		
 			
 		
 		
@@ -2012,6 +1995,7 @@ NameVirtualHost 192.168.1.16<br />
 </tr>
 </table>
 
+ <div id="post_thanks_box_431888"></div>
 
 <!-- post 431888 popup menu -->
 <div class="vbmenu_popup" id="postmenu_431888_menu" style="display:none">
@@ -2020,12 +2004,13 @@ NameVirtualHost 192.168.1.16<br />
 		<td class="thead">Cooner</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/cooner-41050/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/cooner-41050/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/Cooner">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Cooner">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=41050">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=41050">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2043,7 +2028,7 @@ NameVirtualHost 192.168.1.16<br />
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2055,10 +2040,10 @@ NameVirtualHost 192.168.1.16<br />
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432406" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -2086,18 +2071,14 @@ NameVirtualHost 192.168.1.16<br />
 			
 			<div id="postmenu_432406">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432406", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -2109,13 +2090,25 @@ NameVirtualHost 192.168.1.16<br />
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_432406" style="border-right: 1px solid #FFFFFF">
@@ -2127,7 +2120,7 @@ NameVirtualHost 192.168.1.16<br />
 		<!-- message -->
 
 
-		<div id="post_message_432406">check this out..heres how this looks ...<a href="http://www.d0hp.org/snapshot4.png">www.d0hp.org/snapshot4.png</a></div>
+		<div id="post_message_432406">check this out..heres how this looks ...<a href="http://www.d0hp.org/snapshot4.png" target="_blank">www.d0hp.org/snapshot4.png</a></div>
 		<!-- / message -->
 	
 		
@@ -2144,6 +2137,7 @@ NameVirtualHost 192.168.1.16<br />
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -2170,6 +2164,7 @@ NameVirtualHost 192.168.1.16<br />
 		
 		
 		
+		
 			
 		
 		
@@ -2178,6 +2173,7 @@ NameVirtualHost 192.168.1.16<br />
 </tr>
 </table>
 
+ <div id="post_thanks_box_432406"></div>
 
 <!-- post 432406 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432406_menu" style="display:none">
@@ -2186,12 +2182,13 @@ NameVirtualHost 192.168.1.16<br />
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2211,7 +2208,7 @@ NameVirtualHost 192.168.1.16<br />
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2223,10 +2220,10 @@ NameVirtualHost 192.168.1.16<br />
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432476" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -2254,18 +2251,14 @@ NameVirtualHost 192.168.1.16<br />
 			
 			<div id="postmenu_432476">
 				
-				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<a class="bigusername" href="/user/electricblue-45575/">Electric_Blue</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432476", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -2277,13 +2270,21 @@ NameVirtualHost 192.168.1.16<br />
 				<div>
 					Posts: 35
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_432476" style="border-right: 1px solid #FFFFFF">
@@ -2306,7 +2307,7 @@ NameVirtualHost *<br />
 <br />
 &lt;VirtualHost *&gt;<br />
     DocumentRoot /var/www/html/<br />
-    ServerName <a href="http://www.somedomain.com">www.somedomain.com</a><br />
+    ServerName <a href="http://www.somedomain.com" target="_blank">www.somedomain.com</a><br />
 &lt;/VirtualHost&gt;<br />
 <br />
 &lt;VirtualHost *&gt;<br />
@@ -2337,6 +2338,7 @@ good luck!</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
 
 
@@ -2363,6 +2365,7 @@ good luck!</div>
 		
 		
 		
+		
 			
 		
 		
@@ -2371,6 +2374,7 @@ good luck!</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_432476"></div>
 
 <!-- post 432476 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432476_menu" style="display:none">
@@ -2379,12 +2383,13 @@ good luck!</div>
 		<td class="thead">Electric_Blue</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/electricblue-45575/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2402,7 +2407,7 @@ good luck!</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2414,10 +2419,10 @@ good luck!</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432493" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -2445,18 +2450,14 @@ good luck!</div>
 			
 			<div id="postmenu_432493">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432493", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -2468,13 +2469,25 @@ good luck!</div>
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_432493" style="border-right: 1px solid #FFFFFF">
@@ -2507,7 +2520,7 @@ any other modes to use?</div>
 		<!-- edit note -->
 			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
 				<em>
-				Last edited by artistik : 08-19-2003 at <span class="time">03:34 PM</span>.
+				Last edited by artistik; 08-19-2003 at <span class="time">03:34 PM</span>..
 				
 				</em>
 			</div>
@@ -2518,6 +2531,7 @@ any other modes to use?</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -2544,6 +2558,7 @@ any other modes to use?</div>
 		
 		
 		
+		
 			
 		
 		
@@ -2552,6 +2567,7 @@ any other modes to use?</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_432493"></div>
 
 <!-- post 432493 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432493_menu" style="display:none">
@@ -2560,12 +2576,13 @@ any other modes to use?</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2585,7 +2602,7 @@ any other modes to use?</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2597,10 +2614,10 @@ any other modes to use?</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432675" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -2628,18 +2645,14 @@ any other modes to use?</div>
 			
 			<div id="postmenu_432675">
 				
-				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<a class="bigusername" href="/user/electricblue-45575/">Electric_Blue</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432675", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -2651,13 +2664,21 @@ any other modes to use?</div>
 				<div>
 					Posts: 35
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_432675" style="border-right: 1px solid #FFFFFF">
@@ -2701,6 +2722,7 @@ Great job!</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
 
 
@@ -2727,6 +2749,7 @@ Great job!</div>
 		
 		
 		
+		
 			
 		
 		
@@ -2735,6 +2758,7 @@ Great job!</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_432675"></div>
 
 <!-- post 432675 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432675_menu" style="display:none">
@@ -2743,12 +2767,13 @@ Great job!</div>
 		<td class="thead">Electric_Blue</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/electricblue-45575/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2766,7 +2791,7 @@ Great job!</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2778,10 +2803,10 @@ Great job!</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432748" style="padding:0px 0px 3px 0px">
-	<!-- this is not the last post shown on the page -->	
+	<!-- this is not the last post shown on the page -->
 
 
 
@@ -2809,18 +2834,14 @@ Great job!</div>
 			
 			<div id="postmenu_432748">
 				
-				<a class="bigusername" href="/questions/user/artistik-48730/">artistik</a>
+				<a class="bigusername" href="/user/artistik-48730/">artistik</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432748", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -2832,13 +2853,25 @@ Great job!</div>
 				<div>
 					Posts: 60
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+<!-- Threadauthor -->
+
+
+<br /><strong>Original Poster</strong>
+<!-- / Threadauthor -->
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt1" id="td_post_432748" style="border-right: 1px solid #FFFFFF">
@@ -2867,6 +2900,7 @@ Great job!</div>
 </tr>
 <tr>
 	<td class="alt1" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="artistik is offline" border="0" />
 
 
@@ -2893,6 +2927,7 @@ Great job!</div>
 		
 		
 		
+		
 			
 		
 		
@@ -2901,6 +2936,7 @@ Great job!</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_432748"></div>
 
 <!-- post 432748 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432748_menu" style="display:none">
@@ -2909,12 +2945,13 @@ Great job!</div>
 		<td class="thead">artistik</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/artistik-48730/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/artistik-48730/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/artistik">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/artistik">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=48730">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=48730">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -2934,7 +2971,7 @@ Great job!</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -2946,10 +2983,10 @@ Great job!</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 	<div id="edit432854" style="padding:0px 0px 3px 0px">
-		
+	
 
 
 
@@ -2977,18 +3014,14 @@ Great job!</div>
 			
 			<div id="postmenu_432854">
 				
-				<a class="bigusername" href="/questions/user/electricblue-45575/">Electric_Blue</a>
+				<a class="bigusername" href="/user/electricblue-45575/">Electric_Blue</a>
 				<script type="text/javascript"> vbmenu_register("postmenu_432854", true); </script>
 				
 			</div>
-			
 			<div class="smallfont">Member</div>
 			
 			
 			
-		
-			
-
 			
 			
 			<div class="smallfont">
@@ -3000,13 +3033,21 @@ Great job!</div>
 				<div>
 					Posts: 35
 				</div>
-				
+				 
+<!--	<div>Thanks: 0</div> -->
+	<div>
+		
+			
+				Thanked: 0
+			
+		
+	</div>
+
 				
 				
 				
 				<div>    </div>
 			</div>					
-		
 	</td>
 	
 	<td colspan="2" class="alt2" id="td_post_432854" style="border-right: 1px solid #FFFFFF">
@@ -3021,11 +3062,11 @@ Great job!</div>
 		<div id="post_message_432854">ahh<br />
 i just went and tried to access your site. I see you do have it forwarding directories, BUT it looks as though your <br />
 <br />
-<a href="http://www.d0hp.org/">http://www.d0hp.org/</a><br />
+<a href="http://www.d0hp.org/" target="_blank">http://www.d0hp.org/</a><br />
 <br />
 <b>You don't have permission to access / on this server</b> <br />
 <br />
-Is being directed to the / directory, which indeed, no one should have access to <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+Is being directed to the / directory, which indeed, no one should have access to <img src="http://http.cdnlayer.com/lq/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
 <br />
 Look at the changes you made to the httpd.conf and make sure you didn't put a space after / or something that is causing it to try and open webpages on the uppermost level of your file system.<br />
 <br />
@@ -3044,7 +3085,7 @@ Looks like you are almost there.</div>
 		<!-- edit note -->
 			<div class="smallfont">			<hr size="1" style="color:#FFFFFF" />
 				<em>
-				Last edited by Electric_Blue : 08-19-2003 at <span class="time">08:08 PM</span>.
+				Last edited by Electric_Blue; 08-19-2003 at <span class="time">08:08 PM</span>..
 				
 				</em>
 			</div>
@@ -3055,6 +3096,7 @@ Looks like you are almost there.</div>
 </tr>
 <tr>
 	<td class="alt2" style="border: 1px solid #FFFFFF; border-top: 0px">
+<img class="inlineimg" src='http://linuxquestions.cachefly.net/images/questions/images/statusicon/../icons/useragent/icon_.gif' alt='' />
 		<img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_old.gif" alt="Electric_Blue is offline" border="0" />
 
 
@@ -3081,6 +3123,7 @@ Looks like you are almost there.</div>
 		
 		
 		
+		
 			
 		
 		
@@ -3089,6 +3132,7 @@ Looks like you are almost there.</div>
 </tr>
 </table>
 
+ <div id="post_thanks_box_432854"></div>
 
 <!-- post 432854 popup menu -->
 <div class="vbmenu_popup" id="postmenu_432854_menu" style="display:none">
@@ -3097,12 +3141,13 @@ Looks like you are almost there.</div>
 		<td class="thead">Electric_Blue</td>
 	</tr>
 	
-	<tr><td class="vbmenu_option"><a href="/questions/user/electricblue-45575/">View Public Profile</a></td></tr>
+	<tr><td class="vbmenu_option"><a href="/user/electricblue-45575/">View Public Profile</a></td></tr>
 	
 	<tr><td class="vbmenu_option"><a href="/linux/blog/Electric_Blue">View LQ Blog</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/bookmarks/user/Electric_Blue">View Bookmarks</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/reviews/showcat.php?cat=myprod&amp;ppuser=45575">View Review Entries</a></td></tr>
 	<tr><td class="vbmenu_option"><a href="/hcl/showcat.php?cat=myprod&amp;ppuser=45575">View HCL Entries</a></td></tr>
+	
 	
 	
 	
@@ -3120,7 +3165,7 @@ Looks like you are almost there.</div>
 
 	</div>
 	
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -3138,7 +3183,7 @@ Looks like you are almost there.</div>
 
 <div align="center">
 	<div class="page" style="width:100%; text-align:left">
-		<div style="padding:0px 0px 0px 0px">
+		<div style="padding:0px 0px 0px 0px" align="left">
 
 <!-- / start content table -->
 
@@ -3160,14 +3205,14 @@ Looks like you are almost there.</div>
  
 <td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Show results 16 to 16 of 16">2</a></td>
 
-	<td class="alt1"><a class="smallfont" href="/questions/linux-software-2/webminapache-82935/page2.html" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="showthread.php?t=82935&amp;page=2" title="Next Page - Results 16 to 16 of 16">&gt;</a></td>
 	
-	<td class="vbmenu_control" title="showthread.php?t=82935"><a name="PageNav"></a></td>
+	
 </tr>
 </table>
 </div>
 
-						
+			
 		</td>
 	
 </tr>
@@ -3177,73 +3222,99 @@ Looks like you are almost there.</div>
 
 
 
+<!-- social bookmarking links -->
+	<br />
+	<table cellpadding="3" cellspacing="1" border="0" width="100%" class="tborder" align="center">
+	<tr>
+		<td class="thead">Bookmarks</td>
+	</tr>
+	<tr>
+		<td class="alt2" style="padding-top:0px"><div style="clear:both"></div><ul style="list-style-type:none; margin:0px; padding:0px"><li class="smallfont" style="width:20%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/bookmarksite_digg.gif" border="0" alt="Submit Thread to Digg" class="inlineimg" /></a>
+	
+	<a href="http://digg.com/submit?phrase=2&amp;url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark" style="text-decoration:none">Digg</a>
+</li><li class="smallfont" style="width:20%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/bookmarksite_delicious.gif" border="0" alt="Submit Thread to del.icio.us" class="inlineimg" /></a>
+	
+	<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark" style="text-decoration:none">del.icio.us</a>
+</li><li class="smallfont" style="width:20%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/bookmarksite_stumbleupon.gif" border="0" alt="Submit Thread to StumbleUpon" class="inlineimg" /></a>
+	
+	<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark" style="text-decoration:none">StumbleUpon</a>
+</li><li class="smallfont" style="width:20%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/bookmarksite_google.gif" border="0" alt="Submit Thread to Google" class="inlineimg" /></a>
+	
+	<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark" style="text-decoration:none">Google</a>
+</li><li class="smallfont" style="width:20%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/bookmarksite_lq.gif" border="0" alt="Submit Thread to LinuxQuestions.org" class="inlineimg" /></a>
+	
+	<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http%3A%2F%2Fwww.linuxquestions.org%2Fquestions%2Fshowthread.php%3Ft%3D82935&amp;title=webmin%2Fapache" target="socialbookmark" style="text-decoration:none">LinuxQuestions.org</a>
+</li></ul><div style="clear:both"></div></td>
+	</tr>
+	</table>
+<!-- / social bookmarking links -->
+
+
+
+
+
+
+
+
 <br />
-
-<div class="smallfont" align="center">
-<a href="http://digg.com/submit?phase=2&amp;url=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/digg.png" alt="Submit thread to Digg" title="Submit thread to Digg" border="0" /></a> |
-<a href="http://del.icio.us/post?url=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache" target="_blank"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/delicious.png" alt="Submit thread to del.icio.us" title="Submit thread to del.icio.us" border="0" /></a> |
-<a href="http://www.linuxquestions.org/bookmarks/user/?action=add&amp;address=http://www.linuxquestions.org/questions/showthread.php?t=82935&amp;title=webmin/apache"><img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" alt="Submit to LQ Bookmarks" border="0" title="Submit thread to LQ Bookmarks" /></a>
-<br /><br />
-	<strong>&laquo;</strong>
-		<a href="/questions/linux-software-2/webminapache-82935/#top" rel="nofollow">Back to Top</a>
-	<strong>&raquo;</strong>
-</div>
-
-
 <br />
-
-
-
-
-
-
-
 
 <!-- currently active users -->
 
 <!-- end currently active users -->
 
 
-<!-- popup menu contents -->
+<!-- controls for non-popup browsers -->
+
+
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-top-width:0px">
+<tr>
+	<td class="thead" colspan="2">Thread Tools<a name="goto_threadtools"></a></td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt1" colspan="2">
+	
+	<!-- thread tools -->
+	<div class="smallfont">
+		
+			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" vspace="1" /> <a href="printthread.php?t=82935" rel="nofollow">Show Printable Version</a></div>
+			<div><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" vspace="1" /> <a href="sendmessage.php?do=sendtofriend&amp;t=82935" rel="nofollow">Email this Page</a></div>
+		
+		
+		
+		
+			
+		
+	</div>
+	<!-- / thread tools -->
+	
+	</td>
+	
+</tr>
+
+</table>
 <br />
 
-<!-- thread tools menu -->
-<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
-<form action="postings.php?t=82935&amp;pollid=" method="post" name="threadadminform">
-	<table cellpadding="4" cellspacing="1" border="0">
-	<tr>
-		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
-	</tr>
-	<tr>
-		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/printer.gif" alt="Show Printable Version" /> <a href="printthread.php?t=82935" accesskey="3" rel="nofollow">Show Printable Version</a></td>
-	</tr>
-	<tr>
-		<td class="vbmenu_option"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/buttons/sendtofriend.gif" alt="Email this Page" /> <a href="sendmessage.php?do=sendtofriend&amp;t=82935" rel="nofollow">Email this Page</a></td>
-	</tr>
-	
-	
-	
-	</table>
-</form>
-</div>
-<!-- / thread tools menu -->
 
-<!-- **************************************************** -->
-
-
-
-<!-- **************************************************** -->
-
-
-
-<!-- / popup menu contents -->
+<!-- / controls for non-popup browsers -->
 
 
 <!-- forum rules and admin links -->
 <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
 <tr valign="bottom">
 	<td class="smallfont" align="left">
-		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="180">
+		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="210">
 <thead>
 <tr>
 	<td class="thead">
@@ -3262,10 +3333,12 @@ Looks like you are almost there.</div>
 		<div>You <strong>may not</strong> edit your posts</div>
 		<hr />
 		
-		<div><a href="misc.php?do=bbcode" target="_blank">vB code</a> is <strong>On</strong></div>
+		<div><a href="misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
 		<div><a href="misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
 		<div><a href="misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>Off</strong></div>
 		<div>HTML code is <strong>Off</strong></div>
+		<hr />
+		<div><a href="misc.php?do=showrules" target="_blank">Forum Rules</a></div>
 	</div></td>
 </tr>
 </tbody>
@@ -3305,33 +3378,48 @@ Looks like you are almost there.</div>
 	<td class="thead" width="20%">Last Post</td>
 </tr>
 <tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=247283" title="I installed webmin but when i went to the apache server in webmin, it said I neded to go to module config and that apache 2 executable wasn't there...." target="_blank">webmin apache 2</a></span></td>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="showthread.php?t=247283" title="I installed webmin but when i went to the apache server in webmin, it said I neded to go to module config and that apache 2 executable wasn't there...." target="_blank">webmin apache 2</a></span>
+	</td>
 	<td class="alt2" nowrap="nowrap"><span class="smallfont">dienerk</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Suse/Novell</span></td>
 	<td class="alt2" align="center"><span class="smallfont">3</span></td>
 	<td class="alt1" align="right"><span class="smallfont">10-26-2004 <span class="time">07:18 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=139729" title="Hello,
-
-I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can access Webmin through Apache on port 80. I read the instructions..." target="_blank">Webmin Through Apache using mod_proxy...</a></span></td>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="showthread.php?t=139729" title="Hello, 
+ 
+I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can access Webmin through Apache on port 80. I read the instructions..." target="_blank">Webmin Through Apache using mod_proxy...</a></span>
+	</td>
 	<td class="alt2" nowrap="nowrap"><span class="smallfont">ech310n</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - General</span></td>
 	<td class="alt2" align="center"><span class="smallfont">0</span></td>
 	<td class="alt1" align="right"><span class="smallfont">01-28-2004 <span class="time">04:12 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=61066" title="Ive got Apache 2 installed on Mandrake 9.1 and Webmin wont work with it.. Webmin wants me to enter the Apache server root directory so it can find..." target="_blank">Apache 2 and Webmin</a></span></td>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="showthread.php?t=61066" title="Ive got Apache 2 installed on Mandrake 9.1 and Webmin wont work with it.. Webmin wants me to enter the Apache server root directory so it can find..." target="_blank">Apache 2 and Webmin</a></span>
+	</td>
 	<td class="alt2" nowrap="nowrap"><span class="smallfont">bogomip_bandit</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">1</span></td>
 	<td class="alt1" align="right"><span class="smallfont">05-21-2003 <span class="time">07:10 PM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=57219" title="I need sum help configuring apache through webmin. I am looking for a walk through that will show me how to post a web page. I have it installed and..." target="_blank">webmin and apache</a></span></td>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="showthread.php?t=57219" title="I need sum help configuring apache through webmin. I am looking for a walk through that will show me how to post a web page. I have it installed and..." target="_blank">webmin and apache</a></span>
+	</td>
 	<td class="alt2" nowrap="nowrap"><span class="smallfont">SSBN</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Networking</span></td>
 	<td class="alt2" align="center"><span class="smallfont">3</span></td>
 	<td class="alt1" align="right"><span class="smallfont">05-02-2003 <span class="time">09:59 AM</span></span></td>
 </tr><tr>
-	<td class="alt1" align="left"><span class="smallfont"><a href="showthread.php?t=23096" title="I just uninstalled Webmin because I had a few problems with it not picking up the updated Apache version then I recompiled Apache (with default..." target="_blank">Cannot Start Apache Through Webmin</a></span></td>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="showthread.php?t=23096" title="I just uninstalled Webmin because I had a few problems with it not picking up the updated Apache version then I recompiled Apache (with default..." target="_blank">Cannot Start Apache Through Webmin</a></span>
+	</td>
 	<td class="alt2" nowrap="nowrap"><span class="smallfont">John_Saunders</span></td>
 	<td class="alt1" nowrap="nowrap"><span class="smallfont">Linux - Software</span></td>
 	<td class="alt2" align="center"><span class="smallfont">2</span></td>
@@ -3344,7 +3432,7 @@ I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can acces
 
 <!-- end content table  -->
 
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -3354,14 +3442,11 @@ I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can acces
 </div>
 
 <br />
-<br />
-<div align="center"><a href="http://e.my.yahoo.com/config/cstore?.opt=content&amp;.url=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addyahoo.gif" alt="Add LQ To Your Yahoo" height="15" width="80" border="0" /></a> <a href="http://www.google.com/ig/add?feedurl=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addgoogle.gif" alt="Add LQ To Your Google" height="15" width="80" border="0" /></a> <a href="http://my.msn.com/addtomymsn.armx?id=rss&amp;ut=http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addmsn.gif" alt="Add LQ To Your MSN" height="15" width="80" border="0" /></a> <a href="http://www.bloglines.com/sub/http://www.linuxquestions.org/syndicate/lqlatest.xml" target="_blank"><img class="inlineimg" src="http://linuxquestions.cachefly.net/images/questions/images/misc/addblog.gif" alt="Add LQ To Your Blog" height="15" width="80" border="0" /></a></div>
-<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">05:25 AM</span>.</div>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">03:40 AM</span>.</div>
 <br />
 <!-- /content area table -->
 
 <form action="index.php" method="get">
-	
 <table cellpadding="3" cellspacing="0" border="0" width="100%" class="page" align="center">
 <tr>
 	
@@ -3369,7 +3454,7 @@ I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can acces
 	<td class="tfoot" align="right" width="100%">
 		<div class="smallfont">
 			<strong>
-				<a href="http://www.linuxquestions.org/questions/sendmessage.php" rel="nofollow">Contact Us</a> -
+				<a href="/questions/sendmessage.php" rel="nofollow">Contact Us</a> -
 				<a href="/linux/adinfo.html">Advertising Info</a> - 
 				<a href="/linux/rules.html">Rules</a> - 
 				<a href="http://www.cafeshops.com/linuxquestions">LQ Merchandise</a> - 
@@ -3380,7 +3465,7 @@ I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can acces
 				
 				
 				
-				<a href="/">Home</a>
+				<a href="/questions/">Linux Forums</a>
 			</strong>
 		</div>
 	</td>
@@ -3410,23 +3495,35 @@ I've been trying to configure Apache 2.0.47 and Webmin 1.121 so that I can acces
 <li><a href="/bookmarks/">Linux Bookmarks</a></li>
 <li><a href="/linux/press/">Press Releases</a></li>
 <li><a href="http://radio.linuxquestions.org/linux/lq-podcasts/">Linux Podcast</a></li>
-<li><a href="/linux/blog/">LQ Blogs</a></li>
+<li><a href="/questions/group.php">Social Groups</a></li>
+<li><a href="/blog/">LQ Blogs</a></li>
 <li><a href="http://radio.linuxquestions.org/">LQ Radio</a></li>
 <li><a href="http://radio.linuxquestions.org/player/player.php" onclick="window.open('http://radio.linuxquestions.org/player/player.php','wimpyMP3player','width=540,height=320');return false">LQ Radio Jukebox</a></li>
 <li><a href="/">Home</a></li>
+<div align="center"><a href="/questions/linux-software-2/webminapache-82935/#main_cont">(Con't)</a></div>
 </ul>
 </td></tr>
 </table>
 <div style="text-align:center;margin-bottom:5px">
-<script type="text/javascript">
-  GA_googleFillSlot("LQ_Top_Sky");
-</script></div>
+<script language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/409336/0/154/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</script><noscript><a href="http://adserver.adtechus.com/adlink/3.0/5159/409336/0/154/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" target="_blank"><img src="http://adserver.adtechus.com/adserv/3.0/5159/409336/0/154/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" border="0" width="160" height="600"></a></noscript></div>
+
+
+<div style="text-align:center;margin-bottom:5px" class="alt1">
+<script language="javascript"><!--
+
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5159/892944/0/277/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+
+//-->
+
+</script><noscript><a href="http://adserver.adtechus.com/adlink/3.0/5159/892944/0/277/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" target="_blank"><img src="http://adserver.adtechus.com/adserv/3.0/5159/892944/0/277/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" border="0" width="2" height="2"></a></noscript></div>
+
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
 <tr><td class="vbmenu_control">My LQ</td></tr>
-<tr><td class="alt1">
-<ul class="lqrightmenu">
-
+<tr><td class="alt1"><ul class="lqrightmenu">
 <li><a href="/questions/lqlogin.php">Login</a></li>
 <li><a href="/questions/register.php">Register</a></li>
 
@@ -3464,7 +3561,7 @@ google_color_text = "000000";
 </table>
 
 <table style="margin-bottom:5px" cellpadding="2" cellspacing="0" border="0" width="100%" class="tborder" align="center">
-<tr><td class="vbmenu_control">Main Menu</td></tr>
+<tr><td class="vbmenu_control" id="main_cont">Main Menu</td></tr>
 <tr><td class="alt1">
 <ul class="lqrightmenu">
 <li><a href="/questions/calendar.php">LQ Calendar</a></li>
@@ -3492,7 +3589,11 @@ google_color_text = "000000";
 <a href="http://www.linuxquestions.org/syndicate/lqlatest.xml"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; Latest Threads<br />
 <a href="http://www.linuxquestions.org/syndicate/lqnews.rss"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS1" border="0" width="16" height="16" /></a>&nbsp; LQ News<br />
 <a href="http://radio.linuxquestions.org/syndicate/lqpodcast.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Podcast<br />
-<a href="http://radio.linuxquestions.org/syndicate/lqradio.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Radio
+<a href="http://radio.linuxquestions.org/syndicate/lqradio.php"><img src="http://linuxquestions.cachefly.net/images/questions/images/misc/rss.gif" alt="RSS2" border="0" width="16" height="16" /></a>&nbsp; LQ Radio<br />
+<div class="smallfont">Twitter: <a href="http://twitter.com/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+identi.ca: <a href="http://identi.ca/linuxquestions" rel="nofollow">@linuxquestions</a><br />
+Facebook: <a href="http://www.facebook.com/LinuxQuestions.org" rel="nofollow">@linuxquestions</a>
+</div>
 </td></tr>
 </table>
 </td>
@@ -3501,7 +3602,7 @@ google_color_text = "000000";
 <!-- END: LQ Table Bottom -->
 
 
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -3538,6 +3639,7 @@ pageTracker._trackPageview();
 </script>
 
 
+
 <script type="text/javascript">
 var dc_UnitID = 14;
 var dc_PublisherID = 4566;
@@ -3545,7 +3647,20 @@ var dc_AdLinkColor = 'blue';
 var dc_adprod='ADL';
 </script>
 <script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<div id="presence-container"><div class="presence-contents">no new posts</div></div><script src="clientscript/yui/animation/animation-min.js" type="text/javascript"></script>
+			<script type="text/javascript" src="clientscript/livetopic.js"></script>
+			<script type="text/javascript">
+				var threadid = 82935;
+				var ajax_last_edit = 0;
+				livetopic.old_topic = 600;
+				livetopic.interval_time = 5000;
+				livetopic.ajax_max_visibleposts = 30;
 
+				vbphrase["livetopic_maxpostnotice"] = "The maximum amount of posts on this page can display has been reached. Posts will now start to disappear from oldest to newest.";
+				vbphrase["livetopic_edit_message"] = "<img alt=\'live topic\' src=\'images/statusicon/thread_livetopic.gif\' title=\'live topic\'/>&nbsp; <span style=\'font-weight: bold;\'>This post has been added by another user.</span> <br /><br />Since this is an active topic, this post has been automatically added to the thread while you were reading it. If you are replying to this thread you might want to read this post before doing so.";
+				vbphrase["livetopic_newresponses"] = "%1 new responses (<a href=\'showthread.php?t=%2&goto=newpost\'>live topic</a>)";
+			</script>
+			
 
 <!-- temp -->
 <div style="display:none">

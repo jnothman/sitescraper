@@ -44,6 +44,7 @@ class HtmlDoc:
         else:
             # try treating input as HTML
             fp = StringIO(input)
+        
         self._tree = lxmlHtml.parse(fp) if fp else None
         # Remove tags that are not useful
         for tag in HtmlDoc.IGNORE_TAGS:

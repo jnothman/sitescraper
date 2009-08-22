@@ -1,31 +1,32 @@
 # the available test cases
 __all__ = [
-    'amazon',
-    'asx', 
-    'bbc_news',
-    'bom',
-    'checkdns',
+    #'amazon',
+    #'asx', 
+    #'bom',
+    #'checkdns',
+    #'cnet',
+    #'google_finance',
+    #'google_search',
+    #'rottentomatoes',
+    #'slashdot',
+    #'techsupportforums',
+    #'theaustralian',
+    #'yahoo_weather',
+    'msn_search',
 ]
 [
-    'cnet',
+    'bbc_news',
     'ebay',
-    'google_finance',
-    'google_search',
     'imdb',
     'linuxquestions',
-    'msn_search',
     'msn_weather',
-    'rottentomatoes',
-    'slashdot',
     'stackoverflow',
-    'techsupportforums',
     'theage',
-    'theaustralian',
     'theonion',
     'ubuntuforums',
     'yahoo_finance',
+
     'yahoo_search',
-    'yahoo_weather',
 ]
 
 

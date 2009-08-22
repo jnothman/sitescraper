@@ -51,7 +51,7 @@ class sitescraper:
         doc = self._previousDoc
         if doc.tree().getroot() is None:
             raise SiteScraperError('Error: %s has no root node' % input)
-        
+
         outputFn = doc.getElementHTML if html else doc.getElementText
         results = []
         for xpathStr in self._model:

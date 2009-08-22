@@ -12,7 +12,7 @@ data = [
 
 
 model = [
-    '/html/body/div[4]/table[2]/tbody/tr/td/table/tbody/tr[2]/td/div/table/tbody/tr/td/div/table/tbody/tr/td/span',
-    '/html/body/div[4]/table[2]/tbody/tr/td/table/tbody/tr[2]/td/div/table/tbody/tr/td/div/table/tbody/tr[2]/td[3]/span',
-    '/html/body/div[4]/table[2]/tbody/tr/td/table/tbody/tr[2]/td/div/table/tbody/tr/td/div/table/tbody/tr[3]/td[3]/span',
+    '/html/body/div[4]/table[2]/tr/td/table/tr[2]/td/div/table/tr/td/div/table/tr[1]/td[1]/span[1]',
+    '/html/body/div[4]/table[2]/tr/td/table/tr[2]/td/div/table/tr/td/div/table/tr[2]/td[3]/span',
+    '/html/body/div[4]/table[2]/tr/td/table/tr[2]/td/div/table/tr/td/div/table/tr[3]/td[3]/span',
 ]

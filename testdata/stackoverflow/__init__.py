@@ -282,6 +282,6 @@ private void textBox_MouseClick(object sender, MouseEventArgs e)
 
 model = [
     '/html/body/div/div[2]/div/h2/a',
-    '/html/body/div/div[2]/div[2]/div/table/tbody/tr/td[2]/div/div',
-    '/html/body/div/div[2]/div[2]/div[2]/div/table/tbody/tr/td[2]/div',
+    '/html/body/div/div[2]/div[2]/div/table/tr/td[2]/div/div',
+    '/html/body/div/div[2]/div[2]/div[2]/div/table/tr/td[2]/div',
 ]

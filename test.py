@@ -11,25 +11,30 @@ import testdata
 
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
-    ss = sitescraper(debug=False)
     for module in testdata.__all__:
+        ss = sitescraper(debug=False)
         website = getattr(testdata, module)
         for url, output in website.data:
-            ss.add(open('testdata/%s/%s' % (module, url)).read(), output)
+            filename = 'testdata/%s/%s' % (module, url)
+            ss.add(filename, output)
         print '\n' + str(module)
         ss.train()
 
-        url = website.data[0][0]
-        if ss.scrape(url) == sitescraper(model=website.model).scrape(url):
+        our_scrape = sorted(ss.scrape(filename))
+        expected_scrape = sorted(sitescraper(model=website.model).scrape(filename))
+        if all(our_scrape) and our_scrape == expected_scrape:
             # test passed
             print 'Passed'
         else:
             # expected xpath did not match so test failed
             print 'Expected:'
+            print expected_scrape
+            print 'Scraped:'
+            print our_scrape
+            print 'Expected:'
             printModel(website.model)
             print 'Scraped:'
             printModel(ss.model())
-        ss.clear()
 #_______________________________________________________________________________
 
 def printModel(model):

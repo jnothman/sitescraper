@@ -287,5 +287,5 @@ The I-view survey is also asking people their views on the two main proposals in
 
 
 model = [
-    ('/html/body/div/div[3]/div[3]/div/div/p', 1),
+    '/html/body/div/div[3]/div[3]/div/div/p',
 ]

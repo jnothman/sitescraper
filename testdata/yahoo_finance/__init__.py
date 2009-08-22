@@ -13,7 +13,7 @@ data = [
 
 
 model = [
-    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table/tbody/tr/td[2]/big/b/span',
-    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table/tbody/tr[4]/td[2]',
-    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table/tbody/tr[5]/td[2]',
+    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table[1]/tr/td[2]/big/b/span',
+    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table[1]/tr[4]/td[2]',
+    '/html/body/div/div[2]/div[3]/div[2]/div/div[3]/table[1]/tr[5]/td[2]',
 ]
