@@ -63,7 +63,7 @@ class sitescraper:
                 results.append(result)
             else:
                 if result:
-                    results.append(' '.join(result))
+                    results.append(' '.join(result).strip())
                 else:
                     results.append(None) # distinguish empty match from no match
         return results

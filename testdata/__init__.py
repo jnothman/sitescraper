@@ -12,7 +12,8 @@ __all__ = [
     #'techsupportforums',
     #'theaustralian',
     #'yahoo_weather',
-    'msn_search',
+    #'yahoo_finance',
+    'theonion',
 ]
 [
     'bbc_news',
@@ -22,11 +23,10 @@ __all__ = [
     'msn_weather',
     'stackoverflow',
     'theage',
-    'theonion',
     'ubuntuforums',
-    'yahoo_finance',
-
     'yahoo_search',
+
+    'msn_search',
 ]
 
 

@@ -209,6 +209,6 @@ No, it wuz always 'bout tha numbahs. Tha numbahs. An' this Stone-Col' Funkee-Fre
 
 
 model = [
-    '/html/body/div[2]/div[2]/div/div/div/h2',
+    '/html/body/div[2]/div[2]/div/div/div[1]/h2',
     '/html/body/div[2]/div[2]/div/div/div/p',
 ]

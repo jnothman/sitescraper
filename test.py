@@ -12,14 +12,15 @@ import testdata
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
     for module in testdata.__all__:
-        ss = sitescraper(debug=False)
+        ss = sitescraper(debug=True)
         website = getattr(testdata, module)
-        for url, output in website.data:
-            filename = 'testdata/%s/%s' % (module, url)
+        data = [('testdata/%s/%s' % (module, url), output) for (url, output) in website.data]
+        for filename, output in data[:-1]:
             ss.add(filename, output)
         print '\n' + str(module)
         ss.train()
 
+        filename = data[-1][0]
         our_scrape = sorted(ss.scrape(filename))
         expected_scrape = sorted(sitescraper(model=website.model).scrape(filename))
         if all(our_scrape) and our_scrape == expected_scrape:
@@ -35,6 +36,8 @@ def regressionTests():
             printModel(website.model)
             print 'Scraped:'
             printModel(ss.model())
+            if not all(our_scrape): print 'Failed to scrape all'
+            if our_scrape != expected_scrape: print 'Scrapes do not match'
 #_______________________________________________________________________________
 
 def printModel(model):

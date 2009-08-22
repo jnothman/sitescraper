@@ -36,11 +36,12 @@ class HtmlModel:
         """
         # rate xpaths by the similarity of their content with the output
         modelXpaths = []
-        moreData = True
         i = 0
-        while moreData:
+        while i < len(self._docs[0].outputs()):
             isGroup = False
             xpaths = []
+            if self._debug:
+                print self._docs[0].outputs()[i]
             for doc in self._docs:
                 if i < len(doc.outputs()):
                     outputs = doc.outputs()[i]
@@ -58,20 +59,17 @@ class HtmlModel:
                         if bestScore > 0: 
                             print "Warning: could not find '%s' (score=%d)" % (output, score)
                         xpaths.extend([xpath for (xpath, score) in outputScores.items() if score == bestScore])
-                        #xpaths.append(min([(score, xpath) for (xpath, score) in outputScores.items()])[1])
+                        if self._debug:
+                            print pretty([(self._docs.index(doc), xpath, score) for (xpath, score) in outputScores.items() if score == bestScore])
             if xpaths:
                 if isGroup:
                     modelXpaths.append(self.abstractXpaths(xpaths))
                 else:
-                    modelXpaths.append(sorted(xpaths, cmp=self._rankXpaths)[0])
+                    modelXpaths.append(self.bestXpath(xpaths))
+                if self._debug:
+                    print 'Best:\n%s\n' % modelXpaths[-1]
                 i += 1
-            else:
-                moreData = False # reached the end of expected output data
 
-            """if self._debug:
-                for i, xpaths in enumerate(modelXpaths):
-                    print [doc.outputs()[i] for doc in self._docs if len(doc) > i][0].replace('\n', '')
-                    print pretty(xpaths)"""
         if self._attributes:
             modelXpaths = self.addAttributes(modelXpaths)
         return modelXpaths
@@ -128,11 +126,14 @@ class HtmlModel:
                 abstractXpath[partition] += '[position()>%d]' % (minIndex - 1)
         return abstractXpath
     #___________________________________________________________________________
-    
-    def _rankXpaths(self, xpath1, xpath2):
-        """Rank xpath importance first on xpath length, then on alphabetically
-        """
-        if len(str(xpath1)) != len(str(xpath2)):
-            return len(str(xpath2)) - len(str(xpath1))
-        else:
-            return -1 if str(xpath1) < str(xpath2) else 1
+
+    def bestXpath(self, xpaths):
+        """Xpaths are ranked by most common, length, then alphabetical"""
+        def rankXpaths(xpath1, xpath2):
+            if xpaths.count(xpath1) != xpaths.count(xpath2):
+                return xpaths.count(xpath2) - xpaths.count(xpath1)
+            if len(str(xpath1)) != len(str(xpath2)):
+                return len(str(xpath2)) - len(str(xpath1))
+            else:
+                return -1 if str(xpath1) < str(xpath2) else 1
+        return sorted(xpaths, cmp=rankXpaths)[0]
