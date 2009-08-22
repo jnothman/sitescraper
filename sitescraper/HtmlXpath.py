@@ -159,4 +159,3 @@ class HtmlXpath(object):
                 if i >= len(self) or i >= len(other) or self[i] != other[i]:
                     indices.append(i)
         return tuple(indices)
-    #___________________________________________________________________________

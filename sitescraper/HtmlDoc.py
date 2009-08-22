@@ -25,10 +25,10 @@ class HtmlDoc:
     IGNORE_TAGS = 'style', 'script', 'meta', 'link'
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
-    #___________________________________________________________________________
 
     def __init__(self, input, outputs, xpaths=None):
-        """Create an ElementTree of the parsed input. Input can be a url, filepath, or html"""
+        """Create an ElementTree of the parsed input. Input can be a url, filepath, or html
+        """
         self._url = None
         if not input:
             # empty input
@@ -80,14 +80,20 @@ class HtmlDoc:
     #___________________________________________________________________________
 
     def extractXpaths(self):
-        """Extract a hashtable of the xpath to each text element"""
+        """Extract a hashtable of the xpath to each text element
+        """
         xpaths = defaultdict(list)
         self._extractXpaths(self._tree.getroot(), xpaths)
+        """test_xpath = '//p[@class="prodDesc"]'
+        text = ' '.join([self.getElementText(c) for c in self._tree.getroot().xpath(test_xpath)])
+        print text
+        xpaths[text].append(HtmlXpath(test_xpath))"""
         return xpaths
     #___________________________________________________________________________
 
     def _extractXpaths(self, e, xpaths):
-        """Recursively find the xpaths - a helper method for extractXpaths()"""
+        """Recursively find the xpaths - a helper method for extractXpaths()
+        """
         text = self.getElementText(e)
         xpath = HtmlXpath(self._tree.getpath(e)).normalize()
         if text:
@@ -113,26 +119,29 @@ class HtmlDoc:
         for childTag, count in childTags.items():
             if count >= 2:
                 # add text content for this tag
-                childXpath = HtmlXpath('%s/%s' % (xpath, childTag))#, HtmlXpath.COLLAPSE_MODE)
+                childXpath = HtmlXpath('%s/%s' % (xpath, childTag))
                 childText = ' '.join([self.getElementText(c) for c in e.xpath(str(childXpath))])
                 if childText:
                     xpaths[childText].append(childXpath)
     #___________________________________________________________________________
 
     def getElementText(self, e):
-        """Extract text under this HtmlElement"""
+        """Extract text under this HtmlElement
+        """
         return normalizeStr(e.text_content().strip())
     #___________________________________________________________________________
 
     def getElementHTML(self, e):
-        """Extract HTML under this element"""
+        """Extract HTML under this element
+        """
         return  (e.text if e.text else '') + \
                 ''.join([lxmlHtml.tostring(c) for c in e.getchildren()]) + \
                 (e.tail if e.tail else '')
     #___________________________________________________________________________
     
     def matchXpaths(self, output):
-        """Return the amount of overlap at xpath with the desired output""" 
+        """Return the amount of overlap at xpath with the desired output
+        """ 
         if output in self._xpaths:
             # exact match so can return xpaths directly with a perfect match
             return [(xpath, self.similarity(output, output)) for xpath in self._xpaths[output]]
@@ -174,4 +183,3 @@ class HtmlDoc:
             # don't bother calculating if string lengths are too far off, just give maximum difference
             score = abs(len(s1) - len(s2))**power
         return score
-    #___________________________________________________________________________

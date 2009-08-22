@@ -7,8 +7,8 @@ from common import normalizeStr, unique, pretty, flatten, extractInt
 
 
 class HtmlModel:
-    """Generates a model to extract the desired information in a webpage"""
-    #___________________________________________________________________________
+    """Generates a model to extract the desired information in a webpage
+    """
 
     def __init__(self, docs, attributes=True, debug=False):
         """
@@ -23,7 +23,8 @@ class HtmlModel:
     #___________________________________________________________________________
 
     def get(self):
-        """Get a string list representation of the model"""
+        """Get a string list representation of the model
+        """
         if self._model is None:
             # need to generate model
             self._model = [xpath.get() for xpath in self.trainModel()]
@@ -31,7 +32,8 @@ class HtmlModel:
     #___________________________________________________________________________
 
     def trainModel(self):
-        """Train the model using the known output for the given urls"""
+        """Train the model using the known output for the given urls
+        """
         # rate xpaths by the similarity of their content with the output
         modelXpaths = []
         moreData = True
@@ -76,7 +78,8 @@ class HtmlModel:
     #___________________________________________________________________________
 
     def addAttributes(self, xpaths):
-        """Replace xpath indices with attributes where possible"""
+        """Replace xpath indices with attributes where possible
+        """
         A = HtmlAttributes(self._docs)
         xpathAttribs = []
         for xpath in xpaths:
@@ -125,9 +128,9 @@ class HtmlModel:
     #___________________________________________________________________________
     
     def _rankXpaths(self, xpath1, xpath2):
-        """Rank xpath importance first on xpath length, then on alphabetically"""
+        """Rank xpath importance first on xpath length, then on alphabetically
+        """
         if len(str(xpath1)) != len(str(xpath2)):
             return len(str(xpath2)) - len(str(xpath1))
         else:
             return -1 if str(xpath1) < str(xpath2) else 1
-    #___________________________________________________________________________
