@@ -36,7 +36,7 @@ data = [
 
 
 model = [
-    ['/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div/h3/a'],
-    ['/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/div[2]'],
-    ['/html/body/div/div[2]/div[2]/div[2]/div/div[3]/ol/li/div/span'],
+    ['/html/body/div/div[2]/div[2]/div[2]/div/div/ol/li/div/div/h3/a'],
+    ['/html/body/div/div[2]/div[2]/div[2]/div/div/ol/li/div/div[2]'],
+    ['/html/body/div/div[2]/div[2]/div[2]/div/div/ol/li/div/span']
 ]

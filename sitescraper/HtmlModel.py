@@ -108,7 +108,9 @@ class HtmlModel:
                     for partition in diff:
                         tag = xpath1.tags()[partition]
                         if tag != xpath2.tags()[partition]:
-                            tag = '*' # have different tags
+                            # have different tags so can't abstract
+                            indices = []
+                            break
                         abstractXpath[partition] = tag
                         indices.append(extractInt(xpath1[partition]))
                     popularity[(abstractXpath, diff)].append(indices)

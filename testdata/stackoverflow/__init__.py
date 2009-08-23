@@ -3,7 +3,7 @@
 
 data = [
     ('1.html', ["What is the most succinct way that you would define the key roles within software development?",
-"""
+["""
 
 
 I am looking for a plain English explanation of what skills and qualities define each major role within software development (for example, what differentiates between the Junior Developer, Developer and Senior Developer), as well as descriptions that highlight the nuances between various roles that to the 'business' appear to be similar (for example, Technical Architect vs Software Architect vs Solution Architect vs Network Architect vs Lead Architect).
@@ -69,10 +69,10 @@ Application / Systems / Web - these are usually nearly the same thing these days
 Administrators are those that run things and this could be networks, systems or databases. If you have other jargon in mind I think that should be viewed as a separate question as this answer is pretty long already I think.
 
 JB
-"""
+"""]
 ]),
     ('2.html', ["Can I get more than 1000 records from a DirectorySearcher in Asp.Net?",
-"""
+["""
 
 I just noticed that the return list for results is limited to 1000. I have more than 1000 groups in my domain (HUGE domain). How can I get more than 1000 records? Can I start at a later record? Can I cut it up into multiple searches?
 
@@ -131,10 +131,10 @@ using(DirectorySearcher srch = new DirectorySearcher(dirEnt, "(objectClass=Group
 """@naspinski: I also replied on your comment on your previous post.
 
 Not only dispose DirectorySearcher, but also dispose the SearchResultCollection as well. It is using some unmanaged resources.
-""",
+"""]
 ]),
     ('3.html', ["What is the best way to check the strength of a password?",
-"""
+["""
 
 What is the best way of ensuring that a user supplied password is a strong password in a registration or change password form?
 
@@ -184,10 +184,10 @@ I like using Microsoft's password checker
 """,
 """
 If you have the time, run a password cracker against it.
-""",
+"""]
 ]),
     ('4.html', ["Application Level Replication Technologies",
-"""
+["""
 
 I am building out a solution that will be deployed in multiple data centers in multiple regions around the world, with each data center having a replicated copy of data actively updated in each region. I will have a combination of multiple databases and file systems in each data center, the state of which must be kept consistent (within a data center). These multiple repositories will be fronted by a SOA service tier.
 
@@ -204,10 +204,10 @@ In your experience, what is the best pattern for solving this problem, and are t
 
 I would be interested to know of other solutions this flexible (apart from Lotus Notes/Domino of course which is not very trendy these days).
 
-"""
+"""]
 ]),
     ('5.html', ["What is your bug/task tracking tool (FAQ)",
-"""
+["""
 
 This is a placeholder to bug/task tracking system overview.
 
@@ -232,10 +232,10 @@ It's sleek, fast, free and has subversion integration.
 
 I'm not just sucking up to Joel, it realy does rock.
 
-"""
+"""]
 ]),
     ('6.html', ["Automatically select all text on focus in WinForms TextBox",
-"""
+["""
 
 When a C# WinForms text box receives focus, I want to select all the text in the textbox.
 
@@ -275,13 +275,12 @@ private void textBox_MouseClick(object sender, MouseEventArgs e)
 
 """,
 """If you overload the Click event you can use .SelectAll() and all text will be selected.
-"""
+"""]
 ]),
 ]
 
 
 model = [
     '/html/body/div/div[2]/div/h2/a',
-    '/html/body/div/div[2]/div[2]/div/table/tr/td[2]/div/div',
-    '/html/body/div/div[2]/div[2]/div[2]/div/table/tr/td[2]/div',
+    ["/html[1]/body[1]/div[@class='container']/div[@id='content']/div[@id='mainbar']/div[@id='answers']/div[position()>1]/table[1]/tr[1]/td[2]/div[@class='post-text']"]
 ]

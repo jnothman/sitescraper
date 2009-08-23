@@ -65,7 +65,7 @@ class HtmlAttributes:
         #print element.attrib.items()
         for attrName, attrValue in element.attrib.items():
             # punctuation such as '/' and ':' can confuse xpath, so ignore attributes with these characters
-            if not self.anyIn('/: ', attrValue+attrName):# and attrName in ('id', 'lass'):
+            if not self.anyIn('/: ', attrValue + attrName): # why space XXX
                 attribs.append((attrName, attrValue))
         return attribs
     #___________________________________________________________________________

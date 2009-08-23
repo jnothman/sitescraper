@@ -7,26 +7,25 @@ __all__ = [
     #'cnet',
     #'google_finance',
     #'google_search',
+    #'imdb',
+    #'msn_search',
+    #'msn_weather',
     #'rottentomatoes',
     #'slashdot',
+    #'stackoverflow',
     #'techsupportforums',
+    #'theage',
+    #'theonion',
     #'theaustralian',
     #'yahoo_weather',
     #'yahoo_finance',
-    'theonion',
+    'ebay', # scrape works, but not when try..?
 ]
 [
     'bbc_news',
-    'ebay',
-    'imdb',
     'linuxquestions',
-    'msn_weather',
-    'stackoverflow',
-    'theage',
     'ubuntuforums',
-    'yahoo_search',
-
-    'msn_search',
+    'yahoo_search', # extra div in scraped
 ]
 
 
