@@ -54,18 +54,22 @@ class sitescraper:
 
         outputFn = doc.getElementHTML if html else doc.getElementText
         results = []
-        for xpathStr in self._model:
-            isGroup = isinstance(xpathStr, list)
-            if isGroup:
-                xpathStr = xpathStr[0]
-            result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(xpathStr)]
-            if isGroup:
-                results.append(result)
-            else:
+        for record in self._model:
+            if not isinstance(record, tuple):
+                record = (record,)
+            for xpathStr in record:
+                isGroup = isinstance(xpathStr, list)
+                if isGroup:
+                    xpathStr = xpathStr[0]
+                result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(xpathStr)]
+                if not isGroup:
+                    if result:
+                        result = ' '.join(result).strip()
+                    else:
+                        result = None # distinguish empty match from no match
                 if result:
-                    results.append(' '.join(result).strip())
-                else:
-                    results.append(None) # distinguish empty match from no match
+                    break
+            results.append(result)
         return results
     #___________________________________________________________________________
 

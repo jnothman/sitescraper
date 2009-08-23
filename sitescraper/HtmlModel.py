@@ -20,16 +20,12 @@ class HtmlModel:
         self._docs = docs
         self._attributes = attributes
         self._debug = debug
-        self._model = None # model is not generated yet
     #___________________________________________________________________________
 
     def get(self):
         """Get a string list representation of the model
         """
-        if self._model is None:
-            # need to generate model
-            self._model = [xpath.get() for xpath in self.trainModel()]
-        return self._model
+        return [HtmlXpathSet(xpath).get() for record in self.trainModel()]
     #___________________________________________________________________________
 
     def trainModel(self):
@@ -66,22 +62,22 @@ class HtmlModel:
                 if isGroup:
                     modelXpaths.append(self.abstractXpaths(xpaths))
                 else:
-                    modelXpaths.append(self.bestXpath(xpaths))
+                    modelXpaths.append(self.rankXpaths(xpaths))
                 if self._debug:
                     print 'Best:\n%s\n' % modelXpaths[-1]
                 i += 1
 
         if self._attributes:
-            modelXpaths = self.addAttributes(modelXpaths)
+            pass#modelXpaths = self.addAttributes(modelXpaths)
         return modelXpaths
     #___________________________________________________________________________
 
-    def addAttributes(self, xpaths):
+    def addAttributes(self, model):
         """Replace xpath indices with attributes where possible
         """
         A = HtmlAttributes(self._docs)
         xpathAttribs = []
-        for xpath in xpaths:
+        for record in model:
             xpathAttribs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
         return xpathAttribs
     #___________________________________________________________________________
@@ -144,13 +140,13 @@ class HtmlModel:
         return abstractXpath
     #___________________________________________________________________________
 
-    def bestXpath(self, xpaths):
+    def rankXpaths(self, xpaths):
         """Xpaths are ranked by most common, length, then alphabetical"""
-        def rankXpaths(xpath1, xpath2):
+        def rank(xpath1, xpath2):
             if xpaths.count(xpath1) != xpaths.count(xpath2):
                 return xpaths.count(xpath2) - xpaths.count(xpath1)
             if len(str(xpath1)) != len(str(xpath2)):
                 return len(str(xpath2)) - len(str(xpath1))
             else:
                 return -1 if str(xpath1) < str(xpath2) else 1
-        return sorted(xpaths, cmp=rankXpaths)[0]
+        return tuple(sorted(xpaths, cmp=rank))#[0]

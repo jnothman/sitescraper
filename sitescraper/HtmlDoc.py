@@ -21,8 +21,10 @@ class HtmlDoc:
     [('/html[1]/body[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[3]/ol[1]/li[1]/div[1]/div[2]', -113)]
     """
 
-    # ignore content from these tags
+    # ignore contents of these tags
     IGNORE_TAGS = 'style', 'script', 'meta', 'link'
+    # merge content of these tags with parent
+    MERGE_TAGS = 'tbody',
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
 
@@ -48,9 +50,12 @@ class HtmlDoc:
         self._tree = lxmlHtml.parse(fp) if fp else None
         # Remove tags that are not useful
         for tag in HtmlDoc.IGNORE_TAGS:
-            for item in self._tree.findall('.//' + tag):
+            for item in self._tree.findall('//' + tag):
                 item.drop_tree()
-        
+        for tag in HtmlDoc.MERGE_TAGS:
+            for item in self._tree.findall('//' + tag):
+                item.drop_tag()
+
         self._outputs = outputs
         self._xpaths = xpaths if xpaths is not None else self.extractXpaths()
         self._sequence = SequenceMatcher()

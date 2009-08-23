@@ -12,13 +12,13 @@ import testdata
 def regressionTests():
     """Run sitescraper against regression tests to ensure model generation not broken by changes"""
     for module in testdata.__all__:
-        ss = sitescraper(debug=True)
+        ss = sitescraper(debug=False)
         website = getattr(testdata, module)
         data = [('testdata/%s/%s' % (module, url), output) for (url, output) in website.data]
         for filename, output in data[:-1]:
             ss.add(filename, output)
         print '\n' + str(module)
-        ss.train()
+        print ss.model()
 
         filename = data[-1][0]
         our_scrape = ss.scrape(filename)

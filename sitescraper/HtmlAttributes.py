@@ -41,11 +41,15 @@ class HtmlAttributes:
         self._docs = docs
     #___________________________________________________________________________
 
+    def docs(self):
+        return self._docs
+    #___________________________________________________________________________
+
     def uniqueAttribs(self, xpath):
         """Return a list of attributes that uniquely distinguish the element at each segment"""
         acceptedAttribs = []
         # select examples which contain the relevant xpath
-        docs = [doc for doc in self._docs if doc.tree().xpath(str(xpath))]
+        docs = [doc for doc in self.docs() if doc.tree().xpath(str(xpath))]
         for i, section in enumerate(xpath.walk()):
             sectionElements = flatten([doc.tree().xpath(section) for doc in docs])
             try:
