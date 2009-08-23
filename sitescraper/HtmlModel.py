@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 from HtmlDoc import HtmlDoc
 from HtmlXpath import HtmlXpath
 from HtmlAttributes import HtmlAttributes
@@ -126,6 +127,20 @@ class HtmlModel:
             #minIndex = min(indices)
             if minIndex > 1:
                 abstractXpath[partition] += '[position()>%d]' % (minIndex - 1)
+        # test abstraction
+        """print 'Test abstraction: ' + str(abstractXpath)
+        tmp = [str(xpath) for xpath in xpaths]
+        print tmp
+        total = count = 0
+        for doc in self._docs:
+            es = []
+            for xpath in xpaths:
+                es.extend(doc.tree().xpath(str(xpath)))
+            for e in doc.tree().xpath(str(abstractXpath)):
+                print e.getroottree().getpath(e), e in es
+                total += 1
+                if e in es: count += 1
+        print '%d/%d\n' % (count, total)"""
         return abstractXpath
     #___________________________________________________________________________
 

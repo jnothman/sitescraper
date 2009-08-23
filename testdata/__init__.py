@@ -2,6 +2,7 @@
 __all__ = [
     #'amazon',
     #'asx', 
+    #'bbc_news',
     #'bom',
     #'checkdns',
     #'cnet',
@@ -17,14 +18,13 @@ __all__ = [
     #'theage',
     #'theonion',
     #'theaustralian',
+    #'ubuntuforums',
     #'yahoo_weather',
     #'yahoo_finance',
-    'ebay', # scrape works, but not when try..?
+    'linuxquestions', # unwanted initial posts
 ]
 [
-    'bbc_news',
-    'linuxquestions',
-    'ubuntuforums',
+    'ebay', # scrape works, but not when try..?
     'yahoo_search', # extra div in scraped
 ]
 

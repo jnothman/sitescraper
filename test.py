@@ -21,8 +21,8 @@ def regressionTests():
         ss.train()
 
         filename = data[-1][0]
-        our_scrape = sorted(ss.scrape(filename))
-        expected_scrape = sorted(sitescraper(model=website.model).scrape(filename))
+        our_scrape = ss.scrape(filename)
+        expected_scrape = sitescraper(model=website.model).scrape(filename)
         if all(our_scrape) and our_scrape == expected_scrape:
             # test passed
             print 'Passed'

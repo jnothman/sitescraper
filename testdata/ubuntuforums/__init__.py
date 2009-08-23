@@ -3,7 +3,7 @@
 
 
 data = [
-    ('1.html', ['DragonflyBSD - Ubuntu Forums',
+    ('1.html', ['DragonflyBSD',
     ["""Just wondering has anyone extensively used it before? Haven't read much about it since it seems to fly under the radar a lot but I'm quite interested in trying it, that and MidnightBSD. It uses pkgsrc so that's a plus for me, but I was just interested if there was someone, anyone who knows anything about it as I really can't seem to find much info on it other than the usual it split from FreeBSD became a fork etc etc""",
     """It's a great project that is definitely going places. Their pkgsrc implementation is a bit screwy, but it's still a fun project to play with. It isn't as stable [yet] as Net, Open, or FreeBSD.""",
     """Grab the LiveDVD they just announced and give it a whirl.
@@ -24,7 +24,7 @@ Follow it up with some small corrections made by DragonFlyBSD's Matt Dillon."""]
     ["C!oud", "cardinals_fan", "Antman", "C!oud", "C!oud", "cardinals_fan"],
     ["September 2nd, 2008", "September 3rd, 2008", "September 3rd, 2008", "September 3rd, 2008", "December 11th, 2008", "December 11th, 2008", "December 11th, 2008", "December 12th, 2008"],
     ]),
-    ('2.html', ['[SOLVED] unable to browse windows shares - Ubuntu Forums',
+    ('2.html', ['[SOLVED] unable to browse windows shares',
     ["""I have several windows shares setup on my XP computer. I am able to connect to all of them except for one using nautilus' browse network option. I will post the specifics and answer any questions of the issue once i get home. I just thought it was strange that I am able to connect to a browse 2 other shared directories on the same computer.""",
     """im sure you've done this, but on the one you cant see, have you allowed all other computers to see it, as far as windows firewall or router is concerned?""",
     """Yes I have they are all setup the same. I have set my windows firewall to allow access to my 3 shared folders across the network. The only thing i can see being an issue is that the share is in My Documents under my another user's profile but I have admin access to the computer. It is making me pull my hair out right now.""",
@@ -64,7 +64,7 @@ As a test only make sure that the "Everyone" group has full permissions. Then tr
     ["BDNiner", "taseedorf", "BDNiner", "halitech", "Kellemora", "BDNiner", "foofighterjim", "BDNiner", "BDNiner"],
     ["December 9th, 2008", "December 10th, 2008", "December 11th, 2008", "December 11th, 2008", "December 11th, 2008", "December 12th, 2008"],
     ]),
-    ('3.html', ['Request for Pear-ody theme - Ubuntu Forums', 
+    ('3.html', ['Request for Pear-ody theme', 
     ["""Hello,
 
 I am hoping that someone has the pear-ody theme and would be able to send it to me.
@@ -102,7 +102,7 @@ Kyfehr"""],
     ["kyfehr", "Caps18", "kyfehr", "Caps18", "kyfehr", "Caps18", "petit_prince"],
     ["December 7th, 2008", "December 8th, 2008", "December 8th, 2008", "December 12th, 2008", "December 12th, 2008", "December 15th, 2008", "January 25th, 2009"],
     ]),
-    ('4.html', ['Newbie needs network help!!! - Ubuntu Forums',
+    ('4.html', ['Newbie needs network help!!!',
     ["""Hey guys
 I am a total newbie not long had 'intrepid' working and I am trying to linkup my laptop (XP) to share files and an internet connection.
 
@@ -175,7 +175,7 @@ Gary"""],
     ["lewbram", "ibizatunes", "ianhaycox", "lewbram", "lewbram", "Kellemora", "lewbram"],
     ["December 12th, 2008", "December 12th, 2008", "December 13th, 2008"],
     ]),
-    ('5.html', ["Couldn't a time-based login prevent brute force attacks? - Ubuntu Forums",
+    ('5.html', ["Couldn't a time-based login prevent brute force attacks?",
     ["""I've often read that strong passwords are good. I understand that weak ones (dictionary phrases) are easy to crack.
 
 Please keep in mind that I don't know that much about technical details of things. I am not a programmer. So in your explanations and corrections, talk to me as if I'm a moron.
@@ -201,7 +201,7 @@ Edit: Kind of like how the club thing works for cars, so long as the guy trying 
     ["aysiu", "DOS4dinner", "thegreatbitbucket", "bobbob1016", "will1911a1", "aysiu", "binbash", "Jammanuser", "happysmileman"],
     ["December 12th, 2008", "December 12th, 2008"],
     ]),
-    ('6.html', ['where to find online interpreters - Ubuntu Forums',
+    ('6.html', ['where to find online interpreters',
     ["""Hello!
 
 I have head that there are some sites on the web that you can use to program in python (or java), as if it were a installed interpreter!
@@ -250,6 +250,8 @@ so the answer is no......
 
 
 model = [
-    '/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tr[2]/td[2]/div/strong',
+    '/html/body/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table/tr[2]/td[2]/div/strong[1]',
     ['/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tr[2]/td[2]/div[2]'],
+    ['/html/body/div/div[3]/div/div/div/div/div/div/div/div/table/tr[2]/td[1]/div[1]/a[1]'],
+    ['/html/body/div/div[3]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tr[1]/td[1]'],
 ]

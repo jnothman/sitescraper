@@ -244,6 +244,6 @@ data = [
 
 
 model = [
-    '/html/body/table[2]/tr/td[3]/table[2]/tr/td',
-    '/html/body/table[2]/tr/td[3]/table[2]/tr[2]/td/font',
+    '/html/body/table[2]/tr/td[3]/table[2]/tr[1]/td/div/div',
+    '/html/body/table[2]/tr/td[3]/table[2]/tr[2]/td/font'
 ]
