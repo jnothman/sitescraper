@@ -58,7 +58,7 @@ class sitescraper:
         for record in self._model:
             for xpath in record:
                 # XXX restrict grouping to xpath class...somehow
-                #print type(xpath)
+                #print type(xpath), str(xpath)
                 result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(str(xpath))]
                 if xpath.iscollapse():
                     if result:
