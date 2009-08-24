@@ -2,28 +2,28 @@
 __all__ = [
     'amazon',
     'asx', 
-    'bbc_news',
-    'bom',
-    'checkdns',
-    'cnet',
-    'google_finance',
-    'google_search',
-    'imdb',
-    'msn_search',
-    'msn_weather',
-    'rottentomatoes',
-    'slashdot',
-    'stackoverflow',
-    'techsupportforums',
-    'theage',
-    'theonion',
-    'theaustralian',
-    'ubuntuforums',
-    'yahoo_weather',
-    'yahoo_finance',
-    #'linuxquestions', # unwanted initial posts
+    #'bbc_news',
+    #'bom',
+    #'checkdns',
+    #'cnet',
+    #'google_finance',
+    #'google_search',
+    #'imdb',
+    #'msn_search',
+    #'msn_weather',
+    #'rottentomatoes',
+    #'slashdot',
+    #'stackoverflow',
+    #'techsupportforums',
+    #'theage',
+    #'theonion',
+    #'theaustralian',
+    #'ubuntuforums',
+    #'yahoo_weather',
+    #'yahoo_finance',    
 ]
 [
+    'linuxquestions', # unwanted initial posts
     'ebay', # scrape works, but not when try..?
     'yahoo_search', # extra div in scraped
 ]

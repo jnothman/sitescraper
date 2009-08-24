@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from HtmlDoc import HtmlDoc
-from HtmlXpath import HtmlXpath
+from HtmlXpath import HtmlXpath, HtmlXpathSet
 from HtmlAttributes import HtmlAttributes
 from common import normalizeStr, unique, pretty, flatten, extractInt
 
@@ -22,17 +22,11 @@ class HtmlModel:
         self._debug = debug
     #___________________________________________________________________________
 
-    def get(self):
-        """Get a string list representation of the model
-        """
-        return [HtmlXpathSet(xpath).get() for record in self.trainModel()]
-    #___________________________________________________________________________
-
-    def trainModel(self):
+    def train(self):
         """Train the model using the known output for the given urls
         """
         # rate xpaths by the similarity of their content with the output
-        modelXpaths = []
+        model = HtmlXpathSet()
         i = 0
         while i < len(self._docs[0].outputs()):
             isGroup = False
@@ -60,26 +54,25 @@ class HtmlModel:
                             print pretty([(self._docs.index(doc), xpath, score) for (xpath, score) in outputScores.items() if score == bestScore])
             if xpaths:
                 if isGroup:
-                    modelXpaths.append(self.abstractXpaths(xpaths))
+                    model.append(self.abstractXpaths(xpaths))
                 else:
-                    modelXpaths.append(self.rankXpaths(xpaths))
+                    model.append(tuple(self.rankXpaths(xpaths)))
                 if self._debug:
-                    print 'Best:\n%s\n' % modelXpaths[-1]
-                i += 1
+                    print 'Best:\n%s\n' % model[-1]
+            i += 1
 
         if self._attributes:
-            pass#modelXpaths = self.addAttributes(modelXpaths)
-        return modelXpaths
+            self.addAttributes(model)
+        return model
     #___________________________________________________________________________
 
     def addAttributes(self, model):
         """Replace xpath indices with attributes where possible
         """
         A = HtmlAttributes(self._docs)
-        xpathAttribs = []
         for record in model:
-            xpathAttribs.append(A.addAttribs(xpath.copy(), A.uniqueAttribs(xpath)))
-        return xpathAttribs
+            for xpath in record:
+                A.addAttribs(xpath, A.uniqueAttribs(xpath)) # XXX adds?
     #___________________________________________________________________________
 
     def abstractXpaths(self, xpaths):
@@ -142,11 +135,11 @@ class HtmlModel:
 
     def rankXpaths(self, xpaths):
         """Xpaths are ranked by most common, length, then alphabetical"""
-        def rank(xpath1, xpath2):
+        def cmp(xpath1, xpath2):
             if xpaths.count(xpath1) != xpaths.count(xpath2):
                 return xpaths.count(xpath2) - xpaths.count(xpath1)
             if len(str(xpath1)) != len(str(xpath2)):
                 return len(str(xpath2)) - len(str(xpath1))
             else:
                 return -1 if str(xpath1) < str(xpath2) else 1
-        return tuple(sorted(xpaths, cmp=rank))#[0]
+        return unique(sorted(xpaths, cmp=cmp))#[0]

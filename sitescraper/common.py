@@ -6,19 +6,19 @@ import string
 
 #_______________________________________________________________________________
 
-def unique(l):
+def unique(items):
     """Return unique elements of list
 
     >>> unique([1, 2, 3, 2, 2, 4])
     [1, 2, 3, 4]
     """
-    seen = {}
-    result = []
-    for item in l:
-        if item in seen: continue
-        seen[item] = 1
-        result.append(item)
-    return result
+    found = set()
+    keep = []
+    for item in items:
+        if item not in found:
+            found.add(item)
+            keep.append(item)
+    return keep
 #_______________________________________________________________________________
 
 def flatten(l):

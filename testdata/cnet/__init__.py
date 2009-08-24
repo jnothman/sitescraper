@@ -217,7 +217,7 @@ data = [
 
 
 model = [
-    '/html/head/title',
-    ['/html/body/div/div/div[2]/div/div/div/div/div/div[2]/div/div[5]/div/div/p'],
+    '/html/head/title',    
     ['/html/body/div/div/div[2]/div/div/div/div/div/div[2]/div/div[5]/div/div/h3'],
+    ['/html/body/div/div/div[2]/div/div/div/div/div/div[2]/div/div[5]/div/div/p'],
 ]

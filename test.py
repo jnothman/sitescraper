@@ -4,7 +4,7 @@ import string
 import re
 
 from sitescraper import sitescraper
-from sitescraper.HtmlXpath import HtmlXpath
+from sitescraper.HtmlXpath import HtmlXpath, HtmlXpathSet
 import testdata
 
 #_______________________________________________________________________________
@@ -33,7 +33,7 @@ def regressionTests():
             print 'Scraped:'
             print our_scrape
             print 'Expected:'
-            printModel(website.model)
+            printModel(HtmlXpathSet(website.model))
             print 'Scraped:'
             printModel(ss.model())
             if not all(our_scrape): print 'Failed to scrape all'
@@ -44,10 +44,11 @@ def printModel(model):
     """Print the model in a readable form for debugging"""
     padding = ' '
     print padding, 'Raw model:'
-    print padding*2, '\n'.join(str(m) for m in model)
+    print padding*2, model#'\n'.join(str(m) for m in model)
     print padding, 'Tags:'
-    for xpathStr in sorted(model):
-        print padding*2, HtmlXpath(xpathStr).tags()
+    for record in model:
+        for xpath in record:
+            print padding*2, xpath.tags()
 #_______________________________________________________________________________
 
 def docTests():

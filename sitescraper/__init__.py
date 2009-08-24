@@ -1,6 +1,6 @@
 from HtmlModel import HtmlModel
 from HtmlDoc import HtmlDoc
-from HtmlXpath import HtmlXpath
+from HtmlXpath import HtmlXpath, HtmlXpathSet
 
 
 
@@ -12,7 +12,7 @@ class sitescraper:
 
     def __init__(self, model=None, debug=False):
         self.clear()
-        self._model = model
+        self._model = HtmlXpathSet(model)
         self._debug = debug
     #___________________________________________________________________________
 
@@ -25,7 +25,7 @@ class sitescraper:
         self._previousInput = None
         self._previousDoc = None
         self._examples = []
-        self._model = None
+        self._model = HtmlXpathSet()
     #___________________________________________________________________________
     
     def model(self): 
@@ -45,24 +45,22 @@ class sitescraper:
         if not self.model():
             raise SiteScraperError('Error: can not scrape because model is not trained')
 
-        if self._previousInput != input:
+        if self._previousInput == input:
+            doc = self._previousDoc    
+        else:
+            self._previousDoc = doc = HtmlDoc(input, outputs=[], xpaths=[])            
             self._previousInput = input
-            self._previousDoc = HtmlDoc(input, outputs=[], xpaths=[])
-        doc = self._previousDoc
         if doc.tree().getroot() is None:
             raise SiteScraperError('Error: %s has no root node' % input)
 
         outputFn = doc.getElementHTML if html else doc.getElementText
         results = []
         for record in self._model:
-            if not isinstance(record, tuple):
-                record = (record,)
-            for xpathStr in record:
-                isGroup = isinstance(xpathStr, list)
-                if isGroup:
-                    xpathStr = xpathStr[0]
-                result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(xpathStr)]
-                if not isGroup:
+            for xpath in record:
+                # XXX restrict grouping to xpath class...somehow
+                #print type(xpath)
+                result = [(e if isinstance(e, str) else outputFn(e)) for e in doc.tree().xpath(str(xpath))]
+                if xpath.iscollapse():
                     if result:
                         result = ' '.join(result).strip()
                     else:
@@ -79,7 +77,7 @@ class sitescraper:
             self._docs.append(HtmlDoc(input, outputs=outputs))
         self._examples = []
         # train the model
-        self._model = HtmlModel(self._docs, debug=self._debug).get()
+        self._model = HtmlModel(self._docs, attributes=True, debug=self._debug).train()
     #___________________________________________________________________________
 
 

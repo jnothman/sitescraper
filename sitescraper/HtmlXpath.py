@@ -2,7 +2,7 @@ import re
 from collections import defaultdict
 
 
-
+        
 class HtmlXpath(object):
     """Encapsulate an xpath
 
@@ -19,8 +19,8 @@ class HtmlXpath(object):
     sepRE = re.compile('/+')
     #___________________________________________________________________________
 
-    def __init__(self, xpathStr):
-        self.set(xpathStr)
+    def __init__(self, xpath):
+        self.set(xpath)
     #___________________________________________________________________________
 
     def __len__(self):
@@ -69,19 +69,27 @@ class HtmlXpath(object):
         return str(self) if self._mode == HtmlXpath.COLLAPSE_MODE else [str(self)]
     #___________________________________________________________________________
 
-    def set(self, xpathStr): 
-        if isinstance(xpathStr, str):
+    def set(self, xpath): 
+        if isinstance(xpath, str):
             self._mode = HtmlXpath.COLLAPSE_MODE
-            self._xpathStr = xpathStr
-        elif isinstance(xpathStr, list):
+            self._xpathStr = xpath
+        elif isinstance(xpath, list):
             self._mode = HtmlXpath.ABSTRACT_MODE
-            self._xpathStr = xpathStr[0]
+            self._xpathStr = xpath[0]
+        elif isinstance(xpath, HtmlXpath):
+            self.set(xpath.get())
         else:
-            raise Exception("Invalid type for HtmlXpath '%s'" % type(xpathStr))
+            raise Exception("Invalid type for HtmlXpath '%s'" % type(xpath))
     #___________________________________________________________________________
 
     """def mode(self):
         return self._mode"""
+    def isabstract(self):
+        return self._mode == HtmlXpath.ABSTRACT_MODE
+    #___________________________________________________________________________
+    
+    def iscollapse(self):
+        return self._mode == HtmlXpath.COLLAPSE_MODE
     #___________________________________________________________________________
 
 
@@ -159,3 +167,28 @@ class HtmlXpath(object):
                 if i >= len(self) or i >= len(other) or self[i] != other[i]:
                     indices.append(i)
         return tuple(indices)
+
+
+
+
+class HtmlXpathSet(list):
+    """Encapsulate a set of xpaths for the model
+    
+    [(xpath1, xpath2, ...),
+     ([abstract1], [abstract2], ...)]
+    """
+    def __init__(self, model=[]):
+        list.__init__(self)
+        if model:
+            for record in model:
+                self.append(record)
+    
+    def __str__(self):
+        return str([tuple([xpath.get() for xpath in record]) for record in self])
+    
+    def append(self, record):
+        """Expects single xpath or tuple
+        """
+        if not isinstance(record, tuple):
+            record = (record,)
+        list.append(self, tuple([HtmlXpath(xpath) for xpath in record]))
