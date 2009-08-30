@@ -44,11 +44,13 @@ def printModel(model):
     """Print the model in a readable form for debugging"""
     padding = ' '
     print padding, 'Raw model:'
-    print padding*2, model#'\n'.join(str(m) for m in model)
+    #print padding*2, model#'\n'.join(str(m) for m in model)
     print padding, 'Tags:'
     for record in model:
         for xpath in record:
+            print padding*2, xpath
             print padding*2, xpath.tags()
+        print
 #_______________________________________________________________________________
 
 def docTests():

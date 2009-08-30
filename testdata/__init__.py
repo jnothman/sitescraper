@@ -1,7 +1,7 @@
 # the available test cases
 __all__ = [
-    'amazon',
-    'asx', 
+    #'amazon',
+    #'asx', 
     #'bbc_news',
     #'bom',
     #'checkdns',
@@ -9,6 +9,7 @@ __all__ = [
     #'google_finance',
     #'google_search',
     #'imdb',
+    #'linuxquestions',
     #'msn_search',
     #'msn_weather',
     #'rottentomatoes',
@@ -18,12 +19,11 @@ __all__ = [
     #'theage',
     #'theonion',
     #'theaustralian',
-    #'ubuntuforums',
+    'ubuntuforums',
     #'yahoo_weather',
     #'yahoo_finance',    
 ]
 [
-    'linuxquestions', # unwanted initial posts
     'ebay', # scrape works, but not when try..?
     'yahoo_search', # extra div in scraped
 ]

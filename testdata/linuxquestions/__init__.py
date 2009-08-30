@@ -4,8 +4,8 @@
 
 data = [
     ('1.html', ['gstreamer/amarok',
-    ["""i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.""",
-    """
+    """i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.""",
+    ["""
     Quote:
     Originally posted by doralsoral
     i just installed amarok and whenever i start it it says please select gstreamer output plugin but gstreamer is not an option for output plugings for me, but i do have gstreamer installed.
@@ -22,7 +22,7 @@ data = [
     ["10-30-2005, 02:12 PM", "10-30-2005, 03:09 PM", "10-30-2005, 03:48 PM", "10-30-2005, 09:39 PM"],
 ]),
     ('2.html', ['webmin/apache',
-    ["""i have a problem...im on slackware 9 using webmin 1.100...but heres the problem..im trying to setup a virtual server so when sombody browses my site...example: something.mydomain.com it takes them to whatever i got the document root set to..but i cant get rid of the default for sum reason...if anybody can tell me how to get rid of the default virtual server i would really appreciate it...the default looks like this..therefore any address i put on my box...it auto takes em to the default virtual server which i dont want...
+    """i have a problem...im on slackware 9 using webmin 1.100...but heres the problem..im trying to setup a virtual server so when sombody browses my site...example: something.mydomain.com it takes them to whatever i got the document root set to..but i cant get rid of the default for sum reason...if anybody can tell me how to get rid of the default virtual server i would really appreciate it...the default looks like this..therefore any address i put on my box...it auto takes em to the default virtual server which i dont want...
 
     Address Any
     Port Any
@@ -30,7 +30,7 @@ data = [
     Document Root /home/artistik/public_html/
 
     i need to find a way to delete this offa webmin but it wont let me...""",
-    """
+    ["""
     Quote:
     Originally posted by artistik
     i need to find a way to delete this offa webmin but it wont let me...
@@ -40,7 +40,7 @@ data = [
     ["08-17-2003, 07:07 PM", "08-17-2003, 11:58 PM", "08-18-2003, 01:35 PM"],
 ]),
     ('3.html', ['mutt/fetchmail',
-    ["""Hi,
+    """Hi,
     I've been trying to use my gmail from CLI.
     Here's my .fetchmailrc
 
@@ -118,7 +118,7 @@ data = [
 
     thanks
     """,
-    """Well, that's because you maybe just configured GETTING your mail, but not SENDING your mail?
+    ["""Well, that's because you maybe just configured GETTING your mail, but not SENDING your mail?
 
     POP and fetchmail are about getting your mail from your POP/IMAP-account.
 
@@ -174,8 +174,8 @@ data = [
     ["12-23-2007, 08:50 AM", "12-23-2007, 09:32 AM", "12-23-2007, 10:13 AM", "12-27-2007, 05:08 AM"],
 ]),
     ('4.html', ['XGL / Compiz',
-    ["""Hi. I use fluxbox as my window manager under Ubuntu, and recently I have been hearing a lot about XGL and Compiz. I know Compiz is a window manager, so I can't get the neat effects with fluxbox. I was wondering, however, if Compiz can run stand alone, without having to load a window environment. Is this possible? If so, how would I go about doing this? Thanks.""",
-    """You run xgl and compiz with gnome or kde.""",
+    """Hi. I use fluxbox as my window manager under Ubuntu, and recently I have been hearing a lot about XGL and Compiz. I know Compiz is a window manager, so I can't get the neat effects with fluxbox. I was wondering, however, if Compiz can run stand alone, without having to load a window environment. Is this possible? If so, how would I go about doing this? Thanks.""",
+    ["""You run xgl and compiz with gnome or kde.""",
     """So there is no ability to run compiz in stand-alone? Are there any other xgl window managers that support this that you know of?""",
     """Hi, After posting this I did some more research, and it turns out that you need a 'Desktop Environment', rather than a 'window manager' in order to use it. You can use KDE, Gnome, or XFCE since they are Desktop Environments. You can't use it with fluxbox or other plain window managers.""",
     """
@@ -187,8 +187,8 @@ data = [
     ["08-23-2006, 11:00 AM", "08-28-2006, 09:14 PM", "11-01-2006, 11:11 PM", "11-01-2006, 11:32 PM"],
 ]),
     ('5.html', ['Andrew - Australia',
-    ["""Just wondering the topic of enson vs Cpanel, can someone clear up which one is better and the major differences please?""",
-    """
+    """Just wondering the topic of enson vs Cpanel, can someone clear up which one is better and the major differences please?""",
+    ["""
     Quote:
     Originally posted by clacy
     Just wondering the topic of enson vs Cpanel, can someone clear up which one is better and the major differences please?
@@ -202,10 +202,10 @@ data = [
     ["06-24-2005, 09:32 AM", "06-24-2005, 09:35 AM", "06-24-2005, 09:44 AM"],
 ]),
     ('6.html', ['Dreamweaver Mock?',
-    ["""Is there any software on linux that can kind of mock or be better than Macromedia's Dreamweaver, I want to be able to do a website with the capability of changing form design view to code view and for it to do the html for you because that is just a waist of time. If anyone knows something similar please tell me. Thanks.
+    """Is there any software on linux that can kind of mock or be better than Macromedia's Dreamweaver, I want to be able to do a website with the capability of changing form design view to code view and for it to do the html for you because that is just a waist of time. If anyone knows something similar please tell me. Thanks.
 
     -luis""",
-    """have you given bluefish a try?""",
+    ["""have you given bluefish a try?""",
     """is there any others?""",
     """Originally posted by lramos85
     is there any others?
@@ -222,8 +222,8 @@ data = [
 
 model = [
     '/html/body/div/div/div/table/tr/td/table/tr/td/table/tr[2]/td/strong',
-    #[''],
-    #/html/body/div/div/div/table/tbody/tr/td/div[2]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div[2]
+    '/html/body/div/div/div/table/tr/td/div[2]/div/div/div/div/div/table/tr[2]/td[2]/div[3]',
+    ['/html/body/div/div/div/table/tr/td/div[2]/div/div[position()>1]/div/div/div/table/tr[2]/td[2]/div'],
     ['/html/body/div[1]/div/div/table/tr[1]/td[1]/div/div/div/div/div/div[1]/table/tr/td[1]/div[1]/a[1]'],
-    ['/html/body/div[1]/div/div/table/tr[1]/td[1]/div/div/div/div/div/div[1]/table/tr[1]/td'],
+    ['/html/body/div[1]/div/div/table/tr[1]/td[1]/div/div/div/div/div/div[1]/table/tr[1]/td[1]'],
 ]
