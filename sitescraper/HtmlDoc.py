@@ -27,6 +27,11 @@ class HtmlDoc:
     MERGE_TAGS = 'tbody',
     # user agent to use in fetching webpages
     USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9a9pre) Gecko/2007100205 Minefield/3.0a9pre'
+    # attributes that contain scrapable content
+    CONTENT_ATTRIBS = {'a': ['href'],
+                       'img': ['src'],
+                       '*': ['content', 'datetime'],
+                       }
 
     def __init__(self, input, outputs, xpaths=None):
         """Create an ElementTree of the parsed input. Input can be a url, filepath, or html
@@ -105,16 +110,12 @@ class HtmlDoc:
         if text:
             xpaths[text].append(xpath)
         # extract URLs, which are contained in attributes
-        if e.tag == 'a':
-            link_xpath = str(xpath) + '/@href'
-            link_url = e.xpath(link_xpath)
-            if link_url:
-                xpaths[link_url[0]].append(HtmlXpath(link_xpath))
-        elif e.tag == 'img':
-            image_xpath = str(xpath) + '/@src'
-            image_src = e.xpath(image_xpath)
-            if image_src:
-                xpaths[image_src[0]].append(HtmlXpath(image_xpath))
+        attribs = self.CONTENT_ATTRIBS.get('*', []) + self.CONTENT_ATTRIBS.get(e.tag, [])
+        for attrib in attribs:
+            attrib_value = e.attrib.get(attrib)
+            if attrib_value:
+                attrib_xpath = str(xpath) + '/@' + attrib
+                xpaths[attrib_value].append(HtmlXpath(attrib_xpath))
 
         # extract text for each group of tags
         childTags = defaultdict(int)
